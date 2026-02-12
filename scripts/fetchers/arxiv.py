@@ -99,7 +99,12 @@ class ArxivFetcher:
                 abstract_elem = entry.find('atom:summary', namespace)
 
                 # Skip malformed entries
-                if not all([published_elem, id_elem, title_elem, abstract_elem]):
+                if not all([
+                    published_elem is not None,
+                    id_elem is not None,
+                    title_elem is not None,
+                    abstract_elem is not None
+                ]):
                     print(f"Skipping malformed entry (missing required fields)")
                     continue
 

@@ -8,7 +8,7 @@ Automatically fetches and summarizes papers from arXiv and IACR related to secur
 - 📚 Fetches papers from arXiv (cs.CR, cs.AI, cs.LG) and IACR ePrint
 - 🤖 AI-powered summaries using ModelScope API
 - 🗂️ Keeps last 7 days of papers
-- 🔍 Smart keyword filtering for security/crypto + LLM topics
+- 🔍 Flexible keyword filtering via config file (OR between lines, AND within lines)
 - 📋 BibTeX export for citations
 - 🎨 Minimal, clean card-based UI
 
@@ -29,6 +29,21 @@ Automatically fetches and summarizes papers from arXiv and IACR related to secur
    - Go to Settings → Pages
    - Source: Deploy from a branch
    - Branch: `master` (or `main`), folder: `/ (root)`
+
+## Keyword Filtering
+
+The system uses `keywords.txt` to filter papers. Edit this file to customize which papers are included:
+
+- **Each line = OR logic**: Match any line
+- **Words on same line = AND logic**: Must match all words
+- **Comments**: Lines starting with `#`
+
+Example:
+```
+llm                    # Matches papers with "llm"
+neural backdoor        # Matches papers with BOTH "neural" AND "backdoor"
+federated learning     # Matches papers with "federated learning"
+```
 
 ## Usage
 

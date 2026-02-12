@@ -86,9 +86,28 @@ The workflow runs automatically every day at 00:00 UTC.
 
 ### Change keyword filters
 
-Edit `scripts/filter.py` to add or modify keywords in:
-- `SECURITY_CRYPTO_KEYWORDS`
-- `LLM_AI_KEYWORDS`
+Edit `keywords.txt` in the repository root to customize which papers are included.
+
+**Format:**
+- Each line is an OR condition
+- Multiple words on the same line use AND logic (all must match)
+- Lines starting with `#` are comments
+- Empty lines are ignored
+
+**Examples:**
+```
+# Match papers with "llm" OR "gpt"
+llm
+gpt
+
+# Match papers with BOTH "neural" AND "backdoor" (both words must appear)
+neural backdoor
+
+# Match papers with "federated learning" (phrase)
+federated learning
+```
+
+A paper will be included if it matches ANY line in the file. This makes IACR papers (which are already crypto-focused) easy to filter - just add keywords relevant to your research interests.
 
 ### Change how many days of papers to keep
 

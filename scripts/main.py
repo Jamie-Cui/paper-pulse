@@ -106,7 +106,7 @@ def main():
     print("\n1. Initializing components...")
     arxiv_fetcher = ArxivFetcher(days_back=DAYS_BACK)
     iacr_fetcher = IACRFetcher(days_back=DAYS_BACK)
-    keyword_filter = KeywordFilter(require_both_categories=True, min_keyword_score=2)
+    keyword_filter = KeywordFilter()  # Uses keywords.txt by default
     summarizer = ModelScopeSummarizer(api_key=api_key)
 
     # Load existing data

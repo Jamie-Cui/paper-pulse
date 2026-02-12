@@ -1,53 +1,55 @@
-from typing import List, Dict, Set
+from typing import List, Dict
+from pathlib import Path
 import re
 
 
 class KeywordFilter:
-    """Filters papers based on keyword matching for security/crypto + LLM topics."""
+    """Filters papers based on keyword matching from a config file."""
 
-    # Keywords related to security and cryptography
-    SECURITY_CRYPTO_KEYWORDS = {
-        'security', 'secure', 'cryptography', 'cryptographic', 'encryption',
-        'decrypt', 'cipher', 'authentication', 'privacy', 'private',
-        'adversarial', 'attack', 'defense', 'vulnerability', 'threat',
-        'zero-knowledge', 'zkp', 'homomorphic', 'differential privacy',
-        'backdoor', 'trojan', 'malware', 'exploit', 'penetration',
-        'intrusion', 'firewall', 'blockchain', 'smart contract',
-        'post-quantum', 'lattice', 'hash', 'signature', 'key exchange',
-        'tls', 'ssl', 'pki', 'certificate', 'quantum resistant',
-        'side-channel', 'timing attack', 'fault injection', 'rop',
-        'control flow', 'memory safety', 'sandbox', 'isolation'
-    }
-
-    # Keywords related to LLMs and AI
-    LLM_AI_KEYWORDS = {
-        'llm', 'large language model', 'language model', 'gpt', 'bert',
-        'transformer', 'attention', 'neural network', 'deep learning',
-        'machine learning', 'ai', 'artificial intelligence', 'nlp',
-        'natural language processing', 'generative', 'chatbot', 'chat',
-        'prompt', 'fine-tuning', 'pre-training', 'embedding', 'token',
-        'reasoning', 'agent', 'foundation model', 'multimodal',
-        'retrieval augmented', 'rag', 'in-context learning', 'few-shot',
-        'zero-shot', 'instruction tuning', 'alignment', 'rlhf',
-        'code generation', 'copilot', 'llama', 'claude', 'palm',
-        'gemini', 'mistral', 'mixtral', 'diffusion', 'stable diffusion',
-        'generative ai', 'genai'
-    }
-
-    def __init__(self, require_both_categories: bool = True, min_keyword_score: int = 2):
+    def __init__(self, config_file: str = None):
         """
         Initialize keyword filter.
 
         Args:
-            require_both_categories: If True, papers must match keywords from both
-                                    security/crypto AND LLM/AI categories
-            min_keyword_score: Minimum number of keyword matches required
+            config_file: Path to keyword configuration file
         """
-        self.require_both_categories = require_both_categories
-        self.min_keyword_score = min_keyword_score
-        # Create instance copies of keyword sets
-        self.security_crypto_keywords = self.SECURITY_CRYPTO_KEYWORDS.copy()
-        self.llm_ai_keywords = self.LLM_AI_KEYWORDS.copy()
+        if config_file is None:
+            config_file = str(Path(__file__).parent.parent / 'keywords.txt')
+
+        self.config_file = config_file
+        self.keyword_rules = self._load_keywords()
+
+    def _load_keywords(self) -> List[List[str]]:
+        """
+        Load keywords from config file.
+
+        Returns:
+            List of keyword rules, where each rule is a list of keywords (AND logic)
+        """
+        rules = []
+
+        try:
+            with open(self.config_file, 'r', encoding='utf-8') as f:
+                for line in f:
+                    line = line.strip()
+                    # Skip comments and empty lines
+                    if not line or line.startswith('#'):
+                        continue
+
+                    # Split by whitespace to get individual keywords
+                    # Each keyword on the same line uses AND logic
+                    keywords = [kw.lower() for kw in line.split()]
+                    if keywords:
+                        rules.append(keywords)
+
+            print(f"Loaded {len(rules)} keyword rules from {self.config_file}")
+        except FileNotFoundError:
+            print(f"Warning: Keyword config file not found: {self.config_file}")
+            print("Using default: accept all papers")
+            # Return empty rules to accept all papers
+            return []
+
+        return rules
 
     def filter_papers(self, papers: List[Dict]) -> List[Dict]:
         """
@@ -59,69 +61,53 @@ class KeywordFilter:
         Returns:
             Filtered list of papers with added 'keywords' field
         """
+        # If no rules, accept all papers
+        if not self.keyword_rules:
+            print(f"No keyword rules defined, accepting all {len(papers)} papers")
+            for paper in papers:
+                paper['keywords'] = []
+                paper['keyword_score'] = 0
+            return papers
+
         filtered = []
 
         for paper in papers:
             # Combine title and abstract for keyword matching
             text = f"{paper['title']} {paper['abstract']}".lower()
 
-            # Find matching keywords
-            security_matches = self._find_matches(text, self.security_crypto_keywords)
-            llm_matches = self._find_matches(text, self.llm_ai_keywords)
+            # Check if any rule matches (OR logic between rules)
+            matched_keywords = set()
+            rule_matched = False
 
-            # Calculate scores
-            security_score = len(security_matches)
-            llm_score = len(llm_matches)
-            total_score = security_score + llm_score
+            for rule in self.keyword_rules:
+                # Check if ALL keywords in this rule match (AND logic within rule)
+                if self._rule_matches(text, rule):
+                    rule_matched = True
+                    matched_keywords.update(rule)
 
-            # Apply filtering logic
-            if self.require_both_categories:
-                # Must have matches in both categories
-                if security_score >= 1 and llm_score >= 1 and total_score >= self.min_keyword_score:
-                    paper['keywords'] = list(security_matches | llm_matches)
-                    paper['keyword_score'] = total_score
-                    filtered.append(paper)
-            else:
-                # Just need minimum total score
-                if total_score >= self.min_keyword_score:
-                    paper['keywords'] = list(security_matches | llm_matches)
-                    paper['keyword_score'] = total_score
-                    filtered.append(paper)
+            if rule_matched:
+                paper['keywords'] = list(matched_keywords)
+                paper['keyword_score'] = len(matched_keywords)
+                filtered.append(paper)
 
         print(f"Filtered {len(filtered)} papers out of {len(papers)} (matched keywords)")
         return filtered
 
-    def _find_matches(self, text: str, keywords: Set[str]) -> Set[str]:
+    def _rule_matches(self, text: str, keywords: List[str]) -> bool:
         """
-        Find keyword matches in text.
+        Check if all keywords in a rule match the text (AND logic).
 
         Args:
             text: Text to search (lowercase)
-            keywords: Set of keywords to search for
+            keywords: List of keywords that must all match
 
         Returns:
-            Set of matched keywords
+            True if all keywords match
         """
-        matches = set()
-
         for keyword in keywords:
             # Use word boundaries for better matching
             pattern = r'\b' + re.escape(keyword) + r'\b'
-            if re.search(pattern, text):
-                matches.add(keyword)
+            if not re.search(pattern, text):
+                return False
 
-        return matches
-
-    def add_custom_keywords(self, security_keywords: List[str] = None,
-                           llm_keywords: List[str] = None):
-        """
-        Add custom keywords to the filter.
-
-        Args:
-            security_keywords: Additional security/crypto keywords
-            llm_keywords: Additional LLM/AI keywords
-        """
-        if security_keywords:
-            self.security_crypto_keywords.update(k.lower() for k in security_keywords)
-        if llm_keywords:
-            self.llm_ai_keywords.update(k.lower() for k in llm_keywords)
+        return True

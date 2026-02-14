@@ -112,23 +112,29 @@ The GitHub Actions workflow can be triggered manually from the Actions tab or ru
 
 ## Configuration Files
 
+- `config.toml`: **Main configuration file** - controls all customizable behavior (prompt, cache duration, API settings, etc.)
 - `keywords.txt`: Keyword filter configuration (edit to change paper selection criteria)
-- `requirements.txt`: Python dependencies (requests, feedparser, python-dateutil)
+- `requirements.txt`: Python dependencies (requests, feedparser, python-dateutil, tomli)
 - `.github/workflows/fetch-papers.yml`: Daily automation workflow
 - `SETUP.md`: Deployment instructions
 - `SETUP_API.md`: API key setup instructions (Chinese)
+- `CONFIG_GUIDE.md`: Detailed configuration guide (Chinese)
 
 ## Common Modification Scenarios
 
-**Changing retention period**: Edit `DAYS_BACK = 7` in `scripts/main.py:95`
+**All configuration changes should be made in `config.toml` (preferred method):**
 
-**Changing arXiv categories**: Edit `CATEGORIES` list in `scripts/fetchers/arxiv.py:9`
+**Changing retention period**: Edit `days_back` in `[general]` section of `config.toml`
 
-**Changing AI model**: Edit `DEFAULT_MODEL` in `scripts/summarizer.py:15` (e.g., to `qwen-turbo` or `qwen-max`)
+**Changing arXiv categories**: Edit `categories` list in `[fetchers.arxiv]` section of `config.toml`
 
-**Adjusting rate limits**: Modify delay parameters in fetcher constructors and summarizer
+**Changing AI model**: Edit `model` in `[summarizer]` section of `config.toml` (e.g., to `qwen-turbo` or `qwen-max`)
 
-**Customizing summary prompt**: Edit `_create_prompt()` method in `scripts/summarizer.py:48`
+**Adjusting rate limits**: Edit `delay` and `rate_limit_delay` in `config.toml`
+
+**Customizing summary prompt**: Edit `prompt_template` in `[summarizer]` section of `config.toml` - must include `{title}` and `{abstract}` placeholders
+
+See `CONFIG_GUIDE.md` for detailed configuration examples and best practices.
 
 ## GitHub Pages Deployment
 

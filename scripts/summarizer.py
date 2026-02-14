@@ -25,6 +25,13 @@ class ModelScopeSummarizer:
     DEFAULT_TEMPERATURE = 0.7
     DEFAULT_TIMEOUT = 60
     DEFAULT_RATE_LIMIT_DELAY = 1.0
+    DEFAULT_PROMPT_TEMPLATE = """Please summarize this research paper in 3-5 sentences. Focus on the main contribution, methods, and key results.
+
+Title: {title}
+
+Abstract: {abstract}
+
+Provide a concise summary:"""
 
     def __init__(
         self,
@@ -32,6 +39,11 @@ class ModelScopeSummarizer:
         model: str = None,
         max_retries: int = 3,
         retry_delay: float = 5.0,
+        max_tokens: int = None,
+        temperature: float = None,
+        timeout: int = None,
+        rate_limit_delay: float = None,
+        prompt_template: str = None,
     ):
         """
         Initialize DashScope summarizer.
@@ -41,11 +53,21 @@ class ModelScopeSummarizer:
             model: Model name to use (default: qwen-plus)
             max_retries: Maximum number of retry attempts for failed requests
             retry_delay: Delay between retries in seconds
+            max_tokens: Maximum tokens for response
+            temperature: Sampling temperature
+            timeout: Request timeout in seconds
+            rate_limit_delay: Delay between API calls
+            prompt_template: Custom prompt template with {title} and {abstract} placeholders
         """
         self.api_key = api_key
         self.model = model or self.DEFAULT_MODEL
         self.max_retries = max_retries
         self.retry_delay = retry_delay
+        self.max_tokens = max_tokens or self.DEFAULT_MAX_TOKENS
+        self.temperature = temperature or self.DEFAULT_TEMPERATURE
+        self.timeout = timeout or self.DEFAULT_TIMEOUT
+        self.rate_limit_delay = rate_limit_delay or self.DEFAULT_RATE_LIMIT_DELAY
+        self.prompt_template = prompt_template or self.DEFAULT_PROMPT_TEMPLATE
 
     def summarize(self, paper: Dict) -> Optional[str]:
         """
@@ -80,13 +102,7 @@ class ModelScopeSummarizer:
 
     def _create_prompt(self, title: str, abstract: str) -> str:
         """Create a prompt for the summarization model."""
-        return f"""你是一位精通各领域前沿研究的学术文献解读专家，面对一篇给定的论文，请你高效阅读并迅速提取出其核心内容。要求在解读过程中，先对文献的背景、研究目的和问题进行简明概述，再详细梳理研究方法、关键数据、主要发现及结论，同时对新颖概念进行通俗易懂的解释，帮助读者理解论文的逻辑与创新点；最后，请对文献的优缺点进行客观评价，并指出可能的后续研究方向。整体报告结构清晰、逻辑严谨。
-
-Title: {title}
-
-Abstract: {abstract}
-
-Provide a concise summary:"""
+        return self.prompt_template.format(title=title, abstract=abstract)
 
     def _call_api(self, prompt: str) -> Optional[str]:
         """Call DashScope API to generate summary."""
@@ -99,8 +115,8 @@ Provide a concise summary:"""
             "model": self.model,
             "input": {"messages": [{"role": "user", "content": prompt}]},
             "parameters": {
-                "max_tokens": self.DEFAULT_MAX_TOKENS,
-                "temperature": self.DEFAULT_TEMPERATURE,
+                "max_tokens": self.max_tokens,
+                "temperature": self.temperature,
                 "result_format": "message",
             },
         }
@@ -110,7 +126,7 @@ Provide a concise summary:"""
                 self.API_URL,
                 json=payload,
                 headers=headers,
-                timeout=self.DEFAULT_TIMEOUT,
+                timeout=self.timeout,
             )
             response.raise_for_status()
 
@@ -142,7 +158,7 @@ Provide a concise summary:"""
             Tuple of (successful_papers, failed_papers)
         """
         if delay is None:
-            delay = self.DEFAULT_RATE_LIMIT_DELAY
+            delay = self.rate_limit_delay
 
         successful = []
         failed = []

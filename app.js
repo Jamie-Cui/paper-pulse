@@ -1,6 +1,7 @@
 // Global state
 let allPapers = [];
 let filteredPapers = [];
+let currentLanguage = 'zh'; // Default to Chinese
 
 // Load papers on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,11 +14,16 @@ function setupEventListeners() {
     const searchInput = document.getElementById('searchInput');
     const sourceFilter = document.getElementById('sourceFilter');
     const sortBy = document.getElementById('sortBy');
+    const languageFilter = document.getElementById('languageFilter');
     const exportAllBtn = document.getElementById('exportAllBtn');
 
     searchInput.addEventListener('input', filterAndDisplay);
     sourceFilter.addEventListener('change', filterAndDisplay);
     sortBy.addEventListener('change', filterAndDisplay);
+    languageFilter.addEventListener('change', (e) => {
+        currentLanguage = e.target.value;
+        filterAndDisplay();
+    });
     exportAllBtn.addEventListener('click', exportAllPapers);
 }
 
@@ -145,8 +151,16 @@ function createPaperCard(paper, index) {
         .map(kw => `<span class="keyword-tag">${kw}</span>`)
         .join('');
 
+    // Get summary based on current language
+    let summaryText;
+    if (currentLanguage === 'zh') {
+        summaryText = paper.summary_zh || paper.summary || paper.abstract;
+    } else {
+        summaryText = paper.summary_en || paper.summary || paper.abstract;
+    }
+
     // Render summary as Markdown
-    const summaryHtml = renderMarkdown(paper.summary || paper.abstract);
+    const summaryHtml = renderMarkdown(summaryText);
 
     return `
         <div class="paper-card">

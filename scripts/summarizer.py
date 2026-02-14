@@ -69,36 +69,87 @@ Provide a concise summary:"""
         self.rate_limit_delay = rate_limit_delay or self.DEFAULT_RATE_LIMIT_DELAY
         self.prompt_template = prompt_template or self.DEFAULT_PROMPT_TEMPLATE
 
-    def summarize(self, paper: Dict) -> Optional[str]:
+    def summarize(self, paper: Dict) -> tuple[Optional[str], Optional[str]]:
         """
-        Generate a summary for a paper.
+        Generate bilingual (Chinese and English) summaries for a paper.
 
         Args:
             paper: Paper dictionary containing title and abstract
 
         Returns:
-            Summary text, or None if summarization fails
+            Tuple of (chinese_summary, english_summary), or (None, None) if summarization fails
         """
         title = paper.get("title", "")
         abstract = paper.get("abstract", "")
 
         if not abstract:
-            return None
+            return None, None
 
-        # Create prompt for summarization
-        prompt = self._create_prompt(title, abstract)
+        # Create prompt for bilingual summarization
+        prompt = self._create_bilingual_prompt(title, abstract)
 
         # Try to generate summary with retries
         for attempt in range(self.max_retries):
             try:
                 summary = self._call_api(prompt)
                 if summary:
-                    return summary
+                    # Parse bilingual response
+                    zh_summary, en_summary = self._parse_bilingual_summary(summary)
+                    return zh_summary, en_summary
             except Exception as e:
                 if attempt < self.max_retries - 1:
                     time.sleep(self.retry_delay)
 
-        return None
+        return None, None
+
+    def _create_bilingual_prompt(self, title: str, abstract: str) -> str:
+        """Create a prompt for bilingual summarization."""
+        return f"""请对这篇研究论文生成中英文双语摘要。
+
+论文标题: {title}
+
+论文摘要: {abstract}
+
+请按照以下格式输出（严格遵守格式，以便程序解析）：
+
+[中文摘要]
+<这里写中文摘要，可以使用Markdown格式，包括标题、列表等>
+
+[English Summary]
+<这里写英文摘要，可以使用Markdown格式>
+
+要求：
+1. 中文摘要：详细解读论文的背景、方法、主要发现和创新点
+2. 英文摘要：简洁概括论文的核心贡献和关键结果（3-5句话）
+3. 两个摘要都使用Markdown格式（可以包含标题、加粗、列表等）
+4. 必须严格遵守 [中文摘要] 和 [English Summary] 的分隔标记"""
+
+    def _parse_bilingual_summary(self, text: str) -> tuple[str, str]:
+        """Parse bilingual summary response into Chinese and English parts."""
+        import re
+
+        # Try to find Chinese and English sections
+        zh_match = re.search(
+            r"\[中文摘要\]\s*\n(.*?)\n\[English Summary\]", text, re.DOTALL
+        )
+        en_match = re.search(r"\[English Summary\]\s*\n(.*?)$", text, re.DOTALL)
+
+        zh_summary = zh_match.group(1).strip() if zh_match else ""
+        en_summary = en_match.group(1).strip() if en_match else ""
+
+        # Fallback: if parsing fails, split by markers or use whole text
+        if not zh_summary and not en_summary:
+            # Try alternative parsing
+            parts = re.split(r"\[(?:中文摘要|English Summary)\]", text)
+            if len(parts) >= 3:
+                zh_summary = parts[1].strip()
+                en_summary = parts[2].strip()
+            else:
+                # If all parsing fails, use the original text for both
+                zh_summary = text.strip()
+                en_summary = text.strip()
+
+        return zh_summary, en_summary
 
     def _create_prompt(self, title: str, abstract: str) -> str:
         """Create a prompt for the summarization model."""
@@ -177,18 +228,26 @@ Provide a concise summary:"""
             else:
                 print(f"[{i}/{total}] Summarizing: {paper['title'][:60]}...")
 
-            summary = self.summarize(paper)
+            zh_summary, en_summary = self.summarize(paper)
 
-            if summary:
-                paper["summary"] = summary
+            if zh_summary and en_summary:
+                paper["summary_zh"] = zh_summary
+                paper["summary_en"] = en_summary
+                paper["summary"] = (
+                    zh_summary  # Default to Chinese for backward compatibility
+                )
                 paper["summary_status"] = "success"
                 successful.append(paper)
             else:
                 abstract = paper.get("abstract", "")
                 if abstract:
                     paper["summary"] = abstract
+                    paper["summary_zh"] = abstract
+                    paper["summary_en"] = abstract
                 else:
                     paper["summary"] = "Summary not available"
+                    paper["summary_zh"] = "摘要不可用"
+                    paper["summary_en"] = "Summary not available"
                 paper["summary_status"] = "failed"
                 failed.append(paper)
 

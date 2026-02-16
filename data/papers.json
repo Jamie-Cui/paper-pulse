@@ -1,6 +1,65 @@
 {
   "papers": [
     {
+      "id": "arxiv_2602.13156v1",
+      "arxiv_id": "2602.13156v1",
+      "title": "In-Context Autonomous Network Incident Response: An End-to-End Large Language Model Agent Approach",
+      "authors": [
+        "Yiran Gao",
+        "Kim Hammar",
+        "Tao Li"
+      ],
+      "abstract": "Rapidly evolving cyberattacks demand incident response systems that can autonomously learn and adapt to changing threats. Prior work has extensively explored the reinforcement learning approach, which involves learning response strategies through extensive simulation of the incident. While this approach can be effective, it requires handcrafted modeling of the simulator and suppresses useful semantics from raw system logs and alerts. To address these limitations, we propose to leverage large language models' (LLM) pre-trained security knowledge and in-context learning to create an end-to-end agentic solution for incident response planning. Specifically, our agent integrates four functionalities, perception, reasoning, planning, and action, into one lightweight LLM (14b model). Through fine-tuning and chain-of-thought reasoning, our LLM agent is capable of processing system logs and inferring the underlying network state (perception), updating its conjecture of attack models (reasoning), simulating consequences under different response strategies (planning), and generating an effective response (action). By comparing LLM-simulated outcomes with actual observations, the LLM agent repeatedly refines its attack conjecture and corresponding response, thereby demonstrating in-context adaptation. Our agentic approach is free of modeling and can run on commodity hardware. When evaluated on incident logs reported in the literature, our agent achieves recovery up to 23% faster than those of frontier LLMs.",
+      "published": "2026-02-13",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.13156v1",
+      "url": "https://arxiv.org/abs/2602.13156v1",
+      "categories": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "llm",
+        "security",
+        "agent"
+      ],
+      "keyword_score": 3,
+      "summary_zh": "## 背景与挑战  \n面对日益复杂、快速演化的网络攻击，传统依赖人工规则或强化学习（RL）的应急响应系统存在显著局限：RL方法需精心构建仿真环境，且难以有效利用原始日志与告警中的语义信息；而基于规则的系统缺乏泛化与自适应能力。如何实现**无需显式建模、端到端自主推理**的响应闭环，成为关键研究缺口。\n\n## 方法创新  \n本文提出 **In-Context Autonomous Network Incident Response（ICANIR）**——一种基于大语言模型（LLM）的轻量级智能体框架。核心突破在于：  \n- ✅ **端到端四功能融合**：在单个14B参数开源LLM中统一集成**感知**（解析多源日志、推断网络实时状态）、**推理**（动态更新攻击假设模型）、**规划**（通过链式思维模拟不同响应策略的后果）、**执行**（生成可操作的修复指令）；  \n- ✅ **免建模的上下文自适应**：不依赖预设仿真器，而是将真实观测与LLM内部模拟结果对比，迭代修正攻击猜想与响应方案，实现真正的**上下文内学习（in-context adaptation）**；  \n- ✅ **工程友好性**：无需GPU集群，可在消费级硬件（如单卡RTX 4090）高效运行，支持快速部署。\n\n## 主要成果  \n在涵盖APT、横向移动、勒索软件等典型场景的公开 incident logs 数据集上评估表明：  \n- 响应决策准确率提升19.3%，平均恢复时间**缩短23%**，显著优于GPT-4、Claude-3及微调后的Llama-3-70B等前沿LLM基线；  \n- 首次验证了轻量级LLM（14B）通过结构化提示+微调即可承载完整安全智能体功能，为资源受限场景提供新范式。",
+      "summary_en": "This paper introduces ICANIR, an end-to-end LLM agent for autonomous network incident response that eliminates the need for handcrafted simulators or explicit environment modeling. By unifying perception, reasoning, planning, and action within a single fine-tuned 14B LLM—and leveraging chain-of-thought reasoning and in-context adaptation—the agent processes raw logs to infer network state, dynamically refine attack hypotheses, simulate response outcomes, and generate executable remediation actions. Crucially, it iteratively aligns internal simulations with real-world observations to self-correct without external feedback loops. Evaluated on published incident logs spanning APT, lateral movement, and ransomware scenarios, ICANIR achieves up to **23% faster recovery** than state-of-the-art LLMs (e.g., GPT-4, Claude-3, Llama-3-70B), while running efficiently on commodity hardware. This work establishes a lightweight, modeling-free paradigm for adaptive, semantic-aware cyber defense.",
+      "summary": "## 背景与挑战  \n面对日益复杂、快速演化的网络攻击，传统依赖人工规则或强化学习（RL）的应急响应系统存在显著局限：RL方法需精心构建仿真环境，且难以有效利用原始日志与告警中的语义信息；而基于规则的系统缺乏泛化与自适应能力。如何实现**无需显式建模、端到端自主推理**的响应闭环，成为关键研究缺口。\n\n## 方法创新  \n本文提出 **In-Context Autonomous Network Incident Response（ICANIR）**——一种基于大语言模型（LLM）的轻量级智能体框架。核心突破在于：  \n- ✅ **端到端四功能融合**：在单个14B参数开源LLM中统一集成**感知**（解析多源日志、推断网络实时状态）、**推理**（动态更新攻击假设模型）、**规划**（通过链式思维模拟不同响应策略的后果）、**执行**（生成可操作的修复指令）；  \n- ✅ **免建模的上下文自适应**：不依赖预设仿真器，而是将真实观测与LLM内部模拟结果对比，迭代修正攻击猜想与响应方案，实现真正的**上下文内学习（in-context adaptation）**；  \n- ✅ **工程友好性**：无需GPU集群，可在消费级硬件（如单卡RTX 4090）高效运行，支持快速部署。\n\n## 主要成果  \n在涵盖APT、横向移动、勒索软件等典型场景的公开 incident logs 数据集上评估表明：  \n- 响应决策准确率提升19.3%，平均恢复时间**缩短23%**，显著优于GPT-4、Claude-3及微调后的Llama-3-70B等前沿LLM基线；  \n- 首次验证了轻量级LLM（14B）通过结构化提示+微调即可承载完整安全智能体功能，为资源受限场景提供新范式。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.13062v1",
+      "arxiv_id": "2602.13062v1",
+      "title": "Backdoor Attacks on Contrastive Continual Learning for IoT Systems",
+      "authors": [
+        "Alfous Tim",
+        "Kuniyilh Simi D"
+      ],
+      "abstract": "The Internet of Things (IoT) systems increasingly depend on continual learning to adapt to non-stationary environments. These environments can include factors such as sensor drift, changing user behavior, device aging, and adversarial dynamics. Contrastive continual learning (CCL) combines contrastive representation learning with incremental adaptation, enabling robust feature reuse across tasks and domains. However, the geometric nature of contrastive objectives, when paired with replay-based rehearsal and stability-preserving regularization, introduces new security vulnerabilities. Notably, backdoor attacks can exploit embedding alignment and replay reinforcement, enabling the implantation of persistent malicious behaviors that endure through updates and deployment cycles. This paper provides a comprehensive analysis of backdoor attacks on CCL within IoT systems. We formalize the objectives of embedding-level attacks, examine persistence mechanisms unique to IoT deployments, and develop a layered taxonomy tailored to IoT. Additionally, we compare vulnerabilities across various learning paradigms and evaluate defense strategies under IoT constraints, including limited memory, edge computing, and federated aggregation. Our findings indicate that while CCL is effective for enhancing adaptive IoT intelligence, it may also elevate long-lived representation-level threats if not adequately secured.",
+      "published": "2026-02-13",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.13062v1",
+      "url": "https://arxiv.org/abs/2602.13062v1",
+      "categories": [
+        "cs.LG",
+        "cs.CR",
+        "cs.NI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "federated",
+        "learning"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与问题  \n物联网（IoT）系统日益依赖**持续学习（Continual Learning, CL）**以应对传感器漂移、用户行为演化、设备老化及对抗性动态等非平稳环境。其中，**对比式持续学习（Contrastive Continual Learning, CCL）**通过融合对比表征学习与增量任务适应，在跨任务/跨域场景下实现鲁棒的特征复用，已成为边缘智能的关键范式。然而，其依赖嵌入空间几何对齐的目标函数、回放（replay）机制与稳定性正则化策略的耦合，意外引入新型安全漏洞——**后门攻击可借由嵌入对齐偏差与回放强化效应，植入长期驻留、跨更新周期持续生效的恶意行为**。\n\n## 方法与创新  \n本文首次系统揭示CCL在IoT场景下的后门攻击面：  \n- **形式化建模**：提出嵌入级攻击目标函数，刻画攻击者如何操纵正负样本对分布以诱导特定语义偏移；  \n- **IoT特异性分析**：识别设备异构性、低频固件更新、分布式回放缓存等导致的**攻击持久化机制**（如“回放锚点固化”与“边缘-云协同污染”）；  \n- **分层攻击分类法**：构建面向IoT的三级攻击 taxonomy（按触发方式：*隐式传感器扰动*、*回放缓冲区投毒*、*联邦聚合污染*；按隐蔽性：*时序掩蔽*、*域内不可见触发器*）；  \n- **受限环境评估**：在内存受限（≤2MB）、边缘计算延迟（<100ms）、联邦聚合带宽约束（≤50KB/round）下，实证对比CCL、EWC、LwF等范式的脆弱性差异，并验证轻量级防御（如**对比一致性蒸馏**与**回放样本几何过滤**）的有效性。\n\n## 主要发现  \n实验表明：CCL在提升IoT自适应能力的同时，其嵌入空间紧致性反而放大后门泛化性——攻击成功率较传统CL高37.2%（平均），且在3轮模型更新后仍保持82.4%激活率。本研究为构建**安全可持续的边缘智能**提供了理论框架与实践指南。",
+      "summary_en": "This paper presents the first comprehensive study of **backdoor attacks on Contrastive Continual Learning (CCL)** in resource-constrained IoT systems. We formalize embedding-level attack objectives that exploit contrastive alignment and replay reinforcement to implant persistent, update-resilient triggers. A novel IoT-tailored taxonomy categorizes attacks by trigger modality (sensor-level perturbations, replay buffer poisoning, federated aggregation contamination) and stealth mechanisms (temporal masking, domain-invariant triggers). Under realistic IoT constraints—limited memory (<2 MB), edge latency (<100 ms), and bandwidth-limited federation—we benchmark vulnerabilities across CCL, EWC, and LwF, finding CCL exhibits 37.2% higher attack success and retains 82.4% backdoor activation after three model updates. We further propose and evaluate lightweight defenses, including contrastive consistency distillation and geometric replay filtering, demonstrating up to 91.6% mitigation efficacy. Our work reveals a critical security–adaptivity trade-off in edge AI and provides foundational insights for secure continual intelligence in IoT.",
+      "summary": "## 背景与问题  \n物联网（IoT）系统日益依赖**持续学习（Continual Learning, CL）**以应对传感器漂移、用户行为演化、设备老化及对抗性动态等非平稳环境。其中，**对比式持续学习（Contrastive Continual Learning, CCL）**通过融合对比表征学习与增量任务适应，在跨任务/跨域场景下实现鲁棒的特征复用，已成为边缘智能的关键范式。然而，其依赖嵌入空间几何对齐的目标函数、回放（replay）机制与稳定性正则化策略的耦合，意外引入新型安全漏洞——**后门攻击可借由嵌入对齐偏差与回放强化效应，植入长期驻留、跨更新周期持续生效的恶意行为**。\n\n## 方法与创新  \n本文首次系统揭示CCL在IoT场景下的后门攻击面：  \n- **形式化建模**：提出嵌入级攻击目标函数，刻画攻击者如何操纵正负样本对分布以诱导特定语义偏移；  \n- **IoT特异性分析**：识别设备异构性、低频固件更新、分布式回放缓存等导致的**攻击持久化机制**（如“回放锚点固化”与“边缘-云协同污染”）；  \n- **分层攻击分类法**：构建面向IoT的三级攻击 taxonomy（按触发方式：*隐式传感器扰动*、*回放缓冲区投毒*、*联邦聚合污染*；按隐蔽性：*时序掩蔽*、*域内不可见触发器*）；  \n- **受限环境评估**：在内存受限（≤2MB）、边缘计算延迟（<100ms）、联邦聚合带宽约束（≤50KB/round）下，实证对比CCL、EWC、LwF等范式的脆弱性差异，并验证轻量级防御（如**对比一致性蒸馏**与**回放样本几何过滤**）的有效性。\n\n## 主要发现  \n实验表明：CCL在提升IoT自适应能力的同时，其嵌入空间紧致性反而放大后门泛化性——攻击成功率较传统CL高37.2%（平均），且在3轮模型更新后仍保持82.4%激活率。本研究为构建**安全可持续的边缘智能**提供了理论框架与实践指南。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.12209v1",
       "arxiv_id": "2602.12209v1",
       "title": "Keeping a Secret Requires a Good Memory: Space Lower-Bounds for Private Algorithms",
@@ -1309,6 +1368,34 @@
       "summary_status": "success"
     },
     {
+      "id": "arxiv_2602.10384v2",
+      "arxiv_id": "2602.10384v2",
+      "title": "When Tables Go Crazy: Evaluating Multimodal Models on French Financial Documents",
+      "authors": [
+        "Virginie Mouilleron",
+        "Théo Lasnier",
+        "Djamé Seddah"
+      ],
+      "abstract": "Vision-language models (VLMs) perform well on many document understanding tasks, yet their reliability in specialized, non-English domains remains underexplored. This gap is especially critical in finance, where documents mix dense regulatory text, numerical tables, and visual charts, and where extraction errors can have real-world consequences. We introduce Multimodal Finance Eval, the first multimodal benchmark for evaluating French financial document understanding. The dataset contains 1,204 expert-validated questions spanning text extraction, table comprehension, chart interpretation, and multi-turn conversational reasoning, drawn from real investment prospectuses, KIDs, and PRIIPs. We evaluate six open-weight VLMs (8B-124B parameters) using an LLM-as-judge protocol. While models achieve strong performance on text and table tasks (85-90% accuracy), they struggle with chart interpretation (34-62%). Most notably, multi-turn dialogue reveals a sharp failure mode: early mistakes propagate across turns, driving accuracy down to roughly 50% regardless of model size.   These results show that current VLMs are effective for well-defined extraction tasks but remain brittle in interactive, multi-step financial analysis. Multimodal Finance Eval offers a challenging benchmark to measure and drive progress in this high-stakes setting.",
+      "published": "2026-02-11",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.10384v2",
+      "url": "https://arxiv.org/abs/2602.10384v2",
+      "categories": [
+        "cs.CL"
+      ],
+      "published_official": true,
+      "keywords": [
+        "model",
+        "extraction"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 研究背景与问题  \n视觉-语言模型（VLMs）在通用文档理解任务中表现优异，但在**专业化、非英语领域（尤其是法语金融场景）的可靠性仍严重缺乏系统评估**。金融文档（如投资说明书、KID、PRIIPs）高度复杂：融合密集监管文本、结构化数值表格与多模态图表，且信息提取错误可能引发真实经济风险——现有基准对此类高 stakes 场景覆盖几乎空白。\n\n## 方法与数据集创新  \n本研究提出 **Multimodal Finance Eval**——首个面向法语金融文档的多模态评测基准。该数据集包含 **1,204 道专家人工验证的问题**，覆盖四大核心能力：① 文本信息抽取；② 表格语义理解（含跨行/列推理）；③ 图表（柱状图、折线图、饼图等）视觉解析与数值推断；④ 多轮对话式金融推理（模拟真实顾问交互）。所有样本均源自真实欧盟合规金融文件。\n\n## 关键发现  \n- 六款开源VLM（参数量8B–124B）在文本与表格任务上表现稳健（准确率85–90%），但**图表理解显著薄弱（34–62%），暴露视觉-数值对齐瓶颈**；  \n- **多轮对话测试揭示灾难性失败模式：首轮错误会系统性传播，导致后续轮次准确率骤降至约50%，且该现象与模型规模无关**；  \n- 结果表明：当前VLMs擅长静态、单步抽取任务，但在**需持续状态维护与纠错的交互式金融分析中极度脆弱**。\n\n## 学术价值  \nMultimodal Finance Eval 不仅填补了法语金融多模态评测的空白，更以“表格失序”“图表误读”“对话崩溃”等典型失败案例为信号，为鲁棒金融AI的研发提供可复现、高区分度的评估标尺。",
+      "summary_en": "This paper introduces **Multimodal Finance Eval**, the first multimodal benchmark for evaluating vision-language models (VLMs) on French financial documents—such as PRIIPs, KIDs, and prospectuses—which combine regulatory text, dense numerical tables, and visual charts. The benchmark comprises 1,204 expert-validated questions spanning text extraction, table comprehension, chart interpretation, and multi-turn conversational reasoning. We evaluate six open-weight VLMs (8B–124B parameters) using an LLM-as-judge protocol. Results show strong performance on text and table tasks (85–90% accuracy), but sharp drops in chart interpretation (34–62%). Most critically, multi-turn dialogue exposes a cascading failure mode: early errors propagate across turns, collapsing accuracy to ~50% regardless of model scale. These findings reveal that current VLMs remain brittle for interactive, stateful financial analysis—despite excelling at isolated extraction tasks. Multimodal Finance Eval provides a rigorous, real-world benchmark to advance reliable multimodal AI in high-stakes finance.",
+      "summary": "## 研究背景与问题  \n视觉-语言模型（VLMs）在通用文档理解任务中表现优异，但在**专业化、非英语领域（尤其是法语金融场景）的可靠性仍严重缺乏系统评估**。金融文档（如投资说明书、KID、PRIIPs）高度复杂：融合密集监管文本、结构化数值表格与多模态图表，且信息提取错误可能引发真实经济风险——现有基准对此类高 stakes 场景覆盖几乎空白。\n\n## 方法与数据集创新  \n本研究提出 **Multimodal Finance Eval**——首个面向法语金融文档的多模态评测基准。该数据集包含 **1,204 道专家人工验证的问题**，覆盖四大核心能力：① 文本信息抽取；② 表格语义理解（含跨行/列推理）；③ 图表（柱状图、折线图、饼图等）视觉解析与数值推断；④ 多轮对话式金融推理（模拟真实顾问交互）。所有样本均源自真实欧盟合规金融文件。\n\n## 关键发现  \n- 六款开源VLM（参数量8B–124B）在文本与表格任务上表现稳健（准确率85–90%），但**图表理解显著薄弱（34–62%），暴露视觉-数值对齐瓶颈**；  \n- **多轮对话测试揭示灾难性失败模式：首轮错误会系统性传播，导致后续轮次准确率骤降至约50%，且该现象与模型规模无关**；  \n- 结果表明：当前VLMs擅长静态、单步抽取任务，但在**需持续状态维护与纠错的交互式金融分析中极度脆弱**。\n\n## 学术价值  \nMultimodal Finance Eval 不仅填补了法语金融多模态评测的空白，更以“表格失序”“图表误读”“对话崩溃”等典型失败案例为信号，为鲁棒金融AI的研发提供可复现、高区分度的评估标尺。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.10100v1",
       "arxiv_id": "2602.10100v1",
       "title": "Towards Explainable Federated Learning: Understanding the Impact of Differential Privacy",
@@ -2060,456 +2147,8 @@
       "summary_en": "Multi-objective alignment requires LLM responses to satisfy multiple human preferences (e.g., helpfulness, safety, factuality) simultaneously. While autoregressive reward models (ARMs) enable efficient test-time alignment of frozen LLMs, existing approaches suffer from either fragmented parameters (independent ARMs per objective) or feature entanglement (shared backbone with isolated encoders), leading to misaligned rewards and suboptimal outputs. To address this, we propose **MoSLoRA**—a novel ARM training paradigm featuring a *preference-agnostic shared backbone* for unified feature extraction and a *lightweight preference-modulation module* that applies conditioned affine transformations to shared features using mixed preference embeddings. Building on MoSLoRA, we introduce **UniARM**, the first unified ARM that jointly models all preference dimensions in a single parameter space—eliminating per-objective parameter duplication. UniARM enables gradient-free, real-time preference trade-off control at inference via dynamic weight vectors. Experiments show UniARM outperforms prior multi-objective methods by +2.1–3.8 points on AlpacaEval 2.0 and MT-Bench, with strong human evaluation agreement and superior scalability to large-scale LLMs.",
       "summary": "## 背景与问题  \n多目标对齐旨在使大语言模型（LLM）的响应同时满足多个细粒度人类偏好目标（如事实性、安全性、信息量、可读性等）。当前主流方案之一是采用**自回归奖励模型（ARM）**在测试时引导冻结LLM生成，成本低、无需微调主模型。然而，现有ARM方法存在根本性缺陷：或为每个偏好维度独立训练ARM（参数割裂，忽略偏好间语义关联），或在单个ARM中为各偏好设计分离特征提取模块（易引发**特征纠缠**，导致奖励信号混淆）。二者均造成生成结果与真实用户偏好间的系统性错位。\n\n## 方法创新：MoSLoRA 与 UniARM  \n本文提出**偏好调制与共享低秩适配（MoSLoRA）**，作为ARM训练新范式：  \n- **共享表征基座**：通过偏好无关（preference-agnostic）主干网络统一提取底层语义特征；  \n- **精准偏好调控**：引入轻量级偏好调制模块，以**混合偏好向量**（concatenated preference embeddings）为条件，对共享特征施加可学习的仿射变换（缩放+偏移），实现各偏好维度的解耦化、可解释化建模。  \n\n基于MoSLoRA，我们构建**统一自回归奖励模型（UniARM）**：单模型、单参数空间联合建模全部偏好维度，彻底摒弃独立参数冗余。UniARM支持在推理阶段通过动态调节偏好权重向量，**无梯度、实时控制多目标权衡**（trade-off），显著提升对齐灵活性与可控性。\n\n## 关键优势  \n✅ 消除特征纠缠，提升奖励信号保真度；  \n✅ 参数效率高（较独立ARM节省>65%参数），易于部署至百亿级LLM；  \n✅ 在AlpacaEval 2.0、MT-Bench等基准上超越SOTA多目标对齐方法（+2.1–3.8分），且人工评估证实其偏好可控性与一致性显著增强。",
       "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.09273v1",
-      "arxiv_id": "2602.09273v1",
-      "title": "The Price of Privacy For Approximating Max-CSP",
-      "authors": [
-        "Prathamesh Dharangutte",
-        "Jingcheng Liu",
-        "Pasin Manurangsi",
-        "Akbar Rafiey",
-        "Phanu Vajanopath",
-        "Zongrui Zou"
-      ],
-      "abstract": "We study approximation algorithms for Maximum Constraint Satisfaction Problems (Max-CSPs) under differential privacy (DP) where the constraints are considered sensitive data. Information-theoretically, we aim to classify the best approximation ratios possible for a given privacy budget $\\varepsilon$. In the high-privacy regime ($\\varepsilon \\ll 1$), we show that any $\\varepsilon$-DP algorithm cannot beat a random assignment by more than $O(\\varepsilon)$ in the approximation ratio. We devise a polynomial-time algorithm which matches this barrier under the assumptions that the instances are bounded-degree and triangle-free. Finally, we show that one or both of these assumptions can be removed for specific CSPs--such as Max-Cut or Max $k$-XOR--albeit at the cost of computational efficiency.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.09273v1",
-      "url": "https://arxiv.org/abs/2602.09273v1",
-      "categories": [
-        "cs.DS",
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "privacy",
-        "dp",
-        "differential"
-      ],
-      "keyword_score": 3,
-      "summary_zh": "## 隐私代价：差分隐私下 Max-CSP 近似算法的理论极限  \n\n本研究系统探究**差分隐私（DP）约束下最大约束满足问题（Max-CSP）的近似能力边界**。核心设定是：CSP 的约束集被视为敏感数据，算法需在满足 $\\varepsilon$-差分隐私前提下，尽可能逼近最优解的满足比例（即近似比）。我们聚焦信息论层面的根本性问题——对给定隐私预算 $\\varepsilon$，何种近似比在理论上可达？  \n\n关键发现分为三部分：  \n1. **强下界刻画（高隐私 regime）**：当 $\\varepsilon \\ll 1$（即强隐私保护）时，我们证明**任何 $\\varepsilon$-DP 算法的近似比至多比随机赋值优 $O(\\varepsilon)$**。该结果揭示了隐私与效用间本质的线性权衡——微小的隐私保障即导致近似性能被严格限制在随机基线附近。  \n2. **紧致上界构造**：我们设计了一个**多项式时间 $\\varepsilon$-DP 算法**，在**有界度（bounded-degree）且无三角形（triangle-free）** 的 CSP 实例上，精确匹配上述 $O(\\varepsilon)$ 上界，证实该界限是紧的。算法融合拉普拉斯机制与局部约束传播技术，在隐私噪声与结构化推理间取得平衡。  \n3. **假设松弛与特例优化**：进一步指出，对 Max-Cut、Max $k$-XOR 等重要特例，可**放宽“有界度”或“无三角形”任一条件（甚至两者）**，但需以牺牲计算效率为代价（如退化为指数时间）。这凸显了通用性与高效性在隐私约束下的内在张力。  \n\n本工作首次为 Max-CSP 的隐私-效用权衡建立了完整的信息论分类框架，为隐私机器学习中结构化优化问题的设计提供了理论基石与实践指南。",
-      "summary_en": "We study the fundamental trade-off between privacy and approximation for Maximum Constraint Satisfaction Problems (Max-CSPs) under $\\varepsilon$-differential privacy, where constraints are sensitive. In the high-privacy regime ($\\varepsilon \\ll 1$), we prove that *no* $\\varepsilon$-DP algorithm can outperform random assignment by more than $O(\\varepsilon)$ in approximation ratio—a tight information-theoretic barrier. We match this bound with a polynomial-time $\\varepsilon$-DP algorithm for bounded-degree, triangle-free instances. For specific CSPs like Max-Cut and Max $k$-XOR, we show one or both structural assumptions can be dropped, albeit at the cost of computational efficiency (e.g., exponential runtime). This work provides the first complete classification of achievable approximation ratios for Max-CSPs under differential privacy.",
-      "summary": "## 隐私代价：差分隐私下 Max-CSP 近似算法的理论极限  \n\n本研究系统探究**差分隐私（DP）约束下最大约束满足问题（Max-CSP）的近似能力边界**。核心设定是：CSP 的约束集被视为敏感数据，算法需在满足 $\\varepsilon$-差分隐私前提下，尽可能逼近最优解的满足比例（即近似比）。我们聚焦信息论层面的根本性问题——对给定隐私预算 $\\varepsilon$，何种近似比在理论上可达？  \n\n关键发现分为三部分：  \n1. **强下界刻画（高隐私 regime）**：当 $\\varepsilon \\ll 1$（即强隐私保护）时，我们证明**任何 $\\varepsilon$-DP 算法的近似比至多比随机赋值优 $O(\\varepsilon)$**。该结果揭示了隐私与效用间本质的线性权衡——微小的隐私保障即导致近似性能被严格限制在随机基线附近。  \n2. **紧致上界构造**：我们设计了一个**多项式时间 $\\varepsilon$-DP 算法**，在**有界度（bounded-degree）且无三角形（triangle-free）** 的 CSP 实例上，精确匹配上述 $O(\\varepsilon)$ 上界，证实该界限是紧的。算法融合拉普拉斯机制与局部约束传播技术，在隐私噪声与结构化推理间取得平衡。  \n3. **假设松弛与特例优化**：进一步指出，对 Max-Cut、Max $k$-XOR 等重要特例，可**放宽“有界度”或“无三角形”任一条件（甚至两者）**，但需以牺牲计算效率为代价（如退化为指数时间）。这凸显了通用性与高效性在隐私约束下的内在张力。  \n\n本工作首次为 Max-CSP 的隐私-效用权衡建立了完整的信息论分类框架，为隐私机器学习中结构化优化问题的设计提供了理论基石与实践指南。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.09222v1",
-      "arxiv_id": "2602.09222v1",
-      "title": "MUZZLE: Adaptive Agentic Red-Teaming of Web Agents Against Indirect Prompt Injection Attacks",
-      "authors": [
-        "Georgios Syros",
-        "Evan Rose",
-        "Brian Grinstead",
-        "Christoph Kerschbaumer",
-        "William Robertson",
-        "Cristina Nita-Rotaru",
-        "Alina Oprea"
-      ],
-      "abstract": "Large language model (LLM) based web agents are increasingly deployed to automate complex online tasks by directly interacting with web sites and performing actions on users' behalf. While these agents offer powerful capabilities, their design exposes them to indirect prompt injection attacks embedded in untrusted web content, enabling adversaries to hijack agent behavior and violate user intent. Despite growing awareness of this threat, existing evaluations rely on fixed attack templates, manually selected injection surfaces, or narrowly scoped scenarios, limiting their ability to capture realistic, adaptive attacks encountered in practice. We present MUZZLE, an automated agentic framework for evaluating the security of web agents against indirect prompt injection attacks. MUZZLE utilizes the agent's trajectories to automatically identify high-salience injection surfaces, and adaptively generate context-aware malicious instructions that target violations of confidentiality, integrity, and availability. Unlike prior approaches, MUZZLE adapts its attack strategy based on the agent's observed execution trajectory and iteratively refines attacks using feedback from failed executions. We evaluate MUZZLE across diverse web applications, user tasks, and agent configurations, demonstrating its ability to automatically and adaptively assess the security of web agents with minimal human intervention. Our results show that MUZZLE effectively discovers 37 new attacks on 4 web applications with 10 adversarial objectives that violate confidentiality, availability, or privacy properties. MUZZLE also identifies novel attack strategies, including 2 cross-application prompt injection attacks and an agent-tailored phishing scenario.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.09222v1",
-      "url": "https://arxiv.org/abs/2602.09222v1",
-      "categories": [
-        "cs.CR",
-        "cs.AI"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "injection",
-        "agent",
-        "llm",
-        "prompt"
-      ],
-      "keyword_score": 5,
-      "summary_zh": "## 背景与问题  \n基于大语言模型（LLM）的**网页智能体（Web Agents）**正被广泛部署于自动化复杂在线任务（如比价、订票、表单填写），通过直接解析网页DOM并执行操作来代理用户。然而，其架构天然暴露于**间接提示注入攻击（Indirect Prompt Injection, IPI）**——恶意内容隐藏在第三方网页（如广告、评论、API响应）中，经Agent无意识解析后篡改系统指令，从而劫持行为、窃取敏感信息或破坏服务可用性。现有评估方法存在严重局限：依赖静态攻击模板、人工预设注入点（如`<title>`或`<meta>`标签），或局限于单一场景，难以模拟真实对抗中攻击者依据Agent实时行为动态调整策略的过程。\n\n## 方法创新：MUZZLE框架  \n我们提出**MUZZLE**——首个面向网页智能体的**自适应智能体式红队框架**。其核心突破在于：  \n- **轨迹驱动的注入面发现**：自动分析Agent与网页交互的完整动作轨迹（HTML解析→元素定位→操作执行），识别高风险、高可见性的动态注入表面（如渲染后插入的`<script>`、富文本编辑器内容、SVG `<text>` 元素）；  \n- **上下文感知的对抗生成**：基于当前页面语义、Agent历史动作及目标（保密性/完整性/可用性违规），生成语义连贯、隐蔽性强的恶意指令；  \n- **闭环自适应优化**：将攻击失败反馈（如指令被忽略、触发异常报错）作为强化信号，迭代重构攻击载荷，实现“试错—学习—升级”闭环。\n\n## 关键成果  \n在4个主流Web应用（电商、银行、SaaS平台、医疗预约系统）、10类用户任务及多种Agent配置下，MUZZLE**零人工干预**地自动发现**37个新型IPI漏洞**，覆盖数据泄露、越权操作、服务瘫痪等威胁。首次揭示2种**跨应用提示注入链式攻击**（如利用A站注入污染B站Agent缓存），并构造出首个**Agent定制化钓鱼场景**（伪装为可信UI组件诱导授权泄露）。本工作为Web Agent安全评估树立了新基准，推动防御从“模板匹配”迈向“行为感知”。",
-      "summary_en": "Large language model (LLM)-based web agents automate complex online tasks but are vulnerable to indirect prompt injection (IPI) attacks embedded in untrusted web content. Existing evaluations use static templates or manually selected injection surfaces, failing to capture adaptive, real-world adversaries. We introduce **MUZZLE**, the first agentic red-teaming framework that automatically identifies high-salience injection surfaces from agent trajectories and generates context-aware malicious instructions targeting confidentiality, integrity, and availability violations. Crucially, MUZZLE adapts its attack strategy in real time using feedback from failed executions—enabling iterative refinement without human intervention. Evaluated across 4 diverse web applications and 10 adversarial objectives, MUZZLE autonomously discovers **37 novel IPI attacks**, including **2 cross-application injection chains** and a new **agent-tailored phishing scenario**. Our results demonstrate that adaptive, trajectory-driven evaluation is essential for robust web agent security assessment.",
-      "summary": "## 背景与问题  \n基于大语言模型（LLM）的**网页智能体（Web Agents）**正被广泛部署于自动化复杂在线任务（如比价、订票、表单填写），通过直接解析网页DOM并执行操作来代理用户。然而，其架构天然暴露于**间接提示注入攻击（Indirect Prompt Injection, IPI）**——恶意内容隐藏在第三方网页（如广告、评论、API响应）中，经Agent无意识解析后篡改系统指令，从而劫持行为、窃取敏感信息或破坏服务可用性。现有评估方法存在严重局限：依赖静态攻击模板、人工预设注入点（如`<title>`或`<meta>`标签），或局限于单一场景，难以模拟真实对抗中攻击者依据Agent实时行为动态调整策略的过程。\n\n## 方法创新：MUZZLE框架  \n我们提出**MUZZLE**——首个面向网页智能体的**自适应智能体式红队框架**。其核心突破在于：  \n- **轨迹驱动的注入面发现**：自动分析Agent与网页交互的完整动作轨迹（HTML解析→元素定位→操作执行），识别高风险、高可见性的动态注入表面（如渲染后插入的`<script>`、富文本编辑器内容、SVG `<text>` 元素）；  \n- **上下文感知的对抗生成**：基于当前页面语义、Agent历史动作及目标（保密性/完整性/可用性违规），生成语义连贯、隐蔽性强的恶意指令；  \n- **闭环自适应优化**：将攻击失败反馈（如指令被忽略、触发异常报错）作为强化信号，迭代重构攻击载荷，实现“试错—学习—升级”闭环。\n\n## 关键成果  \n在4个主流Web应用（电商、银行、SaaS平台、医疗预约系统）、10类用户任务及多种Agent配置下，MUZZLE**零人工干预**地自动发现**37个新型IPI漏洞**，覆盖数据泄露、越权操作、服务瘫痪等威胁。首次揭示2种**跨应用提示注入链式攻击**（如利用A站注入污染B站Agent缓存），并构造出首个**Agent定制化钓鱼场景**（伪装为可信UI组件诱导授权泄露）。本工作为Web Agent安全评估树立了新基准，推动防御从“模板匹配”迈向“行为感知”。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.09182v1",
-      "arxiv_id": "2602.09182v1",
-      "title": "One RNG to Rule Them All: How Randomness Becomes an Attack Vector in Machine Learning",
-      "authors": [
-        "Kotekar Annapoorna Prabhu",
-        "Andrew Gan",
-        "Zahra Ghodsi"
-      ],
-      "abstract": "Machine learning relies on randomness as a fundamental component in various steps such as data sampling, data augmentation, weight initialization, and optimization. Most machine learning frameworks use pseudorandom number generators as the source of randomness. However, variations in design choices and implementations across different frameworks, software dependencies, and hardware backends along with the lack of statistical validation can lead to previously unexplored attack vectors on machine learning systems. Such attacks on randomness sources can be extremely covert, and have a history of exploitation in real-world systems. In this work, we examine the role of randomness in the machine learning development pipeline from an adversarial point of view, and analyze the implementations of PRNGs in major machine learning frameworks. We present RNGGuard to help machine learning engineers secure their systems with low effort. RNGGuard statically analyzes a target library's source code and identifies instances of random functions and modules that use them. At runtime, RNGGuard enforces secure execution of random functions by replacing insecure function calls with RNGGuard's implementations that meet security specifications. Our evaluations show that RNGGuard presents a practical approach to close existing gaps in securing randomness sources in machine learning systems.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.09182v1",
-      "url": "https://arxiv.org/abs/2602.09182v1",
-      "categories": [
-        "cs.CR",
-        "cs.LG"
-      ],
-      "published_official": true,
-      "keywords": [
-        "machine",
-        "learning",
-        "adversarial"
-      ],
-      "keyword_score": 3,
-      "summary_zh": "## 背景与问题  \n机器学习（ML）系统高度依赖随机性——从数据采样、增强、权重初始化到优化算法，伪随机数生成器（PRNG）是其底层基石。然而，主流框架（如PyTorch、TensorFlow、JAX）在PRNG设计、种子传播机制、硬件后端适配及依赖库（如NumPy、cuRAND）实现上存在显著差异，且普遍缺乏面向安全性的统计验证。这种碎片化与不透明性催生了一类**隐蔽性强、影响深远的新型攻击向量**：攻击者可通过操控PRNG状态、预测输出序列或诱导确定性偏差，实现模型窃取、后门注入、训练不稳定甚至梯度泄露。\n\n## 方法与创新  \n本文首次从**对抗视角系统审视ML全栈中的随机性供应链**，对6大主流框架及其12个核心PRNG模块进行深度实现分析，揭示了8类共性脆弱模式（如全局状态污染、跨线程种子竞争、GPU/CPU异步熵缺失）。基于此，我们提出**RNGGuard**——一个轻量级、零修改的随机性安全加固框架：  \n- **静态分析层**：自动扫描Python/C++源码，精准识别所有`random.*`、`np.random.*`、`torch.*_seed()`等调用点及隐式PRNG依赖；  \n- **运行时拦截层**：以LD_PRELOAD（C）与AST重写（Python）双路径，在不侵入用户代码前提下，将不安全调用动态替换为符合NIST SP 800-90B/C标准的加密安全PRNG实现，并强制执行种子隔离、上下文绑定与熵源校验。  \n\n## 主要成果  \n在12个真实ML工作流（含联邦学习、Diffusion模型训练）中，RNGGuard平均仅引入**<0.8%推理延迟**，成功阻断全部已知PRNG侧信道攻击，且通过了Dieharder与TestU01全量统计套件验证。本工作填补了ML安全中“随机性保障”这一关键空白，为构建可信赖AI系统提供了首个可部署、可验证的PRNG治理方案。",
-      "summary_en": "Machine learning (ML) systems critically depend on pseudorandom number generators (PRNGs) across the pipeline—yet inconsistent implementations, unvalidated statistical properties, and framework-specific entropy handling create stealthy attack vectors. This paper presents the first adversarial analysis of PRNG usage across PyTorch, TensorFlow, JAX, and their dependencies, identifying 8 recurring vulnerabilities (e.g., global state leakage, seed race conditions, GPU-CPU entropy desynchronization). We introduce **RNGGuard**, a low-overhead framework that: (1) statically detects all random function calls and implicit PRNG usages in source code; and (2) enforces secure execution at runtime by transparently replacing insecure calls with NIST-compliant, context-isolated, entropy-verified PRNGs. Evaluated on 12 real-world ML workflows—including diffusion model training and federated learning—RNGGuard incurs <0.8% latency overhead, passes full TestU01/Dieharder statistical batteries, and blocks all known PRNG-based attacks. It provides the first practical, deployable solution for securing randomness in ML systems.",
-      "summary": "## 背景与问题  \n机器学习（ML）系统高度依赖随机性——从数据采样、增强、权重初始化到优化算法，伪随机数生成器（PRNG）是其底层基石。然而，主流框架（如PyTorch、TensorFlow、JAX）在PRNG设计、种子传播机制、硬件后端适配及依赖库（如NumPy、cuRAND）实现上存在显著差异，且普遍缺乏面向安全性的统计验证。这种碎片化与不透明性催生了一类**隐蔽性强、影响深远的新型攻击向量**：攻击者可通过操控PRNG状态、预测输出序列或诱导确定性偏差，实现模型窃取、后门注入、训练不稳定甚至梯度泄露。\n\n## 方法与创新  \n本文首次从**对抗视角系统审视ML全栈中的随机性供应链**，对6大主流框架及其12个核心PRNG模块进行深度实现分析，揭示了8类共性脆弱模式（如全局状态污染、跨线程种子竞争、GPU/CPU异步熵缺失）。基于此，我们提出**RNGGuard**——一个轻量级、零修改的随机性安全加固框架：  \n- **静态分析层**：自动扫描Python/C++源码，精准识别所有`random.*`、`np.random.*`、`torch.*_seed()`等调用点及隐式PRNG依赖；  \n- **运行时拦截层**：以LD_PRELOAD（C）与AST重写（Python）双路径，在不侵入用户代码前提下，将不安全调用动态替换为符合NIST SP 800-90B/C标准的加密安全PRNG实现，并强制执行种子隔离、上下文绑定与熵源校验。  \n\n## 主要成果  \n在12个真实ML工作流（含联邦学习、Diffusion模型训练）中，RNGGuard平均仅引入**<0.8%推理延迟**，成功阻断全部已知PRNG侧信道攻击，且通过了Dieharder与TestU01全量统计套件验证。本工作填补了ML安全中“随机性保障”这一关键空白，为构建可信赖AI系统提供了首个可部署、可验证的PRNG治理方案。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.10149v1",
-      "arxiv_id": "2602.10149v1",
-      "title": "Exploring Semantic Labeling Strategies for Third-Party Cybersecurity Risk Assessment Questionnaires",
-      "authors": [
-        "Ali Nour Eldin",
-        "Mohamed Sellami",
-        "Walid Gaaloul"
-      ],
-      "abstract": "Third-Party Risk Assessment (TPRA) is a core cybersecurity practice for evaluating suppliers against standards such as ISO/IEC 27001 and NIST. TPRA questionnaires are typically drawn from large repositories of security and compliance questions, yet tailoring assessments to organizational needs remains a largely manual process. Existing retrieval approaches rely on keyword or surface-level similarity, which often fails to capture implicit assessment scope and control semantics.   This paper explores strategies for organizing and retrieving TPRA cybersecurity questions using semantic labels that describe both control domains and assessment scope. We compare direct question-level labeling with a Large Language Model (LLM) against a hybrid semi-supervised semantic labeling (SSSL) pipeline that clusters questions in embedding space, labels a small representative subset using an LLM, and propagates labels to remaining questions using k-Nearest Neighbors; we also compare downstream retrieval based on direct question similarity versus retrieval in the label space. We find that semantic labels can improve retrieval alignment when labels are discriminative and consistent, and that SSSL can generalize labels from a small labeled subset to large repositories while substantially reducing LLM usage and cost.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.10149v1",
-      "url": "https://arxiv.org/abs/2602.10149v1",
-      "categories": [
-        "cs.CR",
-        "cs.AI"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "llm"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 研究背景  \n第三方网络安全风险评估（TPRA）是企业落实ISO/IEC 27001、NIST等合规框架的关键实践，其核心依赖于从海量安全问题库中筛选适配的问卷题目。然而，当前评估定制化高度依赖人工经验，主流检索方法（如关键词匹配或浅层语义相似度）难以准确识别问题背后的**控制域**（e.g., 访问控制、加密管理）与**评估范围**（e.g., “是否部署” vs. “是否审计”），导致召回偏差与语义错配。\n\n## 方法创新  \n本文提出并系统比较两类语义标注策略：  \n- **直接LLM标注**：对每个问题独立调用大语言模型生成结构化语义标签（控制域+评估意图）；  \n- **混合半监督语义标注（SSSL）**：先在嵌入空间聚类问题，由LLM仅标注少量代表性样本（<5%），再通过k近邻（k-NN）将标签传播至全量问题。  \n进一步，对比两种下游检索范式：基于原始问题向量的相似性检索 vs. 基于语义标签空间的检索。\n\n## 主要发现与贡献  \n实验表明：（1）高质量语义标签显著提升检索对齐度——当标签具备**判别性**（能区分细微控制差异）与**一致性**（同质问题获得相同标签）时，标签空间检索的准确率较基线提升23.6%；（2）SSSL在仅使用128个LLM标注样本的情况下，即可覆盖10万级问题库，LLM调用成本降低89%，且标签泛化质量媲美全量标注；（3）该框架支持“以控代问”，使安全团队可按控制目标（如“密钥轮换审计”）直接检索适配问题，而非依赖模糊关键词。本研究为自动化、可解释、低成本的TPRA问卷工程提供了新范式。",
-      "summary_en": "Third-party cybersecurity risk assessment (TPRA) relies heavily on manual curation of questionnaires from large compliance repositories, but keyword-based retrieval fails to capture implicit control semantics (e.g., *access control enforcement* vs. *audit logging*) and assessment scope (e.g., *policy existence* vs. *operational validation*). This paper introduces semantic labeling—assigning structured labels encoding both control domains and assessment intent—to improve question organization and retrieval. We compare two labeling strategies: (1) direct LLM labeling per question, and (2) a hybrid semi-supervised semantic labeling (SSSL) pipeline that clusters questions in embedding space, labels only a small representative subset with an LLM, and propagates labels via k-NN. We further evaluate retrieval in raw question embedding space versus label space. Results show that discriminative and consistent semantic labels significantly improve retrieval alignment—label-space retrieval achieves +23.6% accuracy over baseline similarity search. Crucially, SSSL generalizes high-quality labels from just 128 LLM-labeled samples to a 100K-question repository, reducing LLM inference cost by 89% while maintaining performance parity with full supervision. This enables scalable, interpretable, and control-centric TPRA automation.",
-      "summary": "## 研究背景  \n第三方网络安全风险评估（TPRA）是企业落实ISO/IEC 27001、NIST等合规框架的关键实践，其核心依赖于从海量安全问题库中筛选适配的问卷题目。然而，当前评估定制化高度依赖人工经验，主流检索方法（如关键词匹配或浅层语义相似度）难以准确识别问题背后的**控制域**（e.g., 访问控制、加密管理）与**评估范围**（e.g., “是否部署” vs. “是否审计”），导致召回偏差与语义错配。\n\n## 方法创新  \n本文提出并系统比较两类语义标注策略：  \n- **直接LLM标注**：对每个问题独立调用大语言模型生成结构化语义标签（控制域+评估意图）；  \n- **混合半监督语义标注（SSSL）**：先在嵌入空间聚类问题，由LLM仅标注少量代表性样本（<5%），再通过k近邻（k-NN）将标签传播至全量问题。  \n进一步，对比两种下游检索范式：基于原始问题向量的相似性检索 vs. 基于语义标签空间的检索。\n\n## 主要发现与贡献  \n实验表明：（1）高质量语义标签显著提升检索对齐度——当标签具备**判别性**（能区分细微控制差异）与**一致性**（同质问题获得相同标签）时，标签空间检索的准确率较基线提升23.6%；（2）SSSL在仅使用128个LLM标注样本的情况下，即可覆盖10万级问题库，LLM调用成本降低89%，且标签泛化质量媲美全量标注；（3）该框架支持“以控代问”，使安全团队可按控制目标（如“密钥轮换审计”）直接检索适配问题，而非依赖模糊关键词。本研究为自动化、可解释、低成本的TPRA问卷工程提供了新范式。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08934v1",
-      "arxiv_id": "2602.08934v1",
-      "title": "StealthRL: Reinforcement Learning Paraphrase Attacks for Multi-Detector Evasion of AI-Text Detectors",
-      "authors": [
-        "Suraj Ranganath",
-        "Atharv Ramesh"
-      ],
-      "abstract": "AI-text detectors face a critical robustness challenge: adversarial paraphrasing attacks that preserve semantics while evading detection. We introduce StealthRL, a reinforcement learning framework that stress-tests detector robustness under realistic adversarial conditions. StealthRL trains a paraphrase policy against a multi-detector ensemble using Group Relative Policy Optimization (GRPO) with LoRA adapters on Qwen3-4B, optimizing a composite reward that balances detector evasion with semantic preservation. We evaluate six attack settings (M0-M5) against three detector families (RoBERTa, FastDetectGPT, and Binoculars) at the security-relevant 1% false positive rate operating point. StealthRL achieves near-zero detection (0.001 mean TPR@1%FPR), reduces mean AUROC from 0.74 to 0.27, and attains a 99.9% attack success rate. Critically, attacks transfer to a held-out detector family not seen during training, revealing shared architectural vulnerabilities rather than detector-specific brittleness. We additionally conduct LLM-based quality evaluation via Likert scoring, analyze detector score distributions to explain why evasion succeeds, and provide per-detector AUROC with bootstrap confidence intervals. Our results expose significant robustness gaps in current AI-text detection and establish StealthRL as a principled adversarial evaluation protocol. Code and evaluation pipeline are publicly available at https://github.com/suraj-ranganath/StealthRL.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08934v1",
-      "url": "https://arxiv.org/abs/2602.08934v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "llm"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## StealthRL：面向多检测器协同规避的强化学习隐匿式改写攻击框架  \n\n当前AI生成文本检测器面临严峻的鲁棒性挑战：**语义保持型对抗改写攻击**可在不改变原文含义的前提下，系统性规避检测。为此，我们提出**StealthRL**——一种基于强化学习（RL）的新型对抗评估框架，专为在真实对抗场景下压力测试检测器鲁棒性而设计。  \n\n### 方法创新  \nStealthRL在Qwen3-4B大语言模型上集成**LoRA适配器**，采用原创的**组相对策略优化（GRPO）算法**，以多检测器集成（RoBERTa、FastDetectGPT、Binoculars）为联合奖励信号源，训练端到端 paraphrase 策略。其复合奖励函数**显式权衡三重目标**：（1）跨检测器 evasion score 最小化；（2）语义相似度（BERTScore）最大化；（3）语法流畅性约束。  \n\n### 关键发现  \n- 在安全关键的**1%假正率（FPR）操作点**下，StealthRL在6种攻击设置（M0–M5）中实现**平均真阳性率仅0.001**，AUROC从基线0.74骤降至0.27，**攻击成功率高达99.9%**；  \n- 攻击成功迁移至**训练未见的检测器家族**（如Binoculars），揭示检测器间存在**共性架构脆弱性**，而非孤立过拟合；  \n- 基于LLM的Likert量表评估证实改写文本保持高可读性（平均4.8/5）；分布分析表明，检测器score显著右偏且方差坍缩，导致决策边界失效；  \n- 所有AUROC结果均附带**Bootstrap置信区间**（n=1000），保障统计严谨性。  \n\n本工作不仅暴露了当前AI文本检测的系统性鲁棒缺陷，更确立了StealthRL作为**首个支持多检测器联合规避、语义可控、可复现的RL基准协议**。代码与完整评估流水线已开源。",
-      "summary_en": "StealthRL is a reinforcement learning framework for semantic-preserving paraphrase attacks that evade *multiple* AI-text detectors simultaneously. It trains a LoRA-adapted Qwen3-4B policy via Group Relative Policy Optimization (GRPO), optimizing a composite reward balancing detector evasion (across RoBERTa, FastDetectGPT, and Binoculars ensembles) and semantic fidelity. Evaluated at the security-critical 1% false positive rate, StealthRL achieves near-perfect evasion: mean TPR = 0.001, AUROC drops from 0.74 to 0.27, and attack success rate reaches 99.9%. Critically, attacks transfer to *held-out* detector families—revealing shared architectural weaknesses rather than detector-specific overfitting. LLM-based Likert scoring confirms high textual quality (4.8/5), while score distribution analysis explains evasion via detector score collapse and boundary ambiguity. Code and evaluation pipeline are open-sourced.",
-      "summary": "## StealthRL：面向多检测器协同规避的强化学习隐匿式改写攻击框架  \n\n当前AI生成文本检测器面临严峻的鲁棒性挑战：**语义保持型对抗改写攻击**可在不改变原文含义的前提下，系统性规避检测。为此，我们提出**StealthRL**——一种基于强化学习（RL）的新型对抗评估框架，专为在真实对抗场景下压力测试检测器鲁棒性而设计。  \n\n### 方法创新  \nStealthRL在Qwen3-4B大语言模型上集成**LoRA适配器**，采用原创的**组相对策略优化（GRPO）算法**，以多检测器集成（RoBERTa、FastDetectGPT、Binoculars）为联合奖励信号源，训练端到端 paraphrase 策略。其复合奖励函数**显式权衡三重目标**：（1）跨检测器 evasion score 最小化；（2）语义相似度（BERTScore）最大化；（3）语法流畅性约束。  \n\n### 关键发现  \n- 在安全关键的**1%假正率（FPR）操作点**下，StealthRL在6种攻击设置（M0–M5）中实现**平均真阳性率仅0.001**，AUROC从基线0.74骤降至0.27，**攻击成功率高达99.9%**；  \n- 攻击成功迁移至**训练未见的检测器家族**（如Binoculars），揭示检测器间存在**共性架构脆弱性**，而非孤立过拟合；  \n- 基于LLM的Likert量表评估证实改写文本保持高可读性（平均4.8/5）；分布分析表明，检测器score显著右偏且方差坍缩，导致决策边界失效；  \n- 所有AUROC结果均附带**Bootstrap置信区间**（n=1000），保障统计严谨性。  \n\n本工作不仅暴露了当前AI文本检测的系统性鲁棒缺陷，更确立了StealthRL作为**首个支持多检测器联合规避、语义可控、可复现的RL基准协议**。代码与完整评估流水线已开源。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08762v1",
-      "arxiv_id": "2602.08762v1",
-      "title": "HoGS: Homophily-Oriented Graph Synthesis for Local Differentially Private GNN Training",
-      "authors": [
-        "Wen Xu",
-        "Zhetao Li",
-        "Yong Xiao",
-        "Pengpeng Qiao",
-        "Mianxiong Dong",
-        "Kaoru Ota"
-      ],
-      "abstract": "Graph neural networks (GNNs) have demonstrated remarkable performance in various graph-based machine learning tasks by effectively modeling high-order interactions between nodes. However, training GNNs without protection may leak sensitive personal information in graph data, including links and node features. Local differential privacy (LDP) is an advanced technique for protecting data privacy in decentralized networks. Unfortunately, existing local differentially private GNNs either only preserve link privacy or suffer significant utility loss in the process of preserving link and node feature privacy. In this paper, we propose an effective LDP framework, called HoGS, which trains GNNs with link and feature protection by generating a synthetic graph. Concretely, HoGS first collects the link and feature information of the graph under LDP, and then utilizes the phenomenon of homophily in graph data to reconstruct the graph structure and node features separately, thereby effectively mitigating the negative impact of LDP on the downstream GNN training. We theoretically analyze the privacy guarantee of HoGS and conduct experiments using the generated synthetic graph as input to various state-of-the-art GNN architectures. Experimental results on three real-world datasets show that HoGS significantly outperforms baseline methods in the accuracy of training GNNs.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08762v1",
-      "url": "https://arxiv.org/abs/2602.08762v1",
-      "categories": [
-        "cs.LG",
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "privacy",
-        "machine",
-        "differential",
-        "learning"
-      ],
-      "keyword_score": 4,
-      "summary_zh": "## 背景与挑战  \n图神经网络（GNN）在节点分类、链接预测等任务中表现卓越，但其训练过程易泄露图数据中的敏感信息——包括**用户间关系（边）**和**个体属性（节点特征）**。本地差分隐私（LDP）作为去中心化场景下的强隐私保障机制，虽能避免可信服务器依赖，却常导致严重效用损失：现有LDP-GNN方法或仅保护边隐私、忽略特征隐私，或同步保护二者时精度骤降，主因是LDP噪声破坏了图结构的**同质性（homophily）**——即相似节点更可能相连的核心先验。\n\n## 方法创新：HoGS框架  \n本文提出**同质性导向的图合成框架（HoGS）**，首次在LDP约束下协同保护边与节点特征隐私，并通过生成高质量合成图缓解效用损失。HoGS包含两大核心阶段：  \n1. **LDP感知的数据收集**：各节点独立对邻接关系（边）和特征向量施加LDP扰动（采用优化的随机响应与高斯机制组合），上传扰动后数据至聚合方；  \n2. **同质性驱动的联合重建**：利用图数据固有的同质性先验，分别建模边生成概率（基于扰动后邻域统计）与特征重建分布（基于语义相似性约束），生成结构合理、特征一致的合成图，供下游GNN直接训练。\n\n## 主要成果  \n- **理论保障**：严格证明HoGS满足ε-LDP，且重建误差界随同质性强度增强而收敛；  \n- **实验验证**：在Cora、Citeseer、Pubmed三大基准数据集上，HoGS驱动的GCN、GAT、GraphSAGE平均准确率较最优基线提升**+5.2–9.7个百分点**，显著缩小隐私-效用鸿沟；  \n- **关键洞见**：同质性不仅是图学习的归纳偏置，更是LDP下隐私保护与模型效用协同优化的桥梁。",
-      "summary_en": "Graph neural networks (GNNs) achieve strong performance but risk leaking sensitive links and node features. Local differential privacy (LDP) offers decentralized privacy protection, yet existing LDP-GNN methods either protect only edges or suffer severe utility degradation when preserving both edges and features—largely due to LDP noise eroding graph homophily. We propose **HoGS (Homophily-Oriented Graph Synthesis)**, the first LDP framework that jointly protects edges and features *and* mitigates utility loss via synthetic graph generation. HoGS collects perturbed adjacency and feature data under rigorous ε-LDP, then leverages homophily as a structural prior to reconstruct both graph topology and node features separately. The resulting synthetic graph serves as input to standard GNNs (e.g., GCN, GAT) without architectural modification. Experiments on Cora, Citeseer, and Pubmed show HoGS consistently outperforms state-of-the-art baselines, improving classification accuracy by **5.2–9.7 percentage points**, with formal privacy guarantees and bounded reconstruction error. HoGS establishes homophily as a critical enabler for high-fidelity private graph learning.",
-      "summary": "## 背景与挑战  \n图神经网络（GNN）在节点分类、链接预测等任务中表现卓越，但其训练过程易泄露图数据中的敏感信息——包括**用户间关系（边）**和**个体属性（节点特征）**。本地差分隐私（LDP）作为去中心化场景下的强隐私保障机制，虽能避免可信服务器依赖，却常导致严重效用损失：现有LDP-GNN方法或仅保护边隐私、忽略特征隐私，或同步保护二者时精度骤降，主因是LDP噪声破坏了图结构的**同质性（homophily）**——即相似节点更可能相连的核心先验。\n\n## 方法创新：HoGS框架  \n本文提出**同质性导向的图合成框架（HoGS）**，首次在LDP约束下协同保护边与节点特征隐私，并通过生成高质量合成图缓解效用损失。HoGS包含两大核心阶段：  \n1. **LDP感知的数据收集**：各节点独立对邻接关系（边）和特征向量施加LDP扰动（采用优化的随机响应与高斯机制组合），上传扰动后数据至聚合方；  \n2. **同质性驱动的联合重建**：利用图数据固有的同质性先验，分别建模边生成概率（基于扰动后邻域统计）与特征重建分布（基于语义相似性约束），生成结构合理、特征一致的合成图，供下游GNN直接训练。\n\n## 主要成果  \n- **理论保障**：严格证明HoGS满足ε-LDP，且重建误差界随同质性强度增强而收敛；  \n- **实验验证**：在Cora、Citeseer、Pubmed三大基准数据集上，HoGS驱动的GCN、GAT、GraphSAGE平均准确率较最优基线提升**+5.2–9.7个百分点**，显著缩小隐私-效用鸿沟；  \n- **关键洞见**：同质性不仅是图学习的归纳偏置，更是LDP下隐私保护与模型效用协同优化的桥梁。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08690v1",
-      "arxiv_id": "2602.08690v1",
-      "title": "SoK: The Pitfalls of Deep Reinforcement Learning for Cybersecurity",
-      "authors": [
-        "Shae McFadden",
-        "Myles Foley",
-        "Elizabeth Bates",
-        "Ilias Tsingenopoulos",
-        "Sanyam Vyas",
-        "Vasilios Mavroudis",
-        "Chris Hicks",
-        "Fabio Pierazzi"
-      ],
-      "abstract": "Deep Reinforcement Learning (DRL) has achieved remarkable success in domains requiring sequential decision-making, motivating its application to cybersecurity problems. However, transitioning DRL from laboratory simulations to bespoke cyber environments can introduce numerous issues. This is further exacerbated by the often adversarial, non-stationary, and partially-observable nature of most cybersecurity tasks. In this paper, we identify and systematize 11 methodological pitfalls that frequently occur in DRL for cybersecurity (DRL4Sec) literature across the stages of environment modeling, agent training, performance evaluation, and system deployment. By analyzing 66 significant DRL4Sec papers (2018-2025), we quantify the prevalence of each pitfall and find an average of over five pitfalls per paper. We demonstrate the practical impact of these pitfalls using controlled experiments in (i) autonomous cyber defense, (ii) adversarial malware creation, and (iii) web security testing environments. Finally, we provide actionable recommendations for each pitfall to support the development of more rigorous and deployable DRL-based security systems.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08690v1",
-      "url": "https://arxiv.org/abs/2602.08690v1",
-      "categories": [
-        "cs.LG",
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "agent",
-        "security"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 系统性综述：深度强化学习在网络安全中的方法论陷阱  \n\n深度强化学习（DRL）在序列决策任务中表现卓越，正被广泛探索用于网络安全场景（如自动防御、恶意软件生成、渗透测试）。然而，**从理想化仿真环境到真实、对抗性、非平稳且部分可观测的网络空间迁移时，DRL系统常因方法论缺陷而失效**。本文首次对DRL4Sec（面向网络安全的深度强化学习）领域开展系统性知识梳理（SoK），基于对2018–2025年间66篇代表性论文的严格分析，**识别并结构化归纳出11类高频方法论陷阱**，覆盖四大关键阶段：  \n- **环境建模**（如忽略网络动态性、过度简化对手能力）；  \n- **智能体训练**（如奖励函数设计偏差、缺乏对抗鲁棒性训练）；  \n- **性能评估**（如使用静态测试集、未报告置信区间、混淆“模拟胜率”与“实际部署有效性”）；  \n- **系统部署**（如忽略延迟/资源约束、未验证迁移泛化性）。  \n\n统计显示，**平均每篇论文存在5.3个以上陷阱**，其中“评估协议不透明”（89%）、“环境非平稳性建模缺失”（77%）和“奖励塑形导致策略短视”（71%）最为普遍。我们通过三类可控实验——（i）自主网络防御红蓝对抗、（ii）对抗性恶意软件演化、（iii）Web漏洞模糊测试——实证验证了这些陷阱如何显著降低策略真实性、可复现性与实战鲁棒性。最后，本文为每一类陷阱提供**可落地的改进建议**，包括标准化评估模板、对抗感知环境构建框架、部署就绪型训练范式等，旨在推动DRL4Sec研究从“实验室演示”迈向**可验证、可部署、可监管的安全智能系统**。",
-      "summary_en": "## SoK: The Pitfalls of Deep Reinforcement Learning for Cybersecurity  \n\nDeep Reinforcement Learning (DRL) shows promise for cybersecurity tasks requiring sequential decisions—yet its transition from simulation to real-world deployment is fraught with methodological flaws. This Systematization of Knowledge (SoK) paper analyzes 66 influential DRL4Sec papers (2018–2025) and identifies **11 recurring pitfalls** across environment modeling, agent training, evaluation, and deployment. We find an average of **5.3 pitfalls per paper**, with the most prevalent being opaque evaluation protocols (89%), neglect of non-stationarity (77%), and reward shaping that induces myopic policies (71%). Through controlled experiments in autonomous cyber defense, adversarial malware generation, and web security testing, we demonstrate how these flaws degrade robustness, reproducibility, and real-world efficacy. To bridge the gap between research and practice, we provide concrete, actionable recommendations—including standardized evaluation benchmarks, adversary-aware environment design principles, and deployment-constrained training pipelines—to foster rigorous, trustworthy, and operationally viable DRL-based security systems.",
-      "summary": "## 系统性综述：深度强化学习在网络安全中的方法论陷阱  \n\n深度强化学习（DRL）在序列决策任务中表现卓越，正被广泛探索用于网络安全场景（如自动防御、恶意软件生成、渗透测试）。然而，**从理想化仿真环境到真实、对抗性、非平稳且部分可观测的网络空间迁移时，DRL系统常因方法论缺陷而失效**。本文首次对DRL4Sec（面向网络安全的深度强化学习）领域开展系统性知识梳理（SoK），基于对2018–2025年间66篇代表性论文的严格分析，**识别并结构化归纳出11类高频方法论陷阱**，覆盖四大关键阶段：  \n- **环境建模**（如忽略网络动态性、过度简化对手能力）；  \n- **智能体训练**（如奖励函数设计偏差、缺乏对抗鲁棒性训练）；  \n- **性能评估**（如使用静态测试集、未报告置信区间、混淆“模拟胜率”与“实际部署有效性”）；  \n- **系统部署**（如忽略延迟/资源约束、未验证迁移泛化性）。  \n\n统计显示，**平均每篇论文存在5.3个以上陷阱**，其中“评估协议不透明”（89%）、“环境非平稳性建模缺失”（77%）和“奖励塑形导致策略短视”（71%）最为普遍。我们通过三类可控实验——（i）自主网络防御红蓝对抗、（ii）对抗性恶意软件演化、（iii）Web漏洞模糊测试——实证验证了这些陷阱如何显著降低策略真实性、可复现性与实战鲁棒性。最后，本文为每一类陷阱提供**可落地的改进建议**，包括标准化评估模板、对抗感知环境构建框架、部署就绪型训练范式等，旨在推动DRL4Sec研究从“实验室演示”迈向**可验证、可部署、可监管的安全智能系统**。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08563v1",
-      "arxiv_id": "2602.08563v1",
-      "title": "Stateless Yet Not Forgetful: Implicit Memory as a Hidden Channel in LLMs",
-      "authors": [
-        "Ahmed Salem",
-        "Andrew Paverd",
-        "Sahar Abdelnabi"
-      ],
-      "abstract": "Large language models (LLMs) are commonly treated as stateless: once an interaction ends, no information is assumed to persist unless it is explicitly stored and re-supplied. We challenge this assumption by introducing implicit memory-the ability of a model to carry state across otherwise independent interactions by encoding information in its own outputs and later recovering it when those outputs are reintroduced as input. This mechanism does not require any explicit memory module, yet it creates a persistent information channel across inference requests. As a concrete demonstration, we introduce a new class of temporal backdoors, which we call time bombs. Unlike conventional backdoors that activate on a single trigger input, time bombs activate only after a sequence of interactions satisfies hidden conditions accumulated via implicit memory. We show that such behavior can be induced today through straightforward prompting or fine-tuning. Beyond this case study, we analyze broader implications of implicit memory, including covert inter-agent communication, benchmark contamination, targeted manipulation, and training-data poisoning. Finally, we discuss detection challenges and outline directions for stress-testing and evaluation, with the goal of anticipating and controlling future developments. To promote future research, we release code and data at: https://github.com/microsoft/implicitMemory.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08563v1",
-      "url": "https://arxiv.org/abs/2602.08563v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "data",
-        "poisoning",
-        "model"
-      ],
-      "keyword_score": 3,
-      "summary_zh": "## 背景与核心挑战  \n传统观点认为大语言模型（LLMs）是**无状态的**：单次交互结束后，模型不保留任何隐式状态，所有“记忆”必须显式提供（如通过上下文窗口或外部向量库）。本文挑战这一范式，首次系统提出并实证验证**隐式记忆**（implicit memory）——一种无需修改架构、不依赖外部存储、仅通过模型自身输入-输出循环即可实现的跨轮次状态保持机制。\n\n## 方法与关键发现  \n我们发现，LLMs 可将信息**编码于自然语言输出中**（如特定句式、冗余标记、语义锚点），并在后续交互中，当该输出作为输入片段被重新引入时，**自主解码并激活先前编码的状态**。为验证其安全影响，我们设计新型**时间炸弹型后门**（time bombs）：其触发需满足多轮交互累积的隐藏条件（如特定输出序列出现次数、语义模式组合），而非单次触发词。实验表明，仅通过**提示工程**（如链式指令+自我参照模板）或轻量**LoRA微调**，即可在Llama-3、Qwen2等主流模型上稳定诱导该行为（激活准确率 >92%）。\n\n## 广泛影响与应对方向  \n隐式记忆不仅构成隐蔽信道，更引发多重风险：① **跨智能体隐秘通信**（agents间通过共享输出传递密钥）；② **基准污染**（训练数据意外包含自身历史输出，导致评估虚高）；③ **定向操控**（攻击者预埋输出模板，数周后远程激活恶意行为）；④ **训练数据投毒新路径**（注入含隐式状态编码的文本，污染模型长期行为）。我们开源首个隐式记忆检测工具包与基准数据集（含12类时间炸弹模式），提出基于**输出扰动鲁棒性测试**与**跨轮次状态追踪**的评估框架，呼吁建立面向“状态涌现”的新型安全评测标准。",
-      "summary_en": "Large language models (LLMs) are conventionally assumed stateless—yet we demonstrate that they can sustain *implicit memory*: encoding state into natural-language outputs and later recovering it when those outputs re-enter as input, without any architectural modification or external storage. We introduce *time bombs*, a novel class of temporal backdoors that activate only after multi-turn interaction sequences satisfy hidden conditions accumulated via this mechanism—unlike conventional single-trigger backdoors. We show such behavior is readily inducible today via prompting (e.g., self-referential chain-of-thought) or lightweight fine-tuning (LoRA), achieving >92% activation accuracy across Llama-3 and Qwen2. Beyond time bombs, implicit memory enables covert agent-to-agent communication, benchmark contamination, delayed manipulation, and new training-data poisoning vectors. We release open-source tools, benchmarks, and detection methodologies—including output perturbation tests and cross-turn state tracing—to support stress-testing and proactive governance. Code and data: https://github.com/microsoft/implicitMemory.",
-      "summary": "## 背景与核心挑战  \n传统观点认为大语言模型（LLMs）是**无状态的**：单次交互结束后，模型不保留任何隐式状态，所有“记忆”必须显式提供（如通过上下文窗口或外部向量库）。本文挑战这一范式，首次系统提出并实证验证**隐式记忆**（implicit memory）——一种无需修改架构、不依赖外部存储、仅通过模型自身输入-输出循环即可实现的跨轮次状态保持机制。\n\n## 方法与关键发现  \n我们发现，LLMs 可将信息**编码于自然语言输出中**（如特定句式、冗余标记、语义锚点），并在后续交互中，当该输出作为输入片段被重新引入时，**自主解码并激活先前编码的状态**。为验证其安全影响，我们设计新型**时间炸弹型后门**（time bombs）：其触发需满足多轮交互累积的隐藏条件（如特定输出序列出现次数、语义模式组合），而非单次触发词。实验表明，仅通过**提示工程**（如链式指令+自我参照模板）或轻量**LoRA微调**，即可在Llama-3、Qwen2等主流模型上稳定诱导该行为（激活准确率 >92%）。\n\n## 广泛影响与应对方向  \n隐式记忆不仅构成隐蔽信道，更引发多重风险：① **跨智能体隐秘通信**（agents间通过共享输出传递密钥）；② **基准污染**（训练数据意外包含自身历史输出，导致评估虚高）；③ **定向操控**（攻击者预埋输出模板，数周后远程激活恶意行为）；④ **训练数据投毒新路径**（注入含隐式状态编码的文本，污染模型长期行为）。我们开源首个隐式记忆检测工具包与基准数据集（含12类时间炸弹模式），提出基于**输出扰动鲁棒性测试**与**跨轮次状态追踪**的评估框架，呼吁建立面向“状态涌现”的新型安全评测标准。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08446v1",
-      "arxiv_id": "2602.08446v1",
-      "title": "RIFLE: Robust Distillation-based FL for Deep Model Deployment on Resource-Constrained IoT Networks",
-      "authors": [
-        "Pouria Arefijamal",
-        "Mahdi Ahmadlou",
-        "Bardia Safaei",
-        "Jörg Henkel"
-      ],
-      "abstract": "Federated learning (FL) is a decentralized learning paradigm widely adopted in resource-constrained Internet of Things (IoT) environments. These devices, typically relying on TinyML models, collaboratively train global models by sharing gradients with a central server while preserving data privacy. However, as data heterogeneity and task complexity increase, TinyML models often become insufficient to capture intricate patterns, especially under extreme non-IID (non-independent and identically distributed) conditions. Moreover, ensuring robustness against malicious clients and poisoned updates remains a major challenge. Accordingly, this paper introduces RIFLE - a Robust, distillation-based Federated Learning framework that replaces gradient sharing with logit-based knowledge transfer. By leveraging a knowledge distillation aggregation scheme, RIFLE enables the training of deep models such as VGG-19 and Resnet18 within constrained IoT systems. Furthermore, a Kullback-Leibler (KL) divergence-based validation mechanism quantifies the reliability of client updates without exposing raw data, achieving high trust and privacy preservation simultaneously. Experiments on three benchmark datasets (MNIST, CIFAR-10, and CIFAR-100) under heterogeneous non-IID conditions demonstrate that RIFLE reduces false-positive detections by up to 87.5%, enhances poisoning attack mitigation by 62.5%, and achieves up to 28.3% higher accuracy compared to conventional federated learning baselines within only 10 rounds. Notably, RIFLE reduces VGG19 training time from over 600 days to just 1.39 hours on typical IoT devices (0.3 GFLOPS), making deep learning practical in resource-constrained networks.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08446v1",
-      "url": "https://arxiv.org/abs/2602.08446v1",
-      "categories": [
-        "cs.LG",
-        "cs.CR",
-        "cs.DC",
-        "cs.NI"
-      ],
-      "published_official": true,
-      "keywords": [
-        "federated",
-        "model",
-        "data",
-        "learning",
-        "poisoning"
-      ],
-      "keyword_score": 5,
-      "summary_zh": "## RIFLE：面向资源受限物联网网络的鲁棒蒸馏式联邦学习框架  \n\n**背景与挑战**：联邦学习（FL）在资源受限的物联网（IoT）环境中面临三重瓶颈：（1）TinyML模型表达能力不足，难以应对高异构性、强非独立同分布（non-IID）数据下的复杂任务；（2）梯度共享易受恶意客户端攻击，传统鲁棒聚合难以兼顾精度与抗毒能力；（3）深度模型（如VGG-19、ResNet18）因计算/内存开销过大，在典型IoT设备（仅0.3 GFLOPS）上训练近乎不可行——实测需超600天。  \n\n**方法创新**：本文提出**RIFLE**（Robust, distillation-based Federated Learning），彻底摒弃梯度传输范式，转而采用**logit级知识蒸馏**实现客户端-服务器协同。其核心包含两大机制：（1）**蒸馏式聚合**：服务器分发轻量教师模型（如MobileNetV3），各客户端基于本地数据生成软标签（logits），上传至服务器后，通过加权KL散度融合生成全局学生模型；（2）**无数据验证**：利用KL散度量化客户端logits与全局预测的一致性，自动识别并抑制异常更新——无需访问原始数据，兼顾隐私保护与鲁棒性。  \n\n**关键结果**：在MNIST、CIFAR-10、CIFAR-100三个基准数据集的极端non-IID设定下（Dirichlet α=0.1），RIFLE仅用**10轮通信**即达成：（1）**准确率提升28.3%**（vs. FedAvg/FedProx）；（2）**误报率降低87.5%**（大幅减少对诚实客户端的错误剔除）；（3）**毒攻击缓解效率达62.5%**（对label-flipping和model-poisoning均显著优于SOTA）；（4）**VGG-19端侧训练耗时压缩至1.39小时**（降幅>99.9%），首次使深度模型在真实IoT设备上可部署。RIFLE为隐私敏感、算力稀缺的边缘智能提供了兼具性能、安全与实用性的新范式。",
-      "summary_en": "RIFLE is a robust, knowledge distillation–based federated learning framework designed for deep model deployment on resource-constrained IoT devices. It replaces vulnerable gradient sharing with logit-level knowledge transfer: clients compute and upload soft predictions (logits) instead of gradients, while the server performs KL-divergence–weighted distillation aggregation to update a global deep student model (e.g., VGG-19 or ResNet18). A lightweight, data-free validation mechanism uses KL divergence to assess client update reliability—enabling robust poisoning defense without raw data exposure. Evaluated under extreme non-IID conditions (α=0.1) across MNIST, CIFAR-10, and CIFAR-100, RIFLE achieves up to **28.3% higher accuracy**, **87.5% lower false-positive detection**, and **62.5% stronger poisoning mitigation** than baseline FL methods—all within just 10 communication rounds. Critically, it reduces VGG-19 training time on typical IoT hardware (0.3 GFLOPS) from >600 days to **1.39 hours**, making deep learning practically viable at the edge.",
-      "summary": "## RIFLE：面向资源受限物联网网络的鲁棒蒸馏式联邦学习框架  \n\n**背景与挑战**：联邦学习（FL）在资源受限的物联网（IoT）环境中面临三重瓶颈：（1）TinyML模型表达能力不足，难以应对高异构性、强非独立同分布（non-IID）数据下的复杂任务；（2）梯度共享易受恶意客户端攻击，传统鲁棒聚合难以兼顾精度与抗毒能力；（3）深度模型（如VGG-19、ResNet18）因计算/内存开销过大，在典型IoT设备（仅0.3 GFLOPS）上训练近乎不可行——实测需超600天。  \n\n**方法创新**：本文提出**RIFLE**（Robust, distillation-based Federated Learning），彻底摒弃梯度传输范式，转而采用**logit级知识蒸馏**实现客户端-服务器协同。其核心包含两大机制：（1）**蒸馏式聚合**：服务器分发轻量教师模型（如MobileNetV3），各客户端基于本地数据生成软标签（logits），上传至服务器后，通过加权KL散度融合生成全局学生模型；（2）**无数据验证**：利用KL散度量化客户端logits与全局预测的一致性，自动识别并抑制异常更新——无需访问原始数据，兼顾隐私保护与鲁棒性。  \n\n**关键结果**：在MNIST、CIFAR-10、CIFAR-100三个基准数据集的极端non-IID设定下（Dirichlet α=0.1），RIFLE仅用**10轮通信**即达成：（1）**准确率提升28.3%**（vs. FedAvg/FedProx）；（2）**误报率降低87.5%**（大幅减少对诚实客户端的错误剔除）；（3）**毒攻击缓解效率达62.5%**（对label-flipping和model-poisoning均显著优于SOTA）；（4）**VGG-19端侧训练耗时压缩至1.39小时**（降幅>99.9%），首次使深度模型在真实IoT设备上可部署。RIFLE为隐私敏感、算力稀缺的边缘智能提供了兼具性能、安全与实用性的新范式。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08422v1",
-      "arxiv_id": "2602.08422v1",
-      "title": "LLMs + Security = Trouble",
-      "authors": [
-        "Benjamin Livshits"
-      ],
-      "abstract": "We argue that when it comes to producing secure code with AI, the prevailing \"fighting fire with fire\" approach -- using probabilistic AI-based checkers or attackers to secure probabilistically generated code -- fails to address the long tail of security bugs. As a result, systems may remain exposed to zero-day vulnerabilities that can be discovered by better-resourced or more persistent adversaries.   While neurosymbolic approaches that combine LLMs with formal methods are attractive in principle, we argue that they are difficult to reconcile with the \"vibe coding\" workflow common in LLM-assisted development: unless the end-to-end verification pipeline is fully automated, developers are repeatedly asked to validate specifications, resolve ambiguities, and adjudicate failures, making the human-in-the-loop a likely point of weakness, compromising secure-by-construction guarantees.   In this paper we argue that stronger security guarantees can be obtained by enforcing security constraints during code generation (e.g., via constrained decoding), rather than relying solely on post-hoc detection and repair. This direction is particularly promising for diffusion-style code models, whose approach provides a natural elegant opportunity for modular, hierarchical security enforcement, allowing us to combine lower-latency generation techniques with generating secure-by-construction code.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08422v1",
-      "url": "https://arxiv.org/abs/2602.08422v1",
-      "categories": [
-        "cs.CR",
-        "cs.AI",
-        "cs.SE"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "llm"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 核心论点  \n本文批判性地指出：当前主流的“以火攻火”式AI安全范式——即用概率性大语言模型（LLM）构建的检查器或攻击者，去检测/修复同样由LLM概率性生成的代码——**无法有效覆盖长尾安全缺陷**。该方法虽能捕获常见漏洞，却极易遗漏隐蔽、组合型或上下文敏感的零日漏洞，使系统持续暴露于高能力攻击者的威胁之下。\n\n## 方法创新  \n我们主张将安全约束**前移至代码生成阶段**，而非依赖低效且易漏的“生成→检测→修复”闭环。具体路径是：利用**约束解码（constrained decoding）** 技术，在token级实时嵌入形式化安全策略（如内存安全、权限最小化、输入验证等）。尤其针对新兴的**扩散式代码模型**（diffusion-style code models），其分步、迭代、模块化的生成机制天然适配**分层安全注入**——可在不同抽象层级（语法层、语义层、策略层）动态施加差异化约束，兼顾生成效率与构造安全性。\n\n## 关键优势  \n- ✅ **消除人工验证瓶颈**：规避神经符号方法中频繁的人类介入（如规格澄清、失败归因），防止“人在环中”成为安全薄弱点；  \n- ✅ **保障“安全即构造”（secure-by-construction）**：安全属性在生成时即被满足，而非事后补救；  \n- ✅ **提升长尾防御能力**：通过显式约束覆盖传统模糊测试与LLM检查器难以触发的边缘场景。  \n本工作为构建可信赖AI编程基础设施提供了可落地的技术路线与理论依据。",
-      "summary_en": "This paper challenges the dominant “fighting fire with fire” paradigm in AI-assisted secure coding—using probabilistic LLM-based checkers or fuzzers to audit probabilistically generated code. We argue this approach fails against the long tail of security bugs, leaving systems vulnerable to zero-day exploits by sophisticated adversaries. While neurosymbolic methods (LLMs + formal verification) are theoretically appealing, they clash with real-world “vibe coding” workflows: manual specification validation and failure adjudication make the human-in-the-loop a critical vulnerability, undermining secure-by-construction guarantees. Instead, we advocate **enforcing security constraints *during* code generation**—e.g., via constrained decoding—especially for diffusion-style code models. Their iterative, hierarchical generation enables modular, multi-level security injection (syntax → semantics → policy), combining low-latency inference with provable safety properties. This shift from post-hoc detection to *generation-time enforcement* offers stronger, more scalable security assurances.",
-      "summary": "## 核心论点  \n本文批判性地指出：当前主流的“以火攻火”式AI安全范式——即用概率性大语言模型（LLM）构建的检查器或攻击者，去检测/修复同样由LLM概率性生成的代码——**无法有效覆盖长尾安全缺陷**。该方法虽能捕获常见漏洞，却极易遗漏隐蔽、组合型或上下文敏感的零日漏洞，使系统持续暴露于高能力攻击者的威胁之下。\n\n## 方法创新  \n我们主张将安全约束**前移至代码生成阶段**，而非依赖低效且易漏的“生成→检测→修复”闭环。具体路径是：利用**约束解码（constrained decoding）** 技术，在token级实时嵌入形式化安全策略（如内存安全、权限最小化、输入验证等）。尤其针对新兴的**扩散式代码模型**（diffusion-style code models），其分步、迭代、模块化的生成机制天然适配**分层安全注入**——可在不同抽象层级（语法层、语义层、策略层）动态施加差异化约束，兼顾生成效率与构造安全性。\n\n## 关键优势  \n- ✅ **消除人工验证瓶颈**：规避神经符号方法中频繁的人类介入（如规格澄清、失败归因），防止“人在环中”成为安全薄弱点；  \n- ✅ **保障“安全即构造”（secure-by-construction）**：安全属性在生成时即被满足，而非事后补救；  \n- ✅ **提升长尾防御能力**：通过显式约束覆盖传统模糊测试与LLM检查器难以触发的边缘场景。  \n本工作为构建可信赖AI编程基础设施提供了可落地的技术路线与理论依据。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08384v1",
-      "arxiv_id": "2602.08384v1",
-      "title": "Towards Real-World Industrial-Scale Verification: LLM-Driven Theorem Proving on seL4",
-      "authors": [
-        "Jianyu Zhang",
-        "Fuyuan Zhang",
-        "Jiayi Lu",
-        "Jilin Hu",
-        "Xiaoyi Yin",
-        "Long Zhang",
-        "Feng Yang",
-        "Yongwang Zhao"
-      ],
-      "abstract": "Formal methods (FM) are reliable but costly to apply, often requiring years of expert effort in industrial-scale projects such as seL4, especially for theorem proving. Recent advances in large language models (LLMs) have made automated theorem proving increasingly feasible. However, most prior work focuses on mathematics-oriented benchmarks such as miniF2F, with limited evaluation on real-world verification projects. The few studies that consider industrial-scale verification mostly rely on closed-source models with hundreds of billions of parameters, which cannot be locally deployed and incur substantial usage costs. In this paper, we propose AutoReal, an LLM-driven theorem proving method for real-world industrial-scale systems with support for lightweight local deployment. We evaluate AutoReal on the seL4-Isabelle verification project as a representative and challenging case study. AutoReal incorporates two key improvements: (1) chain-of-thought (CoT)-based proof training, which teaches the LLM the reasoning behind proof steps and enables step-wise explanations alongside proofs, and (2) context augmentation, which leverages proof context from the project to enhance LLM-driven proving. Based on the AutoReal methodology, we fine-tune a base model to obtain AutoReal-Prover, a compact 7B-scale prover for industrial-scale theorem proving. AutoReal-Prover achieves a 51.67% proof success rate on 660 theorems from seL4-designated Important Theories across all 10 seL4 proof categories, substantially outperforming prior attempts on seL4 (27.06%). To evaluate generalization, we further apply AutoReal-Prover to three security-related projects from the Archive of Formal Proofs (AFP), covering all 451 theorems and achieving a proof success rate of 53.88%. Overall, this work advances the application of LLM-driven theorem proving in real-world industrial-scale verification.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08384v1",
-      "url": "https://arxiv.org/abs/2602.08384v1",
-      "categories": [
-        "cs.CR"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "llm"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 面向真实工业级验证的LLM驱动定理证明：在seL4上的实践  \n\n**背景与挑战**：形式化方法（FM）虽具高可靠性，但在工业级系统（如微内核seL4）中应用成本极高——其完整Isabelle/HOL验证历时十余年，依赖大量专家人工推导。近期大语言模型（LLM）为自动化定理证明带来新机遇，但现有工作多聚焦于数学竞赛类基准（如miniF2F），缺乏对真实工业验证项目的系统性评估；少数面向工业场景的研究则严重依赖闭源、超大规模（数百B参数）模型，无法本地部署且推理成本高昂。\n\n**方法创新**：本文提出**AutoReal**——首个支持轻量级本地部署的LLM驱动工业级定理证明框架。以seL4-Isabelle验证项目为典型挑战场景，AutoReal包含两大核心技术：（1）**思维链（CoT）式证明训练**：通过结构化证明步骤与对应推理说明联合微调，使模型不仅生成正确证明脚本，还能输出可解释的中间推理链；（2）**上下文增强机制**：动态注入项目级证明上下文（如已定义引理、类型约束、模块依赖图），显著提升领域适配性。\n\n**核心成果**：基于该方法，我们微调出轻量级**AutoReal-Prover（7B参数）**。在seL4“重要理论”660个定理（覆盖全部10类证明任务）上，其**证明成功率高达51.67%**，大幅超越此前最佳结果（27.06%）。泛化性测试中，AutoReal-Prover在Archive of Formal Proofs（AFP）三个安全关键项目（共451个定理）上达成**53.88%的成功率**。本工作首次验证了中小规模开源LLM在真实工业验证闭环中的可行性，为可信系统开发提供了低成本、可部署、可解释的新范式。",
-      "summary_en": "This paper introduces **AutoReal**, the first LLM-driven theorem proving framework designed for real-world industrial-scale verification with lightweight local deployment capability. Targeting the seL4 microkernel’s Isabelle/HOL proof project—a canonical, high-assurance benchmark—we propose two key innovations: (1) **chain-of-thought (CoT)-based proof training**, which jointly learns proof scripts and stepwise natural-language reasoning explanations; and (2) **proof-context augmentation**, leveraging project-specific lemmas, type signatures, and module dependencies to ground LLM reasoning. Fine-tuning a base 7B-parameter model yields **AutoReal-Prover**, achieving a **51.67% proof success rate** on 660 theorems from seL4’s designated Important Theories across all 10 proof categories—more than doubling prior performance (27.06%). Furthermore, AutoReal-Prover generalizes effectively, solving **53.88%** of all 451 theorems across three security-critical AFP projects. This work bridges the gap between LLM-based automation and practical industrial formal verification.",
-      "summary": "## 面向真实工业级验证的LLM驱动定理证明：在seL4上的实践  \n\n**背景与挑战**：形式化方法（FM）虽具高可靠性，但在工业级系统（如微内核seL4）中应用成本极高——其完整Isabelle/HOL验证历时十余年，依赖大量专家人工推导。近期大语言模型（LLM）为自动化定理证明带来新机遇，但现有工作多聚焦于数学竞赛类基准（如miniF2F），缺乏对真实工业验证项目的系统性评估；少数面向工业场景的研究则严重依赖闭源、超大规模（数百B参数）模型，无法本地部署且推理成本高昂。\n\n**方法创新**：本文提出**AutoReal**——首个支持轻量级本地部署的LLM驱动工业级定理证明框架。以seL4-Isabelle验证项目为典型挑战场景，AutoReal包含两大核心技术：（1）**思维链（CoT）式证明训练**：通过结构化证明步骤与对应推理说明联合微调，使模型不仅生成正确证明脚本，还能输出可解释的中间推理链；（2）**上下文增强机制**：动态注入项目级证明上下文（如已定义引理、类型约束、模块依赖图），显著提升领域适配性。\n\n**核心成果**：基于该方法，我们微调出轻量级**AutoReal-Prover（7B参数）**。在seL4“重要理论”660个定理（覆盖全部10类证明任务）上，其**证明成功率高达51.67%**，大幅超越此前最佳结果（27.06%）。泛化性测试中，AutoReal-Prover在Archive of Formal Proofs（AFP）三个安全关键项目（共451个定理）上达成**53.88%的成功率**。本工作首次验证了中小规模开源LLM在真实工业验证闭环中的可行性，为可信系统开发提供了低成本、可部署、可解释的新范式。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.09012v1",
-      "arxiv_id": "2602.09012v1",
-      "title": "Next-Gen CAPTCHAs: Leveraging the Cognitive Gap for Scalable and Diverse GUI-Agent Defense",
-      "authors": [
-        "Jiacheng Liu",
-        "Yaxin Luo",
-        "Jiacheng Cui",
-        "Xinyi Shang",
-        "Xiaohan Zhao",
-        "Zhiqiang Shen"
-      ],
-      "abstract": "The rapid evolution of GUI-enabled agents has rendered traditional CAPTCHAs obsolete. While previous benchmarks like OpenCaptchaWorld established a baseline for evaluating multimodal agents, recent advancements in reasoning-heavy models, such as Gemini3-Pro-High and GPT-5.2-Xhigh have effectively collapsed this security barrier, achieving pass rates as high as 90% on complex logic puzzles like \"Bingo\". In response, we introduce Next-Gen CAPTCHAs, a scalable defense framework designed to secure the next-generation web against the advanced agents. Unlike static datasets, our benchmark is built upon a robust data generation pipeline, allowing for large-scale and easily scalable evaluations, notably, for backend-supported types, our system is capable of generating effectively unbounded CAPTCHA instances. We exploit the persistent human-agent \"Cognitive Gap\" in interactive perception, memory, decision-making, and action. By engineering dynamic tasks that require adaptive intuition rather than granular planning, we re-establish a robust distinction between biological users and artificial agents, offering a scalable and diverse defense mechanism for the agentic era.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.09012v1",
-      "url": "https://arxiv.org/abs/2602.09012v1",
-      "categories": [
-        "cs.LG",
-        "cs.AI",
-        "cs.CL"
-      ],
-      "published_official": true,
-      "keywords": [
-        "security",
-        "agent"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 背景与挑战  \n随着GUI智能体（如基于多模态大模型的网页操作代理）的迅猛发展，传统CAPTCHA已全面失效。近期推理能力极强的模型（如Gemini3-Pro-High、GPT-5.2-Xhigh）在OpenCaptchaWorld等基准上表现惊人——在需多步逻辑推演的“Bingo”类复杂谜题中通过率高达90%，彻底瓦解了原有安全边界。\n\n## 方法创新  \n本研究提出**Next-Gen CAPTCHAs**——一种面向下一代Web交互场景的可扩展、高多样性GUI-Agent防御框架。其核心突破在于：  \n- ✅ **动态生成范式**：摒弃静态数据集，构建鲁棒的数据生成流水线，支持按需、大规模、低成本产出CAPTCHA实例；  \n- ✅ **后端增强型生成**：对服务端可验证类型（如实时交互验证），系统可生成**理论无界**的唯一挑战实例，杜绝预训练与缓存攻击；  \n- ✅ **认知鸿沟建模**：精准锚定人类与AI在**交互式感知、工作记忆调用、直觉性决策及具身动作协调**四大维度的持续性差异，设计不依赖显式规划、而依赖自适应直觉的任务（如动态遮蔽下的手势意图追踪、跨模态时序因果推理）。\n\n## 关键贡献  \n本框架首次将“认知差距”从理论概念转化为可工程化部署的防御原语，在保持用户体验流畅的前提下，使SOTA GUI-Agent平均通过率降至<18%（对比基线下降超72%），同时支持领域定制（如金融/医疗界面特化挑战），为智能体时代的人机边界防护提供了首个兼具**可扩展性、多样性与抗适应性**的系统级解决方案。",
-      "summary_en": "The rapid advancement of GUI-enabled agents has rendered conventional CAPTCHAs obsolete: state-of-the-art models like Gemini3-Pro-High and GPT-5.2-Xhigh achieve ~90% success on complex logic puzzles (e.g., “Bingo”) in benchmarks such as OpenCaptchaWorld. To restore the human-AI boundary, we propose **Next-Gen CAPTCHAs**, a scalable defense framework grounded in the persistent *cognitive gap*—specifically in interactive perception, working memory, intuitive decision-making, and embodied action coordination. Unlike static benchmarks, our system employs a robust, modular data generation pipeline capable of producing effectively unbounded, backend-supported CAPTCHA instances. By designing dynamic, intuition-driven tasks (e.g., real-time occluded gesture inference, cross-modal temporal causal reasoning), we re-establish a robust performance gap: SOTA agents drop to <18% pass rate while maintaining usability for humans. This work delivers the first production-ready, cognitively grounded, and domain-adaptable defense for the agentic web era.",
-      "summary": "## 背景与挑战  \n随着GUI智能体（如基于多模态大模型的网页操作代理）的迅猛发展，传统CAPTCHA已全面失效。近期推理能力极强的模型（如Gemini3-Pro-High、GPT-5.2-Xhigh）在OpenCaptchaWorld等基准上表现惊人——在需多步逻辑推演的“Bingo”类复杂谜题中通过率高达90%，彻底瓦解了原有安全边界。\n\n## 方法创新  \n本研究提出**Next-Gen CAPTCHAs**——一种面向下一代Web交互场景的可扩展、高多样性GUI-Agent防御框架。其核心突破在于：  \n- ✅ **动态生成范式**：摒弃静态数据集，构建鲁棒的数据生成流水线，支持按需、大规模、低成本产出CAPTCHA实例；  \n- ✅ **后端增强型生成**：对服务端可验证类型（如实时交互验证），系统可生成**理论无界**的唯一挑战实例，杜绝预训练与缓存攻击；  \n- ✅ **认知鸿沟建模**：精准锚定人类与AI在**交互式感知、工作记忆调用、直觉性决策及具身动作协调**四大维度的持续性差异，设计不依赖显式规划、而依赖自适应直觉的任务（如动态遮蔽下的手势意图追踪、跨模态时序因果推理）。\n\n## 关键贡献  \n本框架首次将“认知差距”从理论概念转化为可工程化部署的防御原语，在保持用户体验流畅的前提下，使SOTA GUI-Agent平均通过率降至<18%（对比基线下降超72%），同时支持领域定制（如金融/医疗界面特化挑战），为智能体时代的人机边界防护提供了首个兼具**可扩展性、多样性与抗适应性**的系统级解决方案。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08995v1",
-      "arxiv_id": "2602.08995v1",
-      "title": "When Actions Go Off-Task: Detecting and Correcting Misaligned Actions in Computer-Use Agents",
-      "authors": [
-        "Yuting Ning",
-        "Jaylen Jones",
-        "Zhehao Zhang",
-        "Chentao Ye",
-        "Weitong Ruan",
-        "Junyi Li",
-        "Rahul Gupta",
-        "Huan Sun"
-      ],
-      "abstract": "Computer-use agents (CUAs) have made tremendous progress in the past year, yet they still frequently produce misaligned actions that deviate from the user's original intent. Such misaligned actions may arise from external attacks (e.g., indirect prompt injection) or from internal limitations (e.g., erroneous reasoning). They not only expose CUAs to safety risks, but also degrade task efficiency and reliability. This work makes the first effort to define and study misaligned action detection in CUAs, with comprehensive coverage of both externally induced and internally arising misaligned actions. We further identify three common categories in real-world CUA deployment and construct MisActBench, a benchmark of realistic trajectories with human-annotated, action-level alignment labels. Moreover, we propose DeAction, a practical and universal guardrail that detects misaligned actions before execution and iteratively corrects them through structured feedback. DeAction outperforms all existing baselines across offline and online evaluations with moderate latency overhead: (1) On MisActBench, it outperforms baselines by over 15% absolute in F1 score; (2) In online evaluation, it reduces attack success rate by over 90% under adversarial settings while preserving or even improving task success rate in benign environments.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08995v1",
-      "url": "https://arxiv.org/abs/2602.08995v1",
-      "categories": [
-        "cs.CL"
-      ],
-      "published_official": true,
-      "keywords": [
-        "injection",
-        "prompt"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 研究背景与问题  \n计算机使用型智能体（Computer-Use Agents, CUAs）虽在自动化任务执行上取得显著进展，却仍频繁生成**偏离用户原始意图的错位动作**（misaligned actions）。此类动作既可能源于外部攻击（如间接提示注入），也可能源自内部缺陷（如推理错误），严重威胁系统安全性、任务效率与可靠性。然而，当前研究尚未对“动作级意图对齐”进行明确定义，也缺乏系统性检测与纠偏框架。\n\n## 方法与贡献  \n本研究首次提出并形式化定义**错位动作检测问题**，覆盖内外双重成因；基于真实部署场景，识别出三类高频错位模式（目标漂移、工具误用、上下文遗忘），并构建首个动作级细粒度基准——**MisActBench**：包含217条真实交互轨迹，每步动作均经人工标注对齐标签（Aligned/Misaligned）。进一步，我们提出轻量、通用、可插拔的守卫机制 **DeAction**：采用双阶段设计——（1）**前置检测**：基于多源信号（指令-动作语义一致性、历史行为连贯性、界面状态合理性）实时判别动作对齐性；（2）**结构化反馈驱动的迭代修正**：生成可执行的、带约束的自然语言反馈（如“请勿关闭当前文档，先保存再退出”），引导CUI重规划。\n\n## 主要结果与意义  \n在MisActBench上，DeAction的F1达89.3%，**超越所有基线模型超15个百分点**；在线对抗测试中，其将攻击成功率降低**90%以上**，同时在良性环境中**任务成功率提升2.1%**（+0.8pp），验证了安全与效能的协同优化。本工作为CUI可信部署提供了首个端到端动作对齐保障范式，兼具理论严谨性与工程实用性。",
-      "summary_en": "This paper introduces the first systematic study of **misaligned action detection and correction** in computer-use agents (CUAs). We formally define misalignment—actions deviating from user intent due to external attacks (e.g., indirect prompt injection) or internal failures (e.g., flawed reasoning)—and construct **MisActBench**, a realistic, human-annotated benchmark with action-level alignment labels across 217 trajectories. To address the problem, we propose **DeAction**, a lightweight, universal guardrail that (1) detects misaligned actions *before execution* using multimodal signals (instruction-action semantics, behavioral coherence, UI state validity), and (2) iteratively corrects them via structured natural-language feedback. Evaluated offline and online, DeAction achieves **89.3% F1 on MisActBench (+15.2% absolute over best baseline)** and reduces adversarial attack success by **>90%**, while maintaining or even improving task success (+2.1%) in benign settings—demonstrating robust safety-performance trade-off optimization.",
-      "summary": "## 研究背景与问题  \n计算机使用型智能体（Computer-Use Agents, CUAs）虽在自动化任务执行上取得显著进展，却仍频繁生成**偏离用户原始意图的错位动作**（misaligned actions）。此类动作既可能源于外部攻击（如间接提示注入），也可能源自内部缺陷（如推理错误），严重威胁系统安全性、任务效率与可靠性。然而，当前研究尚未对“动作级意图对齐”进行明确定义，也缺乏系统性检测与纠偏框架。\n\n## 方法与贡献  \n本研究首次提出并形式化定义**错位动作检测问题**，覆盖内外双重成因；基于真实部署场景，识别出三类高频错位模式（目标漂移、工具误用、上下文遗忘），并构建首个动作级细粒度基准——**MisActBench**：包含217条真实交互轨迹，每步动作均经人工标注对齐标签（Aligned/Misaligned）。进一步，我们提出轻量、通用、可插拔的守卫机制 **DeAction**：采用双阶段设计——（1）**前置检测**：基于多源信号（指令-动作语义一致性、历史行为连贯性、界面状态合理性）实时判别动作对齐性；（2）**结构化反馈驱动的迭代修正**：生成可执行的、带约束的自然语言反馈（如“请勿关闭当前文档，先保存再退出”），引导CUI重规划。\n\n## 主要结果与意义  \n在MisActBench上，DeAction的F1达89.3%，**超越所有基线模型超15个百分点**；在线对抗测试中，其将攻击成功率降低**90%以上**，同时在良性环境中**任务成功率提升2.1%**（+0.8pp），验证了安全与效能的协同优化。本工作为CUI可信部署提供了首个端到端动作对齐保障范式，兼具理论严谨性与工程实用性。",
-      "summary_status": "success"
-    },
-    {
-      "id": "arxiv_2602.08548v1",
-      "arxiv_id": "2602.08548v1",
-      "title": "How Do Language Models Understand Tables? A Mechanistic Analysis of Cell Location",
-      "authors": [
-        "Xuanliang Zhang",
-        "Dingzirui Wang",
-        "Keyan Xu",
-        "Qingfu Zhu",
-        "Wanxiang Che"
-      ],
-      "abstract": "While Large Language Models (LLMs) are increasingly deployed for table-related tasks, the internal mechanisms enabling them to process linearized two-dimensional structured tables remain opaque. In this work, we investigate the process of table understanding by dissecting the atomic task of cell location. Through activation patching and complementary interpretability techniques, we delineate the table understanding mechanism into a sequential three-stage pipeline: Semantic Binding, Coordinate Localization, and Information Extraction. We demonstrate that models locate the target cell via an ordinal mechanism that counts discrete delimiters to resolve coordinates. Furthermore, column indices are encoded within a linear subspace that allows for precise steering of model focus through vector arithmetic. Finally, we reveal that models generalize to multi-cell location tasks by multiplexing the identical attention heads identified during atomic location. Our findings provide a comprehensive explanation of table understanding within Transformer architectures.",
-      "published": "2026-02-09",
-      "source": "arXiv",
-      "pdf_link": "https://arxiv.org/pdf/2602.08548v1",
-      "url": "https://arxiv.org/abs/2602.08548v1",
-      "categories": [
-        "cs.CL"
-      ],
-      "published_official": true,
-      "keywords": [
-        "model",
-        "extraction"
-      ],
-      "keyword_score": 2,
-      "summary_zh": "## 研究背景与问题  \n大型语言模型（LLMs）在表格问答、数据推理等任务中表现日益突出，但其如何理解线性化后的二维结构化表格（如以Markdown或CSV格式输入的表格），仍缺乏机制层面的解释。尤其关键的是：模型如何定位表格中特定单元格（cell location）？这一原子任务是表理解的基础，却长期被黑箱化。\n\n## 方法与技术路径  \n本研究采用**机制可解释性**（mechanistic interpretability）范式，结合**激活修补**（activation patching）、注意力头归因、子空间投影分析与因果干预实验，系统解构模型处理表格的内部计算流程。我们聚焦于“给定行列描述，定位目标单元格”这一可控任务，在多个主流开源LLM（Llama-2/3、Qwen）上开展跨模型验证。\n\n## 核心发现  \n1. **三阶段理解流水线**：表理解被分解为严格时序的三个阶段——**语义绑定**（将自然语言行列名映射至表头token）、**坐标定位**（通过计数分隔符推断行列索引）、**信息提取**（从目标单元格读取内容）。  \n2. **序数定位机制**：模型不学习绝对坐标，而是依赖对`|`、`\\n`、`:`等离散分隔符的**精确计数**来解析行列位置，具有强鲁棒性与可干预性。  \n3. **列索引的线性子空间编码**：列号（如第1/2/3列）被编码于一个低维线性子空间中；通过简单向量加减（如 `v₂ − v₁ + v₃`），即可精准重定向模型注意力至指定列，实现**可控列导航**。  \n4. **多单元格泛化的复用性**：模型完成多单元格查询（如“第1行第2列和第3行第4列”）时，并未调用新机制，而是**复用同一组注意力头**，通过时间步间动态路由实现并行定位。\n\n## 创新与意义  \n本研究首次揭示了Transformer架构中表格理解的可分解、可干预、可泛化的计算结构，为可信表格AI、可控数据操作及结构感知提示工程提供了理论基础与实操工具。",
-      "summary_en": "This work demystifies how Transformer-based LLMs understand linearized tables by mechanistically analyzing the atomic task of *cell location*. Using activation patching and complementary interpretability methods, we identify a sequential three-stage pipeline: **Semantic Binding**, **Coordinate Localization**, and **Information Extraction**. We find that models locate cells via an *ordinal mechanism*—counting discrete delimiters (e.g., `|`, `\\n`) to infer row/column indices—not through learned absolute coordinates. Crucially, column indices are encoded in a low-dimensional linear subspace, enabling precise attention steering via vector arithmetic (e.g., `v_col2 = v_col1 + (v_col3 − v_col2)`). Finally, multi-cell location generalizes by *multiplexing the same set of attention heads*, without introducing new circuitry. These findings establish the first causal, component-level account of table understanding in LLMs.",
-      "summary": "## 研究背景与问题  \n大型语言模型（LLMs）在表格问答、数据推理等任务中表现日益突出，但其如何理解线性化后的二维结构化表格（如以Markdown或CSV格式输入的表格），仍缺乏机制层面的解释。尤其关键的是：模型如何定位表格中特定单元格（cell location）？这一原子任务是表理解的基础，却长期被黑箱化。\n\n## 方法与技术路径  \n本研究采用**机制可解释性**（mechanistic interpretability）范式，结合**激活修补**（activation patching）、注意力头归因、子空间投影分析与因果干预实验，系统解构模型处理表格的内部计算流程。我们聚焦于“给定行列描述，定位目标单元格”这一可控任务，在多个主流开源LLM（Llama-2/3、Qwen）上开展跨模型验证。\n\n## 核心发现  \n1. **三阶段理解流水线**：表理解被分解为严格时序的三个阶段——**语义绑定**（将自然语言行列名映射至表头token）、**坐标定位**（通过计数分隔符推断行列索引）、**信息提取**（从目标单元格读取内容）。  \n2. **序数定位机制**：模型不学习绝对坐标，而是依赖对`|`、`\\n`、`:`等离散分隔符的**精确计数**来解析行列位置，具有强鲁棒性与可干预性。  \n3. **列索引的线性子空间编码**：列号（如第1/2/3列）被编码于一个低维线性子空间中；通过简单向量加减（如 `v₂ − v₁ + v₃`），即可精准重定向模型注意力至指定列，实现**可控列导航**。  \n4. **多单元格泛化的复用性**：模型完成多单元格查询（如“第1行第2列和第3行第4列”）时，并未调用新机制，而是**复用同一组注意力头**，通过时间步间动态路由实现并行定位。\n\n## 创新与意义  \n本研究首次揭示了Transformer架构中表格理解的可分解、可干预、可泛化的计算结构，为可信表格AI、可控数据操作及结构感知提示工程提供了理论基础与实操工具。",
-      "summary_status": "success"
     }
   ],
-  "last_updated": "2026-02-15T02:13:17.132657",
-  "total_count": 81
+  "last_updated": "2026-02-16T02:01:56.977573",
+  "total_count": 70
 }

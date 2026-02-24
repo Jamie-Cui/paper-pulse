@@ -58,9 +58,9 @@ jobs:
           to: ${{ secrets.EMAIL_TO }}
           from: Paper Pulse Bot <${{ secrets.EMAIL_USERNAME }}>
           body: |
-            ========================================
+            ========================
             Paper Pulse Daily Report
-            ========================================
+            ========================
             Date: ${{ steps.date.outputs.date }}
 
 
@@ -88,10 +88,10 @@ jobs:
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
 
-            ========================================
+            ========================
             This is an automated report from Paper Pulse.
             Powered by arXiv, IACR ePrint, and DashScope (Qwen).
-            ========================================
+            ========================
 
       - name: Commit and push changes
         run: |

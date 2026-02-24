@@ -53,8 +53,12 @@ class IACRFetcher:
         print("Fetching from IACR ePrint archive")
 
         try:
-            # Fetch RSS feed
-            response = requests.get(self.RSS_URL, timeout=30)
+            # Fetch RSS feed (User-Agent required; server returns robots.txt otherwise)
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0',
+                'Accept': 'application/rss+xml, application/xml, text/xml, */*',
+            }
+            response = requests.get(self.RSS_URL, timeout=30, headers=headers)
             response.raise_for_status()
 
             # Parse RSS feed

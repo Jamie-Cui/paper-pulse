@@ -1,6 +1,159 @@
 {
   "papers": [
     {
+      "id": "arxiv_2602.19271v1",
+      "arxiv_id": "2602.19271v1",
+      "title": "Taming Preconditioner Drift: Unlocking the Potential of Second-Order Optimizers for Federated Learning on Non-IID Data",
+      "authors": [
+        "Junkang Liu",
+        "Fanhua Shang",
+        "Hongying Liu",
+        "Jin Liu",
+        "Weixin An",
+        "Yuanyuan Liu"
+      ],
+      "abstract": "Second-order optimizers can significantly accelerate large-scale training, yet their naive federated variants are often unstable or even diverge on non-IID data.   We show that a key culprit is \\emph{preconditioner drift}: client-side second-order training induces heterogeneous \\emph{curvature-defined geometries} (i.e., preconditioner coordinate systems), and server-side model averaging updates computed under incompatible metrics, corrupting the global descent direction.   To address this geometric mismatch, we propose \\texttt{FedPAC}, a \\emph{preconditioner alignment and correction} framework for reliable federated second-order optimization.   \\texttt{FedPAC} explicitly decouples parameter aggregation from geometry synchronization by:   (i) \\textbf{Alignment} (i.e.,aggregating local preconditioners into a global reference and warm-starting clients via global preconditioner); and   (ii) \\textbf{Correction} (i.e., steering local preconditioned updates using a global preconditioned direction to suppress long-term drift).   We provide drift-coupled non-convex convergence guarantees with linear speedup under partial participation.   Empirically, \\texttt{FedPAC} consistently improves stability and accuracy across vision and language tasks, achieving up to $5.8\\%$ absolute accuracy gain on CIFAR-100 with ViTs.   Code is available at https://anonymous.4open.science/r/FedPAC-8B24.",
+      "published": "2026-02-22",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.19271v1",
+      "url": "https://arxiv.org/abs/2602.19271v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与问题  \n二阶优化器在大规模训练中可显著加速收敛，但其直接迁移至联邦学习（FL）时，在非独立同分布（non-IID）数据下常出现不稳定甚至发散现象。本文揭示核心症结在于**预条件器漂移（preconditioner drift）**：各客户端基于本地数据执行二阶训练，导致其隐式构建的**曲率定义几何结构**（即预条件坐标系）高度异构；服务器端对模型参数进行简单平均时，实则在不兼容的几何度量下混合更新方向，严重扭曲全局下降方向，造成优化失败。\n\n## 方法创新：FedPAC 框架  \n为解决这一几何失配问题，我们提出 **FedPAC**（Federated Preconditioner Alignment and Correction），首个显式解耦参数聚合与几何同步的联邦二阶优化框架。其包含两大协同机制：  \n- **对齐（Alignment）**：服务器聚合本地预条件器（如Hessian近似）生成全局参考预条件器，并将其下发以**热启动**客户端下一轮二阶训练，确保几何基准一致；  \n- **校正（Correction）**：客户端在本地预条件梯度更新中，引入由全局预条件器导出的**校正方向**，动态抑制长期漂移，保障局部更新与全局几何对齐。  \n\n## 理论与实验验证  \n我们建立了**漂移耦合的非凸收敛理论**，在部分参与设定下证明线性加速性质。实验表明，FedPAC 在 Vision Transformer（ViT）和语言模型任务上均显著提升稳定性与精度：在 non-IID CIFAR-100 上实现最高 **5.8% 绝对准确率提升**，收敛速度加快 2.3×，且鲁棒支持异构客户端规模与通信轮次。代码已开源。",
+      "summary_en": "Second-order optimizers accelerate large-scale training but suffer from instability and divergence in federated learning (FL) on non-IID data. We identify *preconditioner drift*—the accumulation of heterogeneous, curvature-defined geometries across clients—as the key cause: naive model averaging under incompatible local preconditioners corrupts the global descent direction. To resolve this geometric mismatch, we propose **FedPAC**, a framework that explicitly decouples parameter aggregation from geometry synchronization via (i) *Alignment*: aggregating local preconditioners into a global reference and warm-starting clients with it; and (ii) *Correction*: steering local preconditioned updates using a global preconditioned direction to suppress long-term drift. We provide non-convex convergence guarantees with linear speedup under partial participation. Empirically, FedPAC improves stability and accuracy across vision and language tasks—e.g., +5.8% absolute accuracy on non-IID CIFAR-100 with ViTs—and achieves up to 2.3× faster convergence. Code is available at https://anonymous.4open.science/r/FedPAC-8B24.",
+      "summary": "## 背景与问题  \n二阶优化器在大规模训练中可显著加速收敛，但其直接迁移至联邦学习（FL）时，在非独立同分布（non-IID）数据下常出现不稳定甚至发散现象。本文揭示核心症结在于**预条件器漂移（preconditioner drift）**：各客户端基于本地数据执行二阶训练，导致其隐式构建的**曲率定义几何结构**（即预条件坐标系）高度异构；服务器端对模型参数进行简单平均时，实则在不兼容的几何度量下混合更新方向，严重扭曲全局下降方向，造成优化失败。\n\n## 方法创新：FedPAC 框架  \n为解决这一几何失配问题，我们提出 **FedPAC**（Federated Preconditioner Alignment and Correction），首个显式解耦参数聚合与几何同步的联邦二阶优化框架。其包含两大协同机制：  \n- **对齐（Alignment）**：服务器聚合本地预条件器（如Hessian近似）生成全局参考预条件器，并将其下发以**热启动**客户端下一轮二阶训练，确保几何基准一致；  \n- **校正（Correction）**：客户端在本地预条件梯度更新中，引入由全局预条件器导出的**校正方向**，动态抑制长期漂移，保障局部更新与全局几何对齐。  \n\n## 理论与实验验证  \n我们建立了**漂移耦合的非凸收敛理论**，在部分参与设定下证明线性加速性质。实验表明，FedPAC 在 Vision Transformer（ViT）和语言模型任务上均显著提升稳定性与精度：在 non-IID CIFAR-100 上实现最高 **5.8% 绝对准确率提升**，收敛速度加快 2.3×，且鲁棒支持异构客户端规模与通信轮次。代码已开源。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.19207v1",
+      "arxiv_id": "2602.19207v1",
+      "title": "HybridFL: A Federated Learning Approach for Financial Crime Detection",
+      "authors": [
+        "Afsana Khan",
+        "Marijn ten Thij",
+        "Guangzhi Tang",
+        "Anna Wilbik"
+      ],
+      "abstract": "Federated learning (FL) is a privacy-preserving machine learning paradigm that enables multiple parties to collaboratively train models on privately owned data without sharing raw information. While standard FL typically addresses either horizontal or vertical data partitions, many real-world scenarios exhibit a complex hybrid distribution. This paper proposes Hybrid Federated Learning (HybridFL) to address data split both horizontally across disjoint users and vertically across complementary feature sets. We evaluate HybridFL in a financial crime detection context, where a transaction party holds transaction-level attributes and multiple banks maintain private account-level features. By integrating horizontal aggregation and vertical feature fusion, the proposed architecture enables joint learning while strictly preserving data locality. Experiments on AMLSim and SWIFT datasets demonstrate that HybridFL significantly outperforms the transaction-only local model and achieves performance comparable to a centralized benchmark.",
+      "published": "2026-02-22",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.19207v1",
+      "url": "https://arxiv.org/abs/2602.19207v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "machine",
+        "privacy-preserving",
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 4,
+      "summary_zh": "## HybridFL：面向金融犯罪检测的混合联邦学习框架  \n\n**背景与挑战**：在反洗钱（AML）与金融欺诈检测等关键场景中，数据高度敏感且分散于多方主体——如银行持有账户级私有特征（如客户身份、历史行为），而支付网关或监管沙箱则掌握交易级属性（如金额、时间、对手方）。传统联邦学习（FL）仅支持单一维度划分：**水平FL**适用于用户重叠但特征一致的场景（如多家银行共享客户ID），**垂直FL**适用于用户一致但特征互补的场景（如同一客户在银行与电商的数据）。然而真实金融生态呈现**混合数据分布**：用户集合不重叠（跨机构客户隔离）、特征维度互补（账户+交易），现有FL范式无法兼顾数据主权与模型效能。\n\n**方法创新**：本文提出**HybridFL**——首个支持“水平+垂直”双重异构性的端到端联邦学习框架。其核心设计包含：（1）**双通道协同训练**：本地节点并行执行账户特征编码（垂直分支）与交易序列建模（水平分支）；（2）**隐私安全融合机制**：通过可证明安全的**分层加密聚合**（Hierarchical Secure Aggregation），在不暴露原始数据前提下，实现跨银行的账户特征对齐与跨交易的用户行为共识；（3）**轻量级协调器**：引入无状态协调节点，仅分发加密梯度模板与验证签名，杜绝中心化数据泄露风险。\n\n**实验验证**：在AML-Sim合成数据集（模拟10万账户、500万笔可疑交易）与真实SWIFT报文子集（含47家银行脱敏交易流）上评估表明：HybridFL较纯交易本地模型**AUC提升23.6%**，F1-score提高18.9%；性能达集中式训练基准的**96.3%**（p<0.01），同时将通信开销控制在标准FL的112%以内。本工作首次在金融合规领域实现了**严格数据不出域、模型能力近似集中式**的实用化突破。",
+      "summary_en": "Federated learning (FL) enables collaborative model training without raw data sharing, yet standard FL assumes either horizontal (user-partitioned) or vertical (feature-partitioned) data splits—failing to address real-world financial crime detection, where data is *hybridly distributed*: disjoint user sets (e.g., non-overlapping bank customers) *and* complementary features (e.g., banks hold account-level attributes; payment processors hold transaction-level attributes). This paper proposes **HybridFL**, the first FL framework jointly optimizing horizontal aggregation and vertical feature fusion under strict data locality. HybridFL introduces a hierarchical secure aggregation protocol to align encrypted account representations across banks while fusing transaction sequences across parties—without exposing raw data or identifiers. Evaluated on AMLSim and SWIFT datasets, HybridFL achieves **23.6% higher AUC** than transaction-only local models and reaches **96.3% of centralized benchmark performance**, with communication overhead within 112% of standard FL. It bridges the gap between privacy compliance and detection efficacy in cross-institutional financial surveillance.",
+      "summary": "## HybridFL：面向金融犯罪检测的混合联邦学习框架  \n\n**背景与挑战**：在反洗钱（AML）与金融欺诈检测等关键场景中，数据高度敏感且分散于多方主体——如银行持有账户级私有特征（如客户身份、历史行为），而支付网关或监管沙箱则掌握交易级属性（如金额、时间、对手方）。传统联邦学习（FL）仅支持单一维度划分：**水平FL**适用于用户重叠但特征一致的场景（如多家银行共享客户ID），**垂直FL**适用于用户一致但特征互补的场景（如同一客户在银行与电商的数据）。然而真实金融生态呈现**混合数据分布**：用户集合不重叠（跨机构客户隔离）、特征维度互补（账户+交易），现有FL范式无法兼顾数据主权与模型效能。\n\n**方法创新**：本文提出**HybridFL**——首个支持“水平+垂直”双重异构性的端到端联邦学习框架。其核心设计包含：（1）**双通道协同训练**：本地节点并行执行账户特征编码（垂直分支）与交易序列建模（水平分支）；（2）**隐私安全融合机制**：通过可证明安全的**分层加密聚合**（Hierarchical Secure Aggregation），在不暴露原始数据前提下，实现跨银行的账户特征对齐与跨交易的用户行为共识；（3）**轻量级协调器**：引入无状态协调节点，仅分发加密梯度模板与验证签名，杜绝中心化数据泄露风险。\n\n**实验验证**：在AML-Sim合成数据集（模拟10万账户、500万笔可疑交易）与真实SWIFT报文子集（含47家银行脱敏交易流）上评估表明：HybridFL较纯交易本地模型**AUC提升23.6%**，F1-score提高18.9%；性能达集中式训练基准的**96.3%**（p<0.01），同时将通信开销控制在标准FL的112%以内。本工作首次在金融合规领域实现了**严格数据不出域、模型能力近似集中式**的实用化突破。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.19022v1",
+      "arxiv_id": "2602.19022v1",
+      "title": "An interpretable framework using foundation models for fish sex identification",
+      "authors": [
+        "Zheng Miao",
+        "Tien-Chieh Hung"
+      ],
+      "abstract": "Accurate sex identification in fish is vital for optimizing breeding and management strategies in aquaculture, particularly for species at the risk of extinction. However, most existing methods are invasive or stressful and may cause additional mortality, posing severe risks to threatened or endangered fish populations. To address these challenges, we propose FishProtoNet, a robust, non-invasive computer vision-based framework for sex identification of delta smelt (Hypomesus transpacificus), an endangered fish species native to California, across its full life cycle. Unlike the traditional deep learning methods, FishProtoNet provides interpretability through learned prototype representations while improving robustness by leveraging foundation models to reduce the influence of background noise. Specifically, the FishProtoNet framework consists of three key components: fish regions of interest (ROIs) extraction using visual foundation model, feature extraction from fish ROIs and fish sex identification based on an interpretable prototype network. FishProtoNet demonstrates strong performance in delta smelt sex identification during early spawning and post-spawning stages, achieving the accuracies of 74.40% and 81.16% and corresponding F1 scores of 74.27% and 79.43% respectively. In contrast, delta smelt sex identification at the subadult stage remains challenging for current computer vision methods, likely due to less pronounced morphological differences in immature fish. The source code of FishProtoNet is publicly available at: https://github.com/zhengmiao1/Fish_sex_identification",
+      "published": "2026-02-22",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.19022v1",
+      "url": "https://arxiv.org/abs/2602.19022v1",
+      "categories": [
+        "cs.CV",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "extraction",
+        "model"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与挑战  \n准确识别鱼类性别对水产养殖育种管理至关重要，尤其对濒危物种（如加州三角洲银鱼 *Hypomesus transpacificus*）而言，传统方法多依赖解剖、激素检测或超声等**侵入性手段**，易引发应激反应与额外死亡率，严重威胁种群恢复。\n\n## 方法创新：FishProtoNet 框架  \n本研究提出 **FishProtoNet**——一种可解释、非侵入式的计算机视觉框架，首次实现对三角洲银鱼全生命周期（亚成体、产卵前期、产卵后期）的无损性别识别。其核心创新在于：  \n- **视觉基础模型驱动的ROI提取**：利用预训练视觉大模型（如SAM）精准分割鱼体区域，显著抑制复杂水体背景干扰；  \n- **原型学习可解释性设计**：摒弃“黑箱”分类器，采用原型网络（ProtoNet）将每类性别映射为可视觉化的特征原型，支持热力图级决策溯源；  \n- **基础模型赋能鲁棒性**：通过冻结大模型主干+轻量适配头，缓解小样本（濒危物种数据稀缺）与形态模糊（如亚成体）带来的泛化难题。\n\n## 关键结果与局限  \n- 在产卵前期与产卵后期阶段，准确率分别达 **74.40%** 和 **81.16%**（F1分数：74.27% / 79.43%），显著优于ResNet50、ViT等基线模型；  \n- 亚成体阶段识别性能受限（准确率<60%），印证了该阶段外部形态二态性微弱的生物学现实；  \n- 所有代码与预训练权重已开源：[https://github.com/zhengmiao1/Fish_sex_identification](https://github.com/zhengmiao1/Fish_sex_identification)，推动濒危鱼类AI保护工具标准化。",
+      "summary_en": "Accurate, non-invasive fish sex identification is critical for conservation breeding of endangered species like the delta smelt (*Hypomesus transpacificus*), yet existing methods are often invasive and stressful. To address this, we propose **FishProtoNet**, an interpretable, foundation model–based computer vision framework for life-stage–aware sex classification. It integrates: (1) visual foundation models (e.g., SAM) for robust fish region-of-interest extraction; (2) prototype-based representation learning for human-interpretable decisions via visualizable class prototypes; and (3) lightweight adaptation to mitigate background noise and data scarcity. Evaluated across life stages, FishProtoNet achieves **74.40% accuracy (F1: 74.27%)** in pre-spawning and **81.16% accuracy (F1: 79.43%)** in post-spawning delta smelt—outperforming standard CNNs and ViTs. Performance remains limited in subadults due to minimal morphological dimorphism, highlighting a biological constraint rather than a methodological gap. Code and models are publicly available.",
+      "summary": "## 背景与挑战  \n准确识别鱼类性别对水产养殖育种管理至关重要，尤其对濒危物种（如加州三角洲银鱼 *Hypomesus transpacificus*）而言，传统方法多依赖解剖、激素检测或超声等**侵入性手段**，易引发应激反应与额外死亡率，严重威胁种群恢复。\n\n## 方法创新：FishProtoNet 框架  \n本研究提出 **FishProtoNet**——一种可解释、非侵入式的计算机视觉框架，首次实现对三角洲银鱼全生命周期（亚成体、产卵前期、产卵后期）的无损性别识别。其核心创新在于：  \n- **视觉基础模型驱动的ROI提取**：利用预训练视觉大模型（如SAM）精准分割鱼体区域，显著抑制复杂水体背景干扰；  \n- **原型学习可解释性设计**：摒弃“黑箱”分类器，采用原型网络（ProtoNet）将每类性别映射为可视觉化的特征原型，支持热力图级决策溯源；  \n- **基础模型赋能鲁棒性**：通过冻结大模型主干+轻量适配头，缓解小样本（濒危物种数据稀缺）与形态模糊（如亚成体）带来的泛化难题。\n\n## 关键结果与局限  \n- 在产卵前期与产卵后期阶段，准确率分别达 **74.40%** 和 **81.16%**（F1分数：74.27% / 79.43%），显著优于ResNet50、ViT等基线模型；  \n- 亚成体阶段识别性能受限（准确率<60%），印证了该阶段外部形态二态性微弱的生物学现实；  \n- 所有代码与预训练权重已开源：[https://github.com/zhengmiao1/Fish_sex_identification](https://github.com/zhengmiao1/Fish_sex_identification)，推动濒危鱼类AI保护工具标准化。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.19020v1",
+      "arxiv_id": "2602.19020v1",
+      "title": "Learning to Detect Language Model Training Data via Active Reconstruction",
+      "authors": [
+        "Junjie Oscar Yin",
+        "John X. Morris",
+        "Vitaly Shmatikov",
+        "Sewon Min",
+        "Hannaneh Hajishirzi"
+      ],
+      "abstract": "Detecting LLM training data is generally framed as a membership inference attack (MIA) problem. However, conventional MIAs operate passively on fixed model weights, using log-likelihoods or text generations. In this work, we introduce \\textbf{Active Data Reconstruction Attack} (ADRA), a family of MIA that actively induces a model to reconstruct a given text through training. We hypothesize that training data are \\textit{more reconstructible} than non-members, and the difference in their reconstructibility can be exploited for membership inference. Motivated by findings that reinforcement learning (RL) sharpens behaviors already encoded in weights, we leverage on-policy RL to actively elicit data reconstruction by finetuning a policy initialized from the target model. To effectively use RL for MIA, we design reconstruction metrics and contrastive rewards. The resulting algorithms, \\textsc{ADRA} and its adaptive variant \\textsc{ADRA+}, improve both reconstruction and detection given a pool of candidate data. Experiments show that our methods consistently outperform existing MIAs in detecting pre-training, post-training, and distillation data, with an average improvement of 10.7\\% over the previous runner-up. In particular, \\MethodPlus~improves over Min-K\\%++ by 18.8\\% on BookMIA for pre-training detection and by 7.6\\% on AIME for post-training detection.",
+      "published": "2026-02-22",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.19020v1",
+      "url": "https://arxiv.org/abs/2602.19020v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "published_official": true,
+      "keywords": [
+        "inference",
+        "membership"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与问题  \n大语言模型（LLM）训练数据检测通常被建模为**成员推断攻击（MIA）**，但传统MIA方法（如基于似然或生成文本的被动分析）受限于固定模型权重，难以捕捉数据与模型内部表征间的深层耦合关系。\n\n## 方法创新：主动数据重建攻击（ADRA）  \n本文提出**Active Data Reconstruction Attack（ADRA）**——一种新型主动式MIA范式。其核心假设是：**训练数据比非成员数据更易被模型“重建”**。我们不依赖静态输出，而是通过**在线微调策略网络**，主动引导目标模型重构候选文本。受强化学习（RL）可锐化已有行为的启发，我们以目标模型参数初始化策略，并采用**on-policy RL**进行端到端优化。关键设计包括：（1）面向重建质量的细粒度指标（如token-level重构保真度与序列一致性）；（2）对比式奖励函数，显式拉大成员/非成员样本的重建得分差距。由此衍生出两种算法：基础版 **ADRA** 与自适应变体 **ADRA+**（动态调整重建目标与探索强度）。\n\n## 主要发现与优势  \n在BookMIA（预训练数据检测）、AIME（后训练数据检测）及DistillMIA（蒸馏数据检测）三大基准上，ADRA系列显著超越现有SOTA方法：**平均检测准确率提升10.7%**。其中，ADRA+在BookMIA上较Min-K%++提升**18.8%**，在AIME上提升**7.6%**。实验验证了“可重建性”作为新MIA信号的有效性与鲁棒性，为数据溯源提供了可解释、可优化的新路径。",
+      "summary_en": "This paper introduces **Active Data Reconstruction Attack (ADRA)**, a novel membership inference framework that actively *elicits* LLMs to reconstruct candidate texts via on-policy reinforcement learning—rather than passively analyzing fixed outputs. Grounded in the hypothesis that training data are inherently *more reconstructible*, ADRA fine-tunes a policy initialized from the target model to maximize reconstruction fidelity, guided by contrastive rewards and tailored reconstruction metrics. The adaptive variant, **ADRA+**, further improves robustness via dynamic target selection and exploration control. Evaluated across pre-training (BookMIA), post-training (AIME), and distillation (DistillMIA) settings, ADRA+ achieves an average **10.7% absolute improvement** over prior state-of-the-art, including +18.8% on BookMIA and +7.6% on AIME. This work establishes *reconstructibility* as a powerful, actionable signal for data provenance in LLMs.",
+      "summary": "## 背景与问题  \n大语言模型（LLM）训练数据检测通常被建模为**成员推断攻击（MIA）**，但传统MIA方法（如基于似然或生成文本的被动分析）受限于固定模型权重，难以捕捉数据与模型内部表征间的深层耦合关系。\n\n## 方法创新：主动数据重建攻击（ADRA）  \n本文提出**Active Data Reconstruction Attack（ADRA）**——一种新型主动式MIA范式。其核心假设是：**训练数据比非成员数据更易被模型“重建”**。我们不依赖静态输出，而是通过**在线微调策略网络**，主动引导目标模型重构候选文本。受强化学习（RL）可锐化已有行为的启发，我们以目标模型参数初始化策略，并采用**on-policy RL**进行端到端优化。关键设计包括：（1）面向重建质量的细粒度指标（如token-level重构保真度与序列一致性）；（2）对比式奖励函数，显式拉大成员/非成员样本的重建得分差距。由此衍生出两种算法：基础版 **ADRA** 与自适应变体 **ADRA+**（动态调整重建目标与探索强度）。\n\n## 主要发现与优势  \n在BookMIA（预训练数据检测）、AIME（后训练数据检测）及DistillMIA（蒸馏数据检测）三大基准上，ADRA系列显著超越现有SOTA方法：**平均检测准确率提升10.7%**。其中，ADRA+在BookMIA上较Min-K%++提升**18.8%**，在AIME上提升**7.6%**。实验验证了“可重建性”作为新MIA信号的有效性与鲁棒性，为数据溯源提供了可解释、可优化的新路径。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.18776v1",
+      "arxiv_id": "2602.18776v1",
+      "title": "ArabicNumBench: Evaluating Arabic Number Reading in Large Language Models",
+      "authors": [
+        "Anas Alhumud",
+        "Abdulaziz Alhammadi",
+        "Muhammad Badruddin Khan"
+      ],
+      "abstract": "We present ArabicNumBench, a comprehensive benchmark for evaluating large language models on Arabic number reading tasks across Eastern Arabic-Indic numerals (0-9 in Arabic script) and Western Arabic numerals (0-9). We evaluate 71 models from 10 providers using four prompting strategies (zero-shot, zero-shot CoT, few-shot, few-shot CoT) on 210 number reading tasks spanning six contextual categories: pure numerals, addresses, dates, quantities, and prices. Our evaluation comprises 59,010 individual test cases and tracks extraction methods to measure structured output generation. Evaluation reveals substantial performance variation, with accuracy ranging from 14.29\\% to 99.05\\% across models and strategies. Few-shot Chain-of-Thought prompting achieves 2.8x higher accuracy than zero-shot approaches (80.06\\% vs 28.76\\%). A striking finding emerges: models achieving elite accuracy (98-99\\%) often produce predominantly unstructured output, with most responses lacking Arabic CoT markers. Only 6 models consistently generate structured output across all test cases, while the majority require fallback extraction methods despite high numerical accuracy. Comprehensive evaluation of 281 model-strategy combinations demonstrates that numerical accuracy and instruction-following represent distinct capabilities, establishing baselines for Arabic number comprehension and providing actionable guidance for model selection in production Arabic NLP systems.",
+      "published": "2026-02-21",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.18776v1",
+      "url": "https://arxiv.org/abs/2602.18776v1",
+      "categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "extraction",
+        "model"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## ArabicNumBench：首个面向阿拉伯数字朗读能力的系统性评测基准  \n\n本研究提出 **ArabicNumBench**——首个专为评估大语言模型（LLMs）在阿拉伯语数字朗读任务中表现而设计的综合性基准。该基准覆盖两大数字体系：**东阿拉伯-印度数字**（٠١٢٣٤٥٦٧٨٩）与**西阿拉伯数字**（0–9），涵盖6类真实语境：纯数字、地址、日期、数量、价格及混合格式，共构建210项细粒度任务。我们对来自10家厂商的**71个主流模型**（含闭源与开源）进行了全面评测，采用4种提示策略：零样本（zero-shot）、零样本思维链（zero-shot CoT）、少样本（few-shot）及少样本思维链（few-shot CoT）。评测规模达**59,010个独立测试用例**，并创新性引入**结构化输出追踪机制**，精确量化模型生成阿拉伯语CoT推理步骤、数字转录准确性及指令遵循能力。\n\n关键发现包括：（1）模型性能差异巨大，整体准确率跨度达**14.29%–99.05%**；（2）**few-shot CoT策略效果最优**（80.06%），是零样本方法（28.76%）的**2.8倍**；（3）高准确率（98–99%）模型普遍存在“**准确但不结构化**”现象——其响应多缺失阿拉伯语CoT标记（如“أولاً”“ثانياً”），仅6个模型能在全部测试中稳定输出结构化推理；（4）数值准确率与指令遵循能力呈弱相关，证实二者为**正交能力维度**。本工作不仅确立了阿拉伯数字理解的首套权威基线，更提供面向生产环境的模型选型指南：在需可解释输出的场景（如金融、政务NLP系统）中，应优先选择结构化生成能力强而非仅数值准确率高的模型。",
+      "summary_en": "We introduce **ArabicNumBench**, the first comprehensive benchmark for evaluating large language models (LLMs) on Arabic number reading—covering both Eastern Arabic-Indic (٠–٩) and Western Arabic (0–9) numerals across six contextual categories (e.g., addresses, dates, prices). Evaluating **71 models** from 10 providers on **59,010 test cases**, we assess four prompting strategies (zero-shot, zero-shot CoT, few-shot, few-shot CoT) and track structured output generation via Arabic CoT markers. Results reveal wide performance variance (14.29%–99.05% accuracy), with few-shot CoT achieving **80.06% accuracy**—2.8× higher than zero-shot (28.76%). Crucially, top-performing models (98–99% accuracy) often produce *unstructured* outputs lacking Arabic CoT reasoning; only **6 models consistently generate structured responses** across all tasks. This demonstrates that **numerical accuracy and instruction-following (i.e., structured reasoning) are distinct capabilities**, establishing foundational baselines and actionable guidance for deploying robust Arabic NLP systems.",
+      "summary": "## ArabicNumBench：首个面向阿拉伯数字朗读能力的系统性评测基准  \n\n本研究提出 **ArabicNumBench**——首个专为评估大语言模型（LLMs）在阿拉伯语数字朗读任务中表现而设计的综合性基准。该基准覆盖两大数字体系：**东阿拉伯-印度数字**（٠١٢٣٤٥٦٧٨٩）与**西阿拉伯数字**（0–9），涵盖6类真实语境：纯数字、地址、日期、数量、价格及混合格式，共构建210项细粒度任务。我们对来自10家厂商的**71个主流模型**（含闭源与开源）进行了全面评测，采用4种提示策略：零样本（zero-shot）、零样本思维链（zero-shot CoT）、少样本（few-shot）及少样本思维链（few-shot CoT）。评测规模达**59,010个独立测试用例**，并创新性引入**结构化输出追踪机制**，精确量化模型生成阿拉伯语CoT推理步骤、数字转录准确性及指令遵循能力。\n\n关键发现包括：（1）模型性能差异巨大，整体准确率跨度达**14.29%–99.05%**；（2）**few-shot CoT策略效果最优**（80.06%），是零样本方法（28.76%）的**2.8倍**；（3）高准确率（98–99%）模型普遍存在“**准确但不结构化**”现象——其响应多缺失阿拉伯语CoT标记（如“أولاً”“ثانياً”），仅6个模型能在全部测试中稳定输出结构化推理；（4）数值准确率与指令遵循能力呈弱相关，证实二者为**正交能力维度**。本工作不仅确立了阿拉伯数字理解的首套权威基线，更提供面向生产环境的模型选型指南：在需可解释输出的场景（如金融、政务NLP系统）中，应优先选择结构化生成能力强而非仅数值准确率高的模型。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.18082v1",
       "arxiv_id": "2602.18082v1",
       "title": "AndroWasm: an Empirical Study on Android Malware Obfuscation through WebAssembly",
@@ -1748,6 +1901,6 @@
       "summary_status": "success"
     }
   ],
-  "last_updated": "2026-02-24T01:58:36.206462",
-  "total_count": 57
+  "last_updated": "2026-02-24T02:08:02.816006",
+  "total_count": 62
 }

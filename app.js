@@ -231,7 +231,7 @@ function createPaperCard(paper, index) {
             ${keywords ? `<div class="paper-keywords">${keywords}</div>` : ''}
 
             <div class="paper-actions">
-                <a href="${paper.url}" target="_blank" class="view-link">View Abstract</a>
+                <a href="${paper.url}" target="_blank" class="view-link">View Paper</a>
                 ${paper.pdf_link ? `<a href="${paper.pdf_link}" target="_blank" class="pdf-link">Download PDF</a>` : ''}
                 <button id="bibtex-${index}" class="bibtex-btn">Export BibTeX</button>
             </div>
@@ -286,7 +286,7 @@ ${venue}
 // Export single paper as BibTeX
 function exportBibtex(paper) {
     const bibtex = generateBibtex(paper);
-    downloadText(bibtex, `${paper.id}.bib`);
+    openTextInNewTab(bibtex);
 }
 
 // Export all papers as BibTeX
@@ -297,18 +297,12 @@ function exportAllPapers() {
     }
 
     const allBibtex = filteredPapers.map(p => generateBibtex(p)).join('\n\n');
-    downloadText(allBibtex, 'papers.bib');
+    openTextInNewTab(allBibtex);
 }
 
-// Download text as file
-function downloadText(text, filename) {
+// Open text in a new browser tab
+function openTextInNewTab(text) {
     const blob = new Blob([text], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    window.open(url, '_blank');
 }

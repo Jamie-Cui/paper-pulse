@@ -4,15 +4,16 @@ Automatically fetches and summarizes research papers from arXiv and IACR ePrint 
 
 ## Features
 
-- 🔄 Daily automatic updates via GitHub Actions
-- 📚 Fetches papers from arXiv (customizable categories) and IACR ePrint
-- 🤖 AI-powered bilingual summaries (Chinese + English) using DashScope API
-- 🗂️ Configurable retention period (default: 7 days)
-- 🔍 Flexible keyword filtering (OR between lines, AND within lines)
-- 🌐 Bilingual UI with per-card language toggle (中/EN)
-- 📋 BibTeX export for citations
-- 🎨 Minimal, clean card-based interface
-- ✨ Markdown support in summaries
+- Daily automatic updates via GitHub Actions
+- Fetches papers from arXiv (customizable categories) and IACR ePrint
+- AI-powered bilingual summaries (Chinese + English) using DashScope API
+- Configurable retention period (default: 7 days)
+- Flexible keyword filtering (OR between lines, AND within lines)
+- Bilingual UI with per-card language toggle (中/EN)
+- BibTeX export for citations
+- RSS feed for subscribing to paper updates
+- Minimal, clean card-based interface
+- Markdown support in summaries
 
 ## Setup
 
@@ -52,11 +53,13 @@ zero knowledge         # Matches papers with "zero knowledge"
 
 All settings are managed in `config.toml`:
 
-- **Retention period**: `days_back` (default: 7 days)
+- **Site URL**: `general.site_url` (your GitHub Pages URL, used for RSS feed links)
+- **Retention period**: `general.days_back` (default: 7 days)
 - **arXiv categories**: `fetchers.arxiv.categories` (default: cs.CR, cs.AI, cs.LG, cs.CL)
 - **AI model**: `summarizer.model` (options: qwen-turbo, qwen-plus, qwen-max)
 - **Summary length**: `summarizer.max_tokens` (default: 1500 for bilingual)
 - **Rate limits**: `delay` and `rate_limit_delay`
+- **RSS feed**: `rss.max_items` (default: 50)
 
 See `CONFIG_GUIDE.md` for detailed configuration options.
 
@@ -88,6 +91,7 @@ paper-pulse/
 │   │   └── iacr.py           # IACR API fetcher
 │   ├── filter.py             # Keyword filtering
 │   ├── summarizer.py         # DashScope AI summarization
+│   ├── rss.py                # RSS feed generator
 │   └── main.py               # Main orchestrator
 ├── data/
 │   ├── papers.json           # Current papers
@@ -95,6 +99,7 @@ paper-pulse/
 ├── config.toml               # Configuration file
 ├── keywords.txt              # Keyword filter rules
 ├── index.html                # Main page
+├── feed.xml                  # RSS feed (auto-generated)
 ├── styles.css                # Styles
 ├── app.js                    # Frontend logic
 └── requirements.txt          # Python dependencies
@@ -103,9 +108,3 @@ paper-pulse/
 ## License
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
-
-Copyright (C) 2024-2026 Paper Pulse Contributors
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

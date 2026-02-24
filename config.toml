@@ -4,6 +4,10 @@
 # Number of days to keep papers and cache summaries
 days_back = 30
 
+# Base URL of the GitHub Pages site (used for RSS feed links)
+# Example: "https://username.github.io/paper-pulse"
+site_url = "https://jamie-cui.github.io/paper-pulse"
+
 # Data storage paths (relative to project root)
 data_dir = "data"
 papers_file = "papers.json"
@@ -48,6 +52,10 @@ Title: {title}
 Abstract: {abstract}
 
 Provide a concise summary:"""
+
+[rss]
+# Maximum number of papers to include in the RSS feed
+max_items = 50
 
 [keywords]
 # Path to keyword filter configuration file

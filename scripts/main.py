@@ -31,6 +31,7 @@ from fetchers.arxiv import ArxivFetcher
 from fetchers.iacr import IACRFetcher
 from filter import KeywordFilter
 from summarizer import ModelScopeSummarizer
+from rss import generate_rss_feed
 
 # Load TOML config (Python 3.11+ has tomllib built-in)
 try:
@@ -325,6 +326,17 @@ def main():
             "total_count": len(all_papers),
         }
         save_data(PAPERS_FILE, papers_data)
+
+        # Generate RSS feed
+        rss_config = config.get("rss", {})
+        site_url = config.get("general", {}).get("site_url", "")
+        feed_path = Path(__file__).parent.parent / "feed.xml"
+        generate_rss_feed(
+            papers=all_papers,
+            output_path=feed_path,
+            site_url=site_url,
+            max_items=rss_config.get("max_items", 50),
+        )
 
         if failed:
             failed_data = {

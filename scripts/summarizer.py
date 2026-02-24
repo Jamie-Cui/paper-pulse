@@ -87,6 +87,8 @@ Provide a concise summary:"""
         self.timeout = timeout or self.DEFAULT_TIMEOUT
         self.rate_limit_delay = rate_limit_delay or self.DEFAULT_RATE_LIMIT_DELAY
         self.prompt_template = prompt_template or self.DEFAULT_PROMPT_TEMPLATE
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
 
     def summarize(self, paper: Dict) -> tuple[Optional[str], Optional[str]]:
         """
@@ -110,8 +112,11 @@ Provide a concise summary:"""
         # Try to generate summary with retries
         for attempt in range(self.max_retries):
             try:
-                summary = self._call_api(prompt)
+                summary, input_tokens, output_tokens = self._call_api(prompt)
                 if summary:
+                    # Accumulate token usage
+                    self.total_input_tokens += input_tokens
+                    self.total_output_tokens += output_tokens
                     # Parse bilingual response
                     zh_summary, en_summary = self._parse_bilingual_summary(summary)
                     return zh_summary, en_summary
@@ -178,8 +183,13 @@ Provide a concise summary:"""
         """Create a prompt for the summarization model."""
         return self.prompt_template.format(title=title, abstract=abstract)
 
-    def _call_api(self, prompt: str) -> Optional[str]:
-        """Call DashScope API to generate summary."""
+    def _call_api(self, prompt: str) -> tuple:
+        """
+        Call DashScope API to generate summary.
+
+        Returns:
+            Tuple of (summary_text, input_tokens, output_tokens)
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
@@ -207,15 +217,22 @@ Provide a concise summary:"""
             result = response.json()
 
             # Extract summary from DashScope response format
+            content = None
             if "output" in result and "choices" in result["output"]:
                 choices = result["output"]["choices"]
                 if choices and len(choices) > 0:
                     message = choices[0].get("message", {})
                     content = message.get("content", "").strip()
-                    if content:
-                        return content
 
-            return None
+            # Extract token usage information
+            input_tokens = 0
+            output_tokens = 0
+            if "usage" in result:
+                usage = result["usage"]
+                input_tokens = usage.get("input_tokens", 0)
+                output_tokens = usage.get("output_tokens", 0)
+
+            return (content, input_tokens, output_tokens)
 
         except requests.RequestException as e:
             raise
@@ -286,3 +303,16 @@ Provide a concise summary:"""
             f"\n✓ Summarization complete: {len(successful)} successful, {len(failed)} failed"
         )
         return successful, failed
+
+    def get_usage_stats(self) -> dict:
+        """
+        Get token usage statistics.
+
+        Returns:
+            Dictionary with input_tokens, output_tokens, and total_tokens
+        """
+        return {
+            'input_tokens': self.total_input_tokens,
+            'output_tokens': self.total_output_tokens,
+            'total_tokens': self.total_input_tokens + self.total_output_tokens
+        }

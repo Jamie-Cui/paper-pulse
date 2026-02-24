@@ -148,6 +148,15 @@ The GitHub Actions workflow can be triggered manually from the Actions tab or ru
 
 **Customizing summary prompt**:
 - **For bilingual summaries**: Edit `_create_bilingual_prompt()` method in `scripts/summarizer.py` (lines ~92-115)
+
+
+**Controlling keyword filtering per source**: Edit `apply_to_arxiv` and `apply_to_iacr` in `[keywords]` section of `config.toml`
+  - Set to `true` to apply keyword filtering (only fetch papers matching keywords.txt)
+  - Set to `false` to fetch all papers from that source (no keyword filtering)
+  - Example use cases:
+    - Fetch all IACR papers but filter arXiv: `apply_to_arxiv = true, apply_to_iacr = false`
+    - Fetch all papers from both sources: `apply_to_arxiv = false, apply_to_iacr = false`
+    - Filter both sources (default): `apply_to_arxiv = true, apply_to_iacr = true`
 - **For single-language summaries**: Edit `prompt_template` in `[summarizer]` section of `config.toml` - must include `{title}` and `{abstract}` placeholders
 - **IMPORTANT**: Bilingual prompt is hard-coded in Python for better control over format and parsing
 

@@ -30,10 +30,106 @@ jobs:
           pip install -r requirements.txt
 
       - name: Fetch and summarize papers
+        id: fetch
         env:
           MODELSCOPE_API_KEY: ${{ secrets.MODELSCOPE_API_KEY }}
         run: |
           python scripts/main.py
+
+      - name: Get current date
+        id: date
+        run: echo "date=$(date -u +'%Y-%m-%d %H:%M UTC')" >> $GITHUB_OUTPUT
+
+      - name: Get repository info
+        id: repo
+        run: |
+          echo "owner=${{ github.repository_owner }}" >> $GITHUB_OUTPUT
+          echo "repo=${{ github.event.repository.name }}" >> $GITHUB_OUTPUT
+
+      - name: Send email notification
+        if: success()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Paper Pulse Daily Report - ${{ steps.date.outputs.date }}
+          to: ${{ secrets.EMAIL_TO }}
+          from: Paper Pulse Bot <${{ secrets.EMAIL_USERNAME }}>
+          html_body: |
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                h1 { color: #2c3e50; border-bottom: 3px solid #3498db; padding-bottom: 10px; }
+                h2 { color: #34495e; margin-top: 20px; }
+                .stats { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 15px 0; }
+                .stat-item { margin: 8px 0; }
+                .stat-label { font-weight: bold; color: #555; }
+                .stat-value { color: #2980b9; }
+                .links { margin-top: 20px; }
+                .link-button { display: inline-block; padding: 10px 20px; margin: 5px; background: #3498db; color: white; text-decoration: none; border-radius: 5px; }
+                .link-button:hover { background: #2980b9; }
+                .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; font-size: 12px; color: #777; }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <h1>📚 Paper Pulse Daily Report</h1>
+                <p><strong>Date:</strong> ${{ steps.date.outputs.date }}</p>
+
+                <h2>📊 Statistics</h2>
+                <div class="stats">
+                  <div class="stat-item">
+                    <span class="stat-label">New papers fetched:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.new_papers }}</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Retry summaries:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.retry_papers }}</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Failed summaries:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.failed_papers }}</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Total papers in database:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.total_papers }}</span>
+                  </div>
+                </div>
+
+                <h2>🤖 AI Token Usage</h2>
+                <div class="stats">
+                  <div class="stat-item">
+                    <span class="stat-label">Input tokens:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.input_tokens }}</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Output tokens:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.output_tokens }}</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-label">Total tokens:</span>
+                    <span class="stat-value">${{ steps.fetch.outputs.total_tokens }}</span>
+                  </div>
+                </div>
+
+                <h2>🔗 Links</h2>
+                <div class="links">
+                  <a href="https://${{ steps.repo.outputs.owner }}.github.io/${{ steps.repo.outputs.repo }}/" class="link-button">📄 View Papers</a>
+                  <a href="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" class="link-button">🔍 View Workflow</a>
+                </div>
+
+                <div class="footer">
+                  <p>This is an automated report from Paper Pulse.<br>
+                  Powered by arXiv, IACR ePrint, and DashScope (Qwen).</p>
+                </div>
+              </div>
+            </body>
+            </html>
 
       - name: Commit and push changes
         run: |

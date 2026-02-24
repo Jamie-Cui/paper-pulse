@@ -1,1 +1,1 @@
-/home/jamie/proj/paper-pulse/AGENTS.md
+AGENTS.md

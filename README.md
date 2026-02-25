@@ -57,6 +57,20 @@ Go to **Actions → Fetch Papers → Run workflow**. After it completes, visit `
 
 From now on, papers are fetched automatically every day at 00:00 UTC.
 
+### 6. (Optional) Enable email digest
+
+Paper Pulse can send a daily email report with statistics (new papers, failed summaries, token usage). To enable it, add three more secrets in **Settings → Secrets and variables → Actions**:
+
+| Secret | Description |
+|---|---|
+| `EMAIL_USERNAME` | Gmail address used to send the report (e.g. `you@gmail.com`) |
+| `EMAIL_PASSWORD` | Gmail [App Password](https://myaccount.google.com/apppasswords) (not your login password) |
+| `EMAIL_TO` | Recipient address (can be the same as `EMAIL_USERNAME`) |
+
+> **Note:** Gmail requires an **App Password** — you must enable 2-Step Verification on your Google account first, then generate an App Password under [Security → App passwords](https://myaccount.google.com/apppasswords). Regular Gmail passwords will not work.
+
+If these secrets are not set, the workflow still runs normally — the email step is simply skipped.
+
 ## Customization
 
 ### Keywords (`keywords.txt`)

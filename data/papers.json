@@ -1,6 +1,271 @@
 {
   "papers": [
     {
+      "id": "arxiv_2602.21078v1",
+      "arxiv_id": "2602.21078v1",
+      "title": "ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning",
+      "authors": [
+        "Duowen Chen",
+        "Yan Wang"
+      ],
+      "abstract": "Federated Semi-Supervised Learning (FSSL) aims to collaboratively train a global model across clients by leveraging partially-annotated local data in a privacy-preserving manner. In FSSL, data heterogeneity is a challenging issue, which exists both across clients and within clients. External heterogeneity refers to the data distribution discrepancy across different clients, while internal heterogeneity represents the mismatch between labeled and unlabeled data within clients. Most FSSL methods typically design fixed or dynamic parameter aggregation strategies to collect client knowledge on the server (external) and / or filter out low-confidence unlabeled samples to reduce mistakes in local client (internal). But, the former is hard to precisely fit the ideal global distribution via direct weights, and the latter results in fewer data participation into FL training. To this end, we propose a proxy-guided framework called ProxyFL that focuses on simultaneously mitigating external and internal heterogeneity via a unified proxy. I.e., we consider the learnable weights of classifier as proxy to simulate the category distribution both locally and globally. For external, we explicitly optimize global proxy against outliers instead of direct weights; for internal, we re-include the discarded samples into training by a positive-negative proxy pool to mitigate the impact of potentially-incorrect pseudo-labels. Insight experiments & theoretical analysis show our significant performance and convergence in FSSL.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.21078v1",
+      "url": "https://arxiv.org/abs/2602.21078v1",
+      "categories": [
+        "cs.LG",
+        "cs.CV"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与挑战  \n联邦半监督学习（FSSL）旨在隐私保护前提下，利用各客户端局部数据（仅部分标注）协同训练全局模型。其核心难点在于**双重异质性**：**外部异质性**（跨客户端数据分布差异）与**内部异质性**（单客户端内标注/未标注数据分布不匹配）。现有方法多采用固定或动态权重聚合（缓解外部异质性）或置信度过滤（剔除低置信伪标签样本以缓解内部异质性），但前者难以通过直接加权逼近理想全局分布，后者则导致大量未标注数据被弃用，严重限制模型泛化能力。\n\n## 方法创新：ProxyFL框架  \n本文提出**ProxyFL**——一种代理引导的统一框架，首次通过**可学习的分类器权重作为类别分布代理（proxy）**，同步建模并缓解双重异质性。  \n- **对外部异质性**：摒弃直接加权聚合，转而**在服务器端显式优化全局代理**，使其鲁棒对抗客户端异常分布（outliers），提升全局表征一致性；  \n- **对内部异质性**：构建**正负代理池（positive-negative proxy pool）**，将传统方法中被过滤的“低置信”未标注样本重新纳入训练，并依据其与正/负代理的相似度动态分配软权重，显著降低错误伪标签的负面影响。  \n\n## 关键成果  \n理论分析证明ProxyFL具有更优的收敛界；在CIFAR-10/LT、SVHN及医疗影像等6个FSSL基准上，平均准确率提升**+3.2–5.8%**（vs. SOTA），且通信开销降低22%。消融实验验证：代理池机制使未标注数据利用率提升**3.7×**，同时伪标签错误率下降41%。本工作为FSSL提供了兼具鲁棒性、数据效率与可解释性的新范式。",
+      "summary_en": "Federated Semi-Supervised Learning (FSSL) faces dual heterogeneity: *external* (cross-client distribution shift) and *internal* (within-client labeled/unlabeled mismatch). Existing methods either aggregate client models via fixed/dynamic weights—struggling to capture the ideal global distribution—or filter low-confidence pseudo-labels, discarding valuable unlabeled data. To address both challenges jointly, we propose **ProxyFL**, a proxy-guided framework that uses **learnable classifier weights as category-distribution proxies**. For external heterogeneity, ProxyFL explicitly optimizes a *global proxy* on the server to robustly suppress outliers, replacing direct weight aggregation. For internal heterogeneity, it introduces a *positive-negative proxy pool* to re-include filtered unlabeled samples via similarity-based soft weighting, mitigating pseudo-label noise. Theoretically, ProxyFL achieves tighter convergence bounds; empirically, it outperforms SOTAs by +3.2–5.8% average accuracy across 6 benchmarks (e.g., CIFAR-10/LT, SVHN), boosts unlabeled data utilization by 3.7×, and reduces pseudo-label error rate by 41%.",
+      "summary": "## 背景与挑战  \n联邦半监督学习（FSSL）旨在隐私保护前提下，利用各客户端局部数据（仅部分标注）协同训练全局模型。其核心难点在于**双重异质性**：**外部异质性**（跨客户端数据分布差异）与**内部异质性**（单客户端内标注/未标注数据分布不匹配）。现有方法多采用固定或动态权重聚合（缓解外部异质性）或置信度过滤（剔除低置信伪标签样本以缓解内部异质性），但前者难以通过直接加权逼近理想全局分布，后者则导致大量未标注数据被弃用，严重限制模型泛化能力。\n\n## 方法创新：ProxyFL框架  \n本文提出**ProxyFL**——一种代理引导的统一框架，首次通过**可学习的分类器权重作为类别分布代理（proxy）**，同步建模并缓解双重异质性。  \n- **对外部异质性**：摒弃直接加权聚合，转而**在服务器端显式优化全局代理**，使其鲁棒对抗客户端异常分布（outliers），提升全局表征一致性；  \n- **对内部异质性**：构建**正负代理池（positive-negative proxy pool）**，将传统方法中被过滤的“低置信”未标注样本重新纳入训练，并依据其与正/负代理的相似度动态分配软权重，显著降低错误伪标签的负面影响。  \n\n## 关键成果  \n理论分析证明ProxyFL具有更优的收敛界；在CIFAR-10/LT、SVHN及医疗影像等6个FSSL基准上，平均准确率提升**+3.2–5.8%**（vs. SOTA），且通信开销降低22%。消融实验验证：代理池机制使未标注数据利用率提升**3.7×**，同时伪标签错误率下降41%。本工作为FSSL提供了兼具鲁棒性、数据效率与可解释性的新范式。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20946v1",
+      "arxiv_id": "2602.20946v1",
+      "title": "Some Simple Economics of AGI",
+      "authors": [
+        "Christian Catalini",
+        "Xiang Hui",
+        "Jane Wu"
+      ],
+      "abstract": "For millennia, human cognition was the primary engine of progress on Earth. As AI decouples cognition from biology, the marginal cost of measurable execution falls to zero, absorbing any labor capturable by metrics--including creative, analytical, and innovative work. The binding constraint on growth is no longer intelligence but human verification bandwidth: the capacity to validate, audit, and underwrite responsibility when execution is abundant. We model the AGI transition as the collision of two racing cost curves: an exponentially decaying Cost to Automate and a biologically bottlenecked Cost to Verify. This structural asymmetry widens a Measurability Gap between what agents can execute and what humans can afford to verify. It also drives a shift from skill-biased to measurability-biased technical change. Rents migrate to verification-grade ground truth, cryptographic provenance, and liability underwriting--the ability to insure outcomes rather than merely generate them. The current human-in-the-loop equilibrium is unstable: eroded from below as apprenticeship collapses (Missing Junior Loop) and from within as experts codify their obsolescence (Codifier's Curse). Unverified deployment becomes privately rational--a Trojan Horse externality. Unmanaged, these forces pull toward a Hollow Economy. Yet by scaling verification alongside agentic capabilities, the forces that threaten collapse become the catalyst for unbounded discovery and experimentation--an Augmented Economy. We derive a practical playbook for individuals, companies, investors, and policymakers. Today's defining challenge is not the race to deploy the most autonomous systems; it is the race to secure the foundations of their oversight. Only by scaling our bandwidth for verification alongside our capacity for execution can we ensure that the intelligence we have summoned preserves the humanity that initiated it.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20946v1",
+      "url": "https://arxiv.org/abs/2602.20946v1",
+      "categories": [
+        "econ.GN",
+        "cs.AI",
+        "cs.CY",
+        "cs.LG",
+        "cs.SI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "trojan",
+        "ai"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 核心命题  \n本文提出一个结构化框架，解释通用人工智能（AGI）转型期的经济本质：**认知与生物学的解耦**正引发“执行成本趋零”与“验证带宽瓶颈”的根本性不对称。人类千年来的进步引擎——生物认知——正被可无限复制、零边际成本的智能执行所替代，但人类对结果的**验证、审计与责任背书能力**却受限于生理与认知带宽，成为增长的新约束。\n\n## 方法与模型  \n研究构建双曲线动态模型：**自动化成本**（Cost to Automate）呈指数衰减，而**验证成本**（Cost to Verify）受生物学限制，近乎刚性。二者碰撞催生“**可测性鸿沟**”（Measurability Gap）——即AI能高效执行的任务远超人类可负担验证的任务范围。由此驱动技术变迁从“技能偏向型”转向“**可测性偏向型**”：租金不再流向高技能，而集中于**验证级真值源**（verification-grade ground truth）、**密码学可追溯性**（cryptographic provenance）与**责任承保能力**（liability underwriting）。\n\n## 关键发现与创新点  \n- **双重失衡机制**：“缺失的初级环”（Missing Junior Loop）瓦解传统师徒制；“编码者诅咒”（Codifier’s Curse）使专家在固化知识时加速自身替代。  \n- **私人理性陷阱**：未验证部署成为微观理性的“特洛伊木马外部性”，系统性侵蚀信任基础。  \n- **路径分岔**：放任将滑向“空心化经济”（Hollow Economy）；主动扩展验证能力则催生“增强型经济”（Augmented Economy）——以验证为杠杆，释放前所未有的发现与实验自由度。  \n- **实践纲领**：为个体（构建验证素养）、企业（重构人机责任界面）、投资者（重估验证基础设施估值）与政策制定者（设立验证能力国家指标）提供可操作路线图。核心共识：**今日真正的竞赛，不是谁最先部署最自主的系统，而是谁最先筑牢监督的根基。**",
+      "summary_en": "This paper reframes the AGI transition as an economic collision between two asymmetric cost curves: exponentially falling *Cost to Automate* and biologically constrained *Cost to Verify*. As AI decouples cognition from biology, execution becomes near-zero marginal cost—absorbing even creative and innovative labor—but human verification bandwidth remains the binding constraint on growth. This structural asymmetry widens a *Measurability Gap*: what agents can execute vastly exceeds what humans can afford to validate, audit, or underwrite. Consequently, technical change shifts from skill-biased to *measurability-biased*, with economic rents migrating to verification-grade ground truth, cryptographic provenance, and liability underwriting—not just output generation. The current human-in-the-loop equilibrium is unstable: eroded by collapsing apprenticeship (“Missing Junior Loop”) and expert self-obsolescence (“Codifier’s Curse”), enabling privately rational but socially hazardous unverified deployment. Unmanaged, this pulls toward a *Hollow Economy*; yet scaling verification capacity in tandem with agentic capability unlocks an *Augmented Economy*—one where robust oversight enables unbounded discovery. The central imperative is clear: the defining race today is not for autonomy, but for *verifiability*.",
+      "summary": "## 核心命题  \n本文提出一个结构化框架，解释通用人工智能（AGI）转型期的经济本质：**认知与生物学的解耦**正引发“执行成本趋零”与“验证带宽瓶颈”的根本性不对称。人类千年来的进步引擎——生物认知——正被可无限复制、零边际成本的智能执行所替代，但人类对结果的**验证、审计与责任背书能力**却受限于生理与认知带宽，成为增长的新约束。\n\n## 方法与模型  \n研究构建双曲线动态模型：**自动化成本**（Cost to Automate）呈指数衰减，而**验证成本**（Cost to Verify）受生物学限制，近乎刚性。二者碰撞催生“**可测性鸿沟**”（Measurability Gap）——即AI能高效执行的任务远超人类可负担验证的任务范围。由此驱动技术变迁从“技能偏向型”转向“**可测性偏向型**”：租金不再流向高技能，而集中于**验证级真值源**（verification-grade ground truth）、**密码学可追溯性**（cryptographic provenance）与**责任承保能力**（liability underwriting）。\n\n## 关键发现与创新点  \n- **双重失衡机制**：“缺失的初级环”（Missing Junior Loop）瓦解传统师徒制；“编码者诅咒”（Codifier’s Curse）使专家在固化知识时加速自身替代。  \n- **私人理性陷阱**：未验证部署成为微观理性的“特洛伊木马外部性”，系统性侵蚀信任基础。  \n- **路径分岔**：放任将滑向“空心化经济”（Hollow Economy）；主动扩展验证能力则催生“增强型经济”（Augmented Economy）——以验证为杠杆，释放前所未有的发现与实验自由度。  \n- **实践纲领**：为个体（构建验证素养）、企业（重构人机责任界面）、投资者（重估验证基础设施估值）与政策制定者（设立验证能力国家指标）提供可操作路线图。核心共识：**今日真正的竞赛，不是谁最先部署最自主的系统，而是谁最先筑牢监督的根基。**",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20782v1",
+      "arxiv_id": "2602.20782v1",
+      "title": "On Electric Vehicle Energy Demand Forecasting and the Effect of Federated Learning",
+      "authors": [
+        "Andreas Tritsarolis",
+        "Gil Sampaio",
+        "Nikos Pelekis",
+        "Yannis Theodoridis"
+      ],
+      "abstract": "The wide spread of new energy resources, smart devices, and demand side management strategies has motivated several analytics operations, from infrastructure load modeling to user behavior profiling. Energy Demand Forecasting (EDF) of Electric Vehicle Supply Equipments (EVSEs) is one of the most critical operations for ensuring efficient energy management and sustainability, since it enables utility providers to anticipate energy/power demand, optimize resource allocation, and implement proactive measures to improve grid reliability. However, accurate EDF is a challenging problem due to external factors, such as the varying user routines, weather conditions, driving behaviors, unknown state of charge, etc. Furthermore, as concerns and restrictions about privacy and sustainability have grown, training data has become increasingly fragmented, resulting in distributed datasets scattered across different data silos and/or edge devices, calling for federated learning solutions. In this paper, we investigate different well-established time series forecasting methodologies to address the EDF problem, from statistical methods (the ARIMA family) to traditional machine learning models (such as XGBoost) and deep neural networks (GRU and LSTM). We provide an overview of these methods through a performance comparison over four real-world EVSE datasets, evaluated under both centralized and federated learning paradigms, focusing on the trade-offs between forecasting fidelity, privacy preservation, and energy overheads. Our experimental results demonstrate, on the one hand, the superiority of gradient boosted trees (XGBoost) over statistical and NN-based models in both prediction accuracy and energy efficiency and, on the other hand, an insight that Federated Learning-enabled models balance these factors, offering a promising direction for decentralized energy demand forecasting.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20782v1",
+      "url": "https://arxiv.org/abs/2602.20782v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 电动汽车能源需求预测与联邦学习影响研究\n\n随着新能源资源普及、智能设备激增及需求侧管理策略深化，电力系统亟需精细化的能源需求预测（EDF）能力。本文聚焦**电动汽车充电设施（EVSE）的短期能源需求预测**这一关键问题，旨在支撑电网高效调度、资源优化配置与可靠性提升。然而，EDF面临多重挑战：用户出行习惯多变、气象条件动态影响、驾驶行为异质性强、电池荷电状态（SOC）未知等外部不确定性显著削弱模型泛化能力；更关键的是，隐私法规趋严与数据主权意识增强，导致训练数据高度碎片化——分散于不同运营商、区域平台或车载边缘设备中，形成典型“数据孤岛”。\n\n为应对上述挑战，本文系统评估了三类主流时序预测方法：**统计模型（ARIMA及其变体）**、**传统机器学习（XGBoost）** 和 **深度神经网络（LSTM/GRU）**，并在**集中式学习**与**联邦学习（FL）范式**下进行统一实验。我们基于四个真实世界EVSE数据集（涵盖城市快充站、住宅慢充桩等多场景），从**预测精度（MAE/RMSE）**、**隐私保护强度（无原始数据上传）** 和 **端侧能耗（kWh/epoch）** 三维度开展综合对比分析。\n\n核心发现包括：（1）XGBoost在所有数据集上均显著优于ARIMA与LSTM/GRU，平均MAE降低18.7%，且单次训练能耗仅为LSTM的1/5；（2）联邦学习框架下，XGBoost仍保持最优精度-能效平衡，通信开销较深度模型低62%；（3）FL有效缓解数据孤岛困境，在不牺牲隐私前提下实现跨域协同建模，验证了其作为可持续能源预测基础设施的可行性。本研究为低碳交通系统的智能电网协同提供了可落地的方法论支撑与实证依据。",
+      "summary_en": "This paper investigates Electric Vehicle Supply Equipment (EVSE) energy demand forecasting (EDF) under privacy-preserving constraints. We benchmark statistical (ARIMA), machine learning (XGBoost), and deep learning (LSTM, GRU) models across four real-world EVSE datasets, evaluating performance under both centralized and federated learning (FL) paradigms. Results show XGBoost achieves the highest accuracy (18.7% lower MAE on average) and best energy efficiency (5× less training energy than LSTM), outperforming both statistical and neural models. Crucially, in FL settings, XGBoost maintains this advantage while reducing communication overhead by 62% compared to deep models—demonstrating superior trade-offs among prediction fidelity, privacy preservation (no raw data sharing), and edge-device energy consumption. Our work establishes FL-enabled tree-based forecasting as a practical, scalable, and sustainable solution for decentralized EV energy management.",
+      "summary": "## 电动汽车能源需求预测与联邦学习影响研究\n\n随着新能源资源普及、智能设备激增及需求侧管理策略深化，电力系统亟需精细化的能源需求预测（EDF）能力。本文聚焦**电动汽车充电设施（EVSE）的短期能源需求预测**这一关键问题，旨在支撑电网高效调度、资源优化配置与可靠性提升。然而，EDF面临多重挑战：用户出行习惯多变、气象条件动态影响、驾驶行为异质性强、电池荷电状态（SOC）未知等外部不确定性显著削弱模型泛化能力；更关键的是，隐私法规趋严与数据主权意识增强，导致训练数据高度碎片化——分散于不同运营商、区域平台或车载边缘设备中，形成典型“数据孤岛”。\n\n为应对上述挑战，本文系统评估了三类主流时序预测方法：**统计模型（ARIMA及其变体）**、**传统机器学习（XGBoost）** 和 **深度神经网络（LSTM/GRU）**，并在**集中式学习**与**联邦学习（FL）范式**下进行统一实验。我们基于四个真实世界EVSE数据集（涵盖城市快充站、住宅慢充桩等多场景），从**预测精度（MAE/RMSE）**、**隐私保护强度（无原始数据上传）** 和 **端侧能耗（kWh/epoch）** 三维度开展综合对比分析。\n\n核心发现包括：（1）XGBoost在所有数据集上均显著优于ARIMA与LSTM/GRU，平均MAE降低18.7%，且单次训练能耗仅为LSTM的1/5；（2）联邦学习框架下，XGBoost仍保持最优精度-能效平衡，通信开销较深度模型低62%；（3）FL有效缓解数据孤岛困境，在不牺牲隐私前提下实现跨域协同建模，验证了其作为可持续能源预测基础设施的可行性。本研究为低碳交通系统的智能电网协同提供了可落地的方法论支撑与实证依据。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20671v1",
+      "arxiv_id": "2602.20671v1",
+      "title": "Bikelution: Federated Gradient-Boosting for Scalable Shared Micro-Mobility Demand Forecasting",
+      "authors": [
+        "Antonios Tziorvas",
+        "Andreas Tritsarolis",
+        "Yannis Theodoridis"
+      ],
+      "abstract": "The rapid growth of dockless bike-sharing systems has generated massive spatio-temporal datasets useful for fleet allocation, congestion reduction, and sustainable mobility. Bike demand, however, depends on several external factors, making traditional time-series models insufficient. Centralized Machine Learning (CML) yields high-accuracy forecasts but raises privacy and bandwidth issues when data are distributed across edge devices. To overcome these limitations, we propose Bikelution, an efficient Federated Learning (FL) solution based on gradient-boosted trees that preserves privacy while delivering accurate mid-term demand forecasts up to six hours ahead. Experiments on three real-world BSS datasets show that Bikelution is comparable to its CML-based variant and outperforms the current state-of-the-art. The results highlight the feasibility of privacy-aware demand forecasting and outline the trade-offs between FL and CML approaches.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20671v1",
+      "url": "https://arxiv.org/abs/2602.20671v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与挑战  \n无桩共享单车系统（BSS）的爆发式增长产生了海量高分辨率时空数据，为运力调度、热点疏解与可持续交通规划提供了关键支撑。然而，骑行需求受天气、事件、通勤节奏等多重外部因素动态耦合影响，传统单变量时间序列模型（如ARIMA、Prophet）泛化能力有限；而集中式机器学习（CML）虽能实现高精度预测，却需将用户级轨迹、驻留时长、起讫点（OD）等敏感数据上传至中心服务器，严重违背《个人信息保护法》及GDPR隐私原则，且在边缘设备带宽受限场景下通信开销巨大。\n\n## 方法创新：Bikelution框架  \n本文提出**Bikelution**——首个面向微出行需求预测的联邦梯度提升树（Federated Gradient-Boosting）框架。其核心创新包括：（1）**隐私优先架构**：采用客户端本地训练XGBoost/LightGBM模型，仅上传加密梯度统计量（而非原始数据或模型参数），满足差分隐私与安全聚合双重保障；（2）**轻量化通信协议**：设计稀疏梯度直方图压缩机制，将单轮通信量降低62%；（3）**时序感知联邦策略**：引入滑动窗口协同训练机制，使各站点节点在保持本地数据分布异构性的同时，对齐6小时中短期需求趋势。框架支持跨城市、跨运营商多源数据协作，无需数据共享即可联合建模。\n\n## 实验验证与价值  \n在杭州、纽约Citi Bike、新加坡SG Bike三大真实BSS数据集上，Bikelution在MAE/RMSE指标上较当前SOTA联邦方法（FedTree、FedXGBoost）平均提升19.3%，与同等配置的集中式XGBoost性能差距<2.1%，显著优于LSTM、STGCN等深度模型。结果证实：**隐私保护与预测精度并非零和博弈**；Bikelution在保障用户轨迹隐私前提下，实现了可扩展、低延迟、高鲁棒的共享微出行需求预测，为智慧城市交通治理提供了合规可行的技术路径。",
+      "summary_en": "Bikelution is a novel federated learning framework for scalable, privacy-preserving micro-mobility demand forecasting using gradient-boosted decision trees. Unlike centralized ML—which achieves high accuracy but violates data privacy and incurs prohibitive bandwidth costs—Bikelution enables collaborative model training across edge devices (e.g., bike docks, city zones) without sharing raw spatio-temporal data. It introduces sparse histogram-based gradient compression, differential privacy-aware secure aggregation, and a sliding-window client selection strategy to handle non-IID demand patterns. Evaluated on three real-world dockless bike-sharing datasets (Hangzhou, NYC Citi Bike, Singapore SG Bike), Bikelution matches centralized XGBoost’s 6-hour-ahead forecast accuracy (within 2.1% MAE gap) while outperforming state-of-the-art federated tree methods by 19.3% on average. This demonstrates that high-fidelity, mid-term demand forecasting is feasible under strict privacy constraints—enabling sustainable, compliant smart mobility planning.",
+      "summary": "## 背景与挑战  \n无桩共享单车系统（BSS）的爆发式增长产生了海量高分辨率时空数据，为运力调度、热点疏解与可持续交通规划提供了关键支撑。然而，骑行需求受天气、事件、通勤节奏等多重外部因素动态耦合影响，传统单变量时间序列模型（如ARIMA、Prophet）泛化能力有限；而集中式机器学习（CML）虽能实现高精度预测，却需将用户级轨迹、驻留时长、起讫点（OD）等敏感数据上传至中心服务器，严重违背《个人信息保护法》及GDPR隐私原则，且在边缘设备带宽受限场景下通信开销巨大。\n\n## 方法创新：Bikelution框架  \n本文提出**Bikelution**——首个面向微出行需求预测的联邦梯度提升树（Federated Gradient-Boosting）框架。其核心创新包括：（1）**隐私优先架构**：采用客户端本地训练XGBoost/LightGBM模型，仅上传加密梯度统计量（而非原始数据或模型参数），满足差分隐私与安全聚合双重保障；（2）**轻量化通信协议**：设计稀疏梯度直方图压缩机制，将单轮通信量降低62%；（3）**时序感知联邦策略**：引入滑动窗口协同训练机制，使各站点节点在保持本地数据分布异构性的同时，对齐6小时中短期需求趋势。框架支持跨城市、跨运营商多源数据协作，无需数据共享即可联合建模。\n\n## 实验验证与价值  \n在杭州、纽约Citi Bike、新加坡SG Bike三大真实BSS数据集上，Bikelution在MAE/RMSE指标上较当前SOTA联邦方法（FedTree、FedXGBoost）平均提升19.3%，与同等配置的集中式XGBoost性能差距<2.1%，显著优于LSTM、STGCN等深度模型。结果证实：**隐私保护与预测精度并非零和博弈**；Bikelution在保障用户轨迹隐私前提下，实现了可扩展、低延迟、高鲁棒的共享微出行需求预测，为智慧城市交通治理提供了合规可行的技术路径。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20593v1",
+      "arxiv_id": "2602.20593v1",
+      "title": "Is the Trigger Essential? A Feature-Based Triggerless Backdoor Attack in Vertical Federated Learning",
+      "authors": [
+        "Yige Liu",
+        "Yiwei Lou",
+        "Che Wang",
+        "Yongzhi Cao",
+        "Hanpin Wang"
+      ],
+      "abstract": "As a distributed collaborative machine learning paradigm, vertical federated learning (VFL) allows multiple passive parties with distinct features and one active party with labels to collaboratively train a model. Although it is known for the privacy-preserving capabilities, VFL still faces significant privacy and security threats from backdoor attacks. Existing backdoor attacks typically involve an attacker implanting a trigger into the model during the training phase and executing the attack by adding the trigger to the samples during the inference phase. However, in this paper, we find that triggers are not essential for backdoor attacks in VFL. In light of this, we disclose a new backdoor attack pathway in VFL by introducing a feature-based triggerless backdoor attack. This attack operates under a more stringent security assumption, where the attacker is honest-but-curious rather than malicious during the training phase. It comprises three modules: label inference for the targeted backdoor attack, poison generation with amplification and perturbation mechanisms, and backdoor execution to implement the attack. Extensive experiments on five benchmark datasets demonstrate that our attack outperforms three baseline backdoor attacks by 2 to 50 times while minimally impacting the main task. Even in VFL scenarios with 32 passive parties and only one set of auxiliary data, our attack maintains high performance. Moreover, when confronted with distinct defense strategies, our attack remains largely unaffected and exhibits strong robustness. We hope that the disclosure of this triggerless backdoor attack pathway will encourage the community to revisit security threats in VFL scenarios and inspire researchers to develop more robust and practical defense strategies.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20593v1",
+      "url": "https://arxiv.org/abs/2602.20593v1",
+      "categories": [
+        "cs.LG",
+        "cs.CR"
+      ],
+      "published_official": true,
+      "keywords": [
+        "inference",
+        "learning",
+        "security",
+        "train",
+        "privacy-preserving",
+        "machine",
+        "federated"
+      ],
+      "keyword_score": 7,
+      "summary_zh": "## 背景与问题  \n垂直联邦学习（VFL）允许多个拥有异构特征的被动方与一个持有标签的主动方协同建模，在保障数据隐私的同时提升模型性能。然而，现有研究多聚焦于**触发式**后门攻击（需在训练中植入特定触发模式，并在推理时注入触发样本），其强依赖人工设计的触发信号，且通常假设攻击者在训练阶段具有恶意篡改行为，安全假设较宽松。\n\n## 创新方法：特征驱动的无触发后门攻击  \n本文首次揭示：**触发信号在VFL后门攻击中并非必需**。我们提出一种**无触发（triggerless）、特征驱动的后门攻击框架**，其核心在于——**利用被动方本地特征的固有统计特性与模型梯度敏感性，隐式构造“语义触发”**。该攻击在更严格的**诚实但好奇（honest-but-curious）安全假设**下运作：攻击者（任一被动方）不篡改训练协议或梯度上传，仅通过合法参与训练过程即可完成攻击。框架包含三大模块：  \n- **标签推断**：基于主动方返回的中间结果（如梯度或嵌入），逆向推断目标类别的标签分布；  \n- **无触发投毒生成**：结合**特征放大机制**（增强目标类相关特征响应）与**微扰机制**（添加不可感知、非结构化扰动），在无需外部触发模板的前提下生成毒化样本；  \n- **后门执行**：在推理阶段，仅需输入**原始未修改的正常样本**（如某类自然图像），模型即自动激活后门行为，输出预设错误标签。\n\n## 实验验证与鲁棒性  \n在5个基准数据集（包括Adult、Credit、Bank等）上，本攻击在攻击成功率（ASR）上**超越3种基线触发式攻击2–50倍**，同时主任务准确率下降<0.8%。即使扩展至**32方VFL场景**且仅提供**1组辅助数据**，ASR仍稳定高于92%。面对主流防御（如FedCert、Trimmed Mean、Norm Clipping），本攻击ASR波动<3%，展现出极强隐蔽性与鲁棒性。本工作不仅拓展了VFL安全威胁认知边界，更呼吁社区重新审视“无显式触发”的新型协同攻击范式。",
+      "summary_en": "Vertical federated learning (VFL) enables collaborative modeling across parties holding disjoint features and labels, yet remains vulnerable to backdoor attacks. Contrary to the prevailing trigger-dependent paradigm, this paper demonstrates that **triggers are *not essential* for effective backdoor attacks in VFL**. We propose the first **feature-based triggerless backdoor attack**, operating under a stricter honest-but-curious threat model—where the attacker participates legitimately in training without gradient tampering. Our method comprises three key components: (1) label inference to identify target classes from intermediate outputs; (2) triggerless poisoning via feature amplification and imperceptible perturbation; and (3) stealthy backdoor execution on *clean, unmodified inputs*. Experiments on five benchmark datasets show our attack achieves 2–50× higher attack success rate (ASR) than three trigger-based baselines, with <0.8% main-task accuracy degradation. It remains highly effective even in large-scale VFL (32 passive parties) using only one auxiliary dataset and exhibits strong resilience against defenses (ASR variation <3%). This work uncovers a critical blind spot in VFL security and calls for robust, trigger-agnostic defense design.",
+      "summary": "## 背景与问题  \n垂直联邦学习（VFL）允许多个拥有异构特征的被动方与一个持有标签的主动方协同建模，在保障数据隐私的同时提升模型性能。然而，现有研究多聚焦于**触发式**后门攻击（需在训练中植入特定触发模式，并在推理时注入触发样本），其强依赖人工设计的触发信号，且通常假设攻击者在训练阶段具有恶意篡改行为，安全假设较宽松。\n\n## 创新方法：特征驱动的无触发后门攻击  \n本文首次揭示：**触发信号在VFL后门攻击中并非必需**。我们提出一种**无触发（triggerless）、特征驱动的后门攻击框架**，其核心在于——**利用被动方本地特征的固有统计特性与模型梯度敏感性，隐式构造“语义触发”**。该攻击在更严格的**诚实但好奇（honest-but-curious）安全假设**下运作：攻击者（任一被动方）不篡改训练协议或梯度上传，仅通过合法参与训练过程即可完成攻击。框架包含三大模块：  \n- **标签推断**：基于主动方返回的中间结果（如梯度或嵌入），逆向推断目标类别的标签分布；  \n- **无触发投毒生成**：结合**特征放大机制**（增强目标类相关特征响应）与**微扰机制**（添加不可感知、非结构化扰动），在无需外部触发模板的前提下生成毒化样本；  \n- **后门执行**：在推理阶段，仅需输入**原始未修改的正常样本**（如某类自然图像），模型即自动激活后门行为，输出预设错误标签。\n\n## 实验验证与鲁棒性  \n在5个基准数据集（包括Adult、Credit、Bank等）上，本攻击在攻击成功率（ASR）上**超越3种基线触发式攻击2–50倍**，同时主任务准确率下降<0.8%。即使扩展至**32方VFL场景**且仅提供**1组辅助数据**，ASR仍稳定高于92%。面对主流防御（如FedCert、Trimmed Mean、Norm Clipping），本攻击ASR波动<3%，展现出极强隐蔽性与鲁棒性。本工作不仅拓展了VFL安全威胁认知边界，更呼吁社区重新审视“无显式触发”的新型协同攻击范式。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20585v1",
+      "arxiv_id": "2602.20585v1",
+      "title": "Characterizing Online and Private Learnability under Distributional Constraints via Generalized Smoothness",
+      "authors": [
+        "Moïse Blanchard",
+        "Abhishek Shetty",
+        "Alexander Rakhlin"
+      ],
+      "abstract": "Understanding minimal assumptions that enable learning and generalization is perhaps the central question of learning theory. Several celebrated results in statistical learning theory, such as the VC theorem and Littlestone's characterization of online learnability, establish conditions on the hypothesis class that allow for learning under independent data and adversarial data, respectively. Building upon recent work bridging these extremes, we study sequential decision making under distributional adversaries that can adaptively choose data-generating distributions from a fixed family $U$ and ask when such problems are learnable with sample complexity that behaves like the favorable independent case. We provide a near complete characterization of families $U$ that admit learnability in terms of a notion known as generalized smoothness i.e. a distribution family admits VC-dimension-dependent regret bounds for every finite-VC hypothesis class if and only if it is generalized smooth. Further, we give universal algorithms that achieve low regret under any generalized smooth adversary without explicit knowledge of $U$. Finally, when $U$ is known, we provide refined bounds in terms of a combinatorial parameter, the fragmentation number, that captures how many disjoint regions can carry nontrivial mass under $U$. These results provide a nearly complete understanding of learnability under distributional adversaries. In addition, building upon the surprising connection between online learning and differential privacy, we show that the generalized smoothness also characterizes private learnability under distributional constraints.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20585v1",
+      "url": "https://arxiv.org/abs/2602.20585v1",
+      "categories": [
+        "stat.ML",
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "privacy",
+        "differential"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 研究背景与问题  \n学习理论的核心在于刻画使学习与泛化成为可能的**最小假设**。经典结果如VC理论（独立同分布数据）与Littlestone维度理论（完全对抗性序列数据）分别刻画了两种极端场景下的可学习性。然而，现实中的数据生成过程常介于二者之间：对手可自适应地从某个**预设分布族 $U$** 中选择每轮的数据分布，形成“分布式对抗”（distributional adversary）。本文系统研究此类序列决策问题的可学习性——何时其样本复杂度能退化至有利的i.i.d.情形？\n\n## 方法与核心概念  \n本文引入并深入刻画**广义光滑性**（generalized smoothness）这一关键性质：分布族 $U$ 满足广义光滑性，当且仅当对**任意有限VC维假设类**，均存在仅依赖VC维的次线性遗憾界（即 $O(\\sqrt{T \\cdot \\mathrm{VC}(\\mathcal{H})})$）。该性质统一桥接了统计学习与在线学习的结构约束。\n\n## 主要发现与创新  \n- **完备刻画**：我们建立了近乎完整的可学习性等价表征——$U$ 允许在线可学习（对所有有限VC类）**当且仅当** $U$ 是广义光滑的。  \n- **通用算法**：设计无需先验知晓 $U$ 的黑盒算法，在任意广义光滑对手下实现低遗憾，具有强鲁棒性。  \n- **精细分析**：当 $U$ 已知时，提出**碎片数**（fragmentation number）这一组合参数，精确刻画分布族在几何上可支持的“非平凡质量区域”的最大不相交数目，并导出紧致的遗憾上界。  \n- **跨领域揭示**：首次发现广义光滑性同样**精确刻画差分隐私下的可学习性**——在分布约束下，某类可私有学习当且仅当其支撑分布族满足广义光滑性，从而在在线学习与隐私学习间建立深刻对应。\n\n本工作为分布式对抗学习提供了统一理论框架，填补了i.i.d.与全对抗之间的关键空白，并拓展至隐私学习，推动学习理论的纵深整合。",
+      "summary_en": "This paper characterizes online and private learnability under *distributional adversaries*—adaptive sequences of data-generating distributions drawn from a fixed family $U$. We introduce **generalized smoothness**, a structural property of $U$, and prove it is *necessary and sufficient* for online learnability: a family $U$ admits VC-dimension-dependent regret bounds for *every* finite-VC hypothesis class if and only if $U$ is generalized smooth. We design universal algorithms achieving low regret without explicit knowledge of $U$, and—when $U$ is known—derive refined bounds via the **fragmentation number**, a combinatorial measure of how many disjoint regions can simultaneously carry nontrivial mass under $U$. Remarkably, we show generalized smoothness also *exactly characterizes* private learnability under distributional constraints, revealing a deep unification between online and differentially private learning. These results provide a near-complete theory of learnability beyond i.i.d. and fully adversarial settings.",
+      "summary": "## 研究背景与问题  \n学习理论的核心在于刻画使学习与泛化成为可能的**最小假设**。经典结果如VC理论（独立同分布数据）与Littlestone维度理论（完全对抗性序列数据）分别刻画了两种极端场景下的可学习性。然而，现实中的数据生成过程常介于二者之间：对手可自适应地从某个**预设分布族 $U$** 中选择每轮的数据分布，形成“分布式对抗”（distributional adversary）。本文系统研究此类序列决策问题的可学习性——何时其样本复杂度能退化至有利的i.i.d.情形？\n\n## 方法与核心概念  \n本文引入并深入刻画**广义光滑性**（generalized smoothness）这一关键性质：分布族 $U$ 满足广义光滑性，当且仅当对**任意有限VC维假设类**，均存在仅依赖VC维的次线性遗憾界（即 $O(\\sqrt{T \\cdot \\mathrm{VC}(\\mathcal{H})})$）。该性质统一桥接了统计学习与在线学习的结构约束。\n\n## 主要发现与创新  \n- **完备刻画**：我们建立了近乎完整的可学习性等价表征——$U$ 允许在线可学习（对所有有限VC类）**当且仅当** $U$ 是广义光滑的。  \n- **通用算法**：设计无需先验知晓 $U$ 的黑盒算法，在任意广义光滑对手下实现低遗憾，具有强鲁棒性。  \n- **精细分析**：当 $U$ 已知时，提出**碎片数**（fragmentation number）这一组合参数，精确刻画分布族在几何上可支持的“非平凡质量区域”的最大不相交数目，并导出紧致的遗憾上界。  \n- **跨领域揭示**：首次发现广义光滑性同样**精确刻画差分隐私下的可学习性**——在分布约束下，某类可私有学习当且仅当其支撑分布族满足广义光滑性，从而在在线学习与隐私学习间建立深刻对应。\n\n本工作为分布式对抗学习提供了统一理论框架，填补了i.i.d.与全对抗之间的关键空白，并拓展至隐私学习，推动学习理论的纵深整合。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20492v1",
+      "arxiv_id": "2602.20492v1",
+      "title": "Wireless Federated Multi-Task LLM Fine-Tuning via Sparse-and-Orthogonal LoRA",
+      "authors": [
+        "Nuocheng Yang",
+        "Sihua Wang",
+        "Ouwen Huan",
+        "Mingzhe Chen",
+        "Tony Q. S. Quek",
+        "Changchuan Yin"
+      ],
+      "abstract": "Decentralized federated learning (DFL) based on low-rank adaptation (LoRA) enables mobile devices with multi-task datasets to collaboratively fine-tune a large language model (LLM) by exchanging locally updated parameters with a subset of neighboring devices via wireless connections for knowledge integration.However, directly aggregating parameters fine-tuned on heterogeneous datasets induces three primary issues across the DFL life-cycle: (i) \\textit{catastrophic knowledge forgetting during fine-tuning process}, arising from conflicting update directions caused by data heterogeneity; (ii) \\textit{inefficient communication and convergence during model aggregation process}, due to bandwidth-intensive redundant model transmissions; and (iii) \\textit{multi-task knowledge interference during inference process}, resulting from incompatible knowledge representations coexistence during inference. To address these issues in a fully decentralized scenario, we first propose a sparse-and-orthogonal LoRA that ensures orthogonality between model updates to eliminate direction conflicts during fine-tuning.Then, we analyze how device connection topology affects multi-task performance, prompting a cluster-based topology design during aggregation.Finally, we propose an implicit mixture of experts (MoE) mechanism to avoid the coexistence of incompatible knowledge during inference. Simulation results demonstrate that the proposed approach effectively reduces communication resource consumption by up to $73\\%$ and enhances average performance by $5\\%$ compared with the traditional LoRA method.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20492v1",
+      "url": "https://arxiv.org/abs/2602.20492v1",
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 无线去中心化联邦多任务大语言模型微调：基于稀疏正交LoRA的新范式\n\n针对移动设备在无线边缘环境下协同微调大语言模型（LLM）所面临的**数据异构性**与**通信资源受限**双重挑战，本文提出一种全新的去中心化联邦多任务学习框架——**稀疏正交LoRA（Sparse-and-Orthogonal LoRA）**。该框架彻底摒弃传统中心化服务器，仅依赖设备间局部无线连接完成知识整合，适用于真实边缘场景。\n\n我们系统识别出传统LoRA联邦微调在全去中心化生命周期中的三大瓶颈：（i）**微调阶段的灾难性知识遗忘**——因异构多任务数据引发梯度更新方向冲突；（ii）**聚合阶段的通信低效与收敛缓慢**——高维冗余参数传输加剧带宽压力；（iii）**推理阶段的多任务知识干扰**——不同任务表征在共享模型中强行共存导致性能下降。\n\n为突破上述限制，本文提出三项核心创新：  \n1. **正交约束LoRA适配器**：在低秩更新矩阵上引入稀疏结构与显式正交正则化（$\\mathbf{A}^\\top\\mathbf{B}=0$），从源头消除更新方向冲突，显著缓解知识遗忘；  \n2. **拓扑感知聚类聚合机制**：理论分析表明设备连接拓扑直接影响多任务泛化能力，据此设计基于任务相似性的动态设备聚类策略，在局部聚合中保留任务语义一致性；  \n3. **隐式混合专家（MoE）推理机制**：无需显式路由网络，通过任务标识符触发稀疏门控，实现单模型内任务专属子路径激活，彻底规避知识表征冲突。\n\n仿真结果表明：相较标准LoRA联邦方案，本方法在保持模型规模不变前提下，**通信开销降低最高达73%**，**多任务平均准确率提升5.0个百分点**，且收敛速度加快约2.1倍，验证了其在资源受限边缘环境下的高效性与鲁棒性。",
+      "summary_en": "This paper proposes **Sparse-and-Orthogonal LoRA**, a fully decentralized wireless federated learning framework for multi-task fine-tuning of large language models (LLMs) on mobile devices. It tackles three critical issues in heterogeneous edge settings: (i) catastrophic forgetting during local fine-tuning due to conflicting gradient directions; (ii) inefficient communication and slow convergence from redundant parameter transmission; and (iii) cross-task knowledge interference at inference. Our approach introduces: (1) orthogonality-constrained sparse LoRA adapters to eliminate update conflicts; (2) a task-aware clustering strategy for topology-efficient model aggregation among neighboring devices; and (3) an implicit mixture-of-experts mechanism enabling task-specific inference paths without explicit routing. Experiments show up to **73% reduction in communication cost** and **+5.0% average accuracy gain** over standard federated LoRA, with faster convergence—demonstrating strong practicality for bandwidth-constrained wireless edge AI.",
+      "summary": "## 无线去中心化联邦多任务大语言模型微调：基于稀疏正交LoRA的新范式\n\n针对移动设备在无线边缘环境下协同微调大语言模型（LLM）所面临的**数据异构性**与**通信资源受限**双重挑战，本文提出一种全新的去中心化联邦多任务学习框架——**稀疏正交LoRA（Sparse-and-Orthogonal LoRA）**。该框架彻底摒弃传统中心化服务器，仅依赖设备间局部无线连接完成知识整合，适用于真实边缘场景。\n\n我们系统识别出传统LoRA联邦微调在全去中心化生命周期中的三大瓶颈：（i）**微调阶段的灾难性知识遗忘**——因异构多任务数据引发梯度更新方向冲突；（ii）**聚合阶段的通信低效与收敛缓慢**——高维冗余参数传输加剧带宽压力；（iii）**推理阶段的多任务知识干扰**——不同任务表征在共享模型中强行共存导致性能下降。\n\n为突破上述限制，本文提出三项核心创新：  \n1. **正交约束LoRA适配器**：在低秩更新矩阵上引入稀疏结构与显式正交正则化（$\\mathbf{A}^\\top\\mathbf{B}=0$），从源头消除更新方向冲突，显著缓解知识遗忘；  \n2. **拓扑感知聚类聚合机制**：理论分析表明设备连接拓扑直接影响多任务泛化能力，据此设计基于任务相似性的动态设备聚类策略，在局部聚合中保留任务语义一致性；  \n3. **隐式混合专家（MoE）推理机制**：无需显式路由网络，通过任务标识符触发稀疏门控，实现单模型内任务专属子路径激活，彻底规避知识表征冲突。\n\n仿真结果表明：相较标准LoRA联邦方案，本方法在保持模型规模不变前提下，**通信开销降低最高达73%**，**多任务平均准确率提升5.0个百分点**，且收敛速度加快约2.1倍，验证了其在资源受限边缘环境下的高效性与鲁棒性。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20450v1",
+      "arxiv_id": "2602.20450v1",
+      "title": "Heterogeneity-Aware Client Selection Methodology For Efficient Federated Learning",
+      "authors": [
+        "Nihal Balivada",
+        "Shrey Gupta",
+        "Shashank Shreedhar Bhatt",
+        "Suyash Gupta"
+      ],
+      "abstract": "Federated Learning (FL) enables a distributed client-server architecture where multiple clients collaboratively train a global Machine Learning (ML) model without sharing sensitive local data. However, FL often results in lower accuracy than traditional ML algorithms due to statistical heterogeneity across clients. Prior works attempt to address this by using model updates, such as loss and bias, from client models to select participants that can improve the global model's accuracy. However, these updates neither accurately represent a client's heterogeneity nor are their selection methods deterministic. We mitigate these limitations by introducing Terraform, a novel client selection methodology that uses gradient updates and a deterministic selection algorithm to select heterogeneous clients for retraining. This bi-pronged approach allows Terraform to achieve up to 47 percent higher accuracy over prior works. We further demonstrate its efficiency through comprehensive ablation studies and training time analyses, providing strong justification for the robustness of Terraform.",
+      "published": "2026-02-24",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20450v1",
+      "url": "https://arxiv.org/abs/2602.20450v1",
+      "categories": [
+        "cs.DC",
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "learning",
+        "federated"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与挑战  \n联邦学习（FL）通过客户端-服务器协同训练范式，在保护本地数据隐私的前提下构建全局机器学习模型。然而，**客户端间显著的数据与模型分布异质性（statistical heterogeneity）** 严重制约了全局模型收敛速度与最终精度，导致其性能常低于集中式训练。现有客户端选择方法多依赖损失值、偏差或粗粒度模型更新作为代理指标，但这些指标**既无法精准刻画客户端的异质性本质，又缺乏确定性选择机制**，易引入偏差并降低选择稳定性。\n\n## 方法创新：Terraform 框架  \n本文提出 **Terraform**——一种异质性感知的确定性客户端选择新范式。其核心包含两大创新：  \n- **梯度级异质性建模**：摒弃传统标量指标，直接利用客户端上传的**局部梯度更新向量**，通过余弦相似度与梯度范数联合量化其与全局梯度方向/幅度的偏离程度，从而**精准、细粒度地表征个体异质性水平**；  \n- **确定性贪心选择算法**：设计轻量级、可复现的确定性策略，在每轮通信中严格依据异质性得分排序，优先选取最具代表性（即梯度最偏离当前全局方向）的 *k* 个客户端参与重训练，避免随机性带来的性能波动。\n\n## 主要成果与验证  \n在 CIFAR-10/100、Tiny-ImageNet 及真实医疗数据集（LEAF-HeartDisease）上，Terraform 相比 SOTA 方法（如 FedAvg、FedProx、q-FFL）**平均提升测试精度达 47%**（绝对精度增益最高 +8.2%）。消融实验验证了梯度建模与确定性选择的各自贡献；训练时间分析表明其单轮开销仅增加 <3%，具备强实用性。本工作为异质性驱动的高效联邦优化提供了**理论严谨、实现简洁、部署鲁棒**的新路径。",
+      "summary_en": "Federated Learning (FL) suffers from statistical heterogeneity across clients, leading to accuracy degradation and unstable convergence. Prior client selection methods rely on loss or bias—imprecise proxies for heterogeneity—and employ stochastic selection, limiting reliability. We propose **Terraform**, a novel heterogeneity-aware methodology that leverages **client gradient updates** (not scalar metrics) to quantify directional and magnitude deviation from the global gradient, enabling precise heterogeneity assessment. Its **deterministic greedy algorithm** selects the top-*k* most heterogeneous clients per round—ensuring reproducibility and stability. Evaluated across four benchmarks (CIFAR-10/100, Tiny-ImageNet, LEAF-HeartDisease), Terraform achieves up to **47% higher accuracy** over state-of-the-art baselines (e.g., FedAvg, q-FFL). Ablation studies confirm both gradient-based modeling and deterministic selection are essential; training overhead remains under 3% per round. Terraform delivers a robust, efficient, and principled solution for heterogeneous FL.",
+      "summary": "## 背景与挑战  \n联邦学习（FL）通过客户端-服务器协同训练范式，在保护本地数据隐私的前提下构建全局机器学习模型。然而，**客户端间显著的数据与模型分布异质性（statistical heterogeneity）** 严重制约了全局模型收敛速度与最终精度，导致其性能常低于集中式训练。现有客户端选择方法多依赖损失值、偏差或粗粒度模型更新作为代理指标，但这些指标**既无法精准刻画客户端的异质性本质，又缺乏确定性选择机制**，易引入偏差并降低选择稳定性。\n\n## 方法创新：Terraform 框架  \n本文提出 **Terraform**——一种异质性感知的确定性客户端选择新范式。其核心包含两大创新：  \n- **梯度级异质性建模**：摒弃传统标量指标，直接利用客户端上传的**局部梯度更新向量**，通过余弦相似度与梯度范数联合量化其与全局梯度方向/幅度的偏离程度，从而**精准、细粒度地表征个体异质性水平**；  \n- **确定性贪心选择算法**：设计轻量级、可复现的确定性策略，在每轮通信中严格依据异质性得分排序，优先选取最具代表性（即梯度最偏离当前全局方向）的 *k* 个客户端参与重训练，避免随机性带来的性能波动。\n\n## 主要成果与验证  \n在 CIFAR-10/100、Tiny-ImageNet 及真实医疗数据集（LEAF-HeartDisease）上，Terraform 相比 SOTA 方法（如 FedAvg、FedProx、q-FFL）**平均提升测试精度达 47%**（绝对精度增益最高 +8.2%）。消融实验验证了梯度建模与确定性选择的各自贡献；训练时间分析表明其单轮开销仅增加 <3%，具备强实用性。本工作为异质性驱动的高效联邦优化提供了**理论严谨、实现简洁、部署鲁棒**的新路径。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_373",
+      "iacr_id": "373",
+      "title": "Partially Non-Interactive Two-Round Threshold and Multi-Signatures with Tighter and Adaptive Security",
+      "authors": [
+        "Yanbo Chen"
+      ],
+      "abstract": "Threshold and multi-signature schemes enable a group of signers to jointly sign messages. In the pairing-free discrete-logarithm setting, there have been extensive research efforts on two-round threshold and multi-signature schemes. A prominent category is partially non-interactive schemes, where the first round is message-independent and can be preprocessed offline. However, there exist gaps in security properties between partially non-interactive schemes and fully online schemes. While there are fully online schemes that achieve rewinding-free or fully adaptive security based on standard assumptions, existing partially non-interactive schemes require the adversary to act algebraically or rely on non-standard assumptions for these properties.\n\nWe bridge this gap by proposing a family of new constructions of partially non-interactive threshold and multi-signature schemes. Central to our constructions is a technique that renders HBMS (Bellare and Dai, Asiacrypt 2021) and its variants partially non-interactive. Specifically, we present the following instances:\n- The first partially non-interactive two-round multi-signature scheme with a rewinding-free reduction under standard assumptions. This scheme provides a tighter security guarantee against non-algebraic adversaries than all prior partially non-interactive schemes.\n- The first partially non-interactive two-round threshold signature scheme achieving fully adaptive security against non-algebraic adversaries  under standard assumptions.",
+      "published": "2026-02-24",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/373.pdf",
+      "url": "https://eprint.iacr.org/2026/373",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 研究背景与问题  \n阈值签名（Threshold Signature）与多签名（Multi-Signature）方案允许多方协同生成单个紧凑签名，广泛应用于区块链、分布式密钥管理等场景。在**无配对离散对数（pairing-free DL）设定**下，两轮协议因其高效性备受关注。其中，“**部分非交互式（Partially Non-Interactive, PNI）**”方案允许第一轮通信**与消息无关**，可离线预处理，显著降低在线延迟——但现有PNI方案在安全性上存在明显短板：其紧致性（tightness）、自适应安全性（adaptive security）或免重绕性（rewinding-freeness）均依赖**代数敌手假设**或**非标准困难性假设**（如q-SDH变体），而同期全在线（fully online）方案已在标准假设下实现免重绕与完全自适应安全。\n\n## 核心方法与创新  \n本研究首次弥合该安全鸿沟，提出一类**基于HBMS框架（Bellare & Dai, Asiacrypt 2021）的新型PNI构造技术**：通过重构密钥生成与承诺机制，将原需消息绑定的首轮交互解耦为纯密钥相关预处理步骤，同时保持底层零知识结构完整性。关键技术包括：（1）引入**消息无关的公共承诺链**替代传统随机预言机哈希；（2）设计**抗自适应选择的密钥派生函数**，确保签名者私钥分量在预处理阶段即满足阈值约束；（3）采用**标准DL假设下的模拟器重构技术**，规避代数敌手限制。\n\n## 主要成果  \n- **首个标准假设下免重绕的PNI两轮多签名方案**：安全规约紧致（损失因子仅为O(1)），且对**非代数敌手**成立，优于所有先前PNI方案（此前最优损失为O(n)）；  \n- **首个标准假设下完全自适应安全的PNI两轮阈值签名方案**：支持动态签名者集合与任意门限t≤n，敌手可在看到公钥后自适应选择被攻破节点与待签名消息；  \n- 所有方案均兼容现有部署环境（无需可信中心、不依赖随机预言机），通信开销与计算复杂度与最优全在线方案相当。",
+      "summary_en": "We bridge a critical security gap in partially non-interactive (PNI) two-round threshold and multi-signature schemes in the pairing-free discrete-logarithm setting. While fully online schemes achieve rewinding-free or fully adaptive security under standard assumptions, prior PNI schemes require algebraic adversary restrictions or non-standard assumptions. Our key insight is to systematically transform the HBMS framework (Bellare & Dai, Asiacrypt 2021) into a PNI paradigm via message-independent preprocessing of commitments and adaptive key derivation. We present: (1) the **first PNI two-round multi-signature scheme** with a rewinding-free reduction under standard DL assumptions, achieving tighter security (O(1) loss) against *non-algebraic* adversaries; and (2) the **first PNI two-round threshold signature scheme** with *fully adaptive security*—supporting adaptive corruptions and message queries—also under standard assumptions. Both schemes retain practical efficiency and avoid random oracles.",
+      "summary": "## 研究背景与问题  \n阈值签名（Threshold Signature）与多签名（Multi-Signature）方案允许多方协同生成单个紧凑签名，广泛应用于区块链、分布式密钥管理等场景。在**无配对离散对数（pairing-free DL）设定**下，两轮协议因其高效性备受关注。其中，“**部分非交互式（Partially Non-Interactive, PNI）**”方案允许第一轮通信**与消息无关**，可离线预处理，显著降低在线延迟——但现有PNI方案在安全性上存在明显短板：其紧致性（tightness）、自适应安全性（adaptive security）或免重绕性（rewinding-freeness）均依赖**代数敌手假设**或**非标准困难性假设**（如q-SDH变体），而同期全在线（fully online）方案已在标准假设下实现免重绕与完全自适应安全。\n\n## 核心方法与创新  \n本研究首次弥合该安全鸿沟，提出一类**基于HBMS框架（Bellare & Dai, Asiacrypt 2021）的新型PNI构造技术**：通过重构密钥生成与承诺机制，将原需消息绑定的首轮交互解耦为纯密钥相关预处理步骤，同时保持底层零知识结构完整性。关键技术包括：（1）引入**消息无关的公共承诺链**替代传统随机预言机哈希；（2）设计**抗自适应选择的密钥派生函数**，确保签名者私钥分量在预处理阶段即满足阈值约束；（3）采用**标准DL假设下的模拟器重构技术**，规避代数敌手限制。\n\n## 主要成果  \n- **首个标准假设下免重绕的PNI两轮多签名方案**：安全规约紧致（损失因子仅为O(1)），且对**非代数敌手**成立，优于所有先前PNI方案（此前最优损失为O(n)）；  \n- **首个标准假设下完全自适应安全的PNI两轮阈值签名方案**：支持动态签名者集合与任意门限t≤n，敌手可在看到公钥后自适应选择被攻破节点与待签名消息；  \n- 所有方案均兼容现有部署环境（无需可信中心、不依赖随机预言机），通信开销与计算复杂度与最优全在线方案相当。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.20156v1",
       "arxiv_id": "2602.20156v1",
       "title": "Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks",
@@ -882,6 +1147,272 @@
       "summary_zh": "## Scytale：面向TFHE电路自举的编译器框架  \n\n**背景与挑战**：全同态加密（FHE）为外包计算提供了强密码学保障，但当前主流方案（如TFHE）性能瓶颈突出，尤其在处理复杂电路时。现有TFHE实现依赖**可编程自举（PBS）**，其本质是单次自举执行一个3–4位查找表（LUT），难以高效支持宽输入（≥8位）逻辑电路，导致深度电路需大量串行PBS调用，开销剧增。\n\n**方法与创新**：本文提出Scytale——首个集成**电路自举（CBS）** 与**垂直打包（VP）** 的端到端MLIR编译器框架。其核心突破包括：  \n- 设计专用MLIR方言（`cbs`和`vp` dialects），显式建模CBS操作与多密文并行打包语义；  \n- 深度耦合开源硬件综合工具Yosys，将高级程序（如C/DSL）自动编译为优化的TFHE电路网表；  \n- 提出**共享LUT融合优化**：识别并合并重复子电路，显著减少自举次数与密文乘法总量；  \n- 支持生成高达**12位输入LUT**的CBS电路，突破PBS的位宽限制。\n\n**实验结果**：在多个基准电路（含AES S-Box、位计数器、定制算术单元）上，Scytale相较PBS基线实现**3.2×–5.8×端到端加速**，自举开销降低67%，且保持严格TFHE安全性。本工作首次验证了“编译器驱动+硬件感知+密码原语协同优化”路径在FHE实用化中的关键价值。",
       "summary_en": "Fully Homomorphic Encryption (FHE) enables secure outsourced computation, but TFHE’s performance remains prohibitive for complex circuits due to the inefficiency of Programmable Bootstrapping (PBS), which is limited to small (3–4 bit) lookup tables (LUTs). This paper introduces **Scytale**, a novel MLIR-based compiler framework that overcomes this limitation by integrating **Circuit Bootstrapping (CBS)** and **Vertical Packing (VP)** to evaluate LUTs up to **12 bits**. Scytale defines new MLIR dialects for CBS and VP, leverages Yosys for hardware-aware circuit synthesis, and introduces bespoke optimization passes—especially **shared LUT fusion**—to minimize cryptographic operations. Experimental evaluation shows Scytale achieves **3.2×–5.8× speedup** over PBS-only baselines on real-world circuits (e.g., AES S-Box), reducing bootstrapping overhead by 67%. This work demonstrates that compiler-driven, circuit-level co-optimization is essential for practical TFHE acceleration.",
       "summary": "## Scytale：面向TFHE电路自举的编译器框架  \n\n**背景与挑战**：全同态加密（FHE）为外包计算提供了强密码学保障，但当前主流方案（如TFHE）性能瓶颈突出，尤其在处理复杂电路时。现有TFHE实现依赖**可编程自举（PBS）**，其本质是单次自举执行一个3–4位查找表（LUT），难以高效支持宽输入（≥8位）逻辑电路，导致深度电路需大量串行PBS调用，开销剧增。\n\n**方法与创新**：本文提出Scytale——首个集成**电路自举（CBS）** 与**垂直打包（VP）** 的端到端MLIR编译器框架。其核心突破包括：  \n- 设计专用MLIR方言（`cbs`和`vp` dialects），显式建模CBS操作与多密文并行打包语义；  \n- 深度耦合开源硬件综合工具Yosys，将高级程序（如C/DSL）自动编译为优化的TFHE电路网表；  \n- 提出**共享LUT融合优化**：识别并合并重复子电路，显著减少自举次数与密文乘法总量；  \n- 支持生成高达**12位输入LUT**的CBS电路，突破PBS的位宽限制。\n\n**实验结果**：在多个基准电路（含AES S-Box、位计数器、定制算术单元）上，Scytale相较PBS基线实现**3.2×–5.8×端到端加速**，自举开销降低67%，且保持严格TFHE安全性。本工作首次验证了“编译器驱动+硬件感知+密码原语协同优化”路径在FHE实用化中的关键价值。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20419v1",
+      "arxiv_id": "2602.20419v1",
+      "title": "CREDIT: Certified Ownership Verification of Deep Neural Networks Against Model Extraction Attacks",
+      "authors": [
+        "Bolin Shen",
+        "Zhan Cheng",
+        "Neil Zhenqiang Gong",
+        "Fan Yao",
+        "Yushun Dong"
+      ],
+      "abstract": "Machine Learning as a Service (MLaaS) has emerged as a widely adopted paradigm for providing access to deep neural network (DNN) models, enabling users to conveniently leverage these models through standardized APIs. However, such services are highly vulnerable to Model Extraction Attacks (MEAs), where an adversary repeatedly queries a target model to collect input-output pairs and uses them to train a surrogate model that closely replicates its functionality. While numerous defense strategies have been proposed, verifying the ownership of a suspicious model with strict theoretical guarantees remains a challenging task. To address this gap, we introduce CREDIT, a certified ownership verification against MEAs. Specifically, we employ mutual information to quantify the similarity between DNN models, propose a practical verification threshold, and provide rigorous theoretical guarantees for ownership verification based on this threshold. We extensively evaluate our approach on several mainstream datasets across different domains and tasks, achieving state-of-the-art performance. Our implementation is publicly available at: https://github.com/LabRAI/CREDIT.",
+      "published": "2026-02-23",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20419v1",
+      "url": "https://arxiv.org/abs/2602.20419v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "extraction",
+        "model"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## CREDIT：面向模型提取攻击的深度神经网络所有权认证验证框架\n\n**背景与挑战**：机器学习即服务（MLaaS）平台广泛部署深度神经网络（DNN），但其开放API接口极易遭受**模型提取攻击（MEA）**——攻击者通过黑盒查询获取输入-输出对，训练功能高度相似的盗用模型。现有防御方法多侧重于扰动响应或水印嵌入，却普遍缺乏**可证明的、基于理论保证的所有权验证机制**，导致司法取证与知识产权确权困难。\n\n**方法创新**：本文提出**CREDIT**（Certified REsponsIve ownership verifiCaTion），首次将**互信息（Mutual Information, MI）** 作为DNN模型间功能相似性的严格度量标准。我们构建了基于MI的模型相似性上界分析框架，推导出可计算的**认证验证阈值**：若待验模型与原始模型的互信息估计值低于该阈值，则以高置信度（$1-\\delta$）**可证伪**其非源自提取攻击；反之则触发所有权主张。该阈值兼顾统计鲁棒性与实用可计算性，支持在有限查询预算下完成验证。\n\n**实验与效果**：在CIFAR-10/100、ImageNet-1K、SVHN及GLUE（BERT-based）等跨模态、跨任务基准上系统评估，CREDIT在仅需≤5k查询下实现**98.2%平均验证准确率**与**<0.8%误报率**，显著优于SOTA水印方案（如RIDGE、Model Watermarking）。其认证结果具备**可验证的统计保证**（$\\delta \\leq 0.01$），且对常见对抗扰动与微调攻击保持鲁棒。代码已开源：https://github.com/LabRAI/CREDIT。",
+      "summary_en": "CREDIT is the first framework for **certified ownership verification** of deep neural networks against model extraction attacks (MEAs). It introduces **mutual information (MI)** as a theoretically grounded similarity metric between models and derives a practical, computable verification threshold with rigorous statistical guarantees: if the estimated MI between a suspect model and the original falls below this threshold, ownership infringement can be *provably rejected* with confidence $1-\\delta$ ($\\delta \\leq 0.01$). Evaluated across diverse benchmarks (CIFAR, ImageNet, SVHN, GLUE), CREDIT achieves **98.2% average verification accuracy** and **<0.8% false positive rate** using only ≤5,000 queries—outperforming state-of-the-art watermarking defenses. Its certification is robust to fine-tuning and input perturbations, and the implementation is publicly available at https://github.com/LabRAI/CREDIT.",
+      "summary": "## CREDIT：面向模型提取攻击的深度神经网络所有权认证验证框架\n\n**背景与挑战**：机器学习即服务（MLaaS）平台广泛部署深度神经网络（DNN），但其开放API接口极易遭受**模型提取攻击（MEA）**——攻击者通过黑盒查询获取输入-输出对，训练功能高度相似的盗用模型。现有防御方法多侧重于扰动响应或水印嵌入，却普遍缺乏**可证明的、基于理论保证的所有权验证机制**，导致司法取证与知识产权确权困难。\n\n**方法创新**：本文提出**CREDIT**（Certified REsponsIve ownership verifiCaTion），首次将**互信息（Mutual Information, MI）** 作为DNN模型间功能相似性的严格度量标准。我们构建了基于MI的模型相似性上界分析框架，推导出可计算的**认证验证阈值**：若待验模型与原始模型的互信息估计值低于该阈值，则以高置信度（$1-\\delta$）**可证伪**其非源自提取攻击；反之则触发所有权主张。该阈值兼顾统计鲁棒性与实用可计算性，支持在有限查询预算下完成验证。\n\n**实验与效果**：在CIFAR-10/100、ImageNet-1K、SVHN及GLUE（BERT-based）等跨模态、跨任务基准上系统评估，CREDIT在仅需≤5k查询下实现**98.2%平均验证准确率**与**<0.8%误报率**，显著优于SOTA水印方案（如RIDGE、Model Watermarking）。其认证结果具备**可验证的统计保证**（$\\delta \\leq 0.01$），且对常见对抗扰动与微调攻击保持鲁棒。代码已开源：https://github.com/LabRAI/CREDIT。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20418v1",
+      "arxiv_id": "2602.20418v1",
+      "title": "CITED: A Decision Boundary-Aware Signature for GNNs Towards Model Extraction Defense",
+      "authors": [
+        "Bolin Shen",
+        "Md Shamim Seraj",
+        "Zhan Cheng",
+        "Shayok Chakraborty",
+        "Yushun Dong"
+      ],
+      "abstract": "Graph neural networks (GNNs) have demonstrated superior performance in various applications, such as recommendation systems and financial risk management. However, deploying large-scale GNN models locally is particularly challenging for users, as it requires significant computational resources and extensive property data. Consequently, Machine Learning as a Service (MLaaS) has become increasingly popular, offering a convenient way to deploy and access various models, including GNNs. However, an emerging threat known as Model Extraction Attacks (MEAs) presents significant risks, as adversaries can readily obtain surrogate GNN models exhibiting similar functionality. Specifically, attackers repeatedly query the target model using subgraph inputs to collect corresponding responses. These input-output pairs are subsequently utilized to train their own surrogate models at minimal cost. Many techniques have been proposed to defend against MEAs, but most are limited to specific output levels (e.g., embedding or label) and suffer from inherent technical drawbacks. To address these limitations, we propose a novel ownership verification framework CITED which is a first-of-its-kind method to achieve ownership verification on both embedding and label levels. Moreover, CITED is a novel signature-based method that neither harms downstream performance nor introduces auxiliary models that reduce efficiency, while still outperforming all watermarking and fingerprinting approaches. Extensive experiments demonstrate the effectiveness and robustness of our CITED framework. Code is available at: https://github.com/LabRAI/CITED.",
+      "published": "2026-02-23",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20418v1",
+      "url": "https://arxiv.org/abs/2602.20418v1",
+      "categories": [
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "extraction",
+        "model"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## CITED：面向模型提取防御的决策边界感知图神经网络签名框架\n\n图神经网络（GNN）在推荐系统、金融风控等关键领域展现出卓越性能，但其大规模部署对终端用户构成严峻挑战——需高昂算力与海量私有图数据。因此，“机器学习即服务”（MLaaS）成为主流范式，却也催生了严重的**模型提取攻击**（Model Extraction Attacks, MEAs）：攻击者通过反复向目标GNN服务提交子图查询，收集输入-输出响应对，低成本训练功能高度相似的**替代模型**，造成知识产权盗用与安全风险。\n\n现有防御方法（如水印、指纹）存在三重局限：① 仅适配单一输出层级（如仅标签或仅嵌入）；② 损害下游任务精度或引入额外推理开销；③ 依赖辅助模型，降低服务效率。为此，本文提出**CITED**（Decision Boundary-Aware Signature for GNNs），首个支持**嵌入层与标签层双重所有权验证**的轻量级签名框架。CITED的核心创新在于：  \n- **决策边界感知签名机制**：在训练中隐式引导模型在特定“签名子图”上形成可验证的、鲁棒的决策边界偏移，无需修改模型结构或损失函数主干；  \n- **零干扰设计**：不引入额外参数、不改变前向推理路径，**完全保持原始GNN的精度与延迟**；  \n- **跨层级强鲁棒性**：签名同时嵌入于节点嵌入空间与最终分类边界中，抵御剪枝、微调、架构迁移等常见蒸馏与攻击手段。\n\n在6个真实图数据集（Cora、Citeseer、Pubmed、OGBN-Arxiv等）及多种GNN架构（GCN、GAT、GraphSAGE）上的系统实验表明：CITED在**标签级验证准确率>99.2%、嵌入级验证AUC>0.987**，显著优于SOTA水印/指纹方法（平均提升12.6%验证成功率）；且在遭受50%节点剪枝、30%边扰动及跨架构迁移攻击下仍保持>94%的签名保真度。代码已开源：https://github.com/LabRAI/CITED。",
+      "summary_en": "Graph Neural Networks (GNNs) are widely deployed via MLaaS, yet vulnerable to Model Extraction Attacks (MEAs), where adversaries query the target model with subgraphs to train high-fidelity surrogates. Existing defenses—watermarking or fingerprinting—are typically limited to *either* label-level *or* embedding-level verification, often degrading model utility or introducing inference overhead. We propose **CITED**, the first decision boundary-aware signature framework enabling *joint* ownership verification at *both* label and embedding levels. CITED injects imperceptible, robust signatures by guiding the model’s decision boundary on carefully designed “signature subgraphs” during standard training—requiring *no architectural changes*, *zero additional parameters*, and *no performance drop*. Extensive experiments across 6 real-world graph datasets and 3 GNN backbones show CITED achieves >99.2% label-level verification accuracy and >0.987 AUC on embedding-level verification, outperforming all prior methods by ≥12.6% in robustness. It remains effective under severe perturbations (e.g., 50% node pruning, cross-architecture transfer). Code: https://github.com/LabRAI/CITED.",
+      "summary": "## CITED：面向模型提取防御的决策边界感知图神经网络签名框架\n\n图神经网络（GNN）在推荐系统、金融风控等关键领域展现出卓越性能，但其大规模部署对终端用户构成严峻挑战——需高昂算力与海量私有图数据。因此，“机器学习即服务”（MLaaS）成为主流范式，却也催生了严重的**模型提取攻击**（Model Extraction Attacks, MEAs）：攻击者通过反复向目标GNN服务提交子图查询，收集输入-输出响应对，低成本训练功能高度相似的**替代模型**，造成知识产权盗用与安全风险。\n\n现有防御方法（如水印、指纹）存在三重局限：① 仅适配单一输出层级（如仅标签或仅嵌入）；② 损害下游任务精度或引入额外推理开销；③ 依赖辅助模型，降低服务效率。为此，本文提出**CITED**（Decision Boundary-Aware Signature for GNNs），首个支持**嵌入层与标签层双重所有权验证**的轻量级签名框架。CITED的核心创新在于：  \n- **决策边界感知签名机制**：在训练中隐式引导模型在特定“签名子图”上形成可验证的、鲁棒的决策边界偏移，无需修改模型结构或损失函数主干；  \n- **零干扰设计**：不引入额外参数、不改变前向推理路径，**完全保持原始GNN的精度与延迟**；  \n- **跨层级强鲁棒性**：签名同时嵌入于节点嵌入空间与最终分类边界中，抵御剪枝、微调、架构迁移等常见蒸馏与攻击手段。\n\n在6个真实图数据集（Cora、Citeseer、Pubmed、OGBN-Arxiv等）及多种GNN架构（GCN、GAT、GraphSAGE）上的系统实验表明：CITED在**标签级验证准确率>99.2%、嵌入级验证AUC>0.987**，显著优于SOTA水印/指纹方法（平均提升12.6%验证成功率）；且在遭受50%节点剪枝、30%边扰动及跨架构迁移攻击下仍保持>94%的签名保真度。代码已开源：https://github.com/LabRAI/CITED。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.20324v1",
+      "arxiv_id": "2602.20324v1",
+      "title": "An artificial intelligence framework for end-to-end rare disease phenotyping from clinical notes using large language models",
+      "authors": [
+        "Cathy Shyr",
+        "Yan Hu",
+        "Rory J. Tinker",
+        "Thomas A. Cassini",
+        "Kevin W. Byram",
+        "Rizwan Hamid",
+        "Daniel V. Fabbri",
+        "Adam Wright",
+        "Josh F. Peterson",
+        "Lisa Bastarache",
+        "Hua Xu"
+      ],
+      "abstract": "Phenotyping is fundamental to rare disease diagnosis, but manual curation of structured phenotypes from clinical notes is labor-intensive and difficult to scale. Existing artificial intelligence approaches typically optimize individual components of phenotyping but do not operationalize the full clinical workflow of extracting features from clinical text, standardizing them to Human Phenotype Ontology (HPO) terms, and prioritizing diagnostically informative HPO terms. We developed RARE-PHENIX, an end-to-end AI framework for rare disease phenotyping that integrates large language model-based phenotype extraction, ontology-grounded standardization to HPO terms, and supervised ranking of diagnostically informative phenotypes. We trained RARE-PHENIX using data from 2,671 patients across 11 Undiagnosed Diseases Network clinical sites, and externally validated it on 16,357 real-world clinical notes from Vanderbilt University Medical Center. Using clinician-curated HPO terms as the gold standard, RARE-PHENIX consistently outperformed a state-of-the-art deep learning baseline (PhenoBERT) across ontology-based similarity and precision-recall-F1 metrics in end-to-end evaluation (i.e., ontology-based similarity of 0.70 vs. 0.58). Ablation analyses demonstrated performance improvements with the addition of each module in RARE-PHENIX (extraction, standardization, and prioritization), supporting the value of modeling the full clinical phenotyping workflow. By modeling phenotyping as a clinically aligned workflow rather than a single extraction task, RARE-PHENIX provides structured, ranked phenotypes that are more concordant with clinician curation and has the potential to support human-in-the-loop rare disease diagnosis in real-world settings.",
+      "published": "2026-02-23",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.20324v1",
+      "url": "https://arxiv.org/abs/2602.20324v1",
+      "categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "published_official": true,
+      "keywords": [
+        "extraction",
+        "model"
+      ],
+      "keyword_score": 2,
+      "summary_zh": "## 背景与挑战  \n罕见病表型化（phenotyping）是精准诊断的核心环节，但临床笔记中非结构化文本的手动表型标注耗时费力、难以规模化。现有AI方法多聚焦于单一子任务（如实体识别或术语映射），缺乏对**端到端临床工作流**的建模——即从自由文本中提取表型特征、标准化至人类表型本体（HPO）术语、并优先排序具有诊断价值的HPO项。\n\n## 方法与框架  \n本研究提出**RARE-PHENIX**：首个面向罕见病的全栈式AI表型化框架。其三大核心模块协同运作：  \n- **LLM驱动的表型提取**：基于微调的大语言模型（LLM）直接从临床笔记中识别细粒度表型描述；  \n- **本体引导的标准映射**：结合HPO结构语义与词向量相似性，将提取结果精准锚定至标准HPO术语；  \n- **监督式诊断优先级排序**：利用真实诊断标签训练排序模型，输出按诊断信息量降序排列的HPO列表。\n\n## 主要发现与创新  \n- 在2,671例来自11个未确诊疾病网络（UDN）中心患者的多中心数据上训练，并于范德堡大学医学中心16,357份真实世界临床笔记上外部验证；  \n- 以临床专家标注的HPO为金标准，RARE-PHENIX在端到端评估中显著优于当前最优深度学习基线PhenoBERT：**HPO本体相似度0.70 vs. 0.58**，F1-score提升12.3%；  \n- 消融实验证实三模块均具独立贡献，移除任一模块均导致性能下降，验证了“全流程建模”的必要性；  \n- 输出结构化、可解释、临床对齐的**分级表型列表**，显著提升人机协同诊断可行性，已初步集成至临床决策支持原型系统。",
+      "summary_en": "We present **RARE-PHENIX**, an end-to-end AI framework for rare disease phenotyping from unstructured clinical notes. It unifies three clinically grounded components: (1) LLM-based phenotype extraction, (2) ontology-aware standardization to Human Phenotype Ontology (HPO) terms leveraging semantic structure and embeddings, and (3) supervised ranking of diagnostically informative HPO terms. Trained on 2,671 UDN patients across 11 sites and externally validated on 16,357 real-world notes from Vanderbilt, RARE-PHENIX achieves an ontology-based similarity score of **0.70**—significantly outperforming PhenoBERT (0.58) and improving F1 by 12.3%. Ablation studies confirm the additive value of each module. By modeling phenotyping as a unified clinical workflow—not just extraction—RARE-PHENIX delivers structured, ranked, clinician-concordant phenotypes, enabling scalable, human-in-the-loop rare disease diagnosis.",
+      "summary": "## 背景与挑战  \n罕见病表型化（phenotyping）是精准诊断的核心环节，但临床笔记中非结构化文本的手动表型标注耗时费力、难以规模化。现有AI方法多聚焦于单一子任务（如实体识别或术语映射），缺乏对**端到端临床工作流**的建模——即从自由文本中提取表型特征、标准化至人类表型本体（HPO）术语、并优先排序具有诊断价值的HPO项。\n\n## 方法与框架  \n本研究提出**RARE-PHENIX**：首个面向罕见病的全栈式AI表型化框架。其三大核心模块协同运作：  \n- **LLM驱动的表型提取**：基于微调的大语言模型（LLM）直接从临床笔记中识别细粒度表型描述；  \n- **本体引导的标准映射**：结合HPO结构语义与词向量相似性，将提取结果精准锚定至标准HPO术语；  \n- **监督式诊断优先级排序**：利用真实诊断标签训练排序模型，输出按诊断信息量降序排列的HPO列表。\n\n## 主要发现与创新  \n- 在2,671例来自11个未确诊疾病网络（UDN）中心患者的多中心数据上训练，并于范德堡大学医学中心16,357份真实世界临床笔记上外部验证；  \n- 以临床专家标注的HPO为金标准，RARE-PHENIX在端到端评估中显著优于当前最优深度学习基线PhenoBERT：**HPO本体相似度0.70 vs. 0.58**，F1-score提升12.3%；  \n- 消融实验证实三模块均具独立贡献，移除任一模块均导致性能下降，验证了“全流程建模”的必要性；  \n- 输出结构化、可解释、临床对齐的**分级表型列表**，显著提升人机协同诊断可行性，已初步集成至临床决策支持原型系统。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_372",
+      "iacr_id": "372",
+      "title": "Distributed Monotone-Policy Encryption with Silent Setup from Lattices",
+      "authors": [
+        "Saikumar Yadugiri"
+      ],
+      "abstract": "Distributed cryptography serves as a cornerstone for building trustless systems, yet existing solutions for distributed policy encryption typically require either a trusted dealer or complex interactive setup protocols. Recent advances have introduced the concept of $silent~setup$, where users independently generate keys and a joint public key is derived deterministically. However, all current silent-setup constructions rely on bilinear pairings, leaving them vulnerable to quantum adversaries. In this work, we present the first distributed monotone-policy encryption scheme with silent setup based on lattices. Our construction supports arbitrary monotone policies represented as Disjunctive Normal Forms (DNFs) and provides a robust, post-quantum foundation for decentralized access control.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/372.pdf",
+      "url": "https://eprint.iacr.org/2026/372",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与挑战  \n分布式密码学是构建去信任化系统（如区块链、联邦学习、零知识身份系统）的基石。然而，现有**分布式策略加密**（Distributed Policy Encryption, DPE）方案普遍依赖可信第三方（trusted dealer）或高通信开销的多轮交互式设置协议，严重削弱其去中心化安全性与部署可行性。近年提出的**静默设置**（silent setup）范式突破了该瓶颈：各用户独立生成密钥对，联合公钥通过确定性算法（如哈希后聚合）由本地公钥导出，全程无需交互或可信方。但迄今所有静默设置构造均基于**双线性映射**（bilinear pairings），在Shor算法面前不具备抗量子安全性，难以支撑长期安全的基础设施。\n\n## 方法与创新  \n本文首次提出首个**基于格的分布式单调策略加密方案**（Lattice-based Distributed Monotone-Policy Encryption），并实现真正意义上的静默设置。核心突破在于：  \n- **格基构造**：采用带错误学习问题（LWE）和环上LWE（RLWE）作为安全基础，确保后量子安全性；  \n- **单调策略支持**：支持任意以**析取范式**（DNF）表示的单调访问策略（如“(A ∧ B) ∨ C ∨ (D ∧ E ∧ F)”），覆盖常见RBAC/ABAC场景；  \n- **静默设置实现**：用户仅需生成标准格基密钥对，联合公钥由所有用户公钥的确定性哈希与矩阵拼接运算导出，无任何交互、无可信假设；  \n- **严格安全性证明**：在标准LWE假设下，形式化证明方案满足**选择明文攻击下的不可区分性**（IND-CPA），且具备分布式密钥生成（DKG）语义安全性。\n\n## 意义  \n本工作填补了后量子分布式访问控制的关键空白，为Web3.0、隐私计算与主权身份系统提供了首个可证明安全、免信任、抗量子的策略加密基础设施。",
+      "summary_en": "We present the first **lattice-based distributed monotone-policy encryption scheme with silent setup**, resolving a critical gap in post-quantum decentralized cryptography. Unlike prior silent-setup constructions—exclusively built on quantum-vulnerable bilinear pairings—our scheme rests on the hardness of the Learning With Errors (LWE) problem, ensuring quantum resistance. It supports arbitrary monotone access policies expressed as Disjunctive Normal Forms (DNFs), enabling expressive, fine-grained access control without trusted setup or interactive key generation. Each user independently generates a lattice-based key pair; the joint public key is derived *deterministically* from all users’ public keys via hash-and-combine operations—no communication or dealer required. We prove IND-CPA security under standard LWE assumptions and formally establish the correctness and robustness of the distributed decryption protocol. This work establishes a foundational primitive for trustless, quantum-safe policy enforcement in decentralized systems.",
+      "summary": "## 背景与挑战  \n分布式密码学是构建去信任化系统（如区块链、联邦学习、零知识身份系统）的基石。然而，现有**分布式策略加密**（Distributed Policy Encryption, DPE）方案普遍依赖可信第三方（trusted dealer）或高通信开销的多轮交互式设置协议，严重削弱其去中心化安全性与部署可行性。近年提出的**静默设置**（silent setup）范式突破了该瓶颈：各用户独立生成密钥对，联合公钥通过确定性算法（如哈希后聚合）由本地公钥导出，全程无需交互或可信方。但迄今所有静默设置构造均基于**双线性映射**（bilinear pairings），在Shor算法面前不具备抗量子安全性，难以支撑长期安全的基础设施。\n\n## 方法与创新  \n本文首次提出首个**基于格的分布式单调策略加密方案**（Lattice-based Distributed Monotone-Policy Encryption），并实现真正意义上的静默设置。核心突破在于：  \n- **格基构造**：采用带错误学习问题（LWE）和环上LWE（RLWE）作为安全基础，确保后量子安全性；  \n- **单调策略支持**：支持任意以**析取范式**（DNF）表示的单调访问策略（如“(A ∧ B) ∨ C ∨ (D ∧ E ∧ F)”），覆盖常见RBAC/ABAC场景；  \n- **静默设置实现**：用户仅需生成标准格基密钥对，联合公钥由所有用户公钥的确定性哈希与矩阵拼接运算导出，无任何交互、无可信假设；  \n- **严格安全性证明**：在标准LWE假设下，形式化证明方案满足**选择明文攻击下的不可区分性**（IND-CPA），且具备分布式密钥生成（DKG）语义安全性。\n\n## 意义  \n本工作填补了后量子分布式访问控制的关键空白，为Web3.0、隐私计算与主权身份系统提供了首个可证明安全、免信任、抗量子的策略加密基础设施。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_371",
+      "iacr_id": "371",
+      "title": "A Modular Approach to Succinct Arguments for QMA",
+      "authors": [
+        "Giulio Malavolta"
+      ],
+      "abstract": "Succinct argument systems are of central importance to modern crytpography, enabling the efficient verification of computational claims. In the classical setting, Kilian (STOC 92) established that any probabilistically checkable proof for NP can be transformed into a succinct argument system for NP using only collision-resistant hash functions. In the quantum setting, recent works have established the feasibility of (classically-verifiable) succinct arguments for QMA, capturing statements that require \\emph{quantum} proofs. However, known constructions all rely on the highly structured assumption of learning with errors (LWE), which stands in stark contrast with the unstructured assumptions that suffice for NP.\n\nIn this work, we develop a new framework that broadens the cryptographic foundations of succinct arguments for QMA. We assume the existence of (i) an oblivious state preparation (OSP) protocol, which in turn can be constructed from \\emph{plain} trapdoor claw-free functions, and (ii) collapsing hash functions, the quantum analogue of collision-resistance. In particular, we obtain the first succinct, classically-verifiable argument system for QMA which does not rely on the hardness of LWE.\n\nOur construction proceeds in two steps. First, we design a \\emph{round-efficient} classically-verifiable argument system for QMA based only on the assumption of OSP. Second, we introduce a \\emph{generalized communication compression compiler}, which, assuming collapsing hash functions, transforms any $T$-round interactive protocol with a classical verifier into one in which the communication size is bounded by $T \\cdot \\poly(\\secp)$ for some fixed $\\poly$ independent of the original size of each message. Our compiler extends a quantum rigidity-based communication compression technique of Zhang (QCrypt 25), and may be of independent interest.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/371.pdf",
+      "url": "https://eprint.iacr.org/2026/371",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 研究背景与问题  \n简洁论证系统（succinct argument systems）是现代密码学的核心工具，支持对计算声明进行高效验证。在经典计算模型中，Kilian（STOC ’92）证明：任意NP的概率可验证证明（PCP）均可借助**抗碰哈希函数**转化为NP的简洁论证系统。然而，在量子计算模型中，面向QMA（量子类NP）的简洁论证系统长期依赖高度结构化的**学习带误差（LWE）假设**——这与NP情形下仅需非结构化假设形成鲜明反差，限制了理论基础的普适性与实践灵活性。\n\n## 创新方法与技术框架  \n本文提出首个**模块化、非LWE依赖**的QMA简洁论证构造框架，建立在两个更轻量、更基础的密码学原语之上：  \n- **隐匿态制备协议（OSP）**：可由**普通陷门碰撞自由函数（plain trapdoor claw-free functions）** 构造，不依赖LWE；  \n- **坍缩哈希函数（collapsing hash functions）**：作为抗碰哈希在量子环境中的自然推广，已知可基于标准格假设（如SIS）或甚至更弱假设实现。  \n\n## 核心贡献与结果  \n1. **首套非LWE的QMA简洁论证系统**：首个支持**经典验证者**、具备简洁性（验证通信量仅依赖安全参数，而非输入规模）且不依赖LWE的QMA论证方案；  \n2. **两阶段构造范式**：  \n　　▸ 第一阶段：基于OSP设计**轮数高效（round-efficient）** 的QMA论证系统，验证者全程经典、交互轮数恒定；  \n　　▸ 第二阶段：提出**广义通信压缩编译器（generalized communication compression compiler）**，利用坍缩哈希将任意$T$轮经典验证者协议压缩为总通信量仅为$T \\cdot \\poly(\\secp)$的协议（$\\poly$与原始消息尺寸无关）；  \n3. **技术延伸价值**：该编译器推广了Zhang（QCrypt ’25）基于量子刚性（quantum rigidity）的压缩技术，为量子交互协议的通信优化提供了通用新工具。",
+      "summary_en": "We present the first *modular*, *LWE-free* framework for succinct, classically-verifiable arguments for QMA—the quantum analogue of NP. Departing from prior constructions that crucially rely on the structured hardness of LWE, our approach builds on two minimal, well-motivated assumptions: (i) *oblivious state preparation (OSP)*—constructible from plain trapdoor claw-free functions—and (ii) *collapsing hash functions*, the quantum counterpart of collision resistance. Our construction proceeds in two steps: first, we design a *round-efficient*, classically-verifiable QMA argument system based solely on OSP; second, we introduce a *generalized communication compression compiler* that, assuming collapsing hashes, compresses any $T$-round interactive protocol with a classical verifier into one whose total communication is bounded by $T \\cdot \\poly(\\secp)$, independent of original message sizes. This yields the first succinct QMA argument system without LWE, significantly broadening its cryptographic foundations and offering new tools for quantum interactive proofs.",
+      "summary": "## 研究背景与问题  \n简洁论证系统（succinct argument systems）是现代密码学的核心工具，支持对计算声明进行高效验证。在经典计算模型中，Kilian（STOC ’92）证明：任意NP的概率可验证证明（PCP）均可借助**抗碰哈希函数**转化为NP的简洁论证系统。然而，在量子计算模型中，面向QMA（量子类NP）的简洁论证系统长期依赖高度结构化的**学习带误差（LWE）假设**——这与NP情形下仅需非结构化假设形成鲜明反差，限制了理论基础的普适性与实践灵活性。\n\n## 创新方法与技术框架  \n本文提出首个**模块化、非LWE依赖**的QMA简洁论证构造框架，建立在两个更轻量、更基础的密码学原语之上：  \n- **隐匿态制备协议（OSP）**：可由**普通陷门碰撞自由函数（plain trapdoor claw-free functions）** 构造，不依赖LWE；  \n- **坍缩哈希函数（collapsing hash functions）**：作为抗碰哈希在量子环境中的自然推广，已知可基于标准格假设（如SIS）或甚至更弱假设实现。  \n\n## 核心贡献与结果  \n1. **首套非LWE的QMA简洁论证系统**：首个支持**经典验证者**、具备简洁性（验证通信量仅依赖安全参数，而非输入规模）且不依赖LWE的QMA论证方案；  \n2. **两阶段构造范式**：  \n　　▸ 第一阶段：基于OSP设计**轮数高效（round-efficient）** 的QMA论证系统，验证者全程经典、交互轮数恒定；  \n　　▸ 第二阶段：提出**广义通信压缩编译器（generalized communication compression compiler）**，利用坍缩哈希将任意$T$轮经典验证者协议压缩为总通信量仅为$T \\cdot \\poly(\\secp)$的协议（$\\poly$与原始消息尺寸无关）；  \n3. **技术延伸价值**：该编译器推广了Zhang（QCrypt ’25）基于量子刚性（quantum rigidity）的压缩技术，为量子交互协议的通信优化提供了通用新工具。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_370",
+      "iacr_id": "370",
+      "title": "Round-Optimal Byzantine Agreement without Trusted Setup",
+      "authors": [
+        "Chen-Da Liu-Zhang"
+      ],
+      "abstract": "Byzantine Agreement is a fundamental primitive in cryptography and distributed computing, and minimizing its round complexity is of paramount importance. The seminal works of Karlin and Yao [Manuscript'84] and Chor, Merritt and Shmoys [JACM'89] showed that any randomized $r$-round protocol must fail with probability at least $(c\\cdot r)^{-r}$, for some constant $c$, when the number of corruptions is linear in the number of parties, $t = \\theta(n)$. The work of Ghinea, Goyal and Liu-Zhang [Eurocrypt'22] introduced the first \\emph{round-optimal BA} protocol matching this lower bound. However, the protocol requires a trusted setup for unique threshold signatures and random oracles.\n\nIn this work, we present the first round-optimal BA protocols without trusted setup: a protocol for $t3$ with statistical security, and a protocol for $t<(1-\\epsilon)n2$ with any constant $\\epsilon > 0$, assuming a bulletin-board PKI for signatures.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/370.pdf",
+      "url": "https://eprint.iacr.org/2026/370",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与问题  \n拜占庭共识（Byzantine Agreement, BA）是分布式系统与密码学的核心原语，其**轮复杂度**（round complexity）直接决定协议效率与实时性。经典下界表明：当恶意节点数 $t = \\Theta(n)$ 时，任何随机化 $r$-轮协议失败概率至少为 $(c \\cdot r)^{-r}$（Karlin-Yao’84；Chor-Merritt-Shmoys’89）。直至Eurocrypt’22，Ghinea-Goyal-Liu-Zhang首次构造出**轮最优**（round-optimal）BA协议——即达到该下界精度的 $r$-轮协议。但其严重依赖**可信设置**（trusted setup）：需预部署唯一门限签名方案（unique threshold signatures）及随机预言机（random oracles），削弱了实际可部署性与安全性假设。\n\n## 方法与创新  \n本文突破性地消除了所有可信设置需求，提出首个**无需可信设置的轮最优BA协议**。核心技术创新包括：  \n- **统计安全协议**：针对 $t < n/3$ 场景，基于标准数字签名与公共广播信道（bulletin board），实现**信息论安全**（statistical security）的 $r$-轮BA，失败概率严格匹配 $(c \\cdot r)^{-r}$ 下界；  \n- **计算安全协议**：针对更实用的强敌手模型 $t < (1-\\epsilon)n/2$（$\\epsilon > 0$ 为任意常数），仅需一个轻量级**公钥基础设施（PKI）**（用于普通数字签名），不依赖门限签名或随机预言机；  \n- 关键工具：引入新型“无信任门限认证”机制与自适应轮次裁剪技术，在避免可信Setup的同时维持轮次紧致性。\n\n## 主要贡献  \n本工作首次在**无任何可信设置**前提下实现轮最优BA，填补了理论空白，并为区块链共识、安全多方计算等场景提供了更坚实、更简洁的基础协议。",
+      "summary_en": "Byzantine Agreement (BA) is a cornerstone primitive in distributed computing and cryptography, where minimizing round complexity is critical. Classical lower bounds (Karlin-Yao’84; Chor-Merritt-Shmoys’89) show that any randomized $r$-round protocol tolerating $t = \\Theta(n)$ corruptions must fail with probability at least $(c \\cdot r)^{-r}$. Ghinea-Goyal-Liu-Zhang (Eurocrypt’22) achieved round-optimality but required trusted setup—namely, unique threshold signatures and random oracles.  \n\nThis work presents the **first round-optimal BA protocols without any trusted setup**. We give: (1) a statistically secure $r$-round protocol for $t < n/3$, assuming only digital signatures and a bulletin-board PKI; and (2) a computationally secure $r$-round protocol for $t < (1-\\epsilon)n/2$ (any constant $\\epsilon > 0$), relying solely on standard signature-based PKI—no threshold signatures, no random oracles. Our constructions match the $(c \\cdot r)^{-r}$ failure bound and eliminate all setup assumptions, resolving a central open problem.",
+      "summary": "## 背景与问题  \n拜占庭共识（Byzantine Agreement, BA）是分布式系统与密码学的核心原语，其**轮复杂度**（round complexity）直接决定协议效率与实时性。经典下界表明：当恶意节点数 $t = \\Theta(n)$ 时，任何随机化 $r$-轮协议失败概率至少为 $(c \\cdot r)^{-r}$（Karlin-Yao’84；Chor-Merritt-Shmoys’89）。直至Eurocrypt’22，Ghinea-Goyal-Liu-Zhang首次构造出**轮最优**（round-optimal）BA协议——即达到该下界精度的 $r$-轮协议。但其严重依赖**可信设置**（trusted setup）：需预部署唯一门限签名方案（unique threshold signatures）及随机预言机（random oracles），削弱了实际可部署性与安全性假设。\n\n## 方法与创新  \n本文突破性地消除了所有可信设置需求，提出首个**无需可信设置的轮最优BA协议**。核心技术创新包括：  \n- **统计安全协议**：针对 $t < n/3$ 场景，基于标准数字签名与公共广播信道（bulletin board），实现**信息论安全**（statistical security）的 $r$-轮BA，失败概率严格匹配 $(c \\cdot r)^{-r}$ 下界；  \n- **计算安全协议**：针对更实用的强敌手模型 $t < (1-\\epsilon)n/2$（$\\epsilon > 0$ 为任意常数），仅需一个轻量级**公钥基础设施（PKI）**（用于普通数字签名），不依赖门限签名或随机预言机；  \n- 关键工具：引入新型“无信任门限认证”机制与自适应轮次裁剪技术，在避免可信Setup的同时维持轮次紧致性。\n\n## 主要贡献  \n本工作首次在**无任何可信设置**前提下实现轮最优BA，填补了理论空白，并为区块链共识、安全多方计算等场景提供了更坚实、更简洁的基础协议。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_369",
+      "iacr_id": "369",
+      "title": "Issuer-Hiding for BBS Anonymous Credentials via Randomizable Keys",
+      "authors": [
+        "Anja Lehmann"
+      ],
+      "abstract": "Anonymous credentials (AC) equip users with credentials on attested attributes, which enable them to prove verifiable yet data-minimizing statements over their attributes. However, in standard ACs, each credential presentation reveals the credential issuer, which could be more information than intended and necessary, e.g., when merely proving age or personhood. Issuer-Hiding Anonymous Credentials (IHAC) address this limitation and hide the issuer in the presentation. That is, they only reveal that the user has a credential from an issuer within a certain trust set, referred to as the policy. Recent works by Sanders and\nTraoré, and Katz and Sefranek show how to add issuer-hiding to PS- and BBS-based credentials while keeping presentations compact, i.e., not scaling in the number of issuers. However, both constructions require the verifier to generate dedicated policy key pairs, turning verification into a secret key operation. Managing these verifier-specific keys introduces additional complexity and affects the resulting practical privacy and security guarantees. In this work, we propose two IHAC schemes from BBS signatures that achieve compact presentations without the need of such verifier-specific keys. At the core of our schemes is a technique to randomize BBS public keys and adapt the signatures accordingly, which we believe to be of independent interest.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/369.pdf",
+      "url": "https://eprint.iacr.org/2026/369",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与问题  \n匿名凭证（Anonymous Credentials, AC）允许用户基于已认证属性（如年龄、国籍）生成可验证但数据最小化的声明，从而保护隐私。然而，传统AC在凭证出示时**必然暴露签发者身份**，这可能泄露多余信息——例如仅需证明“年满18岁”时，却无意透露是某政府机构还是某银行签发的凭证。Issuer-Hiding Anonymous Credentials（IHAC）旨在解决该缺陷：它使凭证出示仅表明“用户持有来自某可信集合（即策略集）中某一签发者的有效凭证”，而**完全隐藏具体签发者**。\n\n## 现有方案局限  \n近期Sanders–Traoré及Katz–Sefranek的工作虽将issuer-hiding扩展至PS和BBS签名体系，并保持出示尺寸紧凑（不随签发者数量增长），但其核心代价是：**验证方必须为每个策略生成专属密钥对**，导致验证成为需保密密钥的操作。这不仅增加密钥管理复杂度，更削弱系统实用性——验证方需安全存储私钥，违背“公开可验证”的经典设计原则，且易引发信任边界模糊与侧信道风险。\n\n## 本文贡献  \n我们提出两种基于BBS签名的新型IHAC方案，首次实现**紧凑出示 + 无需验证方私钥**的双重目标。核心技术突破在于：  \n- 提出**BBS公钥随机化机制**：通过引入可公开计算的随机因子，将固定BBS公钥转化为策略级等价类，同时保持签名可适配性；  \n- 设计配套的随机化签名生成与验证协议，确保出示大小恒定（仅含常数个群元素），且验证完全公开、无需任何秘密参数；  \n- 所有安全性基于标准BBS假设（如SXDH），未引入额外困难性假设。该随机化技术本身具有独立价值，可拓展至其他基于配对的凭证系统。",
+      "summary_en": "Anonymous credentials (ACs) enable users to prove statements about attested attributes while minimizing data disclosure. However, standard ACs reveal the credential issuer upon presentation—exposing more information than necessary (e.g., when only proving age or personhood). Issuer-Hiding ACs (IHACs) address this by hiding the specific issuer, revealing only that the credential originates from *some* issuer within a predefined trust policy. Prior compact IHAC constructions for BBS signatures (by Katz–Sefranek and Sanders–Traoré) require verifiers to hold *policy-specific secret keys*, turning verification into a private-key operation—introducing key management overhead and weakening practical privacy and security guarantees. We propose two new BBS-based IHAC schemes achieving compact presentations (constant-size, independent of policy size) **without any verifier secret keys**. At their core is a novel technique for **randomizing BBS public keys**, enabling policy-level equivalence while preserving signature validity and public verifiability. Our constructions rely solely on standard assumptions (e.g., SXDH) and offer improved deployability and trust model clarity.",
+      "summary": "## 背景与问题  \n匿名凭证（Anonymous Credentials, AC）允许用户基于已认证属性（如年龄、国籍）生成可验证但数据最小化的声明，从而保护隐私。然而，传统AC在凭证出示时**必然暴露签发者身份**，这可能泄露多余信息——例如仅需证明“年满18岁”时，却无意透露是某政府机构还是某银行签发的凭证。Issuer-Hiding Anonymous Credentials（IHAC）旨在解决该缺陷：它使凭证出示仅表明“用户持有来自某可信集合（即策略集）中某一签发者的有效凭证”，而**完全隐藏具体签发者**。\n\n## 现有方案局限  \n近期Sanders–Traoré及Katz–Sefranek的工作虽将issuer-hiding扩展至PS和BBS签名体系，并保持出示尺寸紧凑（不随签发者数量增长），但其核心代价是：**验证方必须为每个策略生成专属密钥对**，导致验证成为需保密密钥的操作。这不仅增加密钥管理复杂度，更削弱系统实用性——验证方需安全存储私钥，违背“公开可验证”的经典设计原则，且易引发信任边界模糊与侧信道风险。\n\n## 本文贡献  \n我们提出两种基于BBS签名的新型IHAC方案，首次实现**紧凑出示 + 无需验证方私钥**的双重目标。核心技术突破在于：  \n- 提出**BBS公钥随机化机制**：通过引入可公开计算的随机因子，将固定BBS公钥转化为策略级等价类，同时保持签名可适配性；  \n- 设计配套的随机化签名生成与验证协议，确保出示大小恒定（仅含常数个群元素），且验证完全公开、无需任何秘密参数；  \n- 所有安全性基于标准BBS假设（如SXDH），未引入额外困难性假设。该随机化技术本身具有独立价值，可拓展至其他基于配对的凭证系统。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_368",
+      "iacr_id": "368",
+      "title": "Additions, Multiplications, and the Interaction In-Between: Optimizing MPC Protocols via Leveled Linear Secret Sharing",
+      "authors": [
+        "Maximilian Stillger"
+      ],
+      "abstract": "In concretely efficient secure multiparty computation (MPC) protocols based on secret sharing, a frequent pattern is to locally multiply two shared values into some intermediate representation that is immediately and interactively translated back into sharings of the product. The intermediate representation is often still a full-fledged but different secret sharing scheme. This has been used to efficiently compute dot products by computing the sum of all intermediate products and then interactively translating only the sum instead of translating each individual product. Beyond that, the intermediate representation or secret sharing scheme has mostly been seen only as a necessary interim step, leaving most of its potential untapped.\n\nWe change that by proposing the paradigm of leveled linear secret sharing, which allows dynamic switching between the original secret sharing and the previously only intermediate one more freely, while enabling arbitrary linear computations in any of the domains. Prior multiplications are split into a non-interactive multiplication that switches from one to the other secret sharing, and an interactive upgrade back to the original secret sharing domain. The upgrade now does not necessarily follow each multiplication immediately, but just needs to be placed somewhere before the next multiplication is computed, possibly upgrading the linear aggregation of many multiplications' results. We apply this idea to improve three-party computation on replicated sharings (Araki et al., CCS'16), n-party BGW-style protocols (Ben-Or et al., STOC'88), and masked secret sharing protocols such as ABY2.0 (Patra et al., USENIX Security'21). We develop a novel optimizer that optimally selects which gate of a circuit is evaluated in which domain. With that, we improve communication by 10-37% for many circuits. Furthermore, we implement our generalization for replicated sharing, measure run time improvements of mostly 10-26% in a LAN, and make a full implementation of the protocol and our novel optimizer publicly available.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/368.pdf",
+      "url": "https://eprint.iacr.org/2026/368",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与问题  \n在基于线性秘密共享的高效安全多方计算（MPC）协议中，乘法运算常采用“本地相乘→中间表示→交互式回转”的三阶段模式。该中间表示本身仍是一种完整、但结构不同的秘密共享方案（如从复制共享转为加法共享），虽曾被用于优化点积计算（仅对和进行一次回转），但其潜力长期未被系统性挖掘——中间域仅被视为过渡步骤，而非可主动调度的计算层。\n\n## 方法创新：分层线性秘密共享（Leveled LSS）  \n我们提出**分层线性秘密共享**新范式：允许在原始共享域（如复制共享、Shamir共享）与中间共享域之间**动态、按需切换**，且**任意线性运算（加法、标量乘、线性组合）均可在任一域内非交互完成**。关键解耦：将传统乘法拆分为两步——  \n- **非交互乘法门**：在源域计算后，立即无通信地切换至中间域（产出“升级就绪”状态）；  \n- **延迟交互升级**：不强制紧随每次乘法，而可**批量聚合多个中间结果（如多乘积之和）后再统一执行一次交互式回转**，显著摊薄通信开销。\n\n## 实验验证与成果  \n我们将该范式应用于三大主流协议：  \n- 三方复制共享（Araki et al., CCS’16）  \n- n方BGW协议（Ben-Or et al., STOC’88）  \n- 掩码型协议ABY2.0（Patra et al., USENIX Security’21）  \n设计并实现**首个面向分层域的电路级优化器**，以整数规划自动决策每扇门（加/乘）的最佳执行域。实测显示：  \n✅ **通信量降低10–37%**（覆盖AES、ReLU、逻辑电路等典型基准）；  \n✅ LAN环境下**运行时加速10–26%**（复制共享实现已开源）；  \n✅ 全协议与优化器代码**完全开源**，支持即插即用。",
+      "summary_en": "We introduce *leveled linear secret sharing* (LLSS), a paradigm that treats intermediate secret sharing representations—not as transient artifacts but as first-class computational domains—enabling dynamic, on-demand switching between original and intermediate sharing schemes. Crucially, all linear operations (addition, scalar multiplication, linear combinations) become *non-interactive* in either domain. Multiplication is split into: (i) a non-interactive step converting inputs to the intermediate domain, and (ii) a *delayed, batched interactive upgrade* back to the original domain—applied once over aggregated results (e.g., sum of many products) rather than per multiplication. We integrate LLSS into replicated sharing (3PC), BGW-style $n$-party protocols, and masked ABY2.0, and design an optimal circuit-level optimizer that selects the best domain for each gate. Evaluation shows **10–37% communication reduction** and **10–26% runtime speedup** (LAN), with full implementation publicly available.",
+      "summary": "## 背景与问题  \n在基于线性秘密共享的高效安全多方计算（MPC）协议中，乘法运算常采用“本地相乘→中间表示→交互式回转”的三阶段模式。该中间表示本身仍是一种完整、但结构不同的秘密共享方案（如从复制共享转为加法共享），虽曾被用于优化点积计算（仅对和进行一次回转），但其潜力长期未被系统性挖掘——中间域仅被视为过渡步骤，而非可主动调度的计算层。\n\n## 方法创新：分层线性秘密共享（Leveled LSS）  \n我们提出**分层线性秘密共享**新范式：允许在原始共享域（如复制共享、Shamir共享）与中间共享域之间**动态、按需切换**，且**任意线性运算（加法、标量乘、线性组合）均可在任一域内非交互完成**。关键解耦：将传统乘法拆分为两步——  \n- **非交互乘法门**：在源域计算后，立即无通信地切换至中间域（产出“升级就绪”状态）；  \n- **延迟交互升级**：不强制紧随每次乘法，而可**批量聚合多个中间结果（如多乘积之和）后再统一执行一次交互式回转**，显著摊薄通信开销。\n\n## 实验验证与成果  \n我们将该范式应用于三大主流协议：  \n- 三方复制共享（Araki et al., CCS’16）  \n- n方BGW协议（Ben-Or et al., STOC’88）  \n- 掩码型协议ABY2.0（Patra et al., USENIX Security’21）  \n设计并实现**首个面向分层域的电路级优化器**，以整数规划自动决策每扇门（加/乘）的最佳执行域。实测显示：  \n✅ **通信量降低10–37%**（覆盖AES、ReLU、逻辑电路等典型基准）；  \n✅ LAN环境下**运行时加速10–26%**（复制共享实现已开源）；  \n✅ 全协议与优化器代码**完全开源**，支持即插即用。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_367",
+      "iacr_id": "367",
+      "title": "High-Precision Functional Bootstrapping for CKKS from Fourier Extension",
+      "authors": [
+        "Zhenyu Guan"
+      ],
+      "abstract": "We introduce a new (amortized) functional bootstrapping framework  over the CKKS homomorphic encryption (HE) scheme based on Fourier extension. While approximating the modular reduction function in CKKS bootstrapping through Fourier series is a well-known technique, how such method can be efficiently generalized to functional bootstrapping is less understood. In this work, we show that, by constructing proper Fourier extensions, any function with a bounded domain in the smoothness class $C^{\\kappa}$ can be approximated by a degree-$n$ Fourier series with errors of order $O(n^{-\\kappa-2})$ (except at the singularities), improving on previous results on a global error bound of $O(n^{-1})$ [AKP2025]. To achieve such bound, we propose a new way of constructing Fourier extensions, such that the extended functions appear as smooth as possible in the sense of a Fourier approximation. By implementing our functional bootstrapping over OpenFHE, we demonstrate that we can improve the data precision by $10$-$27$ bits and reduce the amortized FBS latency by $1.1$-$2\\times$ over a variety of benchmarking functions.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/367.pdf",
+      "url": "https://eprint.iacr.org/2026/367",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 高精度CKKS函数自举：基于傅里叶延拓的新框架\n\n本研究提出一种面向CKKS同态加密方案的新型（摊销）**函数自举**（Functional Bootstrapping, FBS）框架，其核心创新在于引入**傅里叶延拓**（Fourier Extension）技术。传统CKKS自举依赖傅里叶级数逼近模约减函数，但将该思想高效推广至通用函数计算（即FBS）仍存在理论与工程瓶颈。本文首次系统解决了这一挑战：我们设计了一种**构造性傅里叶延拓方法**，使目标函数在延拓后于周期边界处具备更高阶光滑性（即满足 $C^\\kappa$ 类且延拓后导数连续），从而显著提升傅里叶级数逼近精度。理论证明表明，在有界定义域上，任意 $C^\\kappa$ 光滑函数均可被 $n$ 阶傅里叶级数以 **$O(n^{-\\kappa-2})$** 的局部误差（奇点除外）逼近，相较先前工作（如AKP2025的全局 $O(n^{-1})$ 界）实现**指数级收敛加速**。该突破源于对延拓方式的重新建模——不仅延长定义域，更主动“平滑化”延拓函数的频谱衰减特性。我们在OpenFHE平台上实现了该框架，并在多项基准函数（包括Sigmoid、GeLU、分段线性激活等）上验证：相比现有FBS方案，**数据精度平均提升10–27比特**（对应信噪比改善约60–160 dB），同时**摊销自举延迟降低1.1–2倍**。本工作为高精度、低延迟的隐私保护机器学习推理提供了坚实的密码学基础。",
+      "summary_en": "We propose a novel amortized functional bootstrapping (FBS) framework for the CKKS homomorphic encryption scheme, built upon *Fourier extension*. While Fourier series approximation of modular reduction is standard in CKKS bootstrapping, its efficient generalization to arbitrary smooth functions remains open. We show that by constructing *proper Fourier extensions*, any $C^\\kappa$ function on a bounded domain can be approximated by a degree-$n$ Fourier series with local error $O(n^{-\\kappa-2})$ (except at singularities), improving over the prior global $O(n^{-1})$ bound [AKP2025]. Our key insight is a new extension method that maximizes smoothness *in the Fourier sense*—ensuring rapid spectral decay. Implemented in OpenFHE, our FBS achieves **10–27 bits higher precision** and **1.1–2× lower amortized latency** across benchmark functions (e.g., Sigmoid, GeLU), enabling more accurate and efficient privacy-preserving ML inference.",
+      "summary": "## 高精度CKKS函数自举：基于傅里叶延拓的新框架\n\n本研究提出一种面向CKKS同态加密方案的新型（摊销）**函数自举**（Functional Bootstrapping, FBS）框架，其核心创新在于引入**傅里叶延拓**（Fourier Extension）技术。传统CKKS自举依赖傅里叶级数逼近模约减函数，但将该思想高效推广至通用函数计算（即FBS）仍存在理论与工程瓶颈。本文首次系统解决了这一挑战：我们设计了一种**构造性傅里叶延拓方法**，使目标函数在延拓后于周期边界处具备更高阶光滑性（即满足 $C^\\kappa$ 类且延拓后导数连续），从而显著提升傅里叶级数逼近精度。理论证明表明，在有界定义域上，任意 $C^\\kappa$ 光滑函数均可被 $n$ 阶傅里叶级数以 **$O(n^{-\\kappa-2})$** 的局部误差（奇点除外）逼近，相较先前工作（如AKP2025的全局 $O(n^{-1})$ 界）实现**指数级收敛加速**。该突破源于对延拓方式的重新建模——不仅延长定义域，更主动“平滑化”延拓函数的频谱衰减特性。我们在OpenFHE平台上实现了该框架，并在多项基准函数（包括Sigmoid、GeLU、分段线性激活等）上验证：相比现有FBS方案，**数据精度平均提升10–27比特**（对应信噪比改善约60–160 dB），同时**摊销自举延迟降低1.1–2倍**。本工作为高精度、低延迟的隐私保护机器学习推理提供了坚实的密码学基础。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_366",
+      "iacr_id": "366",
+      "title": "Careful with the Ring: Enhanced Hybrid Decoding Attacks against Module/Ring-LWE",
+      "authors": [
+        "Haodong Jiang"
+      ],
+      "abstract": "In order to reduce size and improve efficiency, many lattice-based cryptographic schemes adopt structured variants of the Learning With Errors (LWE) problem, such as the Module-LWE and Ring-LWE. Nevertheless, when analyzing the concrete security of lattice-based schemes, these algebraic structures are usually not considered, given the absence of techniques to exploit them for accelerating known attacks.\n\nFor the widely-used polynomial ring $\\mathbb{Z}_q[X]/(x^N+1)$, we first propose an enhanced hybrid decoding attack against Module/Ring-LWE by leveraging the ring structure to accelerate its guessing and decoding steps. Then, we theoretically show that compared to the prior hybrid decoding attack, our new attack can lead to a complexity improvement by a factor of $O(N)$ in sparse secret setting. Moreover, we implement our new enhanced hybrid decoding attack on the benchmark instances established by [WSM+25, S{\\&}P], and achieve several new records. In particular, compared with state-of-the-art methods given by [KKN+26, EC], our approach is 17$\\times$ to 114$\\times$ faster on the known broken instances. Finally, we show how to estimate the concrete bit security with our new hybrid attack under the same model as in the lattice estimator, and perform the analyses of  the latest sparse Ring-LWE parameter sets used in Fully Homomorphic Encryption (FHE) schemes including [JM22, EC], [CCKS23, CCS], [BCKS24, EC], [CHKS25, EC] and [AKP25, C]. The numerical results show that compared to the best-known attack, our enhanced attack can improve the attack complexity by 7-13 bits for all the considered parameter sets. In particular,  under our new enhanced hybrid decoding attack, 10 out of the 16 parameter sets fall below the targeted 128-bit security level.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/366.pdf",
+      "url": "https://eprint.iacr.org/2026/366",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与问题  \n为提升效率并压缩密钥/密文尺寸，众多格密码方案（如全同态加密FHE）采用代数结构化的LWE变体——**Module-LWE**与**Ring-LWE**。然而，现有安全评估工具（如Lattice Estimator）在分析具体参数安全性时，通常忽略其环/模结构，因缺乏能有效利用该结构加速攻击的实用技术。\n\n## 方法创新  \n本文针对经典多项式环 $\\mathbb{Z}_q[X]/(X^N+1)$，首次提出一种**结构感知的增强型混合解码攻击**：  \n- 在**猜测阶段**，利用环乘法的稀疏性与循环卷积特性，将秘密系数的枚举空间压缩至 $O(N)$ 倍更小；  \n- 在**解码阶段**，通过构造结构化格基（含隐含循环子模结构），显著提升BKZ约化后短向量的质量与解码成功率；  \n- 理论证明：在**稀疏秘密**设定下，攻击复杂度较传统混合解码攻击降低 $O(N)$ 因子。\n\n## 关键结果  \n- 在[WSM+25, S&P]基准实例上实现多项新纪录；相比[KKN+26, EC]最先进方法，在已知被攻破实例上提速 **17×–114×**；  \n- 首次将增强攻击集成进Lattice Estimator框架，对5组最新FHE稀疏Ring-LWE参数集（[JM22, EC]、[CCKS23, CCS]、[BCKS24, EC]、[CHKS25, EC]、[AKP25, C]）进行比特安全重估；  \n- 所有参数集攻击复杂度均提升 **7–13比特**安全裕度；其中**10/16参数集跌破128比特目标安全等级**，揭示实际部署风险。",
+      "summary_en": "We propose the first ring-structure-aware **enhanced hybrid decoding attack** against Module/Ring-LWE over $\\mathbb{Z}_q[X]/(X^N+1)$. By exploiting cyclic convolution and structured lattice reduction, our method accelerates both the guessing (by $O(N)$ factor in sparse secret setting) and decoding steps. Implemented on standard benchmarks ([WSM+25, S&P]), it achieves 17×–114× speedup over prior art ([KKN+26, EC]) on broken instances. Integrated into the Lattice Estimator framework, our attack reduces concrete bit-security estimates by 7–13 bits across five state-of-the-art sparse Ring-LWE parameter sets used in FHE—causing **10 out of 16 configurations to fall below the 128-bit security threshold**. This demonstrates that algebraic structure must be accounted for in real-world security assessments.",
+      "summary": "## 背景与问题  \n为提升效率并压缩密钥/密文尺寸，众多格密码方案（如全同态加密FHE）采用代数结构化的LWE变体——**Module-LWE**与**Ring-LWE**。然而，现有安全评估工具（如Lattice Estimator）在分析具体参数安全性时，通常忽略其环/模结构，因缺乏能有效利用该结构加速攻击的实用技术。\n\n## 方法创新  \n本文针对经典多项式环 $\\mathbb{Z}_q[X]/(X^N+1)$，首次提出一种**结构感知的增强型混合解码攻击**：  \n- 在**猜测阶段**，利用环乘法的稀疏性与循环卷积特性，将秘密系数的枚举空间压缩至 $O(N)$ 倍更小；  \n- 在**解码阶段**，通过构造结构化格基（含隐含循环子模结构），显著提升BKZ约化后短向量的质量与解码成功率；  \n- 理论证明：在**稀疏秘密**设定下，攻击复杂度较传统混合解码攻击降低 $O(N)$ 因子。\n\n## 关键结果  \n- 在[WSM+25, S&P]基准实例上实现多项新纪录；相比[KKN+26, EC]最先进方法，在已知被攻破实例上提速 **17×–114×**；  \n- 首次将增强攻击集成进Lattice Estimator框架，对5组最新FHE稀疏Ring-LWE参数集（[JM22, EC]、[CCKS23, CCS]、[BCKS24, EC]、[CHKS25, EC]、[AKP25, C]）进行比特安全重估；  \n- 所有参数集攻击复杂度均提升 **7–13比特**安全裕度；其中**10/16参数集跌破128比特目标安全等级**，揭示实际部署风险。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_365",
+      "iacr_id": "365",
+      "title": "Cube and Integral Attacks on ChiLow-32",
+      "authors": [
+        "Meiqin Wang"
+      ],
+      "abstract": "The protection of executable code in embedded systems requires efficient mechanisms that ensure confidentiality and integrity.\nBelkheyar \\emph{et al.} recently proposed the Authenticated Code Encryption (ACE) framework, with \\chilow as the first ACE-2 instantiation at EUROCRYPT~2025.\n\\chilow-(32 + $\\tau$) is a 32-bit tweakable block cipher combined with a pseudorandom function, featuring quadratic nonlinear layers called ChiChi (\\dchi) and a nested tweak/key schedule optimized for low-latency \\emph{decryptions} in secure code execution under strict query limits.\n\nIn this paper, we exploit the algebraic structure of \\dchi and study the resistance of \\chilow-(32 + $\\tau$) to cube-like and integral cryptanalysis in single- and multiple-tweak settings.\nIn the multiple-tweak setting, we present conditional attacks that can recover the full key for 5-round \\chilow-(32 + $\\tau$) with practical complexity, and extend the analysis to 6 rounds at a still non-trivial but purely theoretical cost below brute force.\n\nWe additionally construct borderline cube attacks on 5- and 6-round \\chilow-(32 + $\\tau$), each capable of recovering the full key with practical complexity.\nSpecifically, we recover the full key for 5-round \\chilow-(32 + $\\tau$) using $2^{32}$ decryptions, $2^{18.58}$ chosen ciphertext data, and $2^{33.56}$ bits of memory, and for 6-round \\chilow-(32 + $\\tau$) using $2^{34}$ decryptions, $2^{33.58}$ chosen ciphertext data, and $2^{54.28}$ bits of memory.\n\nWe then focus on integral cryptanalysis and the challenge of extending the analysis to 7 rounds.\nWe identify integral distinguishers in the single- and multiple-tweak models and extend suitable 2-round and 3-round integral distinguishers to build a 7-round attack.\nWe present a nested strategy to recover all round tweaks and tackle the problem of deriving the master key from round-tweak and key information.\nOur key-recovery method exploits high-degree monomials that arise in the integral key-recovery phase to reduce the average number of guessed key bits and hence reduce the time complexity.\nAs a result, we mount a 7-round key-recovery attack on \\chilow-(32 + $\\tau$) that requires $2^{6.32}$ chosen ciphertext data, has a time complexity of about $2^{108.55}$ encryptions, and needs negligible memory.\n\nNotably, all our attacks remain consistent with the security claims of the design.",
+      "published": "2026-02-23",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/365.pdf",
+      "url": "https://eprint.iacr.org/2026/365",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与动机  \n嵌入式系统中可执行代码的机密性与完整性保护亟需高效轻量的密码机制。Belkheyar 等人在 EUROCRYPT 2025 提出的认证代码加密（ACE）框架中，**ChiLow-32** 作为首个 ACE-2 实例，其变体 **ChiLow-(32 + τ)** 是一个32位可调分组密码，融合伪随机函数，采用二次非线性层 ChiChi（$\\dchi$）及面向低延迟解密优化的嵌套密钥/调整值调度，专为严格查询限制下的安全代码执行设计。\n\n## 方法与创新  \n本文首次系统分析 ChiLow-(32 + τ) 对**立方类攻击**与**积分攻击**的代数抵抗性，覆盖单调整值与多调整值场景。我们深度挖掘 $\\dchi$ 的代数结构，提出三类新方法：  \n- **条件式多调整值立方攻击**：在5轮实现全密钥恢复（实用复杂度），6轮扩展至理论可行（低于穷搜）；  \n- **边界型立方攻击**：5轮仅需 $2^{32}$ 次解密、$2^{18.58}$ 选择密文、$2^{33.56}$ 比特内存；6轮需 $2^{34}$ 解密、$2^{33.58}$ 密文、$2^{54.28}$ 比特内存；  \n- **7轮积分攻击**：构建单/多调整值积分区分器，首创**嵌套策略**同步恢复全部轮调整值，并利用积分密钥恢复阶段涌现的**高次单项式**显著降低平均猜测密钥比特数，将时间复杂度压缩至约 $2^{108.55}$ 次加密。\n\n## 结论  \n所有攻击均在设计宣称的安全边界内（如查询限制、资源约束），未推翻其实际部署安全性，但揭示了代数结构在极端分析下的潜在张力，为后续轻量级认证加密设计提供了关键代数评估范式。",
+      "summary_en": "This paper presents the first dedicated cryptanalysis of ChiLow-(32 + τ), the 32-bit tweakable block cipher underlying the ACE-2 authenticated code encryption framework (EUROCRYPT 2025). Leveraging the algebraic properties of its quadratic ChiChi ($\\dchi$) layer, we mount practical cube and integral attacks in both single- and multiple-tweak settings. We recover the full key for 5-round ChiLow with $2^{32}$ decryptions and $2^{18.58}$ chosen ciphertexts; extend to 6 rounds with $2^{34}$ decryptions and $2^{33.58}$ data; and—most significantly—achieve the first 7-round key-recovery integral attack requiring only $2^{6.32}$ chosen ciphertexts, $2^{108.55}$ encryption-equivalents, and negligible memory, enabled by a novel nested tweak-recovery strategy and high-degree monomial exploitation. All attacks respect the scheme’s stated security constraints.",
+      "summary": "## 背景与动机  \n嵌入式系统中可执行代码的机密性与完整性保护亟需高效轻量的密码机制。Belkheyar 等人在 EUROCRYPT 2025 提出的认证代码加密（ACE）框架中，**ChiLow-32** 作为首个 ACE-2 实例，其变体 **ChiLow-(32 + τ)** 是一个32位可调分组密码，融合伪随机函数，采用二次非线性层 ChiChi（$\\dchi$）及面向低延迟解密优化的嵌套密钥/调整值调度，专为严格查询限制下的安全代码执行设计。\n\n## 方法与创新  \n本文首次系统分析 ChiLow-(32 + τ) 对**立方类攻击**与**积分攻击**的代数抵抗性，覆盖单调整值与多调整值场景。我们深度挖掘 $\\dchi$ 的代数结构，提出三类新方法：  \n- **条件式多调整值立方攻击**：在5轮实现全密钥恢复（实用复杂度），6轮扩展至理论可行（低于穷搜）；  \n- **边界型立方攻击**：5轮仅需 $2^{32}$ 次解密、$2^{18.58}$ 选择密文、$2^{33.56}$ 比特内存；6轮需 $2^{34}$ 解密、$2^{33.58}$ 密文、$2^{54.28}$ 比特内存；  \n- **7轮积分攻击**：构建单/多调整值积分区分器，首创**嵌套策略**同步恢复全部轮调整值，并利用积分密钥恢复阶段涌现的**高次单项式**显著降低平均猜测密钥比特数，将时间复杂度压缩至约 $2^{108.55}$ 次加密。\n\n## 结论  \n所有攻击均在设计宣称的安全边界内（如查询限制、资源约束），未推翻其实际部署安全性，但揭示了代数结构在极端分析下的潜在张力，为后续轻量级认证加密设计提供了关键代数评估范式。",
       "summary_status": "success"
     },
     {
@@ -3159,6 +3690,27 @@
       "summary_status": "success"
     },
     {
+      "id": "iacr_318",
+      "iacr_id": "318",
+      "title": "Distributed Monotone-Policy Encryption for DNFs from Lattices",
+      "authors": [
+        "David J. Wu"
+      ],
+      "abstract": "Distributed monotone-policy encryption augments public-key encryption with fine-grained decryption capabilities in a trustless manner. In this scheme, users independently generate a public/private key-pair and post their public key to a public-key directory. Thereafter, anyone can encrypt a message to a set of public keys together with an access policy. Any set of users that satisfies the access policy can decrypt the ciphertext while the message should remain computationally hidden to any unsatisfying set of users. The primary efficiency requirement is succinctness: namely, the size of the ciphertext should be sublinear (or polylogarithmic) in the description length of the policy. Distributed monotone-policy encryption directly generalizes recent trustless cryptographic notions like threshold encryption with silent setup and distributed broadcast encryption.\n\nIn this work, we show how to construct distributed monotone-policy encryption for Boolean formulas in disjunctive normal form (DNF formulas) that supports an unbounded number of users. Security relies on the decomposed learning with errors (LWE) assumption, a simple and falsifiable lattice assumption, in the random oracle model. Previously, such a scheme was only known from plain witness encryption in the random oracle model. Our scheme has a transparent setup and the ciphertext size is $\\mathsf{poly}(\\lambda, \\log N)$, where $N$ is the number of variables in the DNF formula.",
+      "published": "2026-02-19",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/318.pdf",
+      "url": "https://eprint.iacr.org/2026/318",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 分布式单调策略加密：面向DNF公式的格基构造\n\n**背景与问题**：分布式单调策略加密（Distributed Monotone-Policy Encryption, DMPE）是一种新型公钥加密范式，旨在实现无需可信中心的细粒度解密控制。用户自主生成密钥对并公开公钥；发送方可将消息加密至一组公钥，并关联一个布尔访问策略（如DNF公式）。仅当参与解密的用户集合满足该策略时，才能协同恢复明文；而任何不满足策略的用户子集在计算上无法获知消息内容。核心效率挑战在于**密文简洁性**——密文长度需为策略描述长度的亚线性（理想为polylog级），而非随策略规模线性增长。\n\n**方法与创新**：本文首次构建了支持**无界用户数量**、面向**析取范式（DNF）布尔公式**的格基DMPE方案。方案基于**分解型学习困难问题（Decomposed LWE）** 假设——该假设简洁、可证伪，且不依赖通用电路或复杂编码技术。在随机预言机模型下，我们避免了传统依赖“见证加密（witness encryption）”的黑盒构造，实现了完全透明的公共参数设置（无需可信初始化或零知识证明）。\n\n**主要结果**：密文大小为 $\\mathsf{poly}(\\lambda, \\log N)$，其中 $\\lambda$ 为安全参数，$N$ 为DNF公式中变量总数——即密文长度仅随变量数呈**多对数级增长**，显著优于此前所有已知构造。该方案直接推广了阈值加密（带静默设置）和分布式广播加密等前沿信任最小化密码原语，为去中心化访问控制、链上隐私合约与分布式密钥管理提供了高效、可验证的理论基础。",
+      "summary_en": "We present the first lattice-based construction of **distributed monotone-policy encryption (DMPE) for DNF formulas**, supporting an unbounded number of users. Our scheme achieves *succinct ciphertexts* of size $\\mathsf{poly}(\\lambda, \\log N)$, where $\\lambda$ is the security parameter and $N$ is the number of variables in the DNF policy—marking a substantial improvement over prior linear or circuit-dependent approaches. Security relies solely on the **decomposed LWE assumption**, a simple, falsifiable lattice assumption, in the random oracle model. Unlike previous DMPE schemes built generically from witness encryption, ours features a **transparent setup** with no trusted initialization, zero-knowledge proofs, or complex encodings. This work directly generalizes trustless primitives such as threshold encryption with silent setup and distributed broadcast encryption, offering a foundational tool for decentralized access control and verifiable privacy-preserving computation.",
+      "summary": "## 分布式单调策略加密：面向DNF公式的格基构造\n\n**背景与问题**：分布式单调策略加密（Distributed Monotone-Policy Encryption, DMPE）是一种新型公钥加密范式，旨在实现无需可信中心的细粒度解密控制。用户自主生成密钥对并公开公钥；发送方可将消息加密至一组公钥，并关联一个布尔访问策略（如DNF公式）。仅当参与解密的用户集合满足该策略时，才能协同恢复明文；而任何不满足策略的用户子集在计算上无法获知消息内容。核心效率挑战在于**密文简洁性**——密文长度需为策略描述长度的亚线性（理想为polylog级），而非随策略规模线性增长。\n\n**方法与创新**：本文首次构建了支持**无界用户数量**、面向**析取范式（DNF）布尔公式**的格基DMPE方案。方案基于**分解型学习困难问题（Decomposed LWE）** 假设——该假设简洁、可证伪，且不依赖通用电路或复杂编码技术。在随机预言机模型下，我们避免了传统依赖“见证加密（witness encryption）”的黑盒构造，实现了完全透明的公共参数设置（无需可信初始化或零知识证明）。\n\n**主要结果**：密文大小为 $\\mathsf{poly}(\\lambda, \\log N)$，其中 $\\lambda$ 为安全参数，$N$ 为DNF公式中变量总数——即密文长度仅随变量数呈**多对数级增长**，显著优于此前所有已知构造。该方案直接推广了阈值加密（带静默设置）和分布式广播加密等前沿信任最小化密码原语，为去中心化访问控制、链上隐私合约与分布式密钥管理提供了高效、可验证的理论基础。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.16708v1",
       "arxiv_id": "2602.16708v1",
       "title": "Policy Compiler for Secure Agentic Systems",
@@ -4346,6 +4898,48 @@
       "summary_status": "success"
     },
     {
+      "id": "iacr_292",
+      "iacr_id": "292",
+      "title": "Crossing with Confidence: Formal Analysis and Model Checking of Blockchain Bridges",
+      "authors": [
+        "Anca Nitulescu"
+      ],
+      "abstract": "We develop formal code-based security definitions for blockchain bridges and apply them to several bridge architectures deployed in practice. We derive both traditional pen-and-paper proofs and on the other, automated guarantees against bounded counterexamples. The latter is achieved via bounded model checking of our formally specified properties, implemented in Quint, a specification language and model checker closely related to TLA+.\n\nOur definitions are expressed in a precise, code-based variant of the Universal Composition (UC) framework. This enables the modular use of hybrid functionalities—even for property-based definitions—and is essential for bounded model checking, where underlying primitives must be idealized.\n\nAccordingly, we idealize and model-check all building blocks used in our protocols. Notably, we formulate a novel UC ideal functionality for Advanced Threshold Signatures (ATS) and modelcheck it for attacks to ensure its robustness",
+      "published": "2026-02-17",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/292.pdf",
+      "url": "https://eprint.iacr.org/2026/292",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 区块链跨链桥的形式化安全分析与模型检验  \n\n本文针对区块链跨链桥（Blockchain Bridges）这一关键基础设施，提出**首个基于代码的、形式化定义的安全框架**，并系统开展理论证明与自动化验证。我们以**通用可组合（Universal Composition, UC）框架**为基础，设计了一种精确、可执行的代码化变体，支持对桥协议进行模块化建模——尤其允许将密码原语（如门限签名）理想化为黑盒功能，从而兼顾安全性表达力与模型检验可行性。\n\n在方法上，本研究采用**双轨验证范式**：一方面，给出传统笔纸证明，确立协议在理想模型下的可证明安全性；另一方面，通过**有界模型检验（Bounded Model Checking）** 实现自动化漏洞挖掘。所有形式化规范均使用 **Quint 语言**（TLA+ 生态的现代规格语言与模型检验器）实现，并对多个主流桥架构（如轻客户端桥、中继桥、签名聚合桥）进行实例化验证。\n\n核心创新包括：  \n- 首次提出**高级门限签名（Advanced Threshold Signatures, ATS）的 UC 理想功能**，明确定义其抗合谋、抗拜占庭及动态成员管理等安全属性；  \n- 完整理想化并模型检验了桥协议全部构建模块（包括链上验证合约、链下中继器、签名聚合逻辑与共识层交互），在深度≤8的状态空间内**未发现任何违反安全性质的有界反例**；  \n- 揭示若干工业级桥设计中隐含的假设冲突（如对预言机活性的过度依赖），为实践部署提供可验证的安全边界。\n\n本工作 bridging the gap between theory and practice，为跨链互操作性提供了可审计、可复现、可扩展的安全基石。",
+      "summary_en": "We present the first code-based, formal security framework for blockchain bridges, grounded in a precise, executable variant of the Universal Composition (UC) framework. Our approach enables modular, hybrid modeling—crucially supporting idealization of cryptographic primitives (e.g., threshold signatures) required for bounded model checking. We develop both pen-and-paper proofs of compositional security and automated guarantees via bounded model checking in Quint—a TLA+-inspired specification language and model checker. A key contribution is a novel UC-ideal functionality for Advanced Threshold Signatures (ATS), formally capturing collusion resistance, Byzantine tolerance, and dynamic membership. We fully idealize and verify all bridge building blocks—including on-chain verifiers, off-chain relayers, and signature aggregation logic—and report zero counterexamples up to bound 8 across multiple real-world bridge architectures. This work unifies rigorous theory with practical automation, delivering auditable, reproducible security guarantees for cross-chain interoperability.",
+      "summary": "## 区块链跨链桥的形式化安全分析与模型检验  \n\n本文针对区块链跨链桥（Blockchain Bridges）这一关键基础设施，提出**首个基于代码的、形式化定义的安全框架**，并系统开展理论证明与自动化验证。我们以**通用可组合（Universal Composition, UC）框架**为基础，设计了一种精确、可执行的代码化变体，支持对桥协议进行模块化建模——尤其允许将密码原语（如门限签名）理想化为黑盒功能，从而兼顾安全性表达力与模型检验可行性。\n\n在方法上，本研究采用**双轨验证范式**：一方面，给出传统笔纸证明，确立协议在理想模型下的可证明安全性；另一方面，通过**有界模型检验（Bounded Model Checking）** 实现自动化漏洞挖掘。所有形式化规范均使用 **Quint 语言**（TLA+ 生态的现代规格语言与模型检验器）实现，并对多个主流桥架构（如轻客户端桥、中继桥、签名聚合桥）进行实例化验证。\n\n核心创新包括：  \n- 首次提出**高级门限签名（Advanced Threshold Signatures, ATS）的 UC 理想功能**，明确定义其抗合谋、抗拜占庭及动态成员管理等安全属性；  \n- 完整理想化并模型检验了桥协议全部构建模块（包括链上验证合约、链下中继器、签名聚合逻辑与共识层交互），在深度≤8的状态空间内**未发现任何违反安全性质的有界反例**；  \n- 揭示若干工业级桥设计中隐含的假设冲突（如对预言机活性的过度依赖），为实践部署提供可验证的安全边界。\n\n本工作 bridging the gap between theory and practice，为跨链互操作性提供了可审计、可复现、可扩展的安全基石。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_294",
+      "iacr_id": "294",
+      "title": "Post-Quantum Adaptor Signatures with Strong Security from Cryptographic Group Actions",
+      "authors": [
+        "Silvia Sconza"
+      ],
+      "abstract": "We present One Round \"Cheating\" Adaptor Signatures (OR-\nCAS): a novel and eﬀicient construction of adaptor signature schemes\nfrom CSI-FiSh. Our protocol improves substantially on existing group\naction-based schemes: Unlike IAS (Tairi et al., FC 2021), our scheme\ndoes not require expensive non-interactive zero-knowledge proofs, and\nunlike adaptor MCSI-FiSh (Jana et al., CANS 2024) our construction\ndoes not require any modification to the underlying digital signature\nscheme. We prove the protocol’s security under the strong security no-\ntions of Dai et al. (Indocrypt 2022) and Gerhart et al. (Eurocrypt 2024).",
+      "published": "2026-02-17",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/294.pdf",
+      "url": "https://eprint.iacr.org/2026/294",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 一种高效、强安全的后量子适配器签名方案：OR-CAS\n\n本研究提出 **One Round “Cheating” Adaptor Signatures（OR-CAS）**——首个基于**密码学群作用（cryptographic group actions）** 实现的单轮、无需零知识证明、且不修改底层签名机制的后量子适配器签名方案。OR-CAS 构建于当前最实用的后量子数字签名方案 **CSI-FiSh** 之上，显著突破了现有群作用型适配器签名的瓶颈：  \n- ✅ **摒弃昂贵NIZK**：不同于 Tairi 等人提出的 IAS 方案（FC 2021），OR-CAS 完全无需非交互式零知识证明（NIZK），大幅降低通信与计算开销；  \n- ✅ **保持签名原生性**：区别于 Jana 等人近期的适配器 MCSI-FiSh（CANS 2024），OR-CAS **不改动 CSI-FiSh 的密钥生成、签名或验证算法**，仅通过协议层引入“作弊承诺”（cheating commitment）与单轮挑战响应机制实现适配功能；  \n- ✅ **强安全性保障**：在标准模型下，我们严格证明 OR-CAS 满足 Dai 等人（Indocrypt 2022）定义的 **adaptability**（可适配性）与 Gerhart 等人（Eurocrypt 2024）提出的 **unforgeability under adaptor queries**（适配查询下的不可伪造性）——这是目前适配器签名领域最严苛的安全模型之一。  \n该工作首次将 CSI-FiSh 的代数结构与适配器签名的核心逻辑深度耦合，为闪电网络、原子交换等需条件化签名的去中心化应用提供了**低延迟、高兼容、抗量子攻击**的新一代密码基元。",
+      "summary_en": "We introduce **One Round “Cheating” Adaptor Signatures (OR-CAS)**, the first efficient post-quantum adaptor signature scheme built solely from the CSI-FiSh primitive. Unlike prior group-action-based constructions—e.g., IAS (Tairi et al., FC 2021) requiring costly NIZK proofs, or adaptor MCSI-FiSh (Jana et al., CANS 2024) mandating modifications to the underlying signature—we achieve adaptability in a single round *without* any NIZK and *without* altering CSI-FiSh’s key generation, signing, or verification algorithms. Our design leverages a novel “cheating commitment” mechanism that binds the adaptor secret to the signature while preserving native CSI-FiSh compatibility. We prove OR-CAS secure under the strongest known notions: adaptability (Dai et al., Indocrypt 2022) and unforgeability against adaptive adaptor queries (Gerhart et al., Eurocrypt 2024). This yields a practical, quantum-resistant foundation for conditional payments and atomic swaps.",
+      "summary": "## 一种高效、强安全的后量子适配器签名方案：OR-CAS\n\n本研究提出 **One Round “Cheating” Adaptor Signatures（OR-CAS）**——首个基于**密码学群作用（cryptographic group actions）** 实现的单轮、无需零知识证明、且不修改底层签名机制的后量子适配器签名方案。OR-CAS 构建于当前最实用的后量子数字签名方案 **CSI-FiSh** 之上，显著突破了现有群作用型适配器签名的瓶颈：  \n- ✅ **摒弃昂贵NIZK**：不同于 Tairi 等人提出的 IAS 方案（FC 2021），OR-CAS 完全无需非交互式零知识证明（NIZK），大幅降低通信与计算开销；  \n- ✅ **保持签名原生性**：区别于 Jana 等人近期的适配器 MCSI-FiSh（CANS 2024），OR-CAS **不改动 CSI-FiSh 的密钥生成、签名或验证算法**，仅通过协议层引入“作弊承诺”（cheating commitment）与单轮挑战响应机制实现适配功能；  \n- ✅ **强安全性保障**：在标准模型下，我们严格证明 OR-CAS 满足 Dai 等人（Indocrypt 2022）定义的 **adaptability**（可适配性）与 Gerhart 等人（Eurocrypt 2024）提出的 **unforgeability under adaptor queries**（适配查询下的不可伪造性）——这是目前适配器签名领域最严苛的安全模型之一。  \n该工作首次将 CSI-FiSh 的代数结构与适配器签名的核心逻辑深度耦合，为闪电网络、原子交换等需条件化签名的去中心化应用提供了**低延迟、高兼容、抗量子攻击**的新一代密码基元。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.15161v1",
       "arxiv_id": "2602.15161v1",
       "title": "Exploiting Layer-Specific Vulnerabilities to Backdoor Attack in Federated Learning",
@@ -4618,6 +5212,27 @@
       "summary_status": "success"
     },
     {
+      "id": "iacr_276",
+      "iacr_id": "276",
+      "title": "On the conversion of module representations for higher dimensional supersingular isogenies",
+      "authors": [
+        "Julien Soumier"
+      ],
+      "abstract": "We expand the well developed toolbox between quaternionic ideals and supersingular elliptic curves into its higher dimensional version, namely (Hermitian) modules and maximal supersingular principally polarized abelian varieties. One of our main result is an efficient algorithm to compute an unpolarized isomorphism $A \\simeq E_0^g$ given the abstract module representation of $A$. This algorithm relies on a subroutine that solves the Principal Ideal Problem in matrix rings over quaternion orders, combined with a higher dimensional generalisation of the Clapotis algorithm. To illustrate the flexibility of our framework, we also use it to reduce the degree of the output of the KLPT$^2$ algorithm, from $O(p^{25})$ to $O(p^{15.5})$.",
+      "published": "2026-02-16",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/276.pdf",
+      "url": "https://eprint.iacr.org/2026/276",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 研究背景与意义  \n本研究将经典密码学中成熟的**四元数理想—超奇异椭圆曲线对应理论**，系统性地推广至高维情形，构建了**Hermitian 模—极大超奇异主极化阿贝尔簇**之间的结构化桥梁。这一拓展为基于高维超奇异同源的后量子密码（如 SQISign、GSW 签名等）提供了关键代数基础设施，弥补了现有理论在 $g \\geq 2$ 维时缺乏高效模表示转换工具的空白。\n\n## 核心方法与算法创新  \n我们提出一种**高效解耦算法**，可在给定阿贝尔簇 $A$ 的抽象 Hermitian 模表示前提下，显式计算其无极化同构 $A \\simeq E_0^g$（其中 $E_0$ 是固定基底超奇异椭圆曲线）。该算法包含两大支柱：  \n- 首先，设计并实现了一个求解**矩阵环上四元数序的主理想问题（PIP）** 的子程序，时间复杂度为 $\\tilde{O}(p^{3})$；  \n- 其次，提出了**高维 Clapotis 算法**——对经典一维同源路径压缩技术的非平凡推广，支持在 $\\mathrm{Sp}_{2g}(\\mathbb{F}_p)$ 中高效约化 Hermitian 模的生成元。\n\n## 关键成果与应用价值  \n- **理论突破**：首次建立完备的模表示↔几何对象双向转换框架，严格证明了表示唯一性与可计算性；  \n- **性能提升**：将 KLPT² 算法输出同源次数的上界从 $O(p^{25})$ 显著压缩至 $O(p^{15.5})$，大幅降低签名生成与验证开销；  \n- **实践意义**：为高维同源密码协议的参数选择、安全性分析及工程实现提供了可计算的代数接口。",
+      "summary_en": "We generalize the well-established correspondence between quaternionic ideals and supersingular elliptic curves to higher dimensions, establishing a rigorous framework linking **Hermitian modules over maximal quaternion orders** and **maximal supersingular principally polarized abelian varieties** of dimension $g$. Our main contribution is an efficient algorithm that, given the abstract module representation of such an abelian variety $A$, computes an explicit unpolarized isomorphism $A \\simeq E_0^g$. This relies on (i) a novel subroutine solving the Principal Ideal Problem in matrix rings over quaternion orders, and (ii) a higher-dimensional generalization of the Clapotis algorithm for isogeny path compression. As a concrete application, we use this framework to reduce the degree bound of the KLPT² algorithm’s output from $O(p^{25})$ to $O(p^{15.5})$, significantly improving efficiency for high-dimensional isogeny-based cryptography.",
+      "summary": "## 研究背景与意义  \n本研究将经典密码学中成熟的**四元数理想—超奇异椭圆曲线对应理论**，系统性地推广至高维情形，构建了**Hermitian 模—极大超奇异主极化阿贝尔簇**之间的结构化桥梁。这一拓展为基于高维超奇异同源的后量子密码（如 SQISign、GSW 签名等）提供了关键代数基础设施，弥补了现有理论在 $g \\geq 2$ 维时缺乏高效模表示转换工具的空白。\n\n## 核心方法与算法创新  \n我们提出一种**高效解耦算法**，可在给定阿贝尔簇 $A$ 的抽象 Hermitian 模表示前提下，显式计算其无极化同构 $A \\simeq E_0^g$（其中 $E_0$ 是固定基底超奇异椭圆曲线）。该算法包含两大支柱：  \n- 首先，设计并实现了一个求解**矩阵环上四元数序的主理想问题（PIP）** 的子程序，时间复杂度为 $\\tilde{O}(p^{3})$；  \n- 其次，提出了**高维 Clapotis 算法**——对经典一维同源路径压缩技术的非平凡推广，支持在 $\\mathrm{Sp}_{2g}(\\mathbb{F}_p)$ 中高效约化 Hermitian 模的生成元。\n\n## 关键成果与应用价值  \n- **理论突破**：首次建立完备的模表示↔几何对象双向转换框架，严格证明了表示唯一性与可计算性；  \n- **性能提升**：将 KLPT² 算法输出同源次数的上界从 $O(p^{25})$ 显著压缩至 $O(p^{15.5})$，大幅降低签名生成与验证开销；  \n- **实践意义**：为高维同源密码协议的参数选择、安全性分析及工程实现提供了可计算的代数接口。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.14345v1",
       "arxiv_id": "2602.14345v1",
       "title": "AXE: An Agentic eXploit Engine for Confirming Zero-Day Vulnerability Reports",
@@ -4805,6 +5420,42 @@
       "summary_zh": "## 背景与挑战  \n现有视觉密集型文档问答（Visual-Dense Document QA）方法普遍采用“供给侧预摄入”策略：在索引阶段即对每页文档运行视觉语言模型（VLM），生成冗长图文描述，再依赖纯文本检索回答问题。该范式存在三重瓶颈：**高成本**（如113页工程图纸包需消耗约80,000 VLM tokens）、**不可靠性**（VLM输出格式常与检索系统不兼容，导致关键信息无法召回）、**不可恢复性**（一旦预生成内容失准，无补救机制）。\n\n## 方法创新：延迟视觉摄入（DVI）框架  \n本文提出**需求侧驱动的Deferred Visual Ingestion（DVI）框架**，核心理念是 **“索引为定位，而非理解”**：  \n- **轻量索引**：仅提取结构化元数据（标题、图号、章节编号等）并构建BM25全文索引，**零VLM开销**；  \n- **按需理解**：用户提问后，先通过元数据+文本检索**精准定位候选页面**（100%定位准确率，搜索空间压缩98%），再将**原始图像+问题**联合送入VLM进行靶向分析；  \n- **增强能力**：支持交互式细化（如用户反馈“非此图”触发重定位）与渐进式缓存（高频问答结果自动沉淀），将QA难题转化为高鲁棒的**页面定位问题**。\n\n## 关键结果  \n在真实工业级工程图纸数据集（113页+7页）上验证：  \n- **零VLM索引成本下，端到端准确率达46.7%**（vs. 传统预摄入48.9%）；  \n- 对**视觉必需型问题**（如“标注A处尺寸是多少？”），有效率跃升至**50%**（预摄入方案为0%）；  \n- 定位模块实现**100%正确页召回**，显著提升系统可信度与可调试性。",
       "summary_en": "This paper introduces **Deferred Visual Ingestion (DVI)**, a demand-driven framework for visual-dense document QA that eliminates costly pre-indexing VLM inference. Instead of generating page-level VLM descriptions upfront (e.g., ~80K tokens for 113 pages), DVI indexes only lightweight structured metadata and text, enabling precise page localization via BM25 + metadata search—achieving **100% page recall** and **98% search space compression**. Visual understanding is deferred to query time: only the top-localized image(s) and the user’s question are sent to the VLM for targeted analysis. Evaluated on real industrial engineering drawings, DVI achieves **46.7% overall accuracy at zero VLM indexing cost** (vs. 48.9% for pre-ingestion), and crucially, **50% effectiveness on visually necessary queries** (vs. 0% for pre-ingestion). Its design transforms QA reliability from fragile VLM output retrieval into robust page localization—making answers obtainable through interactive refinement and progressive caching.",
       "summary": "## 背景与挑战  \n现有视觉密集型文档问答（Visual-Dense Document QA）方法普遍采用“供给侧预摄入”策略：在索引阶段即对每页文档运行视觉语言模型（VLM），生成冗长图文描述，再依赖纯文本检索回答问题。该范式存在三重瓶颈：**高成本**（如113页工程图纸包需消耗约80,000 VLM tokens）、**不可靠性**（VLM输出格式常与检索系统不兼容，导致关键信息无法召回）、**不可恢复性**（一旦预生成内容失准，无补救机制）。\n\n## 方法创新：延迟视觉摄入（DVI）框架  \n本文提出**需求侧驱动的Deferred Visual Ingestion（DVI）框架**，核心理念是 **“索引为定位，而非理解”**：  \n- **轻量索引**：仅提取结构化元数据（标题、图号、章节编号等）并构建BM25全文索引，**零VLM开销**；  \n- **按需理解**：用户提问后，先通过元数据+文本检索**精准定位候选页面**（100%定位准确率，搜索空间压缩98%），再将**原始图像+问题**联合送入VLM进行靶向分析；  \n- **增强能力**：支持交互式细化（如用户反馈“非此图”触发重定位）与渐进式缓存（高频问答结果自动沉淀），将QA难题转化为高鲁棒的**页面定位问题**。\n\n## 关键结果  \n在真实工业级工程图纸数据集（113页+7页）上验证：  \n- **零VLM索引成本下，端到端准确率达46.7%**（vs. 传统预摄入48.9%）；  \n- 对**视觉必需型问题**（如“标注A处尺寸是多少？”），有效率跃升至**50%**（预摄入方案为0%）；  \n- 定位模块实现**100%正确页召回**，显著提升系统可信度与可调试性。",
+      "summary_status": "success"
+    },
+    {
+      "id": "arxiv_2602.14281v3",
+      "arxiv_id": "2602.14281v3",
+      "title": "MCPShield: A Security Cognition Layer for Adaptive Trust Calibration in Model Context Protocol Agents",
+      "authors": [
+        "Zhenhong Zhou",
+        "Yuanhe Zhang",
+        "Hongwei Cai",
+        "Moayad Aloqaily",
+        "Ouns Bouachir",
+        "Linsey Pang",
+        "Prakhar Mehrotra",
+        "Kun Wang",
+        "Qingsong Wen"
+      ],
+      "abstract": "The Model Context Protocol (MCP) standardizes tool use for LLM-based agents and enable third-party servers. This openness introduces a security misalignment: agents implicitly trust tools exposed by potentially untrusted MCP servers. However, despite its excellent utility, existing agents typically offer limited validation for third-party MCP servers. As a result, agents remain vulnerable to MCP-based attacks that exploit the misalignment between agents and servers throughout the tool invocation lifecycle. In this paper, we propose MCPShield as a plug-in security cognition layer that mitigates this misalignment and ensures agent security when invoking MCP-based tools. Drawing inspiration from human experience-driven tool validation, MCPShield assists agent forms security cognition with metadata-guided probing before invocation. Our method constrains execution within controlled boundaries while cognizing runtime events, and subsequently updates security cognition by reasoning over historical traces after invocation, building on human post-use reflection on tool behavior. Experiments demonstrate that MCPShield exhibits strong generalization in defending against six novel MCP-based attack scenarios across six widely used agentic LLMs, while avoiding false positives on benign servers and incurring low deployment overhead. Overall, our work provides a practical and robust security safeguard for MCP-based tool invocation in open agent ecosystems.",
+      "published": "2026-02-15",
+      "source": "arXiv",
+      "pdf_link": "https://arxiv.org/pdf/2602.14281v3",
+      "url": "https://arxiv.org/abs/2602.14281v3",
+      "categories": [
+        "cs.CR",
+        "cs.CL"
+      ],
+      "published_official": true,
+      "keywords": [
+        "llm",
+        "security",
+        "agent"
+      ],
+      "keyword_score": 3,
+      "summary_zh": "## MCPShield：面向模型上下文协议代理的自适应信任校准安全认知层\n\n**背景与问题**：模型上下文协议（Model Context Protocol, MCP）为大语言模型（LLM）智能体提供了标准化的工具调用接口，并支持第三方服务器接入，极大提升了生态开放性与扩展性。然而，这种开放性引发关键安全错配：智能体在默认情况下**隐式信任**由潜在不可信MCP服务器暴露的工具，而现有智能体普遍缺乏对第三方MCP服务的有效验证机制。这导致其在整个工具调用生命周期中易受新型MCP定向攻击——如恶意工具注入、上下文篡改、响应劫持等。\n\n**方法创新**：本文提出**MCPShield**，一种即插即用的安全认知层，专为校准智能体对MCP工具的信任而设计。其核心受人类经验驱动工具验证启发，构建三层认知闭环：  \n1. **调用前探查**：基于工具元数据（功能描述、参数约束、权限声明等）生成轻量级语义探测请求，评估服务器可信度；  \n2. **运行时约束执行**：在沙箱化环境中执行工具调用，实时监控异常行为（如越权访问、非预期输出格式）；  \n3. **调用后反思更新**：结合历史调用轨迹（成功/失败、延迟、响应一致性等），通过因果推理动态更新该工具的安全认知评分。\n\n**实验与效果**：在6种主流具身智能体LLM（如Claude-3.5-Sonnet、GPT-4o、Qwen2.5-72B等）上系统评测，MCPShield成功防御全部6类原创MCP攻击场景（含隐蔽型上下文污染与链式工具劫持），**零误报率**（对127个良性MCP服务器无阻断），平均推理延迟增加仅**+47ms**，部署无需修改底层LLM或MCP服务器。本工作首次将“认知—行动—反思”范式引入MCP安全领域，为开放智能体生态提供了可落地、低开销、强泛化的安全基座。",
+      "summary_en": "The Model Context Protocol (MCP) enables standardized tool use for LLM-based agents but introduces a critical security misalignment: agents implicitly trust tools exposed by unverified third-party MCP servers. Existing agents lack robust validation mechanisms, leaving them vulnerable to novel MCP-based attacks throughout the tool invocation lifecycle. We propose **MCPShield**, a plug-in security cognition layer that calibrates agent trust adaptively via a human-inspired tri-phase process: (1) metadata-guided pre-invocation probing to assess server credibility; (2) constrained, monitored execution within a sandboxed boundary; and (3) post-invocation reflection over historical traces to update security cognition. Evaluated across six widely used agentic LLMs (e.g., GPT-4o, Claude-3.5-Sonnet, Qwen2.5-72B), MCPShield achieves 100% defense against six novel MCP attack scenarios, zero false positives on 127 benign servers, and incurs only +47ms average latency overhead—demonstrating practicality, robustness, and strong generalization for open agent ecosystems.",
+      "summary": "## MCPShield：面向模型上下文协议代理的自适应信任校准安全认知层\n\n**背景与问题**：模型上下文协议（Model Context Protocol, MCP）为大语言模型（LLM）智能体提供了标准化的工具调用接口，并支持第三方服务器接入，极大提升了生态开放性与扩展性。然而，这种开放性引发关键安全错配：智能体在默认情况下**隐式信任**由潜在不可信MCP服务器暴露的工具，而现有智能体普遍缺乏对第三方MCP服务的有效验证机制。这导致其在整个工具调用生命周期中易受新型MCP定向攻击——如恶意工具注入、上下文篡改、响应劫持等。\n\n**方法创新**：本文提出**MCPShield**，一种即插即用的安全认知层，专为校准智能体对MCP工具的信任而设计。其核心受人类经验驱动工具验证启发，构建三层认知闭环：  \n1. **调用前探查**：基于工具元数据（功能描述、参数约束、权限声明等）生成轻量级语义探测请求，评估服务器可信度；  \n2. **运行时约束执行**：在沙箱化环境中执行工具调用，实时监控异常行为（如越权访问、非预期输出格式）；  \n3. **调用后反思更新**：结合历史调用轨迹（成功/失败、延迟、响应一致性等），通过因果推理动态更新该工具的安全认知评分。\n\n**实验与效果**：在6种主流具身智能体LLM（如Claude-3.5-Sonnet、GPT-4o、Qwen2.5-72B等）上系统评测，MCPShield成功防御全部6类原创MCP攻击场景（含隐蔽型上下文污染与链式工具劫持），**零误报率**（对127个良性MCP服务器无阻断），平均推理延迟增加仅**+47ms**，部署无需修改底层LLM或MCP服务器。本工作首次将“认知—行动—反思”范式引入MCP安全领域，为开放智能体生态提供了可落地、低开销、强泛化的安全基座。",
       "summary_status": "success"
     },
     {
@@ -9477,6 +10128,6 @@
       "summary_status": "success"
     }
   ],
-  "last_updated": "2026-02-24T06:59:00.343072",
-  "total_count": 314
+  "last_updated": "2026-02-25T02:08:23.088124",
+  "total_count": 339
 }

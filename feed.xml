@@ -4,8 +4,99 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Tue, 24 Feb 2026 06:59:00 -0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 02:08:23 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning</title>
+      <link>https://arxiv.org/abs/2602.21078v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.21078v1</guid>
+      <description>Federated Semi-Supervised Learning (FSSL) faces dual heterogeneity: *external* (cross-client distribution shift) and *internal* (within-client labeled/unlabeled mismatch). Existing methods either aggregate client models via fixed/dynamic weights—struggling to capture the ideal global distribution—or filter low-confidence pseudo-labels, discarding valuable unlabeled data. To address both challenges jointly, we propose **ProxyFL**, a proxy-guided framework that uses **learnable classifier weights as category-distribution proxies**. For external heterogeneity, ProxyFL explicitly optimizes a *global proxy* on the server to robustly suppress outliers, replacing direct weight aggregation. For internal heterogeneity, it introduces a *positive-negative proxy pool* to re-include filtered unlabeled samples via similarity-based soft weighting, mitigating pseudo-label noise. Theoretically, ProxyFL achieves tighter convergence bounds; empirically, it outperforms SOTAs by +3.2–5.8% average accuracy across 6 benchmarks (e.g., CIFAR-10/LT, SVHN), boosts unlabeled data utilization by 3.7×, and reduces pseudo-label error rate by 41%.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>Some Simple Economics of AGI</title>
+      <link>https://arxiv.org/abs/2602.20946v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20946v1</guid>
+      <description>This paper reframes the AGI transition as an economic collision between two asymmetric cost curves: exponentially falling *Cost to Automate* and biologically constrained *Cost to Verify*. As AI decouples cognition from biology, execution becomes near-zero marginal cost—absorbing even creative and innovative labor—but human verification bandwidth remains the binding constraint on growth. This structural asymmetry widens a *Measurability Gap*: what agents can execute vastly exceeds what humans can afford to validate, audit, or underwrite. Consequently, technical change shifts from skill-biased to *measurability-biased*, with economic rents migrating to verification-grade ground truth, cryptographic provenance, and liability underwriting—not just output generation. The current human-in-the-loop equilibrium is unstable: eroded by collapsing apprenticeship (“Missing Junior Loop”) and expert self-obsolescence (“Codifier’s Curse”), enabling privately rational but socially hazardous unverified deployment. Unmanaged, this pulls toward a *Hollow Economy*; yet scaling verification capacity in tandem with agentic capability unlocks an *Augmented Economy*—one where robust oversight enables unbounded discovery. The central imperative is clear: the defining race today is not for autonomy, but for *verifiability*.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>trojan</category>
+      <category>ai</category>
+    </item>
+    <item>
+      <title>On Electric Vehicle Energy Demand Forecasting and the Effect of Federated Learning</title>
+      <link>https://arxiv.org/abs/2602.20782v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20782v1</guid>
+      <description>This paper investigates Electric Vehicle Supply Equipment (EVSE) energy demand forecasting (EDF) under privacy-preserving constraints. We benchmark statistical (ARIMA), machine learning (XGBoost), and deep learning (LSTM, GRU) models across four real-world EVSE datasets, evaluating performance under both centralized and federated learning (FL) paradigms. Results show XGBoost achieves the highest accuracy (18.7% lower MAE on average) and best energy efficiency (5× less training energy than LSTM), outperforming both statistical and neural models. Crucially, in FL settings, XGBoost maintains this advantage while reducing communication overhead by 62% compared to deep models—demonstrating superior trade-offs among prediction fidelity, privacy preservation (no raw data sharing), and edge-device energy consumption. Our work establishes FL-enabled tree-based forecasting as a practical, scalable, and sustainable solution for decentralized EV energy management.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>Bikelution: Federated Gradient-Boosting for Scalable Shared Micro-Mobility Demand Forecasting</title>
+      <link>https://arxiv.org/abs/2602.20671v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20671v1</guid>
+      <description>Bikelution is a novel federated learning framework for scalable, privacy-preserving micro-mobility demand forecasting using gradient-boosted decision trees. Unlike centralized ML—which achieves high accuracy but violates data privacy and incurs prohibitive bandwidth costs—Bikelution enables collaborative model training across edge devices (e.g., bike docks, city zones) without sharing raw spatio-temporal data. It introduces sparse histogram-based gradient compression, differential privacy-aware secure aggregation, and a sliding-window client selection strategy to handle non-IID demand patterns. Evaluated on three real-world dockless bike-sharing datasets (Hangzhou, NYC Citi Bike, Singapore SG Bike), Bikelution matches centralized XGBoost’s 6-hour-ahead forecast accuracy (within 2.1% MAE gap) while outperforming state-of-the-art federated tree methods by 19.3% on average. This demonstrates that high-fidelity, mid-term demand forecasting is feasible under strict privacy constraints—enabling sustainable, compliant smart mobility planning.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>Is the Trigger Essential? A Feature-Based Triggerless Backdoor Attack in Vertical Federated Learning</title>
+      <link>https://arxiv.org/abs/2602.20593v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20593v1</guid>
+      <description>Vertical federated learning (VFL) enables collaborative modeling across parties holding disjoint features and labels, yet remains vulnerable to backdoor attacks. Contrary to the prevailing trigger-dependent paradigm, this paper demonstrates that **triggers are *not essential* for effective backdoor attacks in VFL**. We propose the first **feature-based triggerless backdoor attack**, operating under a stricter honest-but-curious threat model—where the attacker participates legitimately in training without gradient tampering. Our method comprises three key components: (1) label inference to identify target classes from intermediate outputs; (2) triggerless poisoning via feature amplification and imperceptible perturbation; and (3) stealthy backdoor execution on *clean, unmodified inputs*. Experiments on five benchmark datasets show our attack achieves 2–50× higher attack success rate (ASR) than three trigger-based baselines, with &lt;0.8% main-task accuracy degradation. It remains highly effective even in large-scale VFL (32 passive parties) using only one auxiliary dataset and exhibits strong resilience against defenses (ASR variation &lt;3%). This work uncovers a critical blind spot in VFL security and calls for robust, trigger-agnostic defense design.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>inference</category>
+      <category>learning</category>
+      <category>security</category>
+      <category>train</category>
+      <category>privacy-preserving</category>
+    </item>
+    <item>
+      <title>Characterizing Online and Private Learnability under Distributional Constraints via Generalized Smoothness</title>
+      <link>https://arxiv.org/abs/2602.20585v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20585v1</guid>
+      <description>This paper characterizes online and private learnability under *distributional adversaries*—adaptive sequences of data-generating distributions drawn from a fixed family $U$. We introduce **generalized smoothness**, a structural property of $U$, and prove it is *necessary and sufficient* for online learnability: a family $U$ admits VC-dimension-dependent regret bounds for *every* finite-VC hypothesis class if and only if $U$ is generalized smooth. We design universal algorithms achieving low regret without explicit knowledge of $U$, and—when $U$ is known—derive refined bounds via the **fragmentation number**, a combinatorial measure of how many disjoint regions can simultaneously carry nontrivial mass under $U$. Remarkably, we show generalized smoothness also *exactly characterizes* private learnability under distributional constraints, revealing a deep unification between online and differentially private learning. These results provide a near-complete theory of learnability beyond i.i.d. and fully adversarial settings.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>privacy</category>
+      <category>differential</category>
+    </item>
+    <item>
+      <title>Wireless Federated Multi-Task LLM Fine-Tuning via Sparse-and-Orthogonal LoRA</title>
+      <link>https://arxiv.org/abs/2602.20492v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20492v1</guid>
+      <description>This paper proposes **Sparse-and-Orthogonal LoRA**, a fully decentralized wireless federated learning framework for multi-task fine-tuning of large language models (LLMs) on mobile devices. It tackles three critical issues in heterogeneous edge settings: (i) catastrophic forgetting during local fine-tuning due to conflicting gradient directions; (ii) inefficient communication and slow convergence from redundant parameter transmission; and (iii) cross-task knowledge interference at inference. Our approach introduces: (1) orthogonality-constrained sparse LoRA adapters to eliminate update conflicts; (2) a task-aware clustering strategy for topology-efficient model aggregation among neighboring devices; and (3) an implicit mixture-of-experts mechanism enabling task-specific inference paths without explicit routing. Experiments show up to **73% reduction in communication cost** and **+5.0% average accuracy gain** over standard federated LoRA, with faster convergence—demonstrating strong practicality for bandwidth-constrained wireless edge AI.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>Heterogeneity-Aware Client Selection Methodology For Efficient Federated Learning</title>
+      <link>https://arxiv.org/abs/2602.20450v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20450v1</guid>
+      <description>Federated Learning (FL) suffers from statistical heterogeneity across clients, leading to accuracy degradation and unstable convergence. Prior client selection methods rely on loss or bias—imprecise proxies for heterogeneity—and employ stochastic selection, limiting reliability. We propose **Terraform**, a novel heterogeneity-aware methodology that leverages **client gradient updates** (not scalar metrics) to quantify directional and magnitude deviation from the global gradient, enabling precise heterogeneity assessment. Its **deterministic greedy algorithm** selects the top-*k* most heterogeneous clients per round—ensuring reproducibility and stability. Evaluated across four benchmarks (CIFAR-10/100, Tiny-ImageNet, LEAF-HeartDisease), Terraform achieves up to **47% higher accuracy** over state-of-the-art baselines (e.g., FedAvg, q-FFL). Ablation studies confirm both gradient-based modeling and deterministic selection are essential; training overhead remains under 3% per round. Terraform delivers a robust, efficient, and principled solution for heterogeneous FL.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>Partially Non-Interactive Two-Round Threshold and Multi-Signatures with Tighter and Adaptive Security</title>
+      <link>https://eprint.iacr.org/2026/373</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/373</guid>
+      <description>We bridge a critical security gap in partially non-interactive (PNI) two-round threshold and multi-signature schemes in the pairing-free discrete-logarithm setting. While fully online schemes achieve rewinding-free or fully adaptive security under standard assumptions, prior PNI schemes require algebraic adversary restrictions or non-standard assumptions. Our key insight is to systematically transform the HBMS framework (Bellare &amp; Dai, Asiacrypt 2021) into a PNI paradigm via message-independent preprocessing of commitments and adaptive key derivation. We present: (1) the **first PNI two-round multi-signature scheme** with a rewinding-free reduction under standard DL assumptions, achieving tighter security (O(1) loss) against *non-algebraic* adversaries; and (2) the **first PNI two-round threshold signature scheme** with *fully adaptive security*—supporting adaptive corruptions and message queries—also under standard assumptions. Both schemes retain practical efficiency and avoid random oracles.</description>
+      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
     <item>
       <title>Skill-Inject: Measuring Agent Vulnerability to Skill File Attacks</title>
       <link>https://arxiv.org/abs/2602.20156v1</link>
@@ -300,6 +391,102 @@
       <category>IACR</category>
     </item>
     <item>
+      <title>CREDIT: Certified Ownership Verification of Deep Neural Networks Against Model Extraction Attacks</title>
+      <link>https://arxiv.org/abs/2602.20419v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20419v1</guid>
+      <description>CREDIT is the first framework for **certified ownership verification** of deep neural networks against model extraction attacks (MEAs). It introduces **mutual information (MI)** as a theoretically grounded similarity metric between models and derives a practical, computable verification threshold with rigorous statistical guarantees: if the estimated MI between a suspect model and the original falls below this threshold, ownership infringement can be *provably rejected* with confidence $1-\delta$ ($\delta \leq 0.01$). Evaluated across diverse benchmarks (CIFAR, ImageNet, SVHN, GLUE), CREDIT achieves **98.2% average verification accuracy** and **&lt;0.8% false positive rate** using only ≤5,000 queries—outperforming state-of-the-art watermarking defenses. Its certification is robust to fine-tuning and input perturbations, and the implementation is publicly available at https://github.com/LabRAI/CREDIT.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>CITED: A Decision Boundary-Aware Signature for GNNs Towards Model Extraction Defense</title>
+      <link>https://arxiv.org/abs/2602.20418v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20418v1</guid>
+      <description>Graph Neural Networks (GNNs) are widely deployed via MLaaS, yet vulnerable to Model Extraction Attacks (MEAs), where adversaries query the target model with subgraphs to train high-fidelity surrogates. Existing defenses—watermarking or fingerprinting—are typically limited to *either* label-level *or* embedding-level verification, often degrading model utility or introducing inference overhead. We propose **CITED**, the first decision boundary-aware signature framework enabling *joint* ownership verification at *both* label and embedding levels. CITED injects imperceptible, robust signatures by guiding the model’s decision boundary on carefully designed “signature subgraphs” during standard training—requiring *no architectural changes*, *zero additional parameters*, and *no performance drop*. Extensive experiments across 6 real-world graph datasets and 3 GNN backbones show CITED achieves &gt;99.2% label-level verification accuracy and &gt;0.987 AUC on embedding-level verification, outperforming all prior methods by ≥12.6% in robustness. It remains effective under severe perturbations (e.g., 50% node pruning, cross-architecture transfer). Code: https://github.com/LabRAI/CITED.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>An artificial intelligence framework for end-to-end rare disease phenotyping from clinical notes using large language models</title>
+      <link>https://arxiv.org/abs/2602.20324v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.20324v1</guid>
+      <description>We present **RARE-PHENIX**, an end-to-end AI framework for rare disease phenotyping from unstructured clinical notes. It unifies three clinically grounded components: (1) LLM-based phenotype extraction, (2) ontology-aware standardization to Human Phenotype Ontology (HPO) terms leveraging semantic structure and embeddings, and (3) supervised ranking of diagnostically informative HPO terms. Trained on 2,671 UDN patients across 11 sites and externally validated on 16,357 real-world notes from Vanderbilt, RARE-PHENIX achieves an ontology-based similarity score of **0.70**—significantly outperforming PhenoBERT (0.58) and improving F1 by 12.3%. Ablation studies confirm the additive value of each module. By modeling phenotyping as a unified clinical workflow—not just extraction—RARE-PHENIX delivers structured, ranked, clinician-concordant phenotypes, enabling scalable, human-in-the-loop rare disease diagnosis.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Distributed Monotone-Policy Encryption with Silent Setup from Lattices</title>
+      <link>https://eprint.iacr.org/2026/372</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/372</guid>
+      <description>We present the first **lattice-based distributed monotone-policy encryption scheme with silent setup**, resolving a critical gap in post-quantum decentralized cryptography. Unlike prior silent-setup constructions—exclusively built on quantum-vulnerable bilinear pairings—our scheme rests on the hardness of the Learning With Errors (LWE) problem, ensuring quantum resistance. It supports arbitrary monotone access policies expressed as Disjunctive Normal Forms (DNFs), enabling expressive, fine-grained access control without trusted setup or interactive key generation. Each user independently generates a lattice-based key pair; the joint public key is derived *deterministically* from all users’ public keys via hash-and-combine operations—no communication or dealer required. We prove IND-CPA security under standard LWE assumptions and formally establish the correctness and robustness of the distributed decryption protocol. This work establishes a foundational primitive for trustless, quantum-safe policy enforcement in decentralized systems.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>A Modular Approach to Succinct Arguments for QMA</title>
+      <link>https://eprint.iacr.org/2026/371</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/371</guid>
+      <description>We present the first *modular*, *LWE-free* framework for succinct, classically-verifiable arguments for QMA—the quantum analogue of NP. Departing from prior constructions that crucially rely on the structured hardness of LWE, our approach builds on two minimal, well-motivated assumptions: (i) *oblivious state preparation (OSP)*—constructible from plain trapdoor claw-free functions—and (ii) *collapsing hash functions*, the quantum counterpart of collision resistance. Our construction proceeds in two steps: first, we design a *round-efficient*, classically-verifiable QMA argument system based solely on OSP; second, we introduce a *generalized communication compression compiler* that, assuming collapsing hashes, compresses any $T$-round interactive protocol with a classical verifier into one whose total communication is bounded by $T \cdot \poly(\secp)$, independent of original message sizes. This yields the first succinct QMA argument system without LWE, significantly broadening its cryptographic foundations and offering new tools for quantum interactive proofs.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Round-Optimal Byzantine Agreement without Trusted Setup</title>
+      <link>https://eprint.iacr.org/2026/370</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/370</guid>
+      <description>Byzantine Agreement (BA) is a cornerstone primitive in distributed computing and cryptography, where minimizing round complexity is critical. Classical lower bounds (Karlin-Yao’84; Chor-Merritt-Shmoys’89) show that any randomized $r$-round protocol tolerating $t = \Theta(n)$ corruptions must fail with probability at least $(c \cdot r)^{-r}$. Ghinea-Goyal-Liu-Zhang (Eurocrypt’22) achieved round-optimality but required trusted setup—namely, unique threshold signatures and random oracles.  
+
+This work presents the **first round-optimal BA protocols without any trusted setup**. We give: (1) a statistically secure $r$-round protocol for $t &lt; n/3$, assuming only digital signatures and a bulletin-board PKI; and (2) a computationally secure $r$-round protocol for $t &lt; (1-\epsilon)n/2$ (any constant $\epsilon &gt; 0$), relying solely on standard signature-based PKI—no threshold signatures, no random oracles. Our constructions match the $(c \cdot r)^{-r}$ failure bound and eliminate all setup assumptions, resolving a central open problem.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Issuer-Hiding for BBS Anonymous Credentials via Randomizable Keys</title>
+      <link>https://eprint.iacr.org/2026/369</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/369</guid>
+      <description>Anonymous credentials (ACs) enable users to prove statements about attested attributes while minimizing data disclosure. However, standard ACs reveal the credential issuer upon presentation—exposing more information than necessary (e.g., when only proving age or personhood). Issuer-Hiding ACs (IHACs) address this by hiding the specific issuer, revealing only that the credential originates from *some* issuer within a predefined trust policy. Prior compact IHAC constructions for BBS signatures (by Katz–Sefranek and Sanders–Traoré) require verifiers to hold *policy-specific secret keys*, turning verification into a private-key operation—introducing key management overhead and weakening practical privacy and security guarantees. We propose two new BBS-based IHAC schemes achieving compact presentations (constant-size, independent of policy size) **without any verifier secret keys**. At their core is a novel technique for **randomizing BBS public keys**, enabling policy-level equivalence while preserving signature validity and public verifiability. Our constructions rely solely on standard assumptions (e.g., SXDH) and offer improved deployability and trust model clarity.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Additions, Multiplications, and the Interaction In-Between: Optimizing MPC Protocols via Leveled Linear Secret Sharing</title>
+      <link>https://eprint.iacr.org/2026/368</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/368</guid>
+      <description>We introduce *leveled linear secret sharing* (LLSS), a paradigm that treats intermediate secret sharing representations—not as transient artifacts but as first-class computational domains—enabling dynamic, on-demand switching between original and intermediate sharing schemes. Crucially, all linear operations (addition, scalar multiplication, linear combinations) become *non-interactive* in either domain. Multiplication is split into: (i) a non-interactive step converting inputs to the intermediate domain, and (ii) a *delayed, batched interactive upgrade* back to the original domain—applied once over aggregated results (e.g., sum of many products) rather than per multiplication. We integrate LLSS into replicated sharing (3PC), BGW-style $n$-party protocols, and masked ABY2.0, and design an optimal circuit-level optimizer that selects the best domain for each gate. Evaluation shows **10–37% communication reduction** and **10–26% runtime speedup** (LAN), with full implementation publicly available.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>High-Precision Functional Bootstrapping for CKKS from Fourier Extension</title>
+      <link>https://eprint.iacr.org/2026/367</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/367</guid>
+      <description>We propose a novel amortized functional bootstrapping (FBS) framework for the CKKS homomorphic encryption scheme, built upon *Fourier extension*. While Fourier series approximation of modular reduction is standard in CKKS bootstrapping, its efficient generalization to arbitrary smooth functions remains open. We show that by constructing *proper Fourier extensions*, any $C^\kappa$ function on a bounded domain can be approximated by a degree-$n$ Fourier series with local error $O(n^{-\kappa-2})$ (except at singularities), improving over the prior global $O(n^{-1})$ bound [AKP2025]. Our key insight is a new extension method that maximizes smoothness *in the Fourier sense*—ensuring rapid spectral decay. Implemented in OpenFHE, our FBS achieves **10–27 bits higher precision** and **1.1–2× lower amortized latency** across benchmark functions (e.g., Sigmoid, GeLU), enabling more accurate and efficient privacy-preserving ML inference.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Careful with the Ring: Enhanced Hybrid Decoding Attacks against Module/Ring-LWE</title>
+      <link>https://eprint.iacr.org/2026/366</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/366</guid>
+      <description>We propose the first ring-structure-aware **enhanced hybrid decoding attack** against Module/Ring-LWE over $\mathbb{Z}_q[X]/(X^N+1)$. By exploiting cyclic convolution and structured lattice reduction, our method accelerates both the guessing (by $O(N)$ factor in sparse secret setting) and decoding steps. Implemented on standard benchmarks ([WSM+25, S&amp;P]), it achieves 17×–114× speedup over prior art ([KKN+26, EC]) on broken instances. Integrated into the Lattice Estimator framework, our attack reduces concrete bit-security estimates by 7–13 bits across five state-of-the-art sparse Ring-LWE parameter sets used in FHE—causing **10 out of 16 configurations to fall below the 128-bit security threshold**. This demonstrates that algebraic structure must be accounted for in real-world security assessments.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Cube and Integral Attacks on ChiLow-32</title>
+      <link>https://eprint.iacr.org/2026/365</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/365</guid>
+      <description>This paper presents the first dedicated cryptanalysis of ChiLow-(32 + τ), the 32-bit tweakable block cipher underlying the ACE-2 authenticated code encryption framework (EUROCRYPT 2025). Leveraging the algebraic properties of its quadratic ChiChi ($\dchi$) layer, we mount practical cube and integral attacks in both single- and multiple-tweak settings. We recover the full key for 5-round ChiLow with $2^{32}$ decryptions and $2^{18.58}$ chosen ciphertexts; extend to 6 rounds with $2^{34}$ decryptions and $2^{33.58}$ data; and—most significantly—achieve the first 7-round key-recovery integral attack requiring only $2^{6.32}$ chosen ciphertexts, $2^{108.55}$ encryption-equivalents, and negligible memory, enabled by a novel nested tweak-recovery strategy and high-degree monomial exploitation. All attacks respect the scheme’s stated security constraints.</description>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
       <title>Taming Preconditioner Drift: Unlocking the Potential of Second-Order Optimizers for Federated Learning on Non-IID Data</title>
       <link>https://arxiv.org/abs/2602.19271v1</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2602.19271v1</guid>
@@ -320,197 +507,6 @@
       <category>privacy-preserving</category>
       <category>learning</category>
       <category>federated</category>
-    </item>
-    <item>
-      <title>An interpretable framework using foundation models for fish sex identification</title>
-      <link>https://arxiv.org/abs/2602.19022v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.19022v1</guid>
-      <description>Accurate, non-invasive fish sex identification is critical for conservation breeding of endangered species like the delta smelt (*Hypomesus transpacificus*), yet existing methods are often invasive and stressful. To address this, we propose **FishProtoNet**, an interpretable, foundation model–based computer vision framework for life-stage–aware sex classification. It integrates: (1) visual foundation models (e.g., SAM) for robust fish region-of-interest extraction; (2) prototype-based representation learning for human-interpretable decisions via visualizable class prototypes; and (3) lightweight adaptation to mitigate background noise and data scarcity. Evaluated across life stages, FishProtoNet achieves **74.40% accuracy (F1: 74.27%)** in pre-spawning and **81.16% accuracy (F1: 79.43%)** in post-spawning delta smelt—outperforming standard CNNs and ViTs. Performance remains limited in subadults due to minimal morphological dimorphism, highlighting a biological constraint rather than a methodological gap. Code and models are publicly available.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Learning to Detect Language Model Training Data via Active Reconstruction</title>
-      <link>https://arxiv.org/abs/2602.19020v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.19020v1</guid>
-      <description>This paper introduces **Active Data Reconstruction Attack (ADRA)**, a novel membership inference framework that actively *elicits* LLMs to reconstruct candidate texts via on-policy reinforcement learning—rather than passively analyzing fixed outputs. Grounded in the hypothesis that training data are inherently *more reconstructible*, ADRA fine-tunes a policy initialized from the target model to maximize reconstruction fidelity, guided by contrastive rewards and tailored reconstruction metrics. The adaptive variant, **ADRA+**, further improves robustness via dynamic target selection and exploration control. Evaluated across pre-training (BookMIA), post-training (AIME), and distillation (DistillMIA) settings, ADRA+ achieves an average **10.7% absolute improvement** over prior state-of-the-art, including +18.8% on BookMIA and +7.6% on AIME. This work establishes *reconstructibility* as a powerful, actionable signal for data provenance in LLMs.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>inference</category>
-      <category>membership</category>
-    </item>
-    <item>
-      <title>LLM Scalability Risk for Agentic-AI and Model Supply Chain Security</title>
-      <link>https://arxiv.org/abs/2602.19021v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.19021v1</guid>
-      <description>This paper addresses the dual-use tension in GenAI-driven cybersecurity by unifying offensive and defensive perspectives across 70 academic, industry, and policy sources. We introduce two key contributions: (1) the **LLM Scalability Risk Index (LSRI)**—a parametric framework quantifying operational risks (e.g., latency spikes, context collapse, prompt injection susceptibility) under security-critical workloads; and (2) a **verifiable model supply chain framework**, embedding zero-knowledge proofs and TEE-based attestation to establish trust anchors across data provenance, fine-tuning audit, weight integrity, and inference execution. We synthesize defense patterns from Google Play Protect and Microsoft Security Copilot, proposing a governance roadmap centered on *layered verification*, *dynamic authorization*, and *closed-loop auditing*. Findings underscore that scalable LLM deployment requires not just performance optimization—but architecturally enforced trust continuity.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>Alternating Bi-Objective Optimization for Explainable Neuro-Fuzzy Systems</title>
-      <link>https://arxiv.org/abs/2602.19253v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.19253v1</guid>
-      <description>Fuzzy systems are inherently interpretable due to their rule-based structure and linguistic variables, yet balancing accuracy and explainability remains challenging. Evolutionary multi-objective optimization (MOO) suffers from high computational cost, while gradient-based scalarization fails to recover non-convex Pareto regions. We propose **X-ANFIS**, an alternating bi-objective gradient optimization framework for explainable adaptive neuro-fuzzy inference systems. It employs Cauchy membership functions for stable, semantics-aware initialization and introduces a differentiable explainability objective—based on rule distinguishability—that is decoupled from the prediction loss via alternating gradient updates. Evaluated across ~5,000 runs on nine UCI regression datasets, X-ANFIS consistently achieves user-specified distinguishability targets while maintaining competitive predictive accuracy—and crucially, discovers solutions *beyond* the convex hull of the MOO Pareto front, demonstrating superior exploration of the accuracy–explainability trade-off space.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>membership</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>Round-Based Approximation of (Higher-Order) Differential-Linear Correlation</title>
-      <link>https://eprint.iacr.org/2026/358</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/358</guid>
-      <description>This paper introduces a novel round-based approximation method for estimating differential-linear (DL) correlations. Building on Beyne’s geometric view—where the DL correlation corresponds to a coordinate of the *correlation vector* derived from the ciphertext multiset via the cipher’s *2-wise form* correlation matrix—we exploit the compositional structure of this matrix to approximate the correlation vector round by round. Despite its simplicity, the method achieves remarkable accuracy: it yields the most precise DL correlation estimates for Ascon to date and delivers the **first DL distinguishers for 6-round Ascon-128a initialization**. For PRESENT, we present **17-round DL distinguishers**—4 rounds beyond the prior record. To handle ciphers with large χ functions (e.g., Subterranean, Koala-p), we derive rigorous theorems governing correlation propagation through χ and its 2-wise form, enabling **strong 6-round DL distinguishers**, improving upon previous differential/linear results by 2 rounds. Finally, we extend the approach to higher-order DL: we give the **first second-order DL distinguisher for 6-round Ascon-128 initialization**, and the **first second-order DL distinguishers for up to 7 rounds of Subterranean and Koala-p**.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Improved preprocessing for the Crossbred algorithm and application to the MQ problem</title>
-      <link>https://eprint.iacr.org/2026/360</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/360</guid>
-      <description>This paper presents two key contributions to the Crossbred algorithm for solving the Multivariate Quadratic (MQ) problem. First, we identify and rectify critical omissions in prior complexity analyses—specifically, inconsistent treatment of linearization space dimensionality, unmodeled polynomial dependency in preprocessing, and inaccurate success probability modeling—and provide a complete, rigorous complexity framework. Second, we introduce a **rank-aware pruning criterion** for the preprocessing step: given parameters $D$, $d$, and $k$, it detects and removes linearly dependent polynomials whenever their count exceeds the theoretical upper bound $\binom{n+k}{k}$, reducing redundancy without Gröbner basis computation. Applied to MQOM security analysis, our optimized Crossbred lowers its estimated security by 1.8–2.3 bits compared to previous evaluations, demonstrating both theoretical rigor and practical impact.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Cyclo: Lightweight Lattice-based Folding via Partial Range Checks</title>
-      <link>https://eprint.iacr.org/2026/359</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/359</guid>
-      <description>Cyclo is a lightweight lattice-based folding protocol supporting the full family of cyclotomic rings $\mathcal{R}_q$. It eliminates norm checks *on the accumulator* via an amortized norm-refreshing design, ensuring additive witness norm growth per fold—bounded over a generous number of rounds. Crucially, Cyclo performs range checks *only on the non-accumulated input witness*, avoiding internal low-norm decomposition (e.g., chunking) during folding—unlike LatticeFold+. Its construction combines two simple primitives: an extension commitment that reduces witness norm through decomposition and recommitment, and an $\ell_\infty$ range test implemented via a sum-check protocol. By establishing an algebraic link between $\mathcal{R}_q$ and $\mathbb{F}_q$ via polynomial evaluation, Cyclo enables efficient reduction from R1CS/CCS over $\mathbb{F}_q$ to linear relations over $\mathcal{R}_q$, offering a cleaner foundation for pay-per-bit techniques. Practical evaluation shows Cyclo achieves ~30 KB proof sizes—**an order-of-magnitude improvement** over LatticeFold+—and outperforms it in both prover time and communication.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Simulating Noisy Leakage with Bounded Leakage: Simpler, Better, Faster</title>
-      <link>https://eprint.iacr.org/2026/357</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/357</guid>
-      <description>This work bridges the gap between theoretical bounded-leakage resilience and practical noisy side-channel leakage. We show that realistic long, noisy leakage traces—e.g., from power or EM measurements—can be *efficiently simulated* using only a *single* bounded-leakage query, resolving key limitations of prior simulators (EUROCRYPT’21, CRYPTO’24). First, we design simpler simulation strategies that both reduce parameter estimation cost and yield strictly better leakage-to-accuracy tradeoffs. Second, we handle *correlated* leakage samples—arising naturally from oversampling—by proving the required extra bounded leakage grows only mildly with correlation strength, unlike prior independent-sample models. Third, we establish a new quantitative tradeoff: investing 𝒪(Δ) additional bits in the bounded-leakage query reduces simulation complexity by a factor of 2^Δ / poly(Δ), enabling efficient simulation even for Ω(log λ) and beyond—e.g., Ω(λ^{1/3})—bounded leakage, thus vastly broadening applicability in computational security settings.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Publicly Certifiable Min-Entropy Without Quantum Communication</title>
-      <link>https://eprint.iacr.org/2026/356</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/356</guid>
-      <description>We resolve a fundamental open question: can high min-entropy of a string be *publicly certified*—i.e., verified by arbitrarily many untrusted parties—using *only classical communication*, without quantum channels? Prior certified randomness protocols (e.g., Brakerski et al., FOCS 2018) only achieve *private* certification between two parties. We construct the first publicly certifiable min-entropy scheme satisfying: (1) public verifiability by any number of parties; (2) *entirely classical* prover–verifier interaction; (3) transferability—any convinced verifier can locally generate new proofs for others; and (4) classical verification (at the cost of losing transferability). Our construction relies on a novel primitive, *quantum fire*, which we define and build from quantum one-shot signatures (and variants). Both quantum fire and our main scheme are instantiated in the standard model from sub-exponential indistinguishability obfuscation (iO) and LWE—marking the first standard-model construction of quantum fire.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Forget-IT: Optimal Good-Case Latency For Information-Theoretic BFT</title>
-      <link>https://eprint.iacr.org/2026/355</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/355</guid>
-      <description>The good-case latency—i.e., the time from an honest leader’s block proposal to global decision under synchrony—is the most practical efficiency metric for BFT consensus. While optimal 3-round latency is well-established in the *authenticated* setting (e.g., PBFT, Tendermint, Simplex), it remained open in the *unauthenticated* setting, where digital signatures are disallowed and security relies solely on information-theoretic assumptions. We present **Forget-IT**, the first unauthenticated BFT protocol achieving optimal 3-round good-case latency. Forget-IT introduces a novel “forgetful” state design: nodes maintain only *constant persistent storage*, eliminating costly multi-view history retention; its communication complexity is $O(n^2)$ per view—matching the best authenticated protocols. Crucially, Forget-IT achieves information-theoretic safety and liveness without cryptographic assumptions, closing a long-standing gap and enabling efficient, low-storage consensus for constrained environments.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Structural Collapse of the Amutha-Perumal Scheme Based on Duo Circulant Matrices</title>
-      <link>https://eprint.iacr.org/2026/354</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/354</guid>
-      <description>Amutha and Perumal recently proposed a two-party key exchange protocol based on $\alpha$-$v$-$w$-duo circulant matrices over the max-plus semiring, claiming resistance to tropical attacks and suitability for IoT. This paper presents the first complete cryptanalysis of the scheme. We identify a critical structural flaw: the secret matrices are *affinely parameterized*—each is fully determined by a single integer parameter. Consequently, all public messages are simple shifts of a publicly computable matrix, and the shared session key reduces to a constant shift of another public matrix. An eavesdropper can recover the exact shared secret in *constant time* $O(1)$ after a one-time precomputation—no active interaction or probabilistic assumptions are needed. The attack is deterministic and succeeds with probability 1. We fully verify it against the authors’ own numerical example, confirming 100% key recovery. This work invalidates the protocol’s security claims and highlights the danger of insufficient parameter freedom in tropical cryptographic design.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Dual-Syncopation Meet-in-the-Middle Attacks: New Results on SHA-2 and MD5</title>
-      <link>https://eprint.iacr.org/2026/353</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/353</guid>
-      <description>We introduce the **dual-syncopation meet-in-the-middle (MITM) attack**, a novel formal framework for cryptanalyzing ARX-based hash functions. It defines a compact, rule-based language to uniformly track deterministic and non-deterministic information across two independent propagations through ARX operations—unifying prior techniques (e.g., initial structure, partial matching) and enabling full automation. Leveraging new technical insights beyond existing literature, we build an efficient automatic search tool that fully optimizes MITM attacks on ARX designs within hours.
-
-Our results set new records: the first preimage attacks on **46- and 47-step SHA-256**, extending the prior 45-step record; the first **51-step preimage attack on SHA-512**, improving upon 50 steps; and improved preimage attacks on 43–45-step SHA-256, 46–50-step SHA-512, and **full-round MD5 (64 steps)**. All attacks convert to free-start collision attacks via the Li–Isobe–Shibutani technique (FSE 2012). This work marks the first theoretical improvement on SHA-2 in a decade and advances the state of the art in ARX cryptanalysis.</description>
-      <pubDate>Sun, 22 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>ArabicNumBench: Evaluating Arabic Number Reading in Large Language Models</title>
-      <link>https://arxiv.org/abs/2602.18776v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18776v1</guid>
-      <description>We introduce **ArabicNumBench**, the first comprehensive benchmark for evaluating large language models (LLMs) on Arabic number reading—covering both Eastern Arabic-Indic (٠–٩) and Western Arabic (0–9) numerals across six contextual categories (e.g., addresses, dates, prices). Evaluating **71 models** from 10 providers on **59,010 test cases**, we assess four prompting strategies (zero-shot, zero-shot CoT, few-shot, few-shot CoT) and track structured output generation via Arabic CoT markers. Results reveal wide performance variance (14.29%–99.05% accuracy), with few-shot CoT achieving **80.06% accuracy**—2.8× higher than zero-shot (28.76%). Crucially, top-performing models (98–99% accuracy) often produce *unstructured* outputs lacking Arabic CoT reasoning; only **6 models consistently generate structured responses** across all tasks. This demonstrates that **numerical accuracy and instruction-following (i.e., structured reasoning) are distinct capabilities**, establishing foundational baselines and actionable guidance for deploying robust Arabic NLP systems.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>LoMime: Query-Efficient Membership Inference using Model Extraction in Label-Only Settings</title>
-      <link>https://arxiv.org/abs/2602.18934v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18934v1</guid>
-      <description>LoMime is a query-efficient label-only membership inference attack (MIA) that leverages model extraction to shift inference overhead from repeated target-model queries to a one-time surrogate-model construction phase. By combining active sampling, perturbation-guided selection, and synthetic data generation, LoMime extracts a functionally similar surrogate model $S$ with minimal queries—requiring only ≈1% of the training set’s sample count in total queries across Purchase, Location, and Texas Hospital benchmarks. It achieves membership inference accuracy within ±1% of state-of-the-art label-only MIAs while eliminating per-sample querying of the target model $M$. Crucially, LoMime remains effective against standard defenses (e.g., confidence masking, label smoothing, output randomization), exposing their limitations under extraction-based threats.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>membership</category>
-      <category>model</category>
-      <category>inference</category>
-      <category>machine</category>
-      <category>extraction</category>
-    </item>
-    <item>
-      <title>PrivacyBench: Privacy Isn't Free in Hybrid Privacy-Preserving Vision Systems</title>
-      <link>https://arxiv.org/abs/2602.18900v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18900v1</guid>
-      <description>PrivacyBench is the first benchmarking framework to systematically expose non-additive, often detrimental interactions among privacy techniques in hybrid vision systems. Through reproducible experiments on ResNet18 and ViT across medical datasets (e.g., CheXpert, ISIC), we demonstrate that FL+DP combinations suffer catastrophic convergence failure—accuracy plummets from 98% to 13%, while computational cost and energy consumption surge by 3.2× and 4.7×, respectively. In stark contrast, FL+SMPC preserves near-baseline accuracy (97.5%) with only modest overhead (&lt;15%). PrivacyBench enables automated, resource-aware evaluation via YAML configuration, real-time hardware monitoring, and standardized protocols—empowering practitioners to detect harmful technique couplings *before* deployment. Our results fundamentally challenge the assumption of modular privacy composition and provide actionable guidance for robust, resource-efficient privacy-preserving computer vision.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>machine</category>
-      <category>dp</category>
-      <category>learning</category>
-      <category>privacy-preserving</category>
-    </item>
-    <item>
-      <title>Federated Reasoning Distillation Framework with Model Learnability-Aware Data Allocation</title>
-      <link>https://arxiv.org/abs/2602.18749v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18749v1</guid>
-      <description>We propose **LaDa**, a federated reasoning distillation framework that addresses two under-explored challenges in LLM-SLM collaborative reasoning: (1) the *bidirectional model learnability gap*, where clients cannot identify samples matching their learning capacity for effective knowledge absorption, and LLMs fail to select samples offering novel reasoning beyond their pretraining data; and (2) *domain-agnostic reasoning transfer*, hindering SLMs from acquiring step-by-step reasoning aligned with local data distributions. LaDa introduces a **learnability-aware data filter** that dynamically allocates high-reward samples based on per-pair learnability disparities (e.g., gradient sensitivity, path confidence entropy), enabling efficient bidirectional knowledge transfer. Further, we design a **domain-adaptive reasoning distillation** method that aligns joint reasoning-path probabilities via contrastive distillation on filtered samples—allowing SLMs to capture domain-specific logical patterns without architecture modification. As a plug-in module, LaDa boosts SLM reasoning accuracy by +12.7% and path fidelity by +34.2% across diverse cross-domain benchmarks.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>SLDP: Semi-Local Differential Privacy for Density-Adaptive Analytics</title>
-      <link>https://arxiv.org/abs/2602.18910v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18910v1</guid>
-      <description>Density-adaptive discretization is vital for high-utility private analytics but suffers under Local Differential Privacy (LDP) due to prohibitive privacy-budget overhead from iterative refinement. We propose **Semi-Local Differential Privacy (SLDP)**, a novel privacy framework where each user is assigned a *density-dependent privacy region*, and adjacency is defined by point movement *within that region*. We design an interactive $(\varepsilon,\delta)$-SLDP protocol orchestrated by an honest-but-curious server over a public channel to privately estimate these regions. Crucially, SLDP **decouples privacy cost from iteration count**, enabling arbitrarily fine-grained adaptive grids without extra budget. Experiments on synthetic and real-world datasets (e.g., NYC taxi traces, Adult) show SLDP reduces MAE by 32%–58% versus state-of-the-art LDP baselines while preserving rigorous privacy guarantees.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>privacy</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>Federated Measurement of Demographic Disparities from Quantile Sketches</title>
-      <link>https://arxiv.org/abs/2602.18870v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18870v1</guid>
-      <description>This paper addresses the misalignment between population-level fairness goals (e.g., demographic parity) and privacy-restricted siloed data. We propose a communication-efficient federated auditing framework that measures disparity via the **Wasserstein–Fréchet variance** between sensitive-group score distributions. Crucially, we derive a federated representation of this global metric and prove an **ANOVA-style decomposition** for the squared Wasserstein distance—separating selection-induced mixture effects within silos from cross-silo distributional heterogeneity, with tight theoretical bounds linking local and global metrics. Our one-shot protocol requires each client to upload only group counts and a $k$-quantile sketch of its local scores; the server then estimates global disparity and its decomposition with $O(1/k)$ discretization bias and finite-sample guarantees. Experiments on synthetic and COMPAS data show that **as few as 32–64 quantiles recover global disparity with &lt;2% relative error** and reliably diagnose its root causes.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Prior Aware Memorization: An Efficient Metric for Distinguishing Memorization from Generalization in Large Language Models</title>
-      <link>https://arxiv.org/abs/2602.18733v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18733v1</guid>
-      <description>This paper introduces **Prior-Aware Memorization (PAM)**, a lightweight, training-free, and theoretically grounded metric to distinguish genuine memorization from statistical generalization in LLMs. Unlike frequency-based or counterfactual approaches, PAM quantifies whether a generated suffix is *specifically tied* to its original training prefix—or merely reflects high-probability patterns under the model’s inherent prior. Evaluated on LLaMA and OPT training corpora (long sequences and named entities) and the SATML extraction benchmark, PAM reveals that **55–90% of sequences previously labeled as memorized are statistically common**, and ~40% of singleton-training occurrences still align with strong priors. These results demonstrate that **low frequency alone is insufficient evidence of memorization**, and highlight the critical need to account for model priors in leakage assessment.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>extraction</category>
-    </item>
-    <item>
-      <title>Phase-Consistent Magnetic Spectral Learning for Multi-View Clustering</title>
-      <link>https://arxiv.org/abs/2602.18728v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.18728v1</guid>
-      <description>Unsupervised multi-view clustering (MVC) struggles to extract a stable shared structural signal under view discrepancy and noise, as conventional magnitude-only affinities or early pseudo-targets fail to resolve contradictory directional relations across views—distorting spectral geometry and degrading clustering. We propose **Phase-Consistent Magnetic Spectral Learning (PC-MSL)**: it models cross-view directional agreement as a phase term in a complex-valued magnetic affinity, constructs a Hermitian magnetic Laplacian to extract phase-robust spectral signals, and leverages them as structured self-supervision for representation learning and clustering. To ensure scalability and robustness, we introduce anchor-based high-order consensus modeling and lightweight relation refinement. Extensive experiments on six public benchmarks demonstrate consistent superiority over strong baselines—achieving average improvements of +2.1–4.7% in ACC, NMI, and ARI—especially under high noise and view heterogeneity. Code and models will be publicly released.</description>
-      <pubDate>Sat, 21 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>extraction</category>
     </item>
   </channel>
 </rss>

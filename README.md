@@ -1,110 +1,124 @@
 # Paper Pulse
 
-Automatically fetches and summarizes research papers from arXiv and IACR ePrint based on customizable keyword filters.
+**Automatically fetch, filter, and summarize research papers from arXiv & IACR — with AI-generated bilingual (Chinese/English) summaries. Deployed for free on GitHub Pages, updated daily via GitHub Actions.**
+
+[Live Demo](https://jamie-cui.github.io/paper-pulse/) | [RSS Feed](https://jamie-cui.github.io/paper-pulse/feed.xml)
+
+![Paper Pulse Screenshot](docs/screenshot.png)
+
+---
+
+## Why Paper Pulse?
+
+- Tired of manually checking arXiv every day? Paper Pulse fetches papers automatically.
+- Only care about specific topics? Flexible keyword filtering (AND/OR logic) keeps only what matters.
+- Need Chinese + English summaries? AI generates both — toggle per card with one click.
+- Don't want to pay for hosting? Runs entirely on GitHub Actions + Pages. Zero cost.
 
 ## Features
 
-- Daily automatic updates via GitHub Actions
-- Fetches papers from arXiv (customizable categories) and IACR ePrint
-- AI-powered bilingual summaries (Chinese + English) using DashScope API
-- Configurable retention period (default: 7 days)
-- Flexible keyword filtering (OR between lines, AND within lines)
-- Bilingual UI with per-card language toggle (中/EN)
-- BibTeX export for citations
-- RSS feed for subscribing to paper updates
-- Minimal, clean card-based interface
-- Markdown support in summaries
+| Feature | Description |
+|---|---|
+| **Multi-source** | Fetches from arXiv (configurable categories) and IACR ePrint |
+| **Keyword filtering** | OR between lines, AND within a line — fine-grained control |
+| **Bilingual AI summaries** | Chinese + English via Qwen (DashScope API), toggle per card |
+| **Daily automation** | GitHub Actions cron job, auto-commits results |
+| **RSS feed** | Subscribe in any reader — `feed.xml` auto-generated |
+| **BibTeX export** | Single paper or bulk export |
+| **Email digest** | Daily report with stats and token usage |
+| **Static site** | No server needed — GitHub Pages serves everything |
+| **Markdown summaries** | Rich formatting in AI-generated summaries |
 
-## Setup
+## Quick Start (5 steps)
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+### 1. Use this template / Fork
 
-3. Set up GitHub Secrets:
-   - `DASHSCOPE_API_KEY` (or `MODELSCOPE_API_KEY`): Your DashScope/ModelScope API key
+Click **"Use this template"** (or fork) to create your own copy.
 
-4. Enable GitHub Actions in your repository
+### 2. Get a DashScope API key
 
-5. Enable GitHub Pages:
-   - Go to Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `master` (or `main`), folder: `/ (root)`
+Sign up at [DashScope Console](https://dashscope.console.aliyun.com/) — free tier available.
 
-## Keyword Filtering
+### 3. Add your API key to GitHub Secrets
 
-The system uses `keywords.txt` to filter papers. Edit this file to customize which papers are included:
+Go to **Settings → Secrets and variables → Actions → New repository secret**:
+- Name: `MODELSCOPE_API_KEY` (or `DASHSCOPE_API_KEY`)
+- Value: your API key
 
-- **Each line = OR logic**: Match any line
-- **Words on same line = AND logic**: Must match all words
-- **Comments**: Lines starting with `#`
+### 4. Enable GitHub Pages
 
-Example:
+Go to **Settings → Pages**:
+- Source: **Deploy from a branch**
+- Branch: `master`, Folder: `/ (root)`
+
+### 5. Run the workflow
+
+Go to **Actions → Fetch Papers → Run workflow**. After it completes, visit `https://<username>.github.io/<repo-name>/`.
+
+From now on, papers are fetched automatically every day at 00:00 UTC.
+
+## Customization
+
+### Keywords (`keywords.txt`)
+
 ```
-transformer            # Matches papers with "transformer"
-neural backdoor        # Matches papers with BOTH "neural" AND "backdoor"
-federated learning     # Matches papers with "federated learning"
-zero knowledge         # Matches papers with "zero knowledge"
+# Each line = OR condition. Words on same line = AND condition.
+transformer              # Papers containing "transformer"
+neural backdoor          # Papers containing BOTH "neural" AND "backdoor"
+federated learning       # Papers containing "federated learning"
 ```
 
-## Configuration
+Keyword filtering can be independently toggled per source (`apply_to_arxiv` / `apply_to_iacr` in `config.toml`).
 
-All settings are managed in `config.toml`:
+### Configuration (`config.toml`)
 
-- **Site URL**: `general.site_url` (your GitHub Pages URL, used for RSS feed links)
-- **Retention period**: `general.days_back` (default: 7 days)
-- **arXiv categories**: `fetchers.arxiv.categories` (default: cs.CR, cs.AI, cs.LG, cs.CL)
-- **AI model**: `summarizer.model` (options: qwen-turbo, qwen-plus, qwen-max)
-- **Summary length**: `summarizer.max_tokens` (default: 1500 for bilingual)
-- **Rate limits**: `delay` and `rate_limit_delay`
-- **RSS feed**: `rss.max_items` (default: 50)
+| Setting | Where | Default |
+|---|---|---|
+| Paper retention | `general.days_back` | 30 days |
+| arXiv categories | `fetchers.arxiv.categories` | cs.CR, cs.AI, cs.LG, cs.CL |
+| AI model | `summarizer.model` | qwen-plus |
+| RSS items | `rss.max_items` | 50 |
+| Site URL | `general.site_url` | *(your GitHub Pages URL)* |
 
-See `CONFIG_GUIDE.md` for detailed configuration options.
-
-## Usage
-
-### Automatic Updates
-Papers are automatically fetched daily at 00:00 UTC via GitHub Actions.
-
-### Manual Updates
-1. Go to Actions tab in GitHub
-2. Select "Fetch Papers" workflow
-3. Click "Run workflow"
-
-### Local Testing
-```bash
-export DASHSCOPE_API_KEY="your-api-key"
-python scripts/main.py
-```
+See [CONFIG_GUIDE.md](CONFIG_GUIDE.md) for all options.
 
 ## Project Structure
 
 ```
 paper-pulse/
 ├── .github/workflows/
-│   └── fetch-papers.yml      # GitHub Actions workflow
+│   └── fetch-papers.yml      # Daily automation
 ├── scripts/
 │   ├── fetchers/
 │   │   ├── arxiv.py          # arXiv API fetcher
-│   │   └── iacr.py           # IACR API fetcher
-│   ├── filter.py             # Keyword filtering
-│   ├── summarizer.py         # DashScope AI summarization
+│   │   └── iacr.py           # IACR RSS fetcher
+│   ├── filter.py             # Keyword filtering engine
+│   ├── summarizer.py         # Bilingual AI summarization
 │   ├── rss.py                # RSS feed generator
-│   └── main.py               # Main orchestrator
+│   └── main.py               # Pipeline orchestrator
 ├── data/
-│   ├── papers.json           # Current papers
-│   └── failed.json           # Papers with failed summarization
-├── config.toml               # Configuration file
+│   ├── papers.json           # Paper database
+│   └── failed.json           # Failed summarization queue
+├── config.toml               # All configuration
 ├── keywords.txt              # Keyword filter rules
-├── index.html                # Main page
-├── feed.xml                  # RSS feed (auto-generated)
-├── styles.css                # Styles
-├── app.js                    # Frontend logic
-└── requirements.txt          # Python dependencies
+├── index.html / app.js / styles.css  # Frontend
+└── feed.xml                  # RSS feed (auto-generated)
 ```
+
+## How It Works
+
+```
+Fetch (arXiv + IACR)
+  → Filter (keyword matching)
+    → Summarize (Qwen AI, bilingual)
+      → Merge & Deduplicate
+        → Save (papers.json)
+          → Generate RSS (feed.xml)
+            → Commit & Push (GitHub Actions)
+```
+
+Failed summaries are retried automatically on the next run.
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+[GPL-3.0](LICENSE)

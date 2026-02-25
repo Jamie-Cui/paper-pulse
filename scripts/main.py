@@ -216,6 +216,7 @@ def main():
 
     # Retry previously failed papers
     retry_successful = []
+    retry_failed = []
     if existing_failed.get("papers"):
         with github_group("🔄 Retrying failed summaries"):
             retry_successful, retry_failed = retry_failed_summaries(
@@ -308,10 +309,19 @@ def main():
     # Combine with retry results
     all_successful = successful + retry_successful
 
+    all_failed = failed + retry_failed
+
     if not all_successful:
         print("\n⚠️  No new papers to add")
         existing_data["last_updated"] = datetime.now().isoformat()
         save_data(PAPERS_FILE, existing_data)
+        if all_failed:
+            failed_data = {
+                "papers": all_failed,
+                "last_updated": datetime.now().isoformat(),
+                "count": len(all_failed),
+            }
+            save_data(FAILED_FILE, failed_data)
         return
 
     # Merge with existing papers
@@ -340,11 +350,11 @@ def main():
             max_items=rss_config.get("max_items", 50),
         )
 
-        if failed:
+        if all_failed:
             failed_data = {
-                "papers": failed,
+                "papers": all_failed,
                 "last_updated": datetime.now().isoformat(),
-                "count": len(failed),
+                "count": len(all_failed),
             }
             save_data(FAILED_FILE, failed_data)
         elif FAILED_FILE.exists():
@@ -362,7 +372,7 @@ def main():
     print(f"  Total papers in database: {len(all_papers)}")
     print(f"  New summaries: {new_summary_count}")
     print(f"  Retry summaries: {len(retry_successful)}")
-    print(f"  Failed summaries: {len(failed)}")
+    print(f"  Failed summaries: {len(all_failed)}")
     print(f"  Last updated: {papers_data['last_updated']}")
     print(f"\n🤖 Token Usage:")
     print(f"  Input tokens: {usage_stats['input_tokens']}")
@@ -376,7 +386,7 @@ def main():
         with open(github_output, 'a') as f:
             f.write(f"new_papers={new_summary_count}\n")
             f.write(f"retry_papers={len(retry_successful)}\n")
-            f.write(f"failed_papers={len(failed)}\n")
+            f.write(f"failed_papers={len(all_failed)}\n")
             f.write(f"total_papers={len(all_papers)}\n")
             f.write(f"input_tokens={usage_stats['input_tokens']}\n")
             f.write(f"output_tokens={usage_stats['output_tokens']}\n")

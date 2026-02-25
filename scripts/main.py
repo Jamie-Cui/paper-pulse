@@ -300,6 +300,8 @@ def main():
         else:
             successful, failed = [], []
 
+        new_summary_count = len(successful)
+
         # Combine newly summarized papers with cached ones
         successful = successful + cached_papers
 
@@ -358,7 +360,7 @@ def main():
     print("=" * 70)
     print(f"📊 Statistics:")
     print(f"  Total papers in database: {len(all_papers)}")
-    print(f"  New summaries: {len(successful)}")
+    print(f"  New summaries: {new_summary_count}")
     print(f"  Retry summaries: {len(retry_successful)}")
     print(f"  Failed summaries: {len(failed)}")
     print(f"  Last updated: {papers_data['last_updated']}")
@@ -372,7 +374,7 @@ def main():
     github_output = os.getenv('GITHUB_OUTPUT')
     if github_output:
         with open(github_output, 'a') as f:
-            f.write(f"new_papers={len(successful)}\n")
+            f.write(f"new_papers={new_summary_count}\n")
             f.write(f"retry_papers={len(retry_successful)}\n")
             f.write(f"failed_papers={len(failed)}\n")
             f.write(f"total_papers={len(all_papers)}\n")

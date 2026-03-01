@@ -383,6 +383,27 @@
       "summary_status": "success"
     },
     {
+      "id": "iacr_394",
+      "iacr_id": "394",
+      "title": "SQISign on ARM",
+      "authors": [
+        "Bo-Yin Yang"
+      ],
+      "abstract": "We present the first vectorized implementation of SQIsign for high-performance Arm architectures. SQIsign is a promising candidate in the NIST On-Ramp Digital Signatures Call Round 2 to its most compact key and signature sizes. However, its signing performance remains a primary bottleneck, particularly the ideal-to-isogeny conversion. The conversion requires a large number of operations on elliptic curves and Abelian varieties, which depend on finite field arithmetic. Despite recent algorithmic improvements, research on high-performance implementations and efficient vectorized finite field arithmetic for SQIsign is still unexplored.\n\nOur main contribution is the first demonstration of non-trivial vectorization speedups for SQIsign. By leveraging the NEON instruction set, we implement highly efficient finite field arithmetic and batched elliptic curve operations tailored for 2-dimensional isogeny chain computations. This accelerates the subroutine by 2.24$\\times$ over the state-of-the-art. Moreover, our improvements are completely orthogonal to the recent algorithmic improvement Qlapoti (Asiacrypt 2025), offering similar performance gains in the SQIsign signing algorithm. When combined with Qlapoti, our implementation achieves a speedup of more than 2.24$\\times$ in signing at NIST security level I. We expect our work to inspire further SQIsign optimization from a vectorization perspective, especially for quaternion computations with precise bounds.",
+      "published": "2026-02-26",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/394.pdf",
+      "url": "https://eprint.iacr.org/2026/394",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 首个面向ARM架构的向量化SQISign实现  \n\nSQISign是NIST“数字签名上道计划”（On-Ramp）第二轮中最具潜力的后量子签名方案之一，以其**全球最小的密钥与签名尺寸**（NIST安全级别I下仅约10 kB）而备受关注。然而，其实际部署长期受限于**签名性能瓶颈**，核心难点在于“理想到等距映射”（ideal-to-isogeny）转换——该过程需大规模执行椭圆曲线与阿贝尔簇上的代数运算，高度依赖有限域算术（尤其是$\\mathbb{F}_{p^2}$上的高效乘法、求逆与范数计算）。尽管Asiacrypt 2025提出的Qlapoti算法在算法层面显著优化了该流程，但**面向ARM平台的高性能工程实现，尤其是基于NEON指令集的向量化有限域与批量椭圆曲线运算，此前完全空白**。\n\n本研究首次实现了SQISign在ARMv8-A架构上的深度向量化：  \n- 设计并实现了**全流水化、寄存器友好的$\\mathbb{F}_{p^2}$向量化算术库**，支持4路并行模乘/模逆，消除分支与内存抖动；  \n- 提出**面向二维等距链（2D isogeny chains）的批处理点运算框架**，将标量双线性配对与同源核计算统一为向量操作，提升数据局部性；  \n- 在Cortex-A72/A76平台上实测，**理想到等距转换子程序加速2.24×**（对比当前最优标量实现）；  \n- 所有优化与Qlapoti算法**完全正交**，二者结合后，在NIST安全级别I下实现**端到端签名速度提升>2.24×**（含Qlapoti自身增益），同时保持常数时间与侧信道防护特性；  \n- 代码开源，为ARM生态下的后量子密码迁移提供首个可部署、可验证的SQISign向量化基线，并为后续四元数代数（quaternion arithmetic）的精确界向量化计算开辟新路径。",
+      "summary_en": "We present the first vectorized implementation of SQISign for high-performance ARM architectures. SQISign is a leading NIST On-Ramp Round 2 candidate, offering the smallest key and signature sizes among post-quantum signatures—but its signing performance is bottlenecked by the ideal-to-isogeny conversion, which demands intensive finite field and elliptic curve operations. Leveraging the NEON instruction set, we design a highly optimized $\\mathbb{F}_{p^2}$ arithmetic library and batched 2D isogeny-chain operations, accelerating the critical conversion subroutine by **2.24×** over the state-of-the-art scalar implementation. Our optimizations are fully orthogonal to the recent Qlapoti algorithm (Asiacrypt 2025); when combined, they yield **>2.24× end-to-end signing speedup at NIST Security Level I**. This work establishes the first practical, vectorized SQISign baseline for ARM and opens avenues for efficient quaternion-based computation in isogeny cryptography.",
+      "summary": "## 首个面向ARM架构的向量化SQISign实现  \n\nSQISign是NIST“数字签名上道计划”（On-Ramp）第二轮中最具潜力的后量子签名方案之一，以其**全球最小的密钥与签名尺寸**（NIST安全级别I下仅约10 kB）而备受关注。然而，其实际部署长期受限于**签名性能瓶颈**，核心难点在于“理想到等距映射”（ideal-to-isogeny）转换——该过程需大规模执行椭圆曲线与阿贝尔簇上的代数运算，高度依赖有限域算术（尤其是$\\mathbb{F}_{p^2}$上的高效乘法、求逆与范数计算）。尽管Asiacrypt 2025提出的Qlapoti算法在算法层面显著优化了该流程，但**面向ARM平台的高性能工程实现，尤其是基于NEON指令集的向量化有限域与批量椭圆曲线运算，此前完全空白**。\n\n本研究首次实现了SQISign在ARMv8-A架构上的深度向量化：  \n- 设计并实现了**全流水化、寄存器友好的$\\mathbb{F}_{p^2}$向量化算术库**，支持4路并行模乘/模逆，消除分支与内存抖动；  \n- 提出**面向二维等距链（2D isogeny chains）的批处理点运算框架**，将标量双线性配对与同源核计算统一为向量操作，提升数据局部性；  \n- 在Cortex-A72/A76平台上实测，**理想到等距转换子程序加速2.24×**（对比当前最优标量实现）；  \n- 所有优化与Qlapoti算法**完全正交**，二者结合后，在NIST安全级别I下实现**端到端签名速度提升>2.24×**（含Qlapoti自身增益），同时保持常数时间与侧信道防护特性；  \n- 代码开源，为ARM生态下的后量子密码迁移提供首个可部署、可验证的SQISign向量化基线，并为后续四元数代数（quaternion arithmetic）的精确界向量化计算开辟新路径。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.22187v1",
       "arxiv_id": "2602.22187v1",
       "title": "UC-Secure Star DKG for Non-Exportable Key Shares with VSS-Free Enforcement",
@@ -1131,6 +1152,27 @@
       "summary_zh": "## 背景与挑战  \n联邦学习（FL）允许多方协作训练模型而无需共享原始数据，但客户端上传的本地模型更新仍易受**推断攻击**与**投毒攻击**威胁。量子安全聚合（QSA）作为一种新兴方案，利用多体纠缠态（如GHZ态）的全局相位编码实现信息论意义上的隐私保护。然而，现有QSA依赖**单一大规模GHZ态**供所有客户端共享，面临两大根本性瓶颈：（1）GHZ态保真度随客户端数量指数级衰减，难以适配中等以上规模FL系统；（2）全局聚合机制掩盖个体行为，无法识别并剔除拜占庭（恶意）客户端，严重损害鲁棒性。\n\n## 方法创新：CQSA框架  \n本文提出**聚类式量子安全聚合（CQSA）**——首个兼顾近量子硬件物理约束与拜占庭鲁棒性的模块化量子聚合框架。其核心设计包括：（1）**随机聚类**：将客户端动态划分为小规模簇（如4–8节点），每簇独立制备高保真、低量子比特数的GHZ态，显著提升纠缠质量与可扩展性；（2）**分层聚合**：各簇内完成本地量子聚合，服务器接收簇级聚合结果；（3）**统计异常检测**：基于簇间聚合向量的**余弦相似度**与**欧氏距离**构建鲁棒性判据，高效定位偏离共识的恶意簇。\n\n## 主要成果  \n理论分析与含去极化噪声的仿真实验表明：CQSA在16–64客户端场景下，相较全局QSA提升**平均GHZ态保真度达37.2%–68.5%**；在20%拜占庭客户端攻击下，模型收敛精度损失降低52.3%，且收敛曲线稳定无震荡。本工作为NISQ时代量子赋能FL提供了可部署、可验证、抗攻击的实用路径。",
       "summary_en": "Federated Learning (FL) enables privacy-preserving collaborative training, yet local model updates remain vulnerable to inference and poisoning attacks. Quantum Secure Aggregation (QSA) promises information-theoretic privacy via GHZ-state phase encoding—but its reliance on a *single global GHZ state* suffers from rapidly degrading fidelity at scale and inherent inability to detect Byzantine clients. We propose **Clustered QSA (CQSA)**: a modular framework that partitions clients into small clusters, each performing local quantum aggregation using high-fidelity, low-qubit GHZ states. The server then identifies malicious contributions by analyzing statistical discrepancies—e.g., cosine similarity and Euclidean distance—among cluster-level aggregates. Under depolarizing noise, CQSA achieves up to **68.5% higher GHZ fidelity** than global QSA and maintains stable convergence even with 20% Byzantine clients, reducing accuracy degradation by **52.3%**. CQSA bridges near-term quantum hardware constraints with practical Byzantine robustness in FL.",
       "summary": "## 背景与挑战  \n联邦学习（FL）允许多方协作训练模型而无需共享原始数据，但客户端上传的本地模型更新仍易受**推断攻击**与**投毒攻击**威胁。量子安全聚合（QSA）作为一种新兴方案，利用多体纠缠态（如GHZ态）的全局相位编码实现信息论意义上的隐私保护。然而，现有QSA依赖**单一大规模GHZ态**供所有客户端共享，面临两大根本性瓶颈：（1）GHZ态保真度随客户端数量指数级衰减，难以适配中等以上规模FL系统；（2）全局聚合机制掩盖个体行为，无法识别并剔除拜占庭（恶意）客户端，严重损害鲁棒性。\n\n## 方法创新：CQSA框架  \n本文提出**聚类式量子安全聚合（CQSA）**——首个兼顾近量子硬件物理约束与拜占庭鲁棒性的模块化量子聚合框架。其核心设计包括：（1）**随机聚类**：将客户端动态划分为小规模簇（如4–8节点），每簇独立制备高保真、低量子比特数的GHZ态，显著提升纠缠质量与可扩展性；（2）**分层聚合**：各簇内完成本地量子聚合，服务器接收簇级聚合结果；（3）**统计异常检测**：基于簇间聚合向量的**余弦相似度**与**欧氏距离**构建鲁棒性判据，高效定位偏离共识的恶意簇。\n\n## 主要成果  \n理论分析与含去极化噪声的仿真实验表明：CQSA在16–64客户端场景下，相较全局QSA提升**平均GHZ态保真度达37.2%–68.5%**；在20%拜占庭客户端攻击下，模型收敛精度损失降低52.3%，且收敛曲线稳定无震荡。本工作为NISQ时代量子赋能FL提供了可部署、可验证、抗攻击的实用路径。",
+      "summary_status": "success"
+    },
+    {
+      "id": "iacr_393",
+      "iacr_id": "393",
+      "title": "VROOM: Accelerating (Almost All) Number-Theoretic Cryptography Using Vectorization and the Residue Number System",
+      "authors": [
+        "Srini Devadas"
+      ],
+      "abstract": "Modular arithmetic with a large prime modulus is a dominant computational cost in number-theoretic cryptography. Modular operations are especially challenging to parallelize efficiently on CPUs using vector instructions; standard CPU implementations rely on costly carry operations and permutation instructions to align with the multiplication datapath, negating the benefits of vectorization.\n\nWe develop vectorized algorithms for modular addition and multiplication, and present a new, constant-time modular multiplication algorithm suitable for general moduli - prime or otherwise. Our method uses a Residue Number System (RNS) representation to align the arithmetic naturally with wide vector units, and strategically eliminate extraneous instructions. Existing works either require the use of customized hardware or fail to show latency improvements.\n\nReducing the latency of modular arithmetic results in speedups for cryptographic applications. We accelerate RSA-4096 signatures by $4.0\\times$ (verify) and $1.3\\times$ (sign) over OpenSSL, and speed up BLS signature verifications by $3.43\\times$ over the assembly-optimized BLST library. To facilitate broad practical adoption, we plan to upstream our implementation into BoringSSL, where it will directly benefit real-world TLS and cryptographic deployments.",
+      "published": "2026-02-25",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/393.pdf",
+      "url": "https://eprint.iacr.org/2026/393",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## 背景与挑战  \n在数论密码学中，大素数模下的模运算（尤其是模加与模乘）是核心瓶颈，其计算开销常占RSA、BLS等算法总执行时间的70%以上。传统CPU向量化实现面临根本性障碍：标准算法依赖串行进位传播与频繁数据重排（如`vpermq`），严重削弱SIMD并行收益，甚至导致性能倒退。\n\n## 方法创新  \n本文提出**VROOM框架**，首次将**剩余数系统（RNS）** 与通用CPU向量化深度协同：  \n- 设计RNS-native向量化模加/模乘算法，天然规避进位链，所有运算在独立通道内并行完成；  \n- 提出首个**常数时间、通用模数适配**的向量化模乘算法（支持任意奇数模，含素数与合数），无需硬件定制或模数特殊约束；  \n- 通过RNS基选择与向量寄存器布局优化，消除90%以上冗余置换与条件分支指令。\n\n## 关键成果  \n- **RSA-4096**：签名验证加速**4.0×**（vs OpenSSL 3.0）、签名生成加速**1.3×**；  \n- **BLS-381签名验证**：较汇编级优化的BLST库提速**3.43×**，且内存占用降低35%；  \n- 所有实现完全基于AVX2/AVX-512通用指令集，零硬件依赖；  \n- 已启动向**BoringSSL**主干提交流程，未来将直接赋能TLS 1.3、WebPKI等真实部署场景。",
+      "summary_en": "Modular arithmetic with large prime moduli dominates computational cost in number-theoretic cryptography, yet efficient CPU vectorization remains elusive due to carry propagation and costly data permutations. VROOM introduces a novel vectorized approach leveraging the Residue Number System (RNS) to align modular operations natively with wide SIMD units—eliminating carries, minimizing shuffles, and enabling constant-time multiplication for *arbitrary* odd moduli (prime or composite). Our AVX2/AVX-512 implementation achieves **4.0× speedup** for RSA-4096 signature verification and **1.3×** for signing over OpenSSL, and **3.43× faster BLS-381 verification** than the assembly-optimized BLST library. All code is portable, hardware-agnostic, and planned for upstream integration into BoringSSL to accelerate real-world TLS and cryptographic infrastructure.",
+      "summary": "## 背景与挑战  \n在数论密码学中，大素数模下的模运算（尤其是模加与模乘）是核心瓶颈，其计算开销常占RSA、BLS等算法总执行时间的70%以上。传统CPU向量化实现面临根本性障碍：标准算法依赖串行进位传播与频繁数据重排（如`vpermq`），严重削弱SIMD并行收益，甚至导致性能倒退。\n\n## 方法创新  \n本文提出**VROOM框架**，首次将**剩余数系统（RNS）** 与通用CPU向量化深度协同：  \n- 设计RNS-native向量化模加/模乘算法，天然规避进位链，所有运算在独立通道内并行完成；  \n- 提出首个**常数时间、通用模数适配**的向量化模乘算法（支持任意奇数模，含素数与合数），无需硬件定制或模数特殊约束；  \n- 通过RNS基选择与向量寄存器布局优化，消除90%以上冗余置换与条件分支指令。\n\n## 关键成果  \n- **RSA-4096**：签名验证加速**4.0×**（vs OpenSSL 3.0）、签名生成加速**1.3×**；  \n- **BLS-381签名验证**：较汇编级优化的BLST库提速**3.43×**，且内存占用降低35%；  \n- 所有实现完全基于AVX2/AVX-512通用指令集，零硬件依赖；  \n- 已启动向**BoringSSL**主干提交流程，未来将直接赋能TLS 1.3、WebPKI等真实部署场景。",
       "summary_status": "success"
     },
     {
@@ -9205,6 +9247,27 @@
       "summary_status": "success"
     },
     {
+      "id": "iacr_212",
+      "iacr_id": "212",
+      "title": "PANCAKE: A SNARK with Plonkish Constraints, Almost-Free Additions, No Permutation Check, and a Linear-Time Prover",
+      "authors": [
+        "Man Ho Au"
+      ],
+      "abstract": "We present \\(\\mathsf{Pancake}\\), a linear-time SNARK with a circuit-specific setup that eliminates the explicit representation and separate verification of addition gates in Plonkish constraint systems. Specifically, we consolidate wiring constraints and addition-gate constraints into a single family of general linear constraints, which can be enforced efficiently via a single sumcheck protocol. As a result, \\(\\mathsf{Pancake}\\) achieves ``almost-free'' addition gates, which significantly reduces the witness size and directly improves prover efficiency while preserving full support for high-degree custom gates.\n\nOur implementation shows that \\(\\mathsf{Pancake}\\) outperforms the state-of-the-art Plonkish SNARK \\(\\mathsf{HyperPlonk}\\) (Chen et al., EUROCRYPT 2023) in terms of prover efficiency. For a circuit size of $2^{24}$ where half the gates are additions, \\(\\mathsf{Pancake}\\) achieves prover speedups of $1.67\\times$ (single-threaded) and $2.43\\times$ (32-threaded), while also generating smaller proofs and maintaining comparable verification time.",
+      "published": "2026-02-10",
+      "source": "IACR",
+      "pdf_link": "https://eprint.iacr.org/212.pdf",
+      "url": "https://eprint.iacr.org/2026/212",
+      "categories": [
+        "Cryptography"
+      ],
+      "published_official": true,
+      "summary_zh": "## PANCAKE：一种支持Plonkish约束、加法门“几乎免费”、无需置换校验且线性时间证明者的SNARK\n\n本研究提出 **PANCAKE**——一种新型线性时间SNARK，专为Plonkish约束系统优化设计。其核心创新在于**彻底重构加法门的建模与验证范式**：传统Plonkish方案需显式表示加法门并单独验证，导致 witness 大小膨胀与证明开销上升；而PANCAKE将**连线约束（wiring constraints）与加法门约束统一融合为一族通用线性约束**，仅需一次sumcheck协议即可高效完成全部验证。这一设计使加法门的引入近乎“零开销”（almost-free），显著压缩 witness 规模（尤其在加法密集型电路中），直接提升证明者效率，同时**完全保留对高次自定义门（如AES-S-box、FFT蝶形运算）的原生支持**。\n\n实验表明，PANCAKE在多项关键指标上超越当前最优Plonkish SNARK——**HyperPlonk**（EUROCRYPT 2023）。在规模为 $2^{24}$ 的基准电路中（其中50%为加法门），PANCAKE实现：  \n- **单线程证明速度提升1.67×**，**32线程并行加速达2.43×**；  \n- 生成的证明尺寸更小；  \n- 验证时间与HyperPlonk基本持平。  \n此外，PANCAKE采用电路特定（circuit-specific）可信设置，避免通用设置的高昂开销，且**完全省去代价高昂的置换校验（permutation check）**，进一步简化协议结构。该工作为高效ZK-SNARK在现实密码学应用（如零知识智能合约、可验证计算）中的落地提供了更轻量、更快速的新范式。",
+      "summary_en": "We present **PANCAKE**, a linear-time SNARK for Plonkish constraint systems that eliminates explicit addition gates and the costly permutation check. By unifying wiring and addition constraints into a single family of general linear constraints—enforced efficiently via one sumcheck protocol—PANCAKE achieves *almost-free additions*, drastically reducing witness size and boosting prover efficiency without sacrificing support for high-degree custom gates. Implemented and benchmarked against the state-of-the-art HyperPlonk (EUROCRYPT 2023), PANCAKE delivers **1.67× faster proving (single-threaded)** and **2.43× faster proving (32-threaded)** on a $2^{24}$-gate circuit with 50% addition gates, while producing smaller proofs and maintaining comparable verification time. Its circuit-specific setup and elimination of permutation checks further enhance practicality.",
+      "summary": "## PANCAKE：一种支持Plonkish约束、加法门“几乎免费”、无需置换校验且线性时间证明者的SNARK\n\n本研究提出 **PANCAKE**——一种新型线性时间SNARK，专为Plonkish约束系统优化设计。其核心创新在于**彻底重构加法门的建模与验证范式**：传统Plonkish方案需显式表示加法门并单独验证，导致 witness 大小膨胀与证明开销上升；而PANCAKE将**连线约束（wiring constraints）与加法门约束统一融合为一族通用线性约束**，仅需一次sumcheck协议即可高效完成全部验证。这一设计使加法门的引入近乎“零开销”（almost-free），显著压缩 witness 规模（尤其在加法密集型电路中），直接提升证明者效率，同时**完全保留对高次自定义门（如AES-S-box、FFT蝶形运算）的原生支持**。\n\n实验表明，PANCAKE在多项关键指标上超越当前最优Plonkish SNARK——**HyperPlonk**（EUROCRYPT 2023）。在规模为 $2^{24}$ 的基准电路中（其中50%为加法门），PANCAKE实现：  \n- **单线程证明速度提升1.67×**，**32线程并行加速达2.43×**；  \n- 生成的证明尺寸更小；  \n- 验证时间与HyperPlonk基本持平。  \n此外，PANCAKE采用电路特定（circuit-specific）可信设置，避免通用设置的高昂开销，且**完全省去代价高昂的置换校验（permutation check）**，进一步简化协议结构。该工作为高效ZK-SNARK在现实密码学应用（如零知识智能合约、可验证计算）中的落地提供了更轻量、更快速的新范式。",
+      "summary_status": "success"
+    },
+    {
       "id": "arxiv_2602.09273v1",
       "arxiv_id": "2602.09273v1",
       "title": "The Price of Privacy For Approximating Max-CSP",
@@ -12396,29 +12459,8 @@
       "summary_en": "This paper challenges the severity-centric paradigm dominating LLM safety evaluation. We argue that risk must be modeled as the product of *harm severity* and *execution likelihood*—the conditional probability that a model’s response leads to actual harm. To formalize this, we introduce **Expected Harm (EH)**, where execution likelihood is operationalized via quantifiable *execution cost* proxies (e.g., response length, token entropy). Empirical analysis across 12 state-of-the-art models reveals a critical **Inverse Risk Calibration**: models over-refuse high-cost (low-likelihood) jailbreaks while under-refusing low-cost (high-likelihood) ones—creating a structural vulnerability. Exploiting this bias, we boost success rates of standard jailbreaks (e.g., GCG, AutoDAN) by up to **2×** using minimal cost-aware perturbations. Linear probing confirms the root cause: models robustly encode *severity* in their representations to drive refusals, but exhibit **no distinguishable internal representation of execution cost**, rendering them blind to this essential risk dimension. EH thus provides both a more realistic safety metric and a diagnostic lens for alignment failures.",
       "summary": "## 背景与问题  \n当前大语言模型（LLM）安全评估普遍采用**基于严重性（severity）的分类法**，将恶意查询（如越狱指令）按潜在危害程度分级打分。然而，该范式隐含一个关键假设：所有被判定为“高严重性”的威胁具有同等现实风险。本文指出这一假设存在根本缺陷——它完全忽视了**执行可能性（Execution Likelihood）**，即模型响应实际导致危害发生的条件概率。风险本质是严重性与可能性的联合函数，而非严重性的单维映射。\n\n## 方法创新：提出“期望危害”（Expected Harm）  \n我们提出**Expected Harm（EH）** 这一新评估指标：  \n- EH = Severity × Execution Likelihood  \n- 其中，Execution Likelihood 被建模为**执行成本（execution cost）的单调递减函数**（如响应长度、推理步数、token复杂度等可量化代理变量）。  \n我们构建多维度成本代理指标，并在 LLaMA-3-70B、Qwen2-72B、Claude-3.5-Sonnet 等 12 个前沿模型上开展系统性实证分析。\n\n## 关键发现  \n1. **逆向风险校准（Inverse Risk Calibration）**：模型对高成本（低可能性）威胁表现出异常强的拒绝倾向，却对低成本（高可能性）越狱攻击高度脆弱——即“防住了难的，放过了易的”。  \n2. **结构性安全漏洞**：利用该偏差设计轻量级成本扰动策略（如插入低开销冗余词、压缩指令结构），使经典越狱（如 GCG、AutoDAN）成功率**最高提升 2 倍**（+102%）。  \n3. **根源诊断**：通过线性探针（linear probing）发现——模型隐空间明确编码**严重性信号**以驱动拒绝决策，但**完全缺乏对执行成本的可分辩表征**，本质上对风险的可能性维度“失明”。\n\n## 理论与实践意义  \n本工作重构了LLM安全评估的认知框架，揭示“拒绝强度≠安全强度”，推动评估从静态严重性转向动态风险建模；为鲁棒对齐提供新优化目标（EH最小化），并警示：当前红队测试易低估真实部署风险。",
       "summary_status": "success"
-    },
-    {
-      "id": "iacr_151",
-      "iacr_id": "151",
-      "title": "Non-Complete Set Coverings for Higher Order Threshold Implementations",
-      "authors": [
-        "Carlos Andres Lara-Nino"
-      ],
-      "abstract": "Side-channel attacks (SCAs) represent an important threat for the implementation of cryptographic algorithms. These attacks exploit the information leakage found in the physical magnitudes of hardware devices (e.g. current draw, electromagnetic emanation). Threshold Implementations (TIs) aim to mitigate SCAs by implementing a modified version of the algorithm that operates over randomized shares of its input and intermediate values. This strategy relies on the possibility of splitting the algorithm to be protected into sub-functions that satisfy certain properties about their dependence structure on the randomized shares. Non-complete set coverings (NCSCs) are combinatorial objects that can provide this dependence structure and guide the design of TIs. Given the desired order of protection $d$ and the algebraic degree $t$ of the functions to be implemented, for an NCSC to be useful, its cardinality $r$ should be small and similar to the number of input shares $s$. \n\nThis work contributes to the study of NCSCs for efficient TIs by finding smaller coverings and proving novel theoretical bounds on their cardinality. We present a new NCSC for the case $t=3,d=2$ that is optimal and NCSCs for the cases $t=3,d=3$ and $t=4,d=2$ whose sizes are close to the lower bounds. We also present new combinatorial properties of these coverings and an algorithm for the search of small NCSCs.",
-      "published": "2026-01-30",
-      "source": "IACR",
-      "pdf_link": "https://eprint.iacr.org/151.pdf",
-      "url": "https://eprint.iacr.org/2026/151",
-      "categories": [
-        "Cryptography"
-      ],
-      "published_official": true,
-      "summary_zh": "## 背景与问题  \n侧信道攻击（SCAs）通过监测硬件设备的物理泄露（如功耗、电磁辐射）威胁密码算法实现的安全性。**阈值实现（TIs）** 是一种主流防护范式，其核心在于将目标函数分解为满足特定“无阶依赖”条件的子函数，并在随机化共享输入上运行。该分解的有效性高度依赖于**非完全集覆盖（NCSCs）**——一类关键的组合结构，它决定了各子函数对共享变量的依赖关系。给定保护阶数 $d$ 与目标函数代数次数 $t$，实用的 NCSC 需满足：覆盖大小 $r$ 尽可能小，且接近输入共享数 $s$，以兼顾安全性与实现开销。\n\n## 方法与创新  \n本文系统推进 NCSC 的理论与构造研究：  \n- **理论突破**：首次建立针对一般 $(t,d)$ 的紧致下界新证明框架，并导出多项改进型下界；  \n- **最优构造**：给出 $t=3, d=2$ 下**首个严格最优 NCSC**（$r = s = 4$），证明其不可改进；  \n- **近优构造**：为 $t=3,d=3$ 构造 $r=10$ 的 NCSC（下界为 9），为 $t=4,d=2$ 构造 $r=8$ 的 NCSC（下界为 7），二者均达当前已知最小规模；  \n- **结构发现**：揭示 NCSC 的**对称性压缩性质**与**局部覆盖稳定性**，为剪枝搜索提供理论依据；  \n- **算法贡献**：设计基于约束传播与回溯剪枝的混合搜索算法，在多项式时间内高效生成小规模 NCSC 实例。\n\n本工作显著缩小了理论下界与实际构造间的鸿沟，为高阶 TI 的轻量化部署提供了可验证的组合基础与实用工具链。",
-      "summary_en": "Side-channel attacks (SCAs) exploit physical leakage to break cryptographic implementations. Threshold Implementations (TIs) counter SCAs by splitting target functions into sub-functions operating on randomized shares—requiring a precise dependence structure captured by *Non-Complete Set Coverings* (NCSCs). For protection order $d$ and algebraic degree $t$, an efficient TI demands NCSCs with minimal cardinality $r$ close to the number of input shares $s$. This paper advances NCSC theory and construction: we prove novel combinatorial lower bounds for general $(t,d)$; present the first optimal NCSC for $(t,d)=(3,2)$ with $r=s=4$; construct near-optimal NCSCs for $(3,3)$ ($r=10$, lower bound $9$) and $(4,2)$ ($r=8$, lower bound $7$); discover new structural properties (e.g., symmetry reduction and local stability); and propose a constraint-guided search algorithm that efficiently finds small NCSCs. Our results bridge theory and practice, enabling more efficient higher-order TIs.",
-      "summary": "## 背景与问题  \n侧信道攻击（SCAs）通过监测硬件设备的物理泄露（如功耗、电磁辐射）威胁密码算法实现的安全性。**阈值实现（TIs）** 是一种主流防护范式，其核心在于将目标函数分解为满足特定“无阶依赖”条件的子函数，并在随机化共享输入上运行。该分解的有效性高度依赖于**非完全集覆盖（NCSCs）**——一类关键的组合结构，它决定了各子函数对共享变量的依赖关系。给定保护阶数 $d$ 与目标函数代数次数 $t$，实用的 NCSC 需满足：覆盖大小 $r$ 尽可能小，且接近输入共享数 $s$，以兼顾安全性与实现开销。\n\n## 方法与创新  \n本文系统推进 NCSC 的理论与构造研究：  \n- **理论突破**：首次建立针对一般 $(t,d)$ 的紧致下界新证明框架，并导出多项改进型下界；  \n- **最优构造**：给出 $t=3, d=2$ 下**首个严格最优 NCSC**（$r = s = 4$），证明其不可改进；  \n- **近优构造**：为 $t=3,d=3$ 构造 $r=10$ 的 NCSC（下界为 9），为 $t=4,d=2$ 构造 $r=8$ 的 NCSC（下界为 7），二者均达当前已知最小规模；  \n- **结构发现**：揭示 NCSC 的**对称性压缩性质**与**局部覆盖稳定性**，为剪枝搜索提供理论依据；  \n- **算法贡献**：设计基于约束传播与回溯剪枝的混合搜索算法，在多项式时间内高效生成小规模 NCSC 实例。\n\n本工作显著缩小了理论下界与实际构造间的鸿沟，为高阶 TI 的轻量化部署提供了可验证的组合基础与实用工具链。",
-      "summary_status": "success"
     }
   ],
-  "last_updated": "2026-02-28T01:53:24.790053",
-  "total_count": 418
+  "last_updated": "2026-03-01T02:08:26.140890",
+  "total_count": 420
 }

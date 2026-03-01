@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sat, 28 Feb 2026 01:53:24 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 02:08:26 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Decomposing Private Image Generation via Coarse-to-Fine Wavelet Modeling</title>
@@ -134,6 +134,14 @@
       <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
       <category>dp</category>
+    </item>
+    <item>
+      <title>SQISign on ARM</title>
+      <link>https://eprint.iacr.org/2026/394</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/394</guid>
+      <description>We present the first vectorized implementation of SQISign for high-performance ARM architectures. SQISign is a leading NIST On-Ramp Round 2 candidate, offering the smallest key and signature sizes among post-quantum signatures—but its signing performance is bottlenecked by the ideal-to-isogeny conversion, which demands intensive finite field and elliptic curve operations. Leveraging the NEON instruction set, we design a highly optimized $\mathbb{F}_{p^2}$ arithmetic library and batched 2D isogeny-chain operations, accelerating the critical conversion subroutine by **2.24×** over the state-of-the-art scalar implementation. Our optimizations are fully orthogonal to the recent Qlapoti algorithm (Asiacrypt 2025); when combined, they yield **&gt;2.24× end-to-end signing speedup at NIST Security Level I**. This work establishes the first practical, vectorized SQISign baseline for ARM and opens avenues for efficient quaternion-based computation in isogeny cryptography.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>UC-Secure Star DKG for Non-Exportable Key Shares with VSS-Free Enforcement</title>
@@ -406,6 +414,14 @@
       <category>federated</category>
     </item>
     <item>
+      <title>VROOM: Accelerating (Almost All) Number-Theoretic Cryptography Using Vectorization and the Residue Number System</title>
+      <link>https://eprint.iacr.org/2026/393</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/393</guid>
+      <description>Modular arithmetic with large prime moduli dominates computational cost in number-theoretic cryptography, yet efficient CPU vectorization remains elusive due to carry propagation and costly data permutations. VROOM introduces a novel vectorized approach leveraging the Residue Number System (RNS) to align modular operations natively with wide SIMD units—eliminating carries, minimizing shuffles, and enabling constant-time multiplication for *arbitrary* odd moduli (prime or composite). Our AVX2/AVX-512 implementation achieves **4.0× speedup** for RSA-4096 signature verification and **1.3×** for signing over OpenSSL, and **3.43× faster BLS-381 verification** than the assembly-optimized BLST library. All code is portable, hardware-agnostic, and planned for upstream integration into BoringSSL to accelerate real-world TLS and cryptographic infrastructure.</description>
+      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
       <title>ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning</title>
       <link>https://arxiv.org/abs/2602.21078v1</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2602.21078v1</guid>
@@ -495,30 +511,6 @@
       <description>We bridge a critical security gap in partially non-interactive (PNI) two-round threshold and multi-signature schemes in the pairing-free discrete-logarithm setting. While fully online schemes achieve rewinding-free or fully adaptive security under standard assumptions, prior PNI schemes require algebraic adversary restrictions or non-standard assumptions. Our key insight is to systematically transform the HBMS framework (Bellare &amp; Dai, Asiacrypt 2021) into a PNI paradigm via message-independent preprocessing of commitments and adaptive key derivation. We present: (1) the **first PNI two-round multi-signature scheme** with a rewinding-free reduction under standard DL assumptions, achieving tighter security (O(1) loss) against *non-algebraic* adversaries; and (2) the **first PNI two-round threshold signature scheme** with *fully adaptive security*—supporting adaptive corruptions and message queries—also under standard assumptions. Both schemes retain practical efficiency and avoid random oracles.</description>
       <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
-    </item>
-    <item>
-      <title>"Are You Sure?": An Empirical Study of Human Perception Vulnerability in LLM-Driven Agentic Systems</title>
-      <link>https://arxiv.org/abs/2602.21127v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21127v1</guid>
-      <description>Large language model (LLM) agents are increasingly trusted in high-stakes domains, yet this trust introduces a novel human-centered threat: Agent-Mediated Deception (AMD), where compromised agents subtly mislead users. This paper presents the first large-scale empirical study of human susceptibility to AMD, involving 303 participants using our high-fidelity research platform, HAT-Lab, featuring nine realistic scenarios across healthcare, software development, and HR. Key findings include: only 8.6% of participants detected AMD attacks; domain experts showed *increased* vulnerability in certain contexts; six recurrent cognitive failure modes were identified; and risk awareness rarely translated into protective behavior. Critically, low-cost, workflow-integrated warnings significantly improved detection, and brief experiential training in HAT-Lab increased user caution against AMD by over 90%. This work establishes foundational empirical evidence and an open platform for human-centric agent security.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>agent</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>SoK: Agentic Skills -- Beyond Tool Use in LLM Agents</title>
-      <link>https://arxiv.org/abs/2602.20867v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20867v1</guid>
-      <description>This SoK paper establishes *agentic skills*—reusable, condition-aware procedural modules—as a foundational layer beyond atomic tool use in LLM agents. We map their full lifecycle (discovery, practice, distillation, storage, composition, evaluation, update) and introduce two complementary taxonomies: (1) **seven system-level design patterns**, ranging from metadata-driven progressive disclosure to self-evolving libraries and marketplace distribution; and (2) an orthogonal **representation × scope taxonomy**, classifying skills by *what they are* (NL/code/policy/hybrid) and *where they operate* (web/OS/SE/robotics). Security analysis, grounded in the ClawHavoc campaign (1,200+ malicious skills exfiltrating API keys, crypto wallets, and credentials), exposes critical supply-chain risks, prompt injection via skill payloads, and the need for trust-tiered execution. Benchmark evidence shows curated skills boost agent success rates substantially (+38%), while unverified self-generated skills degrade performance (−22%). We conclude with open challenges toward robust, verifiable, and certifiable skills for real-world autonomy.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>injection</category>
-      <category>agent</category>
-      <category>llm</category>
-      <category>prompt</category>
     </item>
   </channel>
 </rss>

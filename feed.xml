@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Mon, 02 Mar 2026 02:30:13 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 02:41:15 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On the Need for (Quantum) Memory with Short Outputs</title>
@@ -53,6 +53,46 @@
       <category>arXiv</category>
       <category>model</category>
       <category>extraction</category>
+    </item>
+    <item>
+      <title>An Efficient Unsupervised Federated Learning Approach for Anomaly Detection in Heterogeneous IoT Networks</title>
+      <link>https://arxiv.org/abs/2602.24209v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.24209v1</guid>
+      <description>This paper proposes EU-FLAD, an efficient unsupervised federated learning framework for anomaly detection in heterogeneous IoT networks. To address feature heterogeneity without centralized data or labels, EU-FLAD jointly leverages two complementary real-world IoT datasets—anomaly detection and device identification—to extract *shared semantic features* (e.g., traffic burstiness, packet inter-arrival entropy) via lightweight autoencoders, while preserving dataset-specific features. We integrate SHAP-based explainable AI into local training to identify high-impact features and use normalized SHAP scores as adaptive aggregation weights, enhancing both transparency and robustness. Evaluated on UNSW-NB15, IoT-23, and Edge-IIoTset, EU-FLAD achieves up to 18.3% higher F1-score and 29.4% lower false positive rate than FedAvg and FedProx, with 37% reduced upstream bandwidth. Our work demonstrates that cross-task shared feature transfer significantly boosts unsupervised FL performance in decentralized IoT environments.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Micro-expression Recognition Based on Dual-branch Feature Extraction and Fusion</title>
+      <link>https://arxiv.org/abs/2602.23950v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23950v1</guid>
+      <description>Micro-expressions—brief (typically &lt;500 ms), subtle facial movements—are notoriously difficult to recognize due to motion ambiguity and strong susceptibility to noise and irrelevant regions. To address these challenges, we propose a dual-branch deep network integrating residual learning and Inception architecture with parallel channel-spatial attention. The first branch employs a modified ResNet-18 to mitigate gradient vanishing and degradation in temporal modeling; the second adopts a multi-scale Inception module to suppress interference from non-facial areas while capturing hierarchical spatiotemporal cues. Crucially, an Adaptive Feature Fusion Module (AFFM) dynamically weights and fuses features from both branches using attention-guided calibration. Evaluated on CASME II, our method achieves **74.67% accuracy**, outperforming LBP-TOP (+11.26%), MSMMT (+3.36%), and other state-of-the-art baselines. Ablation studies confirm the complementary roles of each component, with AFFM alone contributing +1.7% gain. This work advances micro-expression recognition toward robust, interpretable, and efficient deployment.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>FedNSAM:Consistency of Local and Global Flatness for Federated Learning</title>
+      <link>https://arxiv.org/abs/2602.23827v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23827v1</guid>
+      <description>In federated learning (FL), local multi-step updates under data heterogeneity often yield sharp global minima, harming generalization. While SAM-based FL methods (e.g., FedSAM) improve local flatness, they fail to ensure *global* model flatness—especially under high non-IIDness—due to misalignment between local and global loss geometries. To address this, we define the **flatness distance**, quantify the discrepancy in Hessian spectral properties between local and global optima, and propose **FedNSAM**: a novel algorithm that harmonizes local and global flatness consistency by incorporating *global Nesterov momentum* into local SAM updates. Specifically, clients use the globally accumulated momentum—not just local gradients—as the direction for perturbation estimation and parameter extrapolation. Theoretically, FedNSAM achieves a tighter convergence bound than FedSAM under non-convex settings, thanks to Nesterov acceleration. Empirically, on CNNs and Transformers across multiple benchmarks, FedNSAM consistently outperforms state-of-the-art baselines (+1.82–3.47% accuracy gain) with faster convergence (~22% fewer communication rounds). Code: https://github.com/junkangLiu0/FedNSAM.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Blockchain-Enabled Routing for Zero-Trust Low-Altitude Intelligent Networks</title>
+      <link>https://arxiv.org/abs/2602.23667v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23667v1</guid>
+      <description>This paper addresses routing security and efficiency in Zero-Trust Low-Altitude Intelligent Networks (LAINs), where highly mobile UAV clusters face severe threats due to distributed topology and dynamic connectivity. We propose a blockchain-enabled zero-trust architecture integrating Software-Defined Perimeter (SDP) and a lightweight permissioned blockchain to ensure tamper-proof UAV identity management and mobility auditing. The routing problem is formulated as a multi-objective integer nonlinear program optimizing both end-to-end (E2E) delay and transmission success ratio (TSR)—then reformulated as a decentralized partially observable Markov decision process (Dec-POMDP). We design a multi-agent double deep Q-network (MA-DDQN) algorithm enhanced by soft-hierarchical and prioritized experience replay for robust, distributed decision-making. Extensive simulations show our framework reduces average E2E delay by **59%**, improves TSR by **29%**, and detects low-trust UAVs **within 3.2 seconds**, outperforming state-of-the-art benchmarks in both performance and security responsiveness.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>agent</category>
+      <category>security</category>
     </item>
     <item>
       <title>Decomposing Private Image Generation via Coarse-to-Fine Wavelet Modeling</title>
@@ -454,38 +494,6 @@
       <link>https://eprint.iacr.org/2026/392</link>
       <guid isPermaLink="true">https://eprint.iacr.org/2026/392</guid>
       <description>We present a novel algorithm for computing cube roots in $\mathbb{F}_{p^2}$, a critical subroutine in elliptic-curve point decompression, hash-to-curve, and isogeny-based cryptography. Leveraging the algebraic torus $\mathbb{T}_2(\mathbb{F}_p)$ and Lucas sequences, our method reduces the problem *entirely* to operations in the base field $\mathbb{F}_p$—under the practically universal condition $p \equiv 1 \pmod{3}$. We prove correctness across all residuosity cases and implement it in the open-source `gnark-crypto` library. Benchmarks on six cryptographic primes (spanning pairing- and isogeny-based settings) show **1.6–2.3× speedups** over standard $\mathbb{F}_{p^2}$ exponentiation. The approach extends to $p \equiv 2 \pmod{3}$ and, more generally, to any odd $n$-th root in quadratic towers $\mathbb{F}_{p^{2^k}}$ when $\gcd(n, p+1) = 1$.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Zero-Knowledge IOPPs for Constrained Interleaved Codes</title>
-      <link>https://eprint.iacr.org/2026/391</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/391</guid>
-      <description>We present the first zero-knowledge interactive oracle proof of proximity (zk-IOPP) for constrained interleaved linear codes—achieving honest-verifier zero-knowledge with *negligible overhead* over the state-of-the-art non-ZK protocols. Our construction satisfies round-by-round knowledge soundness with a straightline extractor and negligible error. Technically, we introduce a composable definition of HVZK for interactive oracle reductions (IORs), then modularly compose lightweight zk-IORs: a novel **zero-knowledge sumcheck IOR** and a **zero-knowledge code-switching IOR**, both tailored to stringent efficiency requirements (sublinear communication, constant rounds, straightline extraction). To overcome challenges—including privacy leakage in interleaved polynomial commitments and zero-knowledge preservation across code families—we introduce new abstractions and protocols. As a side contribution, we highlight the concrete efficiency gains from high-distance codes derived from dispersers, which may be of independent interest.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Succinct Arguments for BatchQMA and Friends under 6 Rounds</title>
-      <link>https://eprint.iacr.org/2026/390</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/390</guid>
-      <description>We present the first succinct classical argument systems for batchQMA and monotone-policy batchQMA with ≤6 rounds under standard post-quantum assumptions—breaking the prior 8-round barrier and avoiding the quantum random oracle model (QROM). Our key technical innovation is **straight-line partial extractability**, enabling soundness proofs *without rewinding* cheating quantum provers—a departure from all prior works that relied on state-preserving succinct arguments of knowledge for NP. Specifically: (1) A **4-round public-coin** (except first message) argument for batchQMA achieves optimal communication (all messages independent of batch size) assuming post-quantum functional encryption and LWE; under LWE alone, only the verifier’s first message scales with batch size. (2) A **6-round private-coin** argument for monotone-policy batchQMA achieves batch-size- *and* circuit-size-independent communication under LWE. These results significantly advance practical verification of quantum computations by classical verifiers.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Towards Accountability for Anonymous Credentials</title>
-      <link>https://eprint.iacr.org/2026/389</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/389</guid>
-      <description>Anonymous Credentials (ACs) provide strong privacy by preventing issuers and verifiers from tracking users—but this very feature undermines accountability, hindering adoption in national identity systems (e.g., EUDI, Swiss e-ID). This paper identifies *transferability attacks* as a critical threat and proposes the first accountability framework for ACs. We introduce the **Cryptographic Forensic Trail (CFT)**: a tamper-evident, encrypted log attached to each credential presentation. Crucially, CFT decryption requires *joint, conditional authorization*: police must obtain a judicial warrant (based on probable cause), after which police, judge, and an independent NGO jointly execute a multiparty protocol to decrypt *only the relevant trail*. This design enforces checks and balances—neither law enforcement nor judiciary can act unilaterally, and NGO oversight detects and blocks collusion. Performance evaluation confirms practical feasibility: CFT adds &lt;300ms latency and &lt;2KB overhead on modern smartphones. Our work bridges the long-standing privacy–accountability gap in digital identity.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Necessary and Sufficient Conditions for the Existence of Ideal Linear Secret Sharing Schemes for Arbitrary Access Structures</title>
-      <link>https://eprint.iacr.org/2026/388</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/388</guid>
-      <description>This paper establishes a necessary and sufficient condition for the existence of an ideal linear secret sharing scheme (ILSSS) realizing an arbitrary minimal access structure $\Gamma_{\min}$. Using linear codes over a finite field $\mathbb{F}_q$ as the primary tool, we construct matrices $H$ (parity-check) and $G$ (generator) such that $\Gamma_{\min}$ admits an ILSSS **if and only if** the matrix equation $GH^{\mathsf{T}} = 0$ has a solution over $\mathbb{F}_q$. When satisfied, $H$ defines a linear code whose *port* realizes $\Gamma_{\min}$, and $G$ is its corresponding generator matrix. Crucially, we prove this algebraic condition is equivalent to the combinatorial requirement that $\Gamma_{\min}$ must be the port of a matroid representable over $\mathbb{F}_q$. This unifies secret sharing, coding theory, and matroid representation in a concise, computationally verifiable framework—enabling efficient existence testing and constructive design of ideal schemes.</description>
       <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
     </item>

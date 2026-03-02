@@ -65,6 +65,103 @@ except ImportError:
         print(f"Warning: {msg}")
 
 
+def generate_email_report(
+    new_papers: list,
+    retry_papers: list,
+    failed_papers: list,
+    total_count: int,
+    usage_stats: dict,
+    output_path: Path,
+    site_url: str,
+):
+    """Generate a Markdown email report with paper details and summaries."""
+    lines = []
+    date_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+
+    lines.append("# Paper Pulse Daily Report")
+    lines.append("")
+    lines.append(f"**Date:** {date_str}")
+    lines.append("")
+
+    # Statistics
+    lines.append("## Statistics")
+    lines.append("")
+    lines.append(f"- **New papers fetched:** {len(new_papers)}")
+    lines.append(f"- **Retry summaries:** {len(retry_papers)}")
+    lines.append(f"- **Failed summaries:** {len(failed_papers)}")
+    lines.append(f"- **Total papers in database:** {total_count}")
+    lines.append("")
+    lines.append("## AI Token Usage")
+    lines.append("")
+    lines.append(f"- **Input tokens:** {usage_stats['input_tokens']}")
+    lines.append(f"- **Output tokens:** {usage_stats['output_tokens']}")
+    lines.append(f"- **Total tokens:** {usage_stats['total_tokens']}")
+    lines.append("")
+
+    # New papers section
+    all_report_papers = new_papers + retry_papers
+    if all_report_papers:
+        lines.append(f"## New Papers ({len(all_report_papers)})")
+        lines.append("")
+
+        for i, paper in enumerate(all_report_papers, 1):
+            title = paper.get("title", "Untitled")
+            url = paper.get("url", "")
+            source = paper.get("source", "Unknown")
+            published = paper.get("published", "Unknown")
+            keywords = paper.get("keywords", [])
+            summary_zh = paper.get("summary_zh", "")
+            summary_en = paper.get("summary_en", "")
+
+            lines.append(f"### {i}. [{title}]({url})")
+            lines.append("")
+            lines.append(f"**Source:** {source} | **Published:** {published}")
+            if keywords:
+                lines.append(f"  **Keywords:** {', '.join(keywords)}")
+            lines.append("")
+
+            if summary_zh:
+                lines.append("#### Chinese Summary")
+                lines.append("")
+                lines.append(summary_zh)
+                lines.append("")
+
+            if summary_en:
+                lines.append("#### English Summary")
+                lines.append("")
+                lines.append(summary_en)
+                lines.append("")
+
+            if not summary_zh and not summary_en:
+                abstract = paper.get("abstract", "No summary available.")
+                lines.append("#### Abstract")
+                lines.append("")
+                lines.append(abstract)
+                lines.append("")
+
+            lines.append("---")
+            lines.append("")
+    else:
+        lines.append("*No new papers in this run.*")
+        lines.append("")
+
+    # Links
+    if site_url:
+        lines.append("## Links")
+        lines.append("")
+        lines.append(f"- [View Papers]({site_url})")
+        lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    lines.append("*This is an automated report from Paper Pulse. Powered by arXiv, IACR ePrint, and DashScope (Qwen).*")
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"✓ Generated email report at {output_path}")
+
+
 def load_existing_data(filepath: Path) -> dict:
     """Load existing papers data."""
     if filepath.exists():
@@ -302,6 +399,7 @@ def main():
             successful, failed = [], []
 
         new_summary_count = len(successful)
+        newly_summarized = list(successful)  # save before combining with cache
 
         # Combine newly summarized papers with cached ones
         successful = successful + cached_papers
@@ -322,6 +420,19 @@ def main():
                 "count": len(all_failed),
             }
             save_data(FAILED_FILE, failed_data)
+        # Still generate email report (even with no new papers)
+        usage_stats = summarizer.get_usage_stats()
+        site_url = config.get("general", {}).get("site_url", "")
+        email_report_path = DATA_DIR / "email_report.md"
+        generate_email_report(
+            new_papers=[],
+            retry_papers=[],
+            failed_papers=all_failed,
+            total_count=len(existing_data.get("papers", [])),
+            usage_stats=usage_stats,
+            output_path=email_report_path,
+            site_url=site_url,
+        )
         return
 
     # Merge with existing papers
@@ -393,6 +504,19 @@ def main():
             f.write(f"total_tokens={usage_stats['total_tokens']}\n")
 
     github_notice(f"Successfully updated {len(all_papers)} papers")
+
+    # Generate email report with paper details
+    site_url = config.get("general", {}).get("site_url", "")
+    email_report_path = DATA_DIR / "email_report.md"
+    generate_email_report(
+        new_papers=newly_summarized,
+        retry_papers=retry_successful,
+        failed_papers=all_failed,
+        total_count=len(all_papers),
+        usage_stats=usage_stats,
+        output_path=email_report_path,
+        site_url=site_url,
+    )
 
 
 if __name__ == "__main__":

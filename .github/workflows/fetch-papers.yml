@@ -57,41 +57,9 @@ jobs:
           subject: Paper Pulse Daily Report - ${{ steps.date.outputs.date }}
           to: ${{ secrets.EMAIL_TO }}
           from: Paper Pulse Bot <${{ secrets.EMAIL_USERNAME }}>
-          body: |
-            ========================
-            Paper Pulse Daily Report
-            ========================
-            Date: ${{ steps.date.outputs.date }}
-
-
-            STATISTICS
-            ----------
-            New papers fetched:        ${{ steps.fetch.outputs.new_papers }}
-            Retry summaries:           ${{ steps.fetch.outputs.retry_papers }}
-            Failed summaries:          ${{ steps.fetch.outputs.failed_papers }}
-            Total papers in database:  ${{ steps.fetch.outputs.total_papers }}
-
-
-            AI TOKEN USAGE
-            --------------
-            Input tokens:   ${{ steps.fetch.outputs.input_tokens }}
-            Output tokens:  ${{ steps.fetch.outputs.output_tokens }}
-            Total tokens:   ${{ steps.fetch.outputs.total_tokens }}
-
-
-            LINKS
-            -----
-            View Papers:
-            https://${{ steps.repo.outputs.owner }}.github.io/${{ steps.repo.outputs.repo }}/
-
-            View Workflow:
-            https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-
-
-            ========================
-            This is an automated report from Paper Pulse.
-            Powered by arXiv, IACR ePrint, and DashScope (Qwen).
-            ========================
+          body: file://data/email_report.md
+          convert_markdown: true
+          content_type: text/html
 
       - name: Commit and push changes
         run: |

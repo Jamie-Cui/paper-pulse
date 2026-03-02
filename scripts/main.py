@@ -65,6 +65,19 @@ except ImportError:
         print(f"Warning: {msg}")
 
 
+def _wrap_text(text: str, width: int = 72) -> str:
+    """Wrap text to given width, preserving existing line breaks."""
+    import textwrap
+
+    result_lines = []
+    for paragraph in text.split("\n"):
+        if not paragraph.strip():
+            result_lines.append("")
+        else:
+            result_lines.extend(textwrap.wrap(paragraph, width=width))
+    return "\n".join(result_lines)
+
+
 def generate_email_report(
     new_papers: list,
     retry_papers: list,
@@ -73,35 +86,46 @@ def generate_email_report(
     usage_stats: dict,
     output_path: Path,
     site_url: str,
+    summary_language: str = "zh",
 ):
-    """Generate a Markdown email report with paper details and summaries."""
+    """Generate a plain-text email report with paper details and summaries.
+
+    Args:
+        summary_language: Which summary to include in the email.
+            "zh" = Chinese only, "en" = English only, "both" = both.
+    """
     lines = []
     date_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
+    sep = "=" * 60
 
-    lines.append("# Paper Pulse Daily Report")
-    lines.append("")
-    lines.append(f"**Date:** {date_str}")
+    lines.append(sep)
+    lines.append("Paper Pulse Daily Report")
+    lines.append(sep)
+    lines.append(f"Date: {date_str}")
     lines.append("")
 
     # Statistics
-    lines.append("## Statistics")
+    lines.append("STATISTICS")
+    lines.append("-" * 40)
+    lines.append(f"  New papers fetched:       {len(new_papers)}")
+    lines.append(f"  Retry summaries:          {len(retry_papers)}")
+    lines.append(f"  Failed summaries:         {len(failed_papers)}")
+    lines.append(f"  Total papers in database: {total_count}")
     lines.append("")
-    lines.append(f"- **New papers fetched:** {len(new_papers)}")
-    lines.append(f"- **Retry summaries:** {len(retry_papers)}")
-    lines.append(f"- **Failed summaries:** {len(failed_papers)}")
-    lines.append(f"- **Total papers in database:** {total_count}")
-    lines.append("")
-    lines.append("## AI Token Usage")
-    lines.append("")
-    lines.append(f"- **Input tokens:** {usage_stats['input_tokens']}")
-    lines.append(f"- **Output tokens:** {usage_stats['output_tokens']}")
-    lines.append(f"- **Total tokens:** {usage_stats['total_tokens']}")
+
+    lines.append("AI TOKEN USAGE")
+    lines.append("-" * 40)
+    lines.append(f"  Input tokens:  {usage_stats['input_tokens']}")
+    lines.append(f"  Output tokens: {usage_stats['output_tokens']}")
+    lines.append(f"  Total tokens:  {usage_stats['total_tokens']}")
     lines.append("")
 
     # New papers section
     all_report_papers = new_papers + retry_papers
     if all_report_papers:
-        lines.append(f"## New Papers ({len(all_report_papers)})")
+        lines.append(sep)
+        lines.append(f"NEW PAPERS ({len(all_report_papers)})")
+        lines.append(sep)
         lines.append("")
 
         for i, paper in enumerate(all_report_papers, 1):
@@ -113,48 +137,56 @@ def generate_email_report(
             summary_zh = paper.get("summary_zh", "")
             summary_en = paper.get("summary_en", "")
 
-            lines.append(f"### {i}. [{title}]({url})")
-            lines.append("")
-            lines.append(f"**Source:** {source} | **Published:** {published}")
+            lines.append(f"[{i}] {title}")
+            lines.append(f"    URL:       {url}")
+            lines.append(f"    Source:    {source}")
+            lines.append(f"    Published: {published}")
             if keywords:
-                lines.append(f"  **Keywords:** {', '.join(keywords)}")
+                lines.append(f"    Keywords:  {', '.join(keywords)}")
             lines.append("")
 
-            if summary_zh:
-                lines.append("#### Chinese Summary")
-                lines.append("")
-                lines.append(summary_zh)
-                lines.append("")
+            has_summary = False
 
-            if summary_en:
-                lines.append("#### English Summary")
+            if summary_language in ("zh", "both") and summary_zh:
+                if summary_language == "both":
+                    lines.append("    -- Chinese Summary --")
                 lines.append("")
-                lines.append(summary_en)
+                lines.append(_wrap_text(summary_zh))
                 lines.append("")
+                has_summary = True
 
-            if not summary_zh and not summary_en:
+            if summary_language in ("en", "both") and summary_en:
+                if summary_language == "both":
+                    lines.append("    -- English Summary --")
+                lines.append("")
+                lines.append(_wrap_text(summary_en))
+                lines.append("")
+                has_summary = True
+
+            if not has_summary:
                 abstract = paper.get("abstract", "No summary available.")
-                lines.append("#### Abstract")
+                lines.append("    -- Abstract --")
                 lines.append("")
-                lines.append(abstract)
+                lines.append(_wrap_text(abstract))
                 lines.append("")
 
-            lines.append("---")
+            lines.append("-" * 60)
             lines.append("")
     else:
-        lines.append("*No new papers in this run.*")
+        lines.append("No new papers in this run.")
         lines.append("")
 
     # Links
     if site_url:
-        lines.append("## Links")
-        lines.append("")
-        lines.append(f"- [View Papers]({site_url})")
+        lines.append("LINKS")
+        lines.append("-" * 40)
+        lines.append(f"  View Papers: {site_url}")
         lines.append("")
 
-    lines.append("---")
-    lines.append("")
-    lines.append("*This is an automated report from Paper Pulse. Powered by arXiv, IACR ePrint, and DashScope (Qwen).*")
+    lines.append(sep)
+    lines.append("This is an automated report from Paper Pulse.")
+    lines.append("Powered by arXiv, IACR ePrint, and DashScope (Qwen).")
+    lines.append(sep)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as f:
@@ -423,7 +455,8 @@ def main():
         # Still generate email report (even with no new papers)
         usage_stats = summarizer.get_usage_stats()
         site_url = config.get("general", {}).get("site_url", "")
-        email_report_path = DATA_DIR / "email_report.md"
+        summary_language = config.get("email", {}).get("summary_language", "zh")
+        email_report_path = DATA_DIR / "email_report.txt"
         generate_email_report(
             new_papers=[],
             retry_papers=[],
@@ -432,6 +465,7 @@ def main():
             usage_stats=usage_stats,
             output_path=email_report_path,
             site_url=site_url,
+            summary_language=summary_language,
         )
         return
 
@@ -507,7 +541,8 @@ def main():
 
     # Generate email report with paper details
     site_url = config.get("general", {}).get("site_url", "")
-    email_report_path = DATA_DIR / "email_report.md"
+    summary_language = config.get("email", {}).get("summary_language", "zh")
+    email_report_path = DATA_DIR / "email_report.txt"
     generate_email_report(
         new_papers=newly_summarized,
         retry_papers=retry_successful,
@@ -516,6 +551,7 @@ def main():
         usage_stats=usage_stats,
         output_path=email_report_path,
         site_url=site_url,
+        summary_language=summary_language,
     )
 
 

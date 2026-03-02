@@ -57,9 +57,7 @@ jobs:
           subject: Paper Pulse Daily Report - ${{ steps.date.outputs.date }}
           to: ${{ secrets.EMAIL_TO }}
           from: Paper Pulse Bot <${{ secrets.EMAIL_USERNAME }}>
-          body: file://data/email_report.md
-          convert_markdown: true
-          content_type: text/html
+          body: file://data/email_report.txt
 
       - name: Commit and push changes
         run: |

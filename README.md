@@ -2,7 +2,7 @@
 
 **Automatically fetch, filter, and summarize research papers from arXiv & IACR — with AI-generated bilingual (Chinese/English) summaries. Deployed for free on GitHub Pages, updated daily via GitHub Actions.**
 
-[Live Demo](https://jamie-cui.github.io/paper-pulse/) | [RSS Feed](https://jamie-cui.github.io/paper-pulse/feed.xml)
+[Live Demo](https://jamie-cui.github.io/paper-pulse/) | [RSS Feed](https://jamie-cui.github.io/paper-pulse/feed.xml) | [中文文档](README_CN.md)
 
 ![Paper Pulse Screenshot](docs/screenshot.png)
 

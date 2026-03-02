@@ -26,48 +26,40 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
     <link rel="alternate" type="application/rss+xml" title="Paper Pulse RSS Feed" href="feed.xml">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Paper Pulse</h1>
-            <p class="subtitle">Keyword-based research paper aggregation from arXiv and IACR</p>
-        </div>
-    </header>
+    <h1>Paper Pulse</h1>
+    <p class="subtitle">Keyword-based research paper aggregation from arXiv and IACR | <a href="feed.xml">RSS Feed</a></p>
 
-    <main class="container">
-        <div class="controls">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search by title, author, or keywords...">
-            </div>
-
-            <div class="filters">
-                <select id="sourceFilter">
-                    <option value="all">All Sources</option>
-                    <option value="arXiv">arXiv</option>
-                    <option value="IACR">IACR</option>
-                </select>
-
-                <select id="sortBy">
-                    <option value="date-desc">Newest First</option>
-                    <option value="date-asc">Oldest First</option>
-                    <option value="title">Title A-Z</option>
-                </select>
-
-                <button id="exportAllBtn" class="export-btn">Export All as BibTeX</button>
-            </div>
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by title, author, or keywords...">
         </div>
 
-        <div id="stats" class="stats"></div>
+        <div class="filters">
+            <select id="sourceFilter">
+                <option value="all">All Sources</option>
+                <option value="arXiv">arXiv</option>
+                <option value="IACR">IACR</option>
+            </select>
 
-        <div id="papersList" class="papers-list">
-            <div class="loading">Loading papers...</div>
+            <select id="sortBy">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="title">Title A-Z</option>
+            </select>
+
+            <button id="exportAllBtn" class="export-btn">Export All as BibTeX</button>
         </div>
-    </main>
+    </div>
+
+    <div id="stats" class="stats"></div>
+
+    <div id="papersList" class="papers-list">
+        <div class="loading">Loading papers...</div>
+    </div>
 
     <footer>
-        <div class="container">
-            <p>Last updated: <span id="lastUpdated">-</span></p>
-            <p>Data fetched daily from arXiv and IACR ePrint Archive | <a href="feed.xml" style="color: #f39c12;">RSS Feed</a></p>
-        </div>
+        <p>Last updated: <span id="lastUpdated">-</span></p>
+        <p>Data fetched daily from arXiv and IACR ePrint Archive | <a href="feed.xml">RSS Feed</a></p>
     </footer>
 
     <!-- Marked.js for Markdown parsing -->

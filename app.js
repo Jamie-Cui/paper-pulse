@@ -43,10 +43,10 @@ function setupEventListeners() {
 // Toggle language for a specific paper card
 function toggleLanguage(index, lang) {
     const summaryDiv = document.querySelector(`#paper-summary-${index}`);
-    const zhBtn = document.querySelector(`#lang-zh-${index}`);
-    const enBtn = document.querySelector(`#lang-en-${index}`);
+    const zhLink = document.querySelector(`#lang-zh-${index}`);
+    const enLink = document.querySelector(`#lang-en-${index}`);
 
-    if (!summaryDiv || !zhBtn || !enBtn) return;
+    if (!summaryDiv || !zhLink || !enLink) return;
 
     const paper = filteredPapers[index];
     if (!paper) return;
@@ -60,13 +60,13 @@ function toggleLanguage(index, lang) {
     summaryDiv.innerHTML = renderMarkdown(summaryText);
     summaryDiv.dataset.lang = lang;
 
-    // Update button states
+    // Update active states
     if (lang === 'zh') {
-        zhBtn.classList.add('active');
-        enBtn.classList.remove('active');
+        zhLink.classList.add('active');
+        enLink.classList.remove('active');
     } else {
-        zhBtn.classList.remove('active');
-        enBtn.classList.add('active');
+        zhLink.classList.remove('active');
+        enLink.classList.add('active');
     }
 }
 
@@ -154,11 +154,11 @@ function displayPapers(papers) {
     const papersList = document.getElementById('papersList');
 
     if (papers.length === 0) {
-        papersList.innerHTML = '<div class="no-results">No papers found matching your criteria.</div>';
+        papersList.innerHTML = '<p class="no-results">No papers found matching your criteria.</p>';
         return;
     }
 
-    papersList.innerHTML = papers.map((paper, index) => createPaperCard(paper, index)).join('');
+    papersList.innerHTML = papers.map((paper, index) => createPaperCard(paper, index)).join('<hr>');
 
     // Add event listeners for BibTeX buttons
     papers.forEach((paper, index) => {
@@ -182,17 +182,12 @@ function renderMarkdown(text) {
     return escapeHtml(text).replace(/\n/g, '<br>');
 }
 
-// Create paper card HTML
+// Create paper entry HTML
 function createPaperCard(paper, index) {
     const authors = paper.authors.slice(0, 5).join(', ') +
                    (paper.authors.length > 5 ? ', et al.' : '');
 
-    const sourceBadge = `<span class="source-badge source-${paper.source.toLowerCase()}">${paper.source}</span>`;
-
-    const keywords = (paper.keywords || [])
-        .slice(0, 8)
-        .map(kw => `<span class="keyword-tag">${kw}</span>`)
-        .join('');
+    const keywords = (paper.keywords || []).slice(0, 8).join(', ');
 
     // Default to Chinese summary
     const summaryText = paper.summary_zh || paper.summary || paper.abstract;
@@ -202,38 +197,24 @@ function createPaperCard(paper, index) {
     const hasBilingual = paper.summary_zh && paper.summary_en;
 
     return `
-        <div class="paper-card">
-            <div class="paper-header">
-                <h2 class="paper-title">${escapeHtml(paper.title)}</h2>
-                <div class="paper-meta">
-                    ${sourceBadge}
-                    <span>📅 ${paper.published}</span>
-                    ${paper.published_official ? '<span>✓ Official Publication</span>' : '<span>📝 Preprint</span>'}
-                </div>
+        <div class="paper-entry">
+            <div class="paper-title"><a href="${paper.url}" target="_blank">${escapeHtml(paper.title)}</a></div>
+            <div class="paper-meta">${paper.source} | ${paper.published}</div>
+            <div class="paper-authors">${escapeHtml(authors)}</div>
+            ${hasBilingual ? `
+            <div class="lang-toggle">
+                <a class="active" id="lang-zh-${index}" onclick="toggleLanguage(${index}, 'zh')">中文</a>
+                <a id="lang-en-${index}" onclick="toggleLanguage(${index}, 'en')">English</a>
             </div>
-
-            <div class="paper-authors">
-                <strong>Authors:</strong> ${escapeHtml(authors)}
+            ` : ''}
+            <div class="paper-summary" id="paper-summary-${index}" data-lang="zh">
+                ${summaryHtml}
             </div>
-
-            <div class="summary-container">
-                ${hasBilingual ? `
-                <div class="lang-toggle-group">
-                    <button class="lang-toggle-btn active" id="lang-zh-${index}" onclick="toggleLanguage(${index}, 'zh')">中</button>
-                    <button class="lang-toggle-btn" id="lang-en-${index}" onclick="toggleLanguage(${index}, 'en')">EN</button>
-                </div>
-                ` : ''}
-                <div class="paper-summary" id="paper-summary-${index}" data-lang="zh">
-                    ${summaryHtml}
-                </div>
-            </div>
-
-            ${keywords ? `<div class="paper-keywords">${keywords}</div>` : ''}
-
+            ${keywords ? `<div class="paper-keywords">Keywords: ${escapeHtml(keywords)}</div>` : ''}
             <div class="paper-actions">
-                <a href="${paper.url}" target="_blank" class="view-link">View Paper</a>
-                ${paper.pdf_link ? `<a href="${paper.pdf_link}" target="_blank" class="pdf-link">Download PDF</a>` : ''}
-                <button id="bibtex-${index}" class="bibtex-btn">Export BibTeX</button>
+                <a href="${paper.url}" target="_blank">View Paper</a>
+                ${paper.pdf_link ? `<a href="${paper.pdf_link}" target="_blank">PDF</a>` : ''}
+                <button id="bibtex-${index}">BibTeX</button>
             </div>
         </div>
     `;

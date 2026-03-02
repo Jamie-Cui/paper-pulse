@@ -6,8 +6,6 @@
 
 ![Paper Pulse 截图](docs/screenshot.png)
 
----
-
 ## 为什么选择 Paper Pulse？
 
 - 每天手动刷 arXiv 太累？Paper Pulse 自动帮你抓取。

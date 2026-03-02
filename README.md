@@ -6,8 +6,6 @@
 
 ![Paper Pulse Screenshot](docs/screenshot.png)
 
----
-
 ## Why Paper Pulse?
 
 - Tired of manually checking arXiv every day? Paper Pulse fetches papers automatically.

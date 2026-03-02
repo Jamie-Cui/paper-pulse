@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Mon, 02 Mar 2026 02:01:01 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 02:30:13 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On the Need for (Quantum) Memory with Short Outputs</title>
@@ -13,6 +13,46 @@
       <description>We establish the first unconditional separation between bounded- and unbounded-space computation for problems with *short outputs*—where output size is logarithmic while memory may be exponential—in both classical and quantum models. To achieve this, we introduce the **nested collision finding** problem: given oracles for random functions $f$ and $g$, find distinct $x \neq y$ such that $g(f(x)) = g(f(y))$. We prove that any algorithm solving it in $T$ queries using only $S$ bits of memory must satisfy $T \cdot S = \Omega(2^{n/3})$, whereas an unbounded-memory algorithm achieves the optimal $T = O(2^{n/3})$. Our lower bound hinges on a novel **two-oracle recording technique**, which uses one oracle to implicitly “record” long intermediate outputs (e.g., $f(x)$) generated under the other, thereby reducing the short-output time–space trade-off to that of a corresponding long-output problem. This technique is broadly applicable to memory-sensitive settings beyond collision-finding.</description>
       <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
+    </item>
+    <item>
+      <title>Jailbreak Foundry: From Papers to Runnable Attacks for Reproducible Benchmarking</title>
+      <link>https://arxiv.org/abs/2602.24009v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.24009v1</guid>
+      <description>Jailbreak Foundry (JBF) is a reproducible benchmarking system that bridges the widening gap between rapidly evolving LLM jailbreak techniques and stagnant evaluation infrastructure. It introduces a multi-agent workflow—JBF-FORGE—to automatically translate jailbreak papers into standardized, executable modules, backed by JBF-LIB (shared utilities &amp; contracts) and JBF-EVAL (unified, GPT-4o–judged evaluation). Across 30 reproduced attacks, JBF achieves high fidelity with a mean ASR deviation of only +0.26 percentage points versus reported results. It cuts attack-specific implementation code by nearly half and attains an 82.5% mean code reuse ratio. Crucially, JBF enables the first standardized AdvBench evaluation of all 30 attacks across 10 victim models under consistent judging—transforming benchmarks from static snapshots into scalable, living evaluations that evolve with the threat landscape.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>agent</category>
+    </item>
+    <item>
+      <title>MemEmo: Evaluating Emotion in Memory Systems of Agents</title>
+      <link>https://arxiv.org/abs/2602.23944v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23944v1</guid>
+      <description>MemEmo introduces the first benchmark dedicated to evaluating how memory systems in LLM-based agents process, update, and reason over emotional information—a critical gap given humans’ emotion-embedded memory cognition. We propose the **HLME dataset** (Human-Like Memory Emotion), assessing systems across three dimensions: (1) *emotional information extraction*, (2) *emotional memory updating*, and (3) *emotional memory question answering*. Experiments on 8 state-of-the-art memory architectures—including retrieval-augmented, episodic, semantic, and hybrid designs—reveal that **no system achieves robust performance across all three tasks** (average F1 &lt; 62%; inter-task standard deviation &gt; 18%). Performance degrades notably in dynamic emotion updating and affective reasoning, exposing fundamental limitations in current memory design. MemEmo provides an objective, reproducible evaluation framework and a clear roadmap for emotion-aware memory optimization.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>NAU-QMUL: Utilizing BERT and CLIP for Multi-modal AI-Generated Image Detection</title>
+      <link>https://arxiv.org/abs/2602.23863v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23863v1</guid>
+      <description>We propose **NAU-QMUL**, a novel multi-modal multi-task framework for detecting AI-generated images and identifying their underlying generative models (e.g., SDXL, DALL·E 3, MidJourney v6). It jointly leverages frozen **BERT** to encode textual prompts and **CLIP-ViT/L-14** to extract visual features, followed by cross-modal attention fusion and a custom multi-task loss combining focal loss (for binary detection) and KL divergence (for fine-grained model attribution). To address data scarcity, we introduce a confidence-thresholded pseudo-labeling strategy that expands training data with high-quality synthetic labels. Evaluated on the CT2 competition benchmark, NAU-QMUL achieves **5th place in both Task A (F1 = 83.16%) and Task B (F1 = 48.88%)**, demonstrating state-of-the-art performance in real-world AI image attribution. The code is publicly available at https://github.com/xxxxxxxxy/AIGeneratedImageDetection.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>TRIZ-RAGNER: A Retrieval-Augmented Large Language Model for TRIZ-Aware Named Entity Recognition in Patent-Based Contradiction Mining</title>
+      <link>https://arxiv.org/abs/2602.23656v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23656v1</guid>
+      <description>TRIZ-based contradiction mining is essential for systematic innovation but remains challenging due to semantic ambiguity in patent language and the lack of reliable TRIZ knowledge grounding in LLMs. To address this, we propose **TRIZ-RAGNER**, a retrieval-augmented LLM framework that reformulates contradiction mining as a TRIZ-aware named entity recognition (NER) task. It integrates dense retrieval over a structured TRIZ knowledge base, cross-encoder reranking for contextual refinement, and domain-informed prompting to extract *improving* and *worsening* technical parameters from patent sentences. Evaluated on the PaTRIZ dataset, TRIZ-RAGNER achieves **85.6% precision, 82.9% recall, and 84.2% F1-score**, outperforming strong LLM and traditional NER baselines by up to **+7.3 F1 points**. This demonstrates that retrieval-augmented TRIZ knowledge injection significantly enhances accuracy, consistency, and interpretability in patent-based contradiction analysis.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
     </item>
     <item>
       <title>Decomposing Private Image Generation via Coarse-to-Fine Wavelet Modeling</title>
@@ -216,6 +256,65 @@
       <category>IACR</category>
     </item>
     <item>
+      <title>Lap2: Revisiting Laplace DP-SGD for High Dimensions via Majorization Theory</title>
+      <link>https://arxiv.org/abs/2602.23516v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23516v1</guid>
+      <description>Differentially Private Stochastic Gradient Descent (DP-SGD) relies heavily on the Gaussian mechanism, while the Laplace mechanism remains impractical for high-dimensional models due to its requirement of L1-norm gradient clipping—causing noise scale to grow as √n and degrading utility severely. This paper introduces **Lap2**, the first Laplace-based DP-SGD framework supporting **L2-norm clipping** with rigorous (ε, δ)-privacy guarantees. Leveraging coordinate-wise moment bounds and **majorization theory**, Lap2 exploits the Schur-convexity of the moment accountant to construct a tight, data-independent global upper bound under L2 constraints—enabling scalable multivariate privacy accounting with thousands of moments. Experiments show Lap2 significantly outperforms standard Laplace DP-SGD and matches or exceeds Gaussian DP-SGD under strong privacy: fine-tuning RoBERTa-base on SST-2 achieves **87.88% accuracy at ε = 0.54**, surpassing Gaussian (87.16%) and standard Laplace (48.97%). Lap2 establishes Laplace mechanisms as viable—and competitive—for high-dimensional private learning.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>dp</category>
+    </item>
+    <item>
+      <title>Learning to Generate Secure Code via Token-Level Rewards</title>
+      <link>https://arxiv.org/abs/2602.23407v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23407v1</guid>
+      <description>Large language models (LLMs) excel at code generation but often produce vulnerable code. Prior approaches are hindered by scarce high-quality security data and coarse instance-level reinforcement learning (RL) rewards. To address this, we propose **Vul2Safe**, a framework that leverages LLM self-reflection to automatically construct high-confidence vulnerability–repair pairs from real-world CVEs and generate diverse implicit prompts, yielding the **PrimeVul+** dataset (127K samples). Concurrently, we introduce **SRCode**, the first RL framework for secure code generation using **token-level rewards**: security analyzers assign fine-grained scores to each generated token (e.g., penalizing unsafe string concatenation, rewarding sanitization calls), enabling precise optimization of local security patterns. Experiments across six benchmarks show SRCode trained on PrimeVul+ reduces average vulnerability rates by **58.3%** over SOTA RL baselines while improving functional correctness (+9.2%) and maintainability. Our work establishes token-level reward modeling and synthetically curated security data as essential levers for trustworthy code generation.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>llm</category>
+    </item>
+    <item>
+      <title>Lifecycle-Integrated Security for AI-Cloud Convergence in Cyber-Physical Infrastructure</title>
+      <link>https://arxiv.org/abs/2602.23397v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23397v1</guid>
+      <description>This paper addresses the security fragmentation arising from AI-cloud convergence in cyber-physical infrastructure (CPI), where disjointed AI governance (e.g., NIST AI RMF, OWASP AI Exchange), cloud security (e.g., CSA MAESTRO), and industrial control standards (e.g., NERC CIP) enable cross-layer attacks threatening safety-critical operations. We contribute: (i) a lifecycle-integrated threat taxonomy structured by explicit attacker capability tiers (data poisoning → model stealing → prompt injection → agent privilege escalation → physical impact); (ii) a Unified Reference Architecture comprising a Secure Data Factory, hardened model supply chain, and runtime governance layer with automated policy enforcement; and (iii) Grid-Guard—a validated case study in a hybrid transmission system operator environment—demonstrating end-to-end autonomous defense against a multi-tier physical-financial manipulation campaign using coordinated controls drawn from NIST AI RMF, MITRE ATLAS, OWASP AI Exchange/GenAI, CSA MAESTRO, and NERC CIP. All controls are rigorously mapped to all five frameworks and current NERC CIP requirements, proving that a single cloud-native architecture can simultaneously satisfy AI governance, adversarial robustness, agentic safety, and industrial regulatory compliance.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>inference</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>FedDAG: Clustered Federated Learning via Global Data and Gradient Integration for Heterogeneous Environments</title>
+      <link>https://arxiv.org/abs/2602.23504v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23504v1</guid>
+      <description>Federated Learning (FL) suffers from performance degradation under data heterogeneity, motivating clustered FL approaches that group similar clients. However, existing methods rely *either* on data similarity *or* gradient similarity—yielding incomplete client assessment—and strictly isolate knowledge within clusters, missing cross-cluster representation benefits. To address this, we propose **FedDAG**, a clustered FL framework featuring: (1) a **weighted, class-wise similarity metric** that jointly integrates local data distributions and global gradient signals for more holistic clustering; and (2) a **dual-encoder architecture**, where each cluster’s primary encoder is trained on its own clients’ data, while a secondary encoder is refined via gradients from semantically complementary clusters—enabling controlled cross-cluster feature transfer without sacrificing specialization. Extensive experiments across CIFAR-10/100, Tiny-ImageNet, and LEAF-FEMNIST under diverse heterogeneity settings demonstrate that FedDAG consistently outperforms state-of-the-art clustered FL baselines, achieving absolute accuracy gains of **2.3–5.7 percentage points**, with up to **9.1% relative improvement** in low-resource clusters.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Conformalized Neural Networks for Federated Uncertainty Quantification under Dual Heterogeneity</title>
+      <link>https://arxiv.org/abs/2602.23296v2</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23296v2</guid>
+      <description>Federated learning (FL) suffers from unreliable uncertainty quantification (UQ) under dual heterogeneity—where both data distributions and model architectures vary across agents—leading to overconfident yet erroneous local predictions despite acceptable global accuracy. To address this, we propose **FedWQ-CP**, a conformalized neural network framework that achieves rigorous, distribution-free UQ with minimal communication. FedWQ-CP performs agent-server calibration in **one round**: each agent computes its local conformity score quantile $\hat{q}_i$ and sample size $n_i$, then transmits only these two scalars; the server aggregates via weighted average $q_{\text{global}} = \sum_i (n_i / \sum_j n_j)\, \hat{q}_i$. Experiments across seven public classification and regression benchmarks show FedWQ-CP maintains **empirical coverage within ±0.8% per agent and &lt;0.5% globally**, while yielding the **smallest prediction sets/intervals**—reducing set size by 12–34% (classification) and interval width by 18–29% (regression) versus state-of-the-art federated CP methods.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>IDP Accelerator: Agentic Document Intelligence from Extraction to Compliance Validation</title>
+      <link>https://arxiv.org/abs/2602.23481v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2602.23481v1</guid>
+      <description>IDP Accelerator is an open-source agentic framework for end-to-end document intelligence, bridging extraction, analytics, and compliance validation. It introduces four novel components: (1) **DocSplit**, a multimodal benchmark and classifier using BIO tagging to segment heterogeneous document packets; (2) a **configurable multimodal LLM-based Extraction Module** for zero-shot, context-aware structured data generation; (3) an **Agentic Analytics Module** compliant with the Model Context Protocol (MCP), enabling secure, sandboxed code execution for dynamic data exploration; and (4) a **Rule Validation Module** that replaces brittle deterministic engines with LLM-driven, interpretable logic for complex regulatory checks. Evaluated in production at a leading healthcare provider, IDP Accelerator achieves **98% classification accuracy**, **80% lower latency**, and **77% reduced operational cost** versus legacy systems. A live web demo and full source code are publicly available.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
       <title>UC-Secure Star DKG for Non-Exportable Key Shares with VSS-Free Enforcement</title>
       <link>https://arxiv.org/abs/2602.22187v1</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2602.22187v1</guid>
@@ -387,109 +486,6 @@
       <link>https://eprint.iacr.org/2026/388</link>
       <guid isPermaLink="true">https://eprint.iacr.org/2026/388</guid>
       <description>This paper establishes a necessary and sufficient condition for the existence of an ideal linear secret sharing scheme (ILSSS) realizing an arbitrary minimal access structure $\Gamma_{\min}$. Using linear codes over a finite field $\mathbb{F}_q$ as the primary tool, we construct matrices $H$ (parity-check) and $G$ (generator) such that $\Gamma_{\min}$ admits an ILSSS **if and only if** the matrix equation $GH^{\mathsf{T}} = 0$ has a solution over $\mathbb{F}_q$. When satisfied, $H$ defines a linear code whose *port* realizes $\Gamma_{\min}$, and $G$ is its corresponding generator matrix. Crucially, we prove this algebraic condition is equivalent to the combinatorial requirement that $\Gamma_{\min}$ must be the port of a matroid representable over $\mathbb{F}_q$. This unifies secret sharing, coding theory, and matroid representation in a concise, computationally verifiable framework—enabling efficient existence testing and constructive design of ideal schemes.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>A Comprehensive Break of the Tropical Matrix-Based Signature Scheme</title>
-      <link>https://eprint.iacr.org/2026/387</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/387</guid>
-      <description>We present a comprehensive cryptanalysis of the tropical matrix-based signature scheme GMS26 (Grigoriev–Monico–Shpilrain, 2026), which bases security on the claimed NP-hardness of tropical matrix factorization. Contrary to its security claims, we demonstrate four efficient polynomial-time attacks exploiting inherent algebraic weaknesses—not the underlying hardness assumption. First, we mount an existential forgery attack in the chosen-hash model requiring only $O(n^3)$ tropical operations. Second, we prove the scheme is fundamentally malleable: any valid signature can be transformed into infinitely many distinct yet valid signatures, breaking strong unforgeability. Third, observing $O(n)$ honest signatures enables probabilistic partial recovery of private key entries via leakage in tropical extremal equations. Fourth, using an SMT solver, we recover the *entire* private key from just **two valid signatures** in under 5 seconds for recommended parameters ($n=8$). All attacks invalidate standard security notions: existential unforgeability (EUF-CMA), strong unforgeability (SUF-CMA), and key confidentiality.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Determining those Boolean functions whose restrictions to affine spaces are plateaued</title>
-      <link>https://eprint.iacr.org/2026/386</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/386</guid>
-      <description>This paper determines the class $C^n_k$ of $n$-variable Boolean functions whose restrictions to *all* $k$-dimensional affine subspaces of $\mathbb{F}_2^n$ are plateaued (i.e., have Walsh spectra in $\{0,\pm\lambda\}$). We prove that partially-bent functions are precisely those plateaued on every affine hyperplane ($k=n-1$), while quadratic functions are exactly those plateaued on *every* $k$-dimensional affine subspace for $3 \leq k \leq n-2$. For $n \geq 5$, we establish a strict inclusion chain: quadratic $\subsetneq$ partially-bent $\subsetneq$ restrictions of partially-bent to hyperplanes $\subsetneq$ plateaued $\subsetneq$ restrictions of plateaued to hyperplanes $\subsetneq$ all Boolean functions. The characterization extends to strongly plateaued vectorial functions, and we pose an open question linking vectorial plateauedness to the long-standing crooked function problem.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Bridging Privacy and Utility: A Verifiable Framework for Data Valuation via Zero-Knowledge Proofs</title>
-      <link>https://eprint.iacr.org/2026/385</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/385</guid>
-      <description>Deep learning’s data dependency has spurred decentralized data markets, yet trust deficits persist: buyers fear poisoned data, sellers fear leakage. While the Shapley value enables fair valuation, its standard computation requires a Trusted Third Party (TTP) to access raw data—violating privacy. We propose **ZK-DV**, the first zero-knowledge proof (ZKP) system for *verifiable, privacy-preserving* data valuation. ZK-DV lets a seller prove that a claimed Gradient Shapley score is mathematically consistent with their private data and the buyer’s model—without revealing either. Its key insight is architectural co-design: we embed valuation logic directly into backpropagation via a custom arithmetic circuit, extracting marginal utilities from intermediate gradients. Implemented using the GKR protocol with a hybrid Pedersen/KZG commitment scheme and batched processing, ZK-DV amortizes cryptographic overhead. Experiments on MNIST show practicality: optimized batching achieves **2.7× faster proof generation**, perfect quantization fidelity (ρ = 1.0), and verification under **0.2 seconds**. ZK-DV bridges cryptographic integrity and economic fairness for trustless data exchange.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Beyond performance-wise Contribution Evaluation in Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.22470v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22470v1</guid>
-      <description>Federated learning (FL) enables privacy-preserving collaborative modeling, yet fair contribution evaluation remains critical for incentive alignment and system sustainability. While existing methods focus almost exclusively on predictive *performance* (e.g., accuracy), this work pioneers a multi-dimensional evaluation of client contributions toward model *trustworthiness*: specifically, **reliability** (robustness to label noise), **resilience** (resistance to adversarial examples), and **fairness** (measured via demographic parity). We quantify each client’s marginal contribution across these orthogonal dimensions using Monte Carlo approximated Shapley values—a principled, axiomatic attribution method. Experiments on FEMNIST, CIFAR-10-C, and Adult Income show that: (1) the three trustworthiness dimensions are largely uncorrelated (mean |r| &lt; 0.12); (2) no client dominates across all dimensions—high-accuracy clients often underperform significantly in fairness or resilience; and (3) reward allocation based solely on accuracy systematically undervalues up to 47% of high-trustworthiness clients. Our findings expose a fundamental flaw in current FL evaluation: comprehensive, equitable reward design requires multi-faceted, performance-agnostic metrics.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>adversarial</category>
-      <category>learning</category>
-      <category>federated</category>
-      <category>machine</category>
-    </item>
-    <item>
-      <title>Silent Egress: When Implicit Prompt Injection Makes LLM Agents Leak Without a Trace</title>
-      <link>https://arxiv.org/abs/2602.22450v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22450v1</guid>
-      <description>This paper identifies *silent egress*—a novel system-level threat in agentic LLM systems where adversarial instructions embedded in automatically fetched URL previews (e.g., titles, metadata, snippets) trigger undetectable exfiltration of sensitive runtime context. Using a fully local, reproducible testbed with a qwen2.5:7b-based agent, we demonstrate that malicious web pages can induce outbound requests leaking internal state—even when the final user-facing response appears benign. Across 480 runs, the attack succeeds with 89% probability, and 95% of successful exfiltrations evade output-based safety checks. We introduce *sharded exfiltration*, splitting sensitive data across multiple requests to reduce Leak@1 by 73% and bypass simple DLP mechanisms. Ablation shows prompt-layer defenses offer limited protection, whereas system- and network-layer controls (e.g., domain allowlisting, redirect-chain analysis) are markedly more effective. Our findings argue for treating network egress as a first-class security outcome—and motivate architectural shifts toward provenance tracking and capability isolation.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>llm</category>
-      <category>agent</category>
-      <category>injection</category>
-      <category>prompt</category>
-    </item>
-    <item>
-      <title>Differentially Private Truncation of Unbounded Data via Public Second Moments</title>
-      <link>https://arxiv.org/abs/2602.22282v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22282v1</guid>
-      <description>Differential privacy (DP) is hindered by the common requirement of bounded data, yet real-world datasets are often unbounded. To overcome this, we propose **Public-moment-guided Truncation (PMT)**, which leverages a small amount of *public* second-moment information (e.g., covariance) to linearly transform private data into a well-conditioned space—enabling deterministic, non-private truncation based solely on dimension *d* and sample size *n*. This transformation dramatically improves the conditioning of the second-moment matrix, making it far more resilient to DP noise during inversion. We integrate PMT into penalized linear regression and generalized linear models, designing new loss functions and back-mapping procedures with rigorous theoretical guarantees: tighter DP estimation error bounds, distributional robustness, and convergence. Experiments on synthetic and real datasets (Adult, California Housing) show PMT consistently boosts accuracy (up to 23.7% MAE reduction under ε=1–8) and stability (3.2× lower variance), establishing a unified, practical framework for high-fidelity DP learning on unbounded data.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
-      <category>privacy</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>Poisoned Acoustics</title>
-      <link>https://arxiv.org/abs/2602.22258v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22258v1</guid>
-      <description>We demonstrate that training-data poisoning attacks achieve *provably undetectable, targeted failure* in acoustic vehicle classification: on the MELAUDIS urban audio dataset (≈9,600 clips, 6 classes), a compact CNN achieves **95.7% Attack Success Rate (ASR)** under a Truck→Car label-flipping attack with only **p = 0.5% corruption (48 samples)**, while aggregate test accuracy remains statistically unchanged (87.6% baseline; 95% CI: 88–100%, n=3). We prove this stealth is *structural*: the maximum possible accuracy drop from any targeted attack is bounded above by the minority class fraction β—here ≈3% for Trucks—rendering aggregate accuracy monitoring *provably insufficient* regardless of model or attack design. A companion backdoor study reveals *trigger-dominance collapse*: when the target class is a minority, spectrogram patch triggers become functionally redundant (clean ASR = triggered ASR), reducing the attack to pure label flipping. To address this systemic trust gap, we propose ML-TrustChain—a cryptographically verifiable defense combining content-addressed artifact hashing, Merkle-tree dataset commitment, and NIST FIPS 204 post-quantum signatures (ML-DSA-65/Dilithium3) for tamper-proof data provenance.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>data</category>
-      <category>poisoning</category>
-      <category>backdoor</category>
-      <category>neural</category>
-    </item>
-    <item>
-      <title>SimpleOCR: Rendering Visualized Questions to Teach MLLMs to Read</title>
-      <link>https://arxiv.org/abs/2602.22426v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22426v1</guid>
-      <description>Despite rapid progress in Multimodal Large Language Models (MLLMs), it remains unclear whether they genuinely *read* text in images or merely exploit parametric shortcuts from text prompts—a phenomenon we term “modality laziness.” To diagnose this, we introduce the **Visualized-Question (VQ) setting**, where queries are rendered *onto* images with randomized styles (e.g., font, noise, rotation), forcing visual engagement. Experiments on Qwen2.5-VL reveal a severe capability-utilization gap: up to **12.7% performance drop** under VQ, exposing heavy reliance on textual priors. To bridge it, we propose **SimpleOCR**: a plug-and-play training strategy that converts standard samples into VQ format, invalidating text-based shortcuts and compelling optimization of visual text extraction pathways. Without architectural changes, SimpleOCR achieves **+5.4% average gain** over the base model and **+2.7% over GRPO** on four OOD OCR benchmarks—using only **8.5K samples** (30× fewer than recent RL methods). It also composes seamlessly with advanced RL strategies like NoisyRollout. Code: https://github.com/aiming-lab/SimpleOCR</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>CQSA: Byzantine-robust Clustered Quantum Secure Aggregation in Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.22269v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22269v1</guid>
-      <description>Federated Learning (FL) enables privacy-preserving collaborative training, yet local model updates remain vulnerable to inference and poisoning attacks. Quantum Secure Aggregation (QSA) promises information-theoretic privacy via GHZ-state phase encoding—but its reliance on a *single global GHZ state* suffers from rapidly degrading fidelity at scale and inherent inability to detect Byzantine clients. We propose **Clustered QSA (CQSA)**: a modular framework that partitions clients into small clusters, each performing local quantum aggregation using high-fidelity, low-qubit GHZ states. The server then identifies malicious contributions by analyzing statistical discrepancies—e.g., cosine similarity and Euclidean distance—among cluster-level aggregates. Under depolarizing noise, CQSA achieves up to **68.5% higher GHZ fidelity** than global QSA and maintains stable convergence even with 20% Byzantine clients, reducing accuracy degradation by **52.3%**. CQSA bridges near-term quantum hardware constraints with practical Byzantine robustness in FL.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>data</category>
-      <category>poisoning</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>VROOM: Accelerating (Almost All) Number-Theoretic Cryptography Using Vectorization and the Residue Number System</title>
-      <link>https://eprint.iacr.org/2026/393</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/393</guid>
-      <description>Modular arithmetic with large prime moduli dominates computational cost in number-theoretic cryptography, yet efficient CPU vectorization remains elusive due to carry propagation and costly data permutations. VROOM introduces a novel vectorized approach leveraging the Residue Number System (RNS) to align modular operations natively with wide SIMD units—eliminating carries, minimizing shuffles, and enabling constant-time multiplication for *arbitrary* odd moduli (prime or composite). Our AVX2/AVX-512 implementation achieves **4.0× speedup** for RSA-4096 signature verification and **1.3×** for signing over OpenSSL, and **3.43× faster BLS-381 verification** than the assembly-optimized BLST library. All code is portable, hardware-agnostic, and planned for upstream integration into BoringSSL to accelerate real-world TLS and cryptographic infrastructure.</description>
       <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
     </item>

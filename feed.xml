@@ -4,8 +4,16 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sun, 01 Mar 2026 02:08:26 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Mar 2026 02:01:01 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On the Need for (Quantum) Memory with Short Outputs</title>
+      <link>https://eprint.iacr.org/2026/403</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/403</guid>
+      <description>We establish the first unconditional separation between bounded- and unbounded-space computation for problems with *short outputs*—where output size is logarithmic while memory may be exponential—in both classical and quantum models. To achieve this, we introduce the **nested collision finding** problem: given oracles for random functions $f$ and $g$, find distinct $x \neq y$ such that $g(f(x)) = g(f(y))$. We prove that any algorithm solving it in $T$ queries using only $S$ bits of memory must satisfy $T \cdot S = \Omega(2^{n/3})$, whereas an unbounded-memory algorithm achieves the optimal $T = O(2^{n/3})$. Our lower bound hinges on a novel **two-oracle recording technique**, which uses one oracle to implicitly “record” long intermediate outputs (e.g., $f(x)$) generated under the other, thereby reducing the short-output time–space trade-off to that of a corresponding long-output problem. This technique is broadly applicable to memory-sensitive settings beyond collision-finding.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
     <item>
       <title>Decomposing Private Image Generation via Coarse-to-Fine Wavelet Modeling</title>
       <link>https://arxiv.org/abs/2602.23262v1</link>
@@ -140,6 +148,70 @@
       <link>https://eprint.iacr.org/2026/394</link>
       <guid isPermaLink="true">https://eprint.iacr.org/2026/394</guid>
       <description>We present the first vectorized implementation of SQISign for high-performance ARM architectures. SQISign is a leading NIST On-Ramp Round 2 candidate, offering the smallest key and signature sizes among post-quantum signatures—but its signing performance is bottlenecked by the ideal-to-isogeny conversion, which demands intensive finite field and elliptic curve operations. Leveraging the NEON instruction set, we design a highly optimized $\mathbb{F}_{p^2}$ arithmetic library and batched 2D isogeny-chain operations, accelerating the critical conversion subroutine by **2.24×** over the state-of-the-art scalar implementation. Our optimizations are fully orthogonal to the recent Qlapoti algorithm (Asiacrypt 2025); when combined, they yield **&gt;2.24× end-to-end signing speedup at NIST Security Level I**. This work establishes the first practical, vectorized SQISign baseline for ARM and opens avenues for efficient quaternion-based computation in isogeny cryptography.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Conditionally Linkable Attribute-Based Signatures</title>
+      <link>https://eprint.iacr.org/2026/402</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/402</guid>
+      <description>This paper introduces **Conditionally Linkable Attribute-Based Signatures (CLABS)**, a new primitive that enables *context-dependent*, *user-controlled* linkability in attribute-based authentication. Unlike prior ABS schemes—where linkability is either globally absent or universally enforced—CLABS allows two signatures to be publicly linked *if and only if* they share a declared context $\tau$ (e.g., jurisdiction, policy domain) *and* their attributes match under a public context-specific function $f_\tau$. Each user’s linking set $L_x \subseteq \mathcal{T}$ encodes voluntary, fine-grained linkage consent, ensuring anonymity by default and leakage limited to an opt-in bit. We formalize CLABS security, capturing conditional linkability and context-aware anonymity. Our generic construction combines a PRF, a standard signature for attribute certification, and a signature of knowledge (SoK) proving correct tag derivation and Boolean policy satisfaction without revealing attributes. Instantiated under standard lattice assumptions in the QROM, CLABS achieves post-quantum security and supports arbitrary Boolean policies.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>NIROPoK-Based Post-Quantum Sidechain Design on Ethereum</title>
+      <link>https://eprint.iacr.org/2026/401</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/401</guid>
+      <description>This paper introduces NIROPoK, the first practical post-quantum sidechain framework for Ethereum. We design a quantum-resistant stack comprising: (1) a novel **Non-Interactive Random Oracle Proof of Knowledge (NIROPoK)** based on module-LWE, enabling efficient zero-knowledge verification with 42% lower gas cost than zk-SNARKs; (2) a **Quantum-Resistant Proof-of-Stake (QPoS)** consensus using Dilithium signatures for secure validator onboarding and block signing; and (3) a **Dilithium-based cross-chain bridge** formally verified against quantum adversaries. Deployed on an Ethereum-compatible testnet, our sidechain achieves &gt;1200 TPS and sub-2.3s block latency while preserving full EVM compatibility and requiring no changes to Ethereum’s core architecture. The solution secures existing Ethereum transactions against quantum threats *today*, demonstrating a viable, deployable path toward quantum-ready Web3 infrastructure.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Non-interactive Blind Signatures with Threshold Issuance</title>
+      <link>https://eprint.iacr.org/2026/400</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/400</guid>
+      <description>We introduce **Non-interactive Threshold Blind Signatures (NITBS)**, the first primitive enabling a user to obtain partial presignatures from a *t*-out-of-*n* threshold of signers and locally combine them into a valid blind signature—without any interaction beyond initial requests. We formalize security with rigorous definitions of *blindness* (signers learn nothing about the blinded message) and *one-more unforgeability* (an adversary gaining *t−1* partial presignatures cannot produce *t* valid blind signatures). Our construction adapts the Pointcheval-Sanders (PS) signature scheme and is proven secure in the Algebraic Group Model (AGM). Micro-benchmarks show it achieves the **smallest presignature size (2 group elements), smallest signature size (3 group elements), and fastest issuance latency** among all existing NIBS schemes—setting a new efficiency baseline for threshold privacy-preserving authentication.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>What a Wonderful World: zkSNARKs in the Algebraic Group Model are Universally Composable</title>
+      <link>https://eprint.iacr.org/2026/399</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/399</guid>
+      <description>Zero-Knowledge Succinct Non-interactive Arguments of Knowledge (zkSNARKs) are widely deployed in practice, yet their security under concurrent composition requires Universal Composability (UC) guarantees. Prior UC analyses either lack modularity or rely on the Random Oracle Model (ROM), leaving efficient Algebraic Group Model (AGM)-based zkSNARKs—such as Plonk and Marlin—without rigorous UC foundations. We bridge this gap by introducing a modular framework: we identify simple, standard algebraic properties (e.g., extractability of commitments, polynomial binding, and algebraic zero-knowledge simulation) sufficient for UC security in the AGM (+ROM). Crucially, these properties can be verified *directly* from the rigorous AGM formalization of Jaeger and Mohan (CRYPTO’24). Applying our framework, we prove—**without any modification or overhead**—that Plonk and Marlin are UC-secure in their native AGM-based security setting. This is the first composably secure justification for widely adopted PIIOP-derived zkSNARKs.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Orthus: Practical Sublinear Batch-Verification of Lattice Relations from Standard Assumptions</title>
+      <link>https://eprint.iacr.org/2026/398</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/398</guid>
+      <description>This work introduces **Orthus**, the first practical sublinear batch-verification proof system for lattice-based relations—such as Falcon signature verification and SIS/LWE assertions—built solely on standard assumptions (e.g., Module-LWE) without trusted setup. Orthus achieves asymptotic verification time $O(\sqrt{N})$, where $N$ is the witness size, breaking the linear barrier that has hindered adoption of succinct lattice-based proofs. Its core innovations include a hierarchical batching framework, FFT-optimized polynomial commitments tailored to lattice algebra, and efficient inner-product compression. In implementation, Orthus reduces verifier runtime by **9×** when aggregating $2^{17}$ Falcon signatures, while keeping proof size modest (~24 KB) and prover overhead practical. This marks the first standard-assumption construction enabling *real-world* verification acceleration for lattice-based succinct proofs.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Bittersweet Signatures: Bringing LWR to a Picnic for Hardware-Friendly MPC-in-the-Head</title>
+      <link>https://eprint.iacr.org/2026/397</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/397</guid>
+      <description>We introduce **Bittersweet signatures**, the first MPC-in-the-Head (MiH) signature scheme based on the **Learning With Rounding (LWR)** assumption. Leveraging *almost key-homomorphic PRFs*, Bittersweet achieves exceptional conceptual simplicity and regular structure—enabling efficient parallel and hardware-friendly implementations. Technically, we address the nontrivial challenge of *carry leakage* inherent in LWR-based homomorphic operations via rigorous noise analysis and tailored parameterization. Concretely, Bittersweet yields competitive signature sizes (~12–18 KB), trades modest software overhead (2–3× slower signing than Picnic3) for substantial hardware gains (5–8× FPGA throughput), and lags only slightly behind state-of-the-art VOLE- or Threshold-MiH schemes. Its algebraic scalability and structured design make it a promising candidate for leakage-resilient deployment. The new abstractions introduced open avenues for generalization and optimization beyond MiH.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Anonymity of X-Wing and its Variants</title>
+      <link>https://eprint.iacr.org/2026/396</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/396</guid>
+      <description>X-Wing is a hybrid KEM (X25519 + ML-KEM-768) under IETF standardization and deployed by industry for post-quantum transition. This paper presents the first anonymity analysis of X-Wing. We prove in the standard model that weak anonymity implies full anonymity for any IND-CCA-secure KEM via a reduction that is tight in success probability, time, *and memory*—a novel triple-tight guarantee. In the random oracle model, we show X-Wing achieves weak anonymity if both X25519 and ML-KEM-768 do; notably, X25519’s weak anonymity holds information-theoretically. To recover memory-tightness lost in the original construction, we propose X-Wing⁺, a minimal variant preserving tightness end-to-end. Finally, we improve the existing IND-CCA proof of X-Wing using our memory-aware techniques, reducing security loss.</description>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>How To Make Delegated Payments on Bitcoin: A Question for the AI Agentic Future</title>
+      <link>https://eprint.iacr.org/2026/395</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/395</guid>
+      <description>We introduce **Proxy Adaptor Signatures (PAS)**, a novel cryptographic primitive enabling *provably fair, delegated payment* on public blockchains. PAS solves the core fair-exchange problem in AI-agentic finance: ensuring a buyer obtains an asset *iff* the seller is paid—without revealing sensitive transaction witnesses to proxies, requiring long-term secrets from users, or compromising atomicity or privacy. Under a threshold model tolerating up to $t-1$ colluding proxies, PAS allows a stateless buyer to initiate a single request; proxies assist the exchange obliviously; and the seller is cryptographically guaranteed payment only if the buyer can later reconstruct the witness. Our efficient construction builds on standard primitives (ECDSA adaptor signatures + Shamir secret sharing) and is compatible with Bitcoin (Taproot), Cardano, and Ethereum. A Rust prototype supporting up to 30 proxies demonstrates concrete efficiency: buyer/seller operations finish in **microseconds**, proxy computation in **milliseconds**, and on-chain cost matches that of a baseline transaction—no extra fees or gas overhead.</description>
       <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
     </item>
@@ -419,97 +491,6 @@
       <guid isPermaLink="true">https://eprint.iacr.org/2026/393</guid>
       <description>Modular arithmetic with large prime moduli dominates computational cost in number-theoretic cryptography, yet efficient CPU vectorization remains elusive due to carry propagation and costly data permutations. VROOM introduces a novel vectorized approach leveraging the Residue Number System (RNS) to align modular operations natively with wide SIMD units—eliminating carries, minimizing shuffles, and enabling constant-time multiplication for *arbitrary* odd moduli (prime or composite). Our AVX2/AVX-512 implementation achieves **4.0× speedup** for RSA-4096 signature verification and **1.3×** for signing over OpenSSL, and **3.43× faster BLS-381 verification** than the assembly-optimized BLST library. All code is portable, hardware-agnostic, and planned for upstream integration into BoringSSL to accelerate real-world TLS and cryptographic infrastructure.</description>
       <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>ProxyFL: A Proxy-Guided Framework for Federated Semi-Supervised Learning</title>
-      <link>https://arxiv.org/abs/2602.21078v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21078v1</guid>
-      <description>Federated Semi-Supervised Learning (FSSL) faces dual heterogeneity: *external* (cross-client distribution shift) and *internal* (within-client labeled/unlabeled mismatch). Existing methods either aggregate client models via fixed/dynamic weights—struggling to capture the ideal global distribution—or filter low-confidence pseudo-labels, discarding valuable unlabeled data. To address both challenges jointly, we propose **ProxyFL**, a proxy-guided framework that uses **learnable classifier weights as category-distribution proxies**. For external heterogeneity, ProxyFL explicitly optimizes a *global proxy* on the server to robustly suppress outliers, replacing direct weight aggregation. For internal heterogeneity, it introduces a *positive-negative proxy pool* to re-include filtered unlabeled samples via similarity-based soft weighting, mitigating pseudo-label noise. Theoretically, ProxyFL achieves tighter convergence bounds; empirically, it outperforms SOTAs by +3.2–5.8% average accuracy across 6 benchmarks (e.g., CIFAR-10/LT, SVHN), boosts unlabeled data utilization by 3.7×, and reduces pseudo-label error rate by 41%.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Some Simple Economics of AGI</title>
-      <link>https://arxiv.org/abs/2602.20946v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20946v1</guid>
-      <description>This paper reframes the AGI transition as an economic collision between two asymmetric cost curves: exponentially falling *Cost to Automate* and biologically constrained *Cost to Verify*. As AI decouples cognition from biology, execution becomes near-zero marginal cost—absorbing even creative and innovative labor—but human verification bandwidth remains the binding constraint on growth. This structural asymmetry widens a *Measurability Gap*: what agents can execute vastly exceeds what humans can afford to validate, audit, or underwrite. Consequently, technical change shifts from skill-biased to *measurability-biased*, with economic rents migrating to verification-grade ground truth, cryptographic provenance, and liability underwriting—not just output generation. The current human-in-the-loop equilibrium is unstable: eroded by collapsing apprenticeship (“Missing Junior Loop”) and expert self-obsolescence (“Codifier’s Curse”), enabling privately rational but socially hazardous unverified deployment. Unmanaged, this pulls toward a *Hollow Economy*; yet scaling verification capacity in tandem with agentic capability unlocks an *Augmented Economy*—one where robust oversight enables unbounded discovery. The central imperative is clear: the defining race today is not for autonomy, but for *verifiability*.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>trojan</category>
-      <category>ai</category>
-    </item>
-    <item>
-      <title>On Electric Vehicle Energy Demand Forecasting and the Effect of Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.20782v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20782v1</guid>
-      <description>This paper investigates Electric Vehicle Supply Equipment (EVSE) energy demand forecasting (EDF) under privacy-preserving constraints. We benchmark statistical (ARIMA), machine learning (XGBoost), and deep learning (LSTM, GRU) models across four real-world EVSE datasets, evaluating performance under both centralized and federated learning (FL) paradigms. Results show XGBoost achieves the highest accuracy (18.7% lower MAE on average) and best energy efficiency (5× less training energy than LSTM), outperforming both statistical and neural models. Crucially, in FL settings, XGBoost maintains this advantage while reducing communication overhead by 62% compared to deep models—demonstrating superior trade-offs among prediction fidelity, privacy preservation (no raw data sharing), and edge-device energy consumption. Our work establishes FL-enabled tree-based forecasting as a practical, scalable, and sustainable solution for decentralized EV energy management.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Bikelution: Federated Gradient-Boosting for Scalable Shared Micro-Mobility Demand Forecasting</title>
-      <link>https://arxiv.org/abs/2602.20671v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20671v1</guid>
-      <description>Bikelution is a novel federated learning framework for scalable, privacy-preserving micro-mobility demand forecasting using gradient-boosted decision trees. Unlike centralized ML—which achieves high accuracy but violates data privacy and incurs prohibitive bandwidth costs—Bikelution enables collaborative model training across edge devices (e.g., bike docks, city zones) without sharing raw spatio-temporal data. It introduces sparse histogram-based gradient compression, differential privacy-aware secure aggregation, and a sliding-window client selection strategy to handle non-IID demand patterns. Evaluated on three real-world dockless bike-sharing datasets (Hangzhou, NYC Citi Bike, Singapore SG Bike), Bikelution matches centralized XGBoost’s 6-hour-ahead forecast accuracy (within 2.1% MAE gap) while outperforming state-of-the-art federated tree methods by 19.3% on average. This demonstrates that high-fidelity, mid-term demand forecasting is feasible under strict privacy constraints—enabling sustainable, compliant smart mobility planning.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Is the Trigger Essential? A Feature-Based Triggerless Backdoor Attack in Vertical Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.20593v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20593v1</guid>
-      <description>Vertical federated learning (VFL) enables collaborative modeling across parties holding disjoint features and labels, yet remains vulnerable to backdoor attacks. Contrary to the prevailing trigger-dependent paradigm, this paper demonstrates that **triggers are *not essential* for effective backdoor attacks in VFL**. We propose the first **feature-based triggerless backdoor attack**, operating under a stricter honest-but-curious threat model—where the attacker participates legitimately in training without gradient tampering. Our method comprises three key components: (1) label inference to identify target classes from intermediate outputs; (2) triggerless poisoning via feature amplification and imperceptible perturbation; and (3) stealthy backdoor execution on *clean, unmodified inputs*. Experiments on five benchmark datasets show our attack achieves 2–50× higher attack success rate (ASR) than three trigger-based baselines, with &lt;0.8% main-task accuracy degradation. It remains highly effective even in large-scale VFL (32 passive parties) using only one auxiliary dataset and exhibits strong resilience against defenses (ASR variation &lt;3%). This work uncovers a critical blind spot in VFL security and calls for robust, trigger-agnostic defense design.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>inference</category>
-      <category>learning</category>
-      <category>security</category>
-      <category>train</category>
-      <category>privacy-preserving</category>
-    </item>
-    <item>
-      <title>Characterizing Online and Private Learnability under Distributional Constraints via Generalized Smoothness</title>
-      <link>https://arxiv.org/abs/2602.20585v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20585v1</guid>
-      <description>This paper characterizes online and private learnability under *distributional adversaries*—adaptive sequences of data-generating distributions drawn from a fixed family $U$. We introduce **generalized smoothness**, a structural property of $U$, and prove it is *necessary and sufficient* for online learnability: a family $U$ admits VC-dimension-dependent regret bounds for *every* finite-VC hypothesis class if and only if $U$ is generalized smooth. We design universal algorithms achieving low regret without explicit knowledge of $U$, and—when $U$ is known—derive refined bounds via the **fragmentation number**, a combinatorial measure of how many disjoint regions can simultaneously carry nontrivial mass under $U$. Remarkably, we show generalized smoothness also *exactly characterizes* private learnability under distributional constraints, revealing a deep unification between online and differentially private learning. These results provide a near-complete theory of learnability beyond i.i.d. and fully adversarial settings.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>privacy</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>Wireless Federated Multi-Task LLM Fine-Tuning via Sparse-and-Orthogonal LoRA</title>
-      <link>https://arxiv.org/abs/2602.20492v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20492v1</guid>
-      <description>This paper proposes **Sparse-and-Orthogonal LoRA**, a fully decentralized wireless federated learning framework for multi-task fine-tuning of large language models (LLMs) on mobile devices. It tackles three critical issues in heterogeneous edge settings: (i) catastrophic forgetting during local fine-tuning due to conflicting gradient directions; (ii) inefficient communication and slow convergence from redundant parameter transmission; and (iii) cross-task knowledge interference at inference. Our approach introduces: (1) orthogonality-constrained sparse LoRA adapters to eliminate update conflicts; (2) a task-aware clustering strategy for topology-efficient model aggregation among neighboring devices; and (3) an implicit mixture-of-experts mechanism enabling task-specific inference paths without explicit routing. Experiments show up to **73% reduction in communication cost** and **+5.0% average accuracy gain** over standard federated LoRA, with faster convergence—demonstrating strong practicality for bandwidth-constrained wireless edge AI.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Heterogeneity-Aware Client Selection Methodology For Efficient Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.20450v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.20450v1</guid>
-      <description>Federated Learning (FL) suffers from statistical heterogeneity across clients, leading to accuracy degradation and unstable convergence. Prior client selection methods rely on loss or bias—imprecise proxies for heterogeneity—and employ stochastic selection, limiting reliability. We propose **Terraform**, a novel heterogeneity-aware methodology that leverages **client gradient updates** (not scalar metrics) to quantify directional and magnitude deviation from the global gradient, enabling precise heterogeneity assessment. Its **deterministic greedy algorithm** selects the top-*k* most heterogeneous clients per round—ensuring reproducibility and stability. Evaluated across four benchmarks (CIFAR-10/100, Tiny-ImageNet, LEAF-HeartDisease), Terraform achieves up to **47% higher accuracy** over state-of-the-art baselines (e.g., FedAvg, q-FFL). Ablation studies confirm both gradient-based modeling and deterministic selection are essential; training overhead remains under 3% per round. Terraform delivers a robust, efficient, and principled solution for heterogeneous FL.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Partially Non-Interactive Two-Round Threshold and Multi-Signatures with Tighter and Adaptive Security</title>
-      <link>https://eprint.iacr.org/2026/373</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/373</guid>
-      <description>We bridge a critical security gap in partially non-interactive (PNI) two-round threshold and multi-signature schemes in the pairing-free discrete-logarithm setting. While fully online schemes achieve rewinding-free or fully adaptive security under standard assumptions, prior PNI schemes require algebraic adversary restrictions or non-standard assumptions. Our key insight is to systematically transform the HBMS framework (Bellare &amp; Dai, Asiacrypt 2021) into a PNI paradigm via message-independent preprocessing of commitments and adaptive key derivation. We present: (1) the **first PNI two-round multi-signature scheme** with a rewinding-free reduction under standard DL assumptions, achieving tighter security (O(1) loss) against *non-algebraic* adversaries; and (2) the **first PNI two-round threshold signature scheme** with *fully adaptive security*—supporting adaptive corruptions and message queries—also under standard assumptions. Both schemes retain practical efficiency and avoid random oracles.</description>
-      <pubDate>Tue, 24 Feb 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
     </item>
   </channel>

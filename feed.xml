@@ -4,8 +4,48 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Mon, 02 Mar 2026 02:41:15 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 02:04:27 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Separating Non-Interactive Classical Verification of Quantum Computation from Falsifiable Assumptions</title>
+      <link>https://eprint.iacr.org/2026/415</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/415</guid>
+      <description>Mahadev’s landmark 4-message protocol (SIAM J. Comput. 2022) enabled classical verification of quantum computation under the Learning-with-Errors (LWE) assumption—a falsifiable assumption. This raised the central open question: *Can non-interactive classical verification of QMA be achieved in the plain model?* We answer negatively: **there is no quantum black-box reduction from non-interactive classical verification of QMA to any falsifiable assumption**. Here, “non-interactive” means a single message after instance-independent setup—covering all standard cryptographic assumptions (e.g., LWE, RSA, DDH). Our separation holds assuming the existence of a $\textsf{QMA}\text{--}\textsf{QCMA}$ gap problem—a mild strengthening of the widely believed $\textsf{QMA} \neq \textsf{QCMA}$ conjecture. To support plausibility, we construct such a gap problem relative to a quantum unitary oracle, proving its separation in that relativized world. This is the first strong impossibility result limiting the foundations of non-interactive verification.</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Towards Practical Registered ABE: More Efficient, Non-monotone, and CCA-secure</title>
+      <link>https://eprint.iacr.org/2026/414</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/414</guid>
+      <description>We propose the first practical Registered ABE (Reg-ABE) scheme that is **non-monotone**, **CCA-secure**, and **highly space-efficient**. In a realistic setting, both the master public key (MPK) and ciphertext are only ~7.5 KB—reducing MPK size by &gt;2000× and ciphertext size by 5× compared to the state-of-the-art GLWW scheme (Crypto’24). Helper keys and system state shrink by &gt;40×. Crucially, our scheme supports expressive non-monotone policies and strong CCA security—neither supported by GLWW. Implementation shows our encryption outperforms GLWW; decryption, though a few times slower, remains under 0.1 seconds on a laptop. Security is proven in the generic group model. We also present a simpler, more efficient dual-system variant that achieves CPA security under the MDDH assumption in the standard model—surpassing the only prior non-monotone Reg-ABE (Attrapadung et al., Crypto’24).</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>On Best-Possible One-Time Programs</title>
+      <link>https://eprint.iacr.org/2026/413</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/413</guid>
+      <description>One-time programs (OTPs) enable single-input evaluation of a functionality without leaking extra information. While deterministic quantum OTPs are provably impossible due to gentle-measurement attacks, the fundamental limits for randomized functionalities—and the strongest achievable security—remain unclear. Inspired by “best-possible obfuscation” in classical settings, we ask whether a generic best-possible OTP compiler exists. We answer *negatively*: assuming lossy encryption (e.g., from LWE or weak PRGAs), no such compiler can exist—even for classical randomized functionalities—due to inherent behavioral contradictions on indistinguishable function families. To circumvent this, we introduce *testable OTP compilers*, which output quantum states augmented with self-reflection oracles. We then define *Single-Effective-Query (SEQ) simulation security*—a simplified, generalized notion for quantum channels—and prove it implies best-possible testable OTP security. Crucially, we construct SEQ-secure OTPs for *all quantum functionalities* in the classical oracle model—the first result beyond classical randomized ones. Finally, we propose *stateful quantum indistinguishability obfuscation (iO)* and show it both implies best-possible testable OTPs and is realizable in the same classical oracle model, establishing it as a promising foundation.</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>VisualDedup: Visual Fuzzy Deduplication for Secure Batch Duplicates Detection without Server Aided</title>
+      <link>https://eprint.iacr.org/2026/412</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/412</guid>
+      <description>Deduplication of encrypted multimedia data faces dual challenges: (1) ciphertext’s chaotic appearance attracts adversarial scrutiny, and (2) server-assisted schemes introduce trust bottlenecks and privacy risks. VisualDedup addresses these by proposing *Visual Fuzzy Deduplication*—a serverless, batch-capable framework for secure image deduplication. It generates robust, fuzzy-equivalent visual fingerprints via DCT-LSH hashing with dynamic salted rotation, enabling efficient local similarity matching without exposing raw or encrypted data. Crucially, it resists brute-force attacks through non-deterministic yet verifiable fingerprint generation and achieves O(1) average query complexity via optimized Bloom-filter-based batching. Evaluated on CIFAR-10, ImageNet-Subset, and Medical-XRay datasets, VisualDedup achieves ≥98.7% F1-score, &lt;0.3% false positive rate, 12.4K images/sec throughput, and reduces communication overhead by 92% versus Crypto-Dedupe—demonstrating practicality for privacy-preserving cloud storage.</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>A Built-in Crypto Expert for Artificial Intelligence: How Far is the Horizon?</title>
+      <link>https://eprint.iacr.org/2026/411</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/411</guid>
+      <description>This paper introduces a built-in cryptographic framework embedding a dedicated “Crypto Expert” directly into LLM architectures. We design a differentiable AES-128 proxy using novel neuron units—SoftXOR, SoftLUT, and GF Conv—that preserve Boolean-level functional equivalence while enabling stable backpropagation. Integrated as a specialized expert in an MoE-LLM, the model autonomously routes sensitive tokens to encryption during training; at inference, the proxy is swapped for a standard discrete AES implementation, guaranteeing provable security. Experiments show our approach reduces encryption-related neuron count by 92% and latency by 76% versus ReLU-based baselines, resists continuous differential attacks, and maintains &gt;99.3% downstream task utility. This work pioneers end-to-end, formally secure AI computation.</description>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
     <item>
       <title>On the Need for (Quantum) Memory with Short Outputs</title>
       <link>https://eprint.iacr.org/2026/403</link>
@@ -93,6 +133,62 @@
       <category>arXiv</category>
       <category>agent</category>
       <category>security</category>
+    </item>
+    <item>
+      <title>Group Encryption with Oblivious Traceability</title>
+      <link>https://eprint.iacr.org/2026/405</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/405</guid>
+      <description>We introduce **Group Encryption with Oblivious Traceability (GEOT)**, a new primitive that resolves the fundamental “why trace?” gap in group encryption (GE). Unlike prior GE schemes where all ciphertexts are unconditionally traceable—posing privacy risks when plaintexts are confidential—GEOT makes traceability *policy-driven* and *oblivious*: for a ciphertext intended for identity $\mathsf{id}$ and carrying message $\mathbf{w}$, its traceability status is determined by a public Boolean policy $P(\mathsf{id},\mathbf{w})$, where $P=0$ enables tracing and $P=1$ guarantees *full non-traceability*—i.e., the opening authority learns *nothing* about $\mathsf{id}$. Crucially, this status is known to the sender but hidden from all others except the opener. GEOT further supports message filtering ($F(\mathbf{w})=1$ required) and dynamic membership. We formalize its security, present a modular construction from standard primitives (signatures, PKE, NIZK), and give an efficient code-based instantiation supporting arbitrary polynomial-size circuit policies. Our scheme achieves stronger expressivity and notable efficiency gains over existing post-quantum GE constructions.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Collaborative Incrementally Verifiable Computation</title>
+      <link>https://eprint.iacr.org/2026/410</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/410</guid>
+      <description>Collaborative zkSNARKs enable mutually distrustful parties to jointly prove computation correctness over private inputs—enabling privacy-preserving healthcare aggregation, audits, and federated learning. Yet existing schemes suffer from prohibitive memory/communication overheads (often orders of magnitude larger than input data) and lack *incrementality*: any dataset update forces full recomputation. To overcome all three bottlenecks simultaneously, we propose **Collaborative Incrementally Verifiable Computation (CIVC)**. CIVC allows multiple parties to collaboratively *update* a succinct proof incrementally, step-by-step, over streaming computations. Crucially, each party incurs only **constant communication overhead** (under a broadcast channel) and **memory overhead scaling solely with the cost of a single computational step**—not the entire dataset. Our construction achieves practical efficiency: on million-record streams, it reduces peak memory by 92% and total communication by 87% versus state-of-the-art, while enabling millisecond-scale proof updates. CIVC establishes the first scalable, truly incremental foundation for collaborative private computation.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Cryptanalysis of Poseidon-Based Fiat-Shamir Protocols</title>
+      <link>https://eprint.iacr.org/2026/409</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/409</guid>
+      <description>This work investigates whether combining two known cryptanalytic avenues—reduced-round analysis of the arithmetization-friendly permutation **Poseidon/Poseidon2**, and structural weaknesses of the **Fiat-Shamir (FS) transform**—enables novel algebraic attacks when Poseidon is used to derive challenges in algebraic proof systems. We model verifier checks *together with* Poseidon-based challenge generation as explicit polynomial systems (e.g., for Sigma protocols and FRI-like degree enforcement) and attack them via **Gröbner basis computation**, aiming to construct accepting transcripts that violate the intended low-degree bound. Across comprehensive experiments—including heavily reduced Poseidon rounds, retry-style challenge biasing, and parameter sweeps—we find **no successful forgeries**: Gröbner solvers consistently fail on random instances due to exponential growth in system size, not inherent algebraic weakness. Our results provide **negative evidence for natural algebraic attack routes**, clarifying that classic FS vulnerabilities (e.g., challenge predictability) do *not* automatically transfer to well-structured, fully transcript-bound Poseidon-based instantiations.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Smoothing the degree of regularity for polynomial systems</title>
+      <link>https://eprint.iacr.org/2026/408</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/408</guid>
+      <description>The degree of regularity ($d_{\text{reg}}$) governs the asymptotic complexity of algebraic solvers (e.g., XL, F4/F5) for polynomial systems over finite fields—dictating the minimal integer degree at which the Macaulay matrix becomes (provably) solvable. However, $d_{\text{reg}}$ is inherently coarse: it forces full linearization at an integer degree, often overshooting the *actual* information threshold and inflating time/memory costs unnecessarily. We propose a **smoothing technique** that operates *between* integer degrees by constructing only *sufficient submatrices* of the Macaulay matrix—retaining monomial supports critical for solving the system while discarding redundant rows/columns. Under a **mild generalized semi-regularity assumption**, empirically validated across standard cryptographic parameters (e.g., random MQ, HFE), we prove that this approach strictly reduces the effective degree required by XL, yielding smoother, lower asymptotic complexity. Our method bridges the gap between theoretical guarantees and practical efficiency without compromising soundness.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>On the Binding Security of KEMs based on RSA and DH</title>
+      <link>https://eprint.iacr.org/2026/407</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/407</guid>
+      <description>Motivated by emerging threats to KEMs, binding security has become a cornerstone for post-quantum analysis—but classical KEMs remained unexamined. Following NIST SP 800-227, we systematically analyze binding security for DH (including ECDH and X25519), RSA, RSA-OAEP, and the post-quantum CSIDH. Our results are mixed: X25519-KEM and RSA-OAEP-KEM are provably binding-secure, while standard DH-KEM and plain RSA-KEM admit concrete binding attacks. We propose minimal fixes—namely, including the ciphertext explicitly in the key-derivation function (KDF)—which restore binding security without overhead. Crucially, our analysis shows that hybrid KEMs *must* incorporate the classical ciphertext into the KDF to achieve IND-CCA security; omitting it breaks security even if the post-quantum component is secure. This provides a clear, implementable guideline for NIST-standardized hybrid deployments.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Putting the OPTI in Round Optimal IA-MPC in the Plain Model</title>
+      <link>https://eprint.iacr.org/2026/406</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/406</guid>
+      <description>We settle the round complexity of Identifiable Abort (IA) secure multiparty computation (MPC) in the plain model. Prior work (Goel et al., TCC ’21) showed that IA is impossible in two rounds under standard honest majority ($t &lt; n/2$). We close the remaining gap: for honest *supermajority* ($t &lt; n/3$), we construct the **first two-round general-purpose MPC protocol achieving full IA**—the strongest known abort guarantee beyond unanimous abort for $t \geq 2$ corruptions in the plain model. Our construction relies on a novel compiler that lifts any unanimous-abort protocol to IA, built upon **Oblivious Public Transfer with Intermediaries (OPTI)**, a new primitive of independent interest. Conversely, we prove a tight lower bound: **three rounds are necessary for Selective IA when $t \geq n/3$**, even with straight-line simulation. This establishes the exact feasibility threshold for round-optimal IA-MPC in the plain model.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Ultra short signatures with Dragon $HFE_{LL'}$</title>
+      <link>https://eprint.iacr.org/2026/404</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/404</guid>
+      <description>We present two new post-quantum multivariate signature schemes: $HFE_{LL'}$, yielding short signatures, and $D\text{-}HFE_{LL'}$ (Dragon $HFE_{LL'}$), achieving *ultra-short* signatures—among the shortest in the multivariate literature. Both are robust variants of the well-studied HFE scheme, distinguished by a novel, structured $LL'$ perturbation: two low-rank linear maps applied in cascade to the central quadratic map. This design preserves efficient signing (via solving small-degree equations) while *provably thwarting MinRank and related algebraic attacks*, which have recently broken several HFE-based proposals. Security analysis confirms resistance against all known attacks—including Gröbner basis, differential, and key-recovery variants. At conservative parameters ($q=256, n=48, d=16$), $D\text{-}HFE_{LL'}$ produces signatures of just **48 bytes**, outperforming Rainbow and GeMSS in compactness without sacrificing proven security. The $LL'$ paradigm thus revitalizes HFE and offers a practical, attack-resistant path for lightweight post-quantum signatures.</description>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>Decomposing Private Image Generation via Coarse-to-Fine Wavelet Modeling</title>
@@ -376,126 +472,6 @@
       <category>data</category>
       <category>model</category>
       <category>inference</category>
-    </item>
-    <item>
-      <title>A Critical Look into Threshold Homomorphic Encryption for Private Average Aggregation</title>
-      <link>https://arxiv.org/abs/2602.22037v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22037v1</guid>
-      <description>Threshold Homomorphic Encryption (Threshold HE) is widely adopted for privacy-preserving average aggregation in Federated Learning (FL), yet recent work exposes critical vulnerabilities when adversaries access a *restricted decryption oracle*—a realistic threat reflecting FL clients’ ability to jointly decrypt results without learning the full secret key. This paper conducts the first systematic evaluation of threshold RLWE-based HE (specifically BFV and CKKS variants) for federated averaging, focusing on the practical trade-offs introduced by *smudging noise with large variance* as a security countermeasure. We benchmark communication, latency, and aggregation accuracy under standardized 128-bit security parameters across 3–16 clients. Contrary to common assumptions, we find that threshold CKKS achieves **comparable or slightly better end-to-end performance than threshold BFV**, with up to 12% lower latency at scale, while maintaining aggregation error below 0.001%—well within FL convergence tolerance. Our results provide concrete guidance for secure, efficient HE integration in production FL systems.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Resilient Federated Chain: Transforming Blockchain Consensus into an Active Defense Layer for Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.21841v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21841v1</guid>
-      <description>Federated Learning (FL) enables privacy-preserving decentralized training but remains highly vulnerable to adversarial attacks due to its inherent lack of centralized data inspection. While blockchain integration has been explored for FL, its potential as an *active defense layer*—rather than merely an immutable ledger—remains untapped. This paper proposes **Resilient Federated Chain (RFC)**, a novel framework that repurposes the computational redundancy in Proof of Federated Learning (PoFL) consensus as real-time defense infrastructure. RFC introduces a flexible, attack-adaptive evaluation function within its consensus mechanism and tightly couples on-chain verification with off-chain robust aggregation (e.g., Krum, Median). Extensive experiments on image classification under diverse adversarial settings (e.g., label-flipping, sign-flipping, Byzantine attacks) show RFC improves model accuracy by up to 37.5 percentage points over FedAvg under 20% malicious clients, while maintaining &lt;3.1% false positive rate. RFC establishes blockchain not just as a trust anchor, but as a dynamic, responsive security layer for trustworthy decentralized AI.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Private and Robust Contribution Evaluation in Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.21721v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21721v1</guid>
-      <description>Cross-silo federated learning (FL) enables collaborative model training without raw data sharing, yet client updates remain vulnerable to inference attacks. While secure aggregation (SecAgg) preserves privacy by masking individual contributions, it renders conventional contribution evaluation—critical for fair rewards and misbehavior detection—infeasible. Existing marginal-contribution methods (e.g., Shapley value) are incompatible with SecAgg; practical alternatives like Leave-One-Out (LOO) suffer from coarse granularity and dangerous self-evaluation dependencies. We propose two SecAgg-compatible marginal-difference scores: **Fair-Private**, satisfying core fairness axioms (efficiency, symmetry, null player, additivity); and **Everybody-Else**, eliminating self-evaluation entirely and providing provable resistance to strategic manipulation—a previously overlooked vulnerability. We provide rigorous theoretical guarantees on fairness, $(\varepsilon,\delta)$-differential privacy, Byzantine robustness, and linear communication/computation cost. Extensive evaluation across medical imaging datasets (BraTS, CheXpert, NIH ChestX-ray) and CIFAR10 shows our scores consistently outperform baselines: they better approximate Shapley rankings (+32–47% Kendall tau), improve final model accuracy (+1.8–3.4 pp), and achieve &gt;0.91 F1-score in detecting malicious clients. This work establishes the first principled framework jointly achieving fairness, privacy, robustness, and practical utility in FL contribution evaluation.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Breaking Semantic-Aware Watermarks via LLM-Guided Coherence-Preserving Semantic Injection</title>
-      <link>https://arxiv.org/abs/2602.21593v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21593v1</guid>
-      <description>Generative image proliferation has spurred adoption of semantic-aware watermarking in diffusion models for provenance tracking and forgery detection. While content-aware schemes bind watermarks to high-level semantics to resist local edits, we expose a critical vulnerability: large language models (LLMs) enable *targeted, coherence-preserving semantic perturbations* that selectively alter watermark-relevant attributes without disrupting global visual-semantic consistency. We propose the **Coherence-Preserving Semantic Injection (CSI)** attack—a novel LLM-guided framework that leverages CLIP-aligned text prompts and embedding-space similarity constraints to generate semantically shifted yet visually faithful images, inducing detector misclassification. Extensive evaluation across six state-of-the-art semantic watermarking methods shows CSI consistently outperforms all baselines, increasing false-negative rates by up to 82.6% (avg. +37.4% over best prior attack). This reveals a fundamental security gap: semantic binding alone is insufficient against LLM-powered semantic manipulation.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>llm</category>
-    </item>
-    <item>
-      <title>Prompt Architecture Determines Reasoning Quality: A Variable Isolation Study on the Car Wash Problem</title>
-      <link>https://arxiv.org/abs/2602.21814v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21814v1</guid>
-      <description>This study isolates the causal impact of prompt architecture on implicit physical constraint reasoning using the “car wash problem”—a benchmark where LLMs consistently fail without explicit spatial logic cues. In a controlled variable-isolation experiment (n=20 per condition, 6 conditions), we evaluate Claude 3.5 Sonnet under fixed hyperparameters (temperature=0.7, top_p=1.0). The STAR (Situation-Task-Action-Result) reasoning framework alone boosts accuracy from 0% to 85% (*p*=0.001, Fisher’s exact test; OR=13.22), demonstrating that *forced goal articulation prior to inference* is the dominant driver of correct reasoning. User-profile context (via vector DB retrieval) adds +10 percentage points, and RAG-supplied domain context contributes an additional +5 points—reaching 100% in the full-stack condition. Crucially, structured scaffolding matters substantially more than contextual augmentation for this class of tasks: reasoning *how* to reason outweighs *what* to reason about. These findings establish STAR as a minimal, generalizable scaffold for reliable implicit-constraint inference.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>prompt</category>
-      <category>injection</category>
-    </item>
-    <item>
-      <title>Learning to Collaborate via Structures: Cluster-Guided Item Alignment for Federated Recommendation</title>
-      <link>https://arxiv.org/abs/2602.21957v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21957v1</guid>
-      <description>Federated recommendation (FedRec) enables collaborative model training across distributed clients without sharing raw user interaction data. Conventional methods synchronize high-dimensional item embeddings between server and clients, implicitly assuming precise geometric alignment is essential for collaboration. We challenge this assumption and argue that preserving *global semantic structures*—rather than identical embeddings—is more effective and efficient. To this end, we propose **CGFedRec**, a cluster-guided framework where the server discovers a shared item clustering structure from uploaded embeddings and broadcasts only compact cluster labels—not full embeddings—to clients. Clients then align their local item representations via these structural constraints, enabling personalization while maintaining global consistency. Experiments on six real-world datasets (e.g., Yelp, Amazon-Book, ML-1M) show CGFedRec achieves **up to 92.7% communication reduction** and **+3.8% average NDCG@10 gain** over strong baselines, demonstrating superior accuracy-efficiency trade-offs. Our work redefines collaboration in FedRec as *structural alignment*, not coordinate synchronization.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Learning Unknown Interdependencies for Decentralized Root Cause Analysis in Nonlinear Dynamical Systems</title>
-      <link>https://arxiv.org/abs/2602.21928v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21928v1</guid>
-      <description>This paper addresses decentralized root cause analysis (RCA) in nonlinear dynamical systems—e.g., power grids and supply chains—where clients are geographically distributed, run fixed proprietary models, and exhibit unknown, time-varying interdependencies. We propose a novel federated learning framework that learns cross-client dependencies *without accessing raw sensor streams or modifying local black-box models*. Each client augments its legacy system with a lightweight, trainable dependency encoder; a global server coordinates encoders via representation consistency constraints (leveraging temporal lag correlation and contrastive alignment) while preserving privacy through calibrated differential privacy. Theoretical analysis establishes convergence guarantees under non-IID, feature-partitioned, and privacy-constrained settings. Experiments on extensive simulations and a real-world industrial cybersecurity dataset demonstrate state-of-the-art RCA performance: 92.4% F1-score on root cause localization and 58% lower false positives versus baselines—achieving RCA with *zero raw data upload, zero model modification, and zero prior dependency knowledge*.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>machine</category>
-      <category>learning</category>
-      <category>differential</category>
-      <category>privacy</category>
-    </item>
-    <item>
-      <title>GFPL: Generative Federated Prototype Learning for Resource-Constrained and Data-Imbalanced Vision Task</title>
-      <link>https://arxiv.org/abs/2602.21873v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21873v1</guid>
-      <description>Federated learning (FL) enables privacy-preserving collaborative training for vision tasks, yet suffers from **ineffective cross-client knowledge fusion under class imbalance** and **prohibitive communication overhead** from transmitting full-model parameters. To address this, we propose **Generative Federated Prototype Learning (GFPL)** — a lightweight, semantics-aware FL framework. GFPL replaces model parameter exchange with **class-wise prototype transmission**, where each client generates prototypes via Gaussian Mixture Models (GMM) to capture feature statistics compactly. Server-side aggregation employs **Bhattacharyya distance** to fuse semantically similar prototypes across clients, avoiding semantic misalignment. Crucially, fused prototypes generate **class-balanced pseudo-features**, and a **dual-classifier architecture**—optimized via hybrid Dot Regression and Cross-Entropy loss—enhances local feature alignment. Experiments on imbalanced benchmarks (e.g., CIFAR-10-LT, ImageNet-LT) show GFPL improves accuracy by **+3.6%** over strong baselines while reducing communication cost by **up to 87%**, achieving superior performance-efficiency trade-offs for resource-constrained edge vision applications.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>JSAM: Privacy Straggler-Resilient Joint Client Selection and Incentive Mechanism Design in Differentially Private Federated Learning</title>
-      <link>https://arxiv.org/abs/2602.21844v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21844v1</guid>
-      <description>Differentially private federated learning (DP-FL) suffers from a fundamental tension: privacy-preserving mechanisms impose quantifiable privacy costs that deter client participation, especially among highly privacy-sensitive “stragglers.” Existing incentive designs assume unbiased client selection, forcing servers to over-compensate these stragglers—leading to budget waste and suboptimal model convergence. We propose **JSAM**, the first Bayesian-optimal framework that *jointly* optimizes client selection probabilities and privacy compensation under a fixed budget. By theoretically characterizing optimal selection structure, JSAM reduces the original 2N-dimensional problem to an efficient 3D formulation. We prove that servers should *exclude* high-sensitivity clients and *preferentially select* privacy-tolerant ones—and reveal the counter-intuitive insight that *least*-sensitive clients incur the *highest cumulative cost* due to frequent selection. Extensive experiments on MNIST and CIFAR-10 show JSAM improves test accuracy by up to **15%** over unbiased baselines while maintaining cost efficiency across diverse data heterogeneity levels (α ∈ [0.1, 1.0]).</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Mamba Meets Scheduling: Learning to Solve Flexible Job Shop Scheduling with Efficient Sequence Modeling</title>
-      <link>https://arxiv.org/abs/2602.21546v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.21546v1</guid>
-      <description>The Flexible Job Shop Scheduling Problem (FJSP) is a fundamental combinatorial optimization challenge in smart manufacturing, yet learning-based solvers suffer from high computational overhead and limited global dependency modeling. This paper pioneers the integration of **Mamba**—a linear-time state-space model—into FJSP solving. We propose a novel architecture featuring: (i) a dual-path Mamba encoder that separately processes operation and machine sequences to capture long-range constraints with O(N) complexity; and (ii) an efficient cross-attention decoder for dynamic operation-machine interaction. Evaluated on standard benchmarks (Dai, Brandimarte, Kacem), our method achieves **3.2× faster inference** and outperforms state-of-the-art learning-based solvers by 1.8–4.7% in makespan minimization, while reducing memory usage by 58%. This demonstrates Mamba’s superiority over quadratic-cost models (e.g., Transformers, GNNs) for structured scheduling tasks.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>extraction</category>
-    </item>
-    <item>
-      <title>DLT-Corpus: A Large-Scale Text Collection for the Distributed Ledger Technology Domain</title>
-      <link>https://arxiv.org/abs/2602.22045v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2602.22045v1</guid>
-      <description>We present **DLT-Corpus**, the largest domain-specific text collection for Distributed Ledger Technology (DLT) research to date: **2.98 billion tokens** across **22.12 million documents**, including 37,440 scientific publications, 49,023 USPTO patents, and 22 million social media posts. Unlike prior NLP resources narrowly focused on cryptocurrency price prediction or smart contracts, DLT-Corpus comprehensively captures the full technological lifecycle of DLT. Using it, we uncover that DLT innovations emerge first in scientific literature, then migrate to patents, and finally diffuse to social media—following classic technology transfer pathways. Crucially, while social media sentiment remains persistently bullish—even during “crypto winters”—scientific and patent activity grows independently of short-term market volatility and instead tracks long-term market capitalization expansion (*r* = 0.87), revealing a virtuous innovation cycle where research enables economic growth that funds further R&amp;D. We publicly release the full corpus, **LedgerBERT** (a domain-adapted model achieving **+23% F1** over BERT-base on DLT-specific NER), and all tools and code.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>crypto</category>
-    </item>
-    <item>
-      <title>Fast cube roots in Fp2 via the algebraic torus</title>
-      <link>https://eprint.iacr.org/2026/392</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/392</guid>
-      <description>We present a novel algorithm for computing cube roots in $\mathbb{F}_{p^2}$, a critical subroutine in elliptic-curve point decompression, hash-to-curve, and isogeny-based cryptography. Leveraging the algebraic torus $\mathbb{T}_2(\mathbb{F}_p)$ and Lucas sequences, our method reduces the problem *entirely* to operations in the base field $\mathbb{F}_p$—under the practically universal condition $p \equiv 1 \pmod{3}$. We prove correctness across all residuosity cases and implement it in the open-source `gnark-crypto` library. Benchmarks on six cryptographic primes (spanning pairing- and isogeny-based settings) show **1.6–2.3× speedups** over standard $\mathbb{F}_{p^2}$ exponentiation. The approach extends to $p \equiv 2 \pmod{3}$ and, more generally, to any odd $n$-th root in quadratic towers $\mathbb{F}_{p^{2^k}}$ when $\gcd(n, p+1) = 1$.</description>
-      <pubDate>Wed, 25 Feb 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
     </item>
   </channel>
 </rss>

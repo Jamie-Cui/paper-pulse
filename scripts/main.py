@@ -96,7 +96,7 @@ def generate_email_report(
     """
     lines = []
     date_str = datetime.now().strftime("%Y-%m-%d %H:%M UTC")
-    sep = "=" * 60
+    sep = "=" * 40
 
     lines.append(sep)
     lines.append("Paper Pulse Daily Report")
@@ -170,7 +170,7 @@ def generate_email_report(
                 lines.append(_wrap_text(abstract))
                 lines.append("")
 
-            lines.append("-" * 60)
+            lines.append("-" * 40)
             lines.append("")
     else:
         lines.append("No new papers in this run.")
@@ -374,35 +374,45 @@ def main():
         keywords_config = config.get("keywords", {})
         apply_to_arxiv = keywords_config.get("apply_to_arxiv", True)
         apply_to_iacr = keywords_config.get("apply_to_iacr", True)
-        
+
         # Separate papers by source
-        arxiv_papers_to_filter = [p for p in all_fetched if p.get('source') == 'arXiv']
-        iacr_papers_to_filter = [p for p in all_fetched if p.get('source') == 'IACR']
-        
+        arxiv_papers_to_filter = [p for p in all_fetched if p.get("source") == "arXiv"]
+        iacr_papers_to_filter = [p for p in all_fetched if p.get("source") == "IACR"]
+
         filtered_papers = []
-        
+
         # Apply filtering based on configuration
         if apply_to_arxiv:
-            print(f"Applying keyword filter to arXiv papers ({len(arxiv_papers_to_filter)} papers)...")
+            print(
+                f"Applying keyword filter to arXiv papers ({len(arxiv_papers_to_filter)} papers)..."
+            )
             filtered_arxiv = keyword_filter.filter_papers(arxiv_papers_to_filter)
             filtered_papers.extend(filtered_arxiv)
             print(f"  Matched {len(filtered_arxiv)} arXiv papers")
         else:
-            print(f"Skipping keyword filter for arXiv (fetching all {len(arxiv_papers_to_filter)} papers)")
+            print(
+                f"Skipping keyword filter for arXiv (fetching all {len(arxiv_papers_to_filter)} papers)"
+            )
             filtered_papers.extend(arxiv_papers_to_filter)
-        
+
         if apply_to_iacr:
-            print(f"Applying keyword filter to IACR papers ({len(iacr_papers_to_filter)} papers)...")
+            print(
+                f"Applying keyword filter to IACR papers ({len(iacr_papers_to_filter)} papers)..."
+            )
             filtered_iacr = keyword_filter.filter_papers(iacr_papers_to_filter)
             filtered_papers.extend(filtered_iacr)
             print(f"  Matched {len(filtered_iacr)} IACR papers")
         else:
-            print(f"Skipping keyword filter for IACR (fetching all {len(iacr_papers_to_filter)} papers)")
+            print(
+                f"Skipping keyword filter for IACR (fetching all {len(iacr_papers_to_filter)} papers)"
+            )
             filtered_papers.extend(iacr_papers_to_filter)
-        
+
         print(f"\n✓ Total papers after filtering: {len(filtered_papers)}")
         if filtered_papers:
-            github_notice(f"Selected {len(filtered_papers)} papers (arXiv filter: {apply_to_arxiv}, IACR filter: {apply_to_iacr})")
+            github_notice(
+                f"Selected {len(filtered_papers)} papers (arXiv filter: {apply_to_arxiv}, IACR filter: {apply_to_iacr})"
+            )
         else:
             github_warning("No papers selected")
 
@@ -526,9 +536,9 @@ def main():
     print("=" * 70)
 
     # Output statistics for GitHub Actions to capture
-    github_output = os.getenv('GITHUB_OUTPUT')
+    github_output = os.getenv("GITHUB_OUTPUT")
     if github_output:
-        with open(github_output, 'a') as f:
+        with open(github_output, "a") as f:
             f.write(f"new_papers={new_summary_count}\n")
             f.write(f"retry_papers={len(retry_successful)}\n")
             f.write(f"failed_papers={len(all_failed)}\n")

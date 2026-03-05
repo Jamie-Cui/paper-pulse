@@ -38,9 +38,10 @@ The pipeline runs sequentially: **Fetch → Filter → Summarize → Merge → S
 
 5. **RSS** — `scripts/rss.py` generates `feed.xml` (RSS 2.0) in the project root after saving. Uses English summary as item description, falls back to abstract. Limited to `max_items` (default 50) most recent papers. Requires `site_url` in `config.toml` for absolute feed links. Uses only stdlib (`xml.etree.ElementTree`).
 
-### Frontend (index.html, app.js, styles.css)
+### Frontend (index.html, app.js, styles.css, config.js)
 
-Static site served from repo root via GitHub Pages (master branch, `/` directory). Client-side search/filter/sort. Key features:
+Static site served from repo root via GitHub Pages (master branch, `/` directory). Client-side search/filter/sort with pagination. Key features:
+- Pagination: configurable via `papers_per_page` in `config.toml` (default 10), generated to `config.js` by `scripts/generate_config.py`
 - Bilingual summary toggle (中/EN buttons) per card via `toggleLanguage(index, lang)` in `app.js`
 - Markdown rendering via marked.js (CDN)
 - BibTeX export (single paper and bulk)
@@ -48,7 +49,7 @@ Static site served from repo root via GitHub Pages (master branch, `/` directory
 
 ### GitHub Actions (.github/workflows/fetch-papers.yml)
 
-Daily at 00:00 UTC (also manual trigger). Fetches papers, commits changes to `data/` and `feed.xml` with `github-actions[bot]`, sends email notification with statistics. Only commits if `git diff --staged --quiet` detects changes.
+Daily at 00:00 UTC (also manual trigger). Fetches papers, generates `config.js` from `config.toml`, commits changes to `data/`, `feed.xml`, and `config.js` with `github-actions[bot]`, sends email notification with statistics. Only commits if `git diff --staged --quiet` detects changes.
 
 ### Supporting Module
 
@@ -85,9 +86,12 @@ Paper ID format: `arxiv_{arxiv_id}` or `iacr_{iacr_id}`.
 - `[fetchers.iacr]` — delay
 - `[summarizer]` — model, max_tokens, temperature, rate_limit_delay, prompt_template (single-language only; bilingual prompt is in Python)
 - `[rss]` — `max_items` (number of papers in RSS feed)
+- `[frontend]` — `papers_per_page` (pagination size, default 10)
 - `[keywords]` — keyword file path, `apply_to_arxiv`, `apply_to_iacr`
 
 **`keywords.txt`** — Keyword rules. Lines starting with `#` are comments. Each non-empty line is an OR rule; words within a line are AND conditions.
+
+**`scripts/generate_config.py`** — Generates `config.js` from `config.toml` for frontend configuration. Run automatically by GitHub Actions workflow.
 
 ## Important Implementation Details
 
@@ -97,4 +101,5 @@ Paper ID format: `arxiv_{arxiv_id}` or `iacr_{iacr_id}`.
 - **IACR User-Agent**: The IACR fetcher must send a browser-like `User-Agent` header or the server returns robots.txt instead of RSS.
 - **Token budget**: `max_tokens` in config.toml must accommodate both Chinese (~60-70%) and English (~30-40%) summaries.
 - **Dependencies**: `requests`, `feedparser`, `python-dateutil`. `tomli` only needed for Python < 3.11 (3.11+ has `tomllib` built-in).
-- **GitHub Pages**: `index.html`, `app.js`, `styles.css`, `feed.xml`, and `data/` must remain in the repo root.
+- **GitHub Pages**: `index.html`, `app.js`, `styles.css`, `config.js`, `feed.xml`, and `data/` must remain in the repo root.
+- **Frontend config**: `config.js` is auto-generated from `config.toml` by `scripts/generate_config.py` and must be committed to git for GitHub Pages to serve it.

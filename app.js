@@ -20,6 +20,8 @@
 // Global state
 let allPapers = [];
 let filteredPapers = [];
+let currentPage = 1;
+const papersPerPage = typeof CONFIG !== 'undefined' ? CONFIG.papersPerPage : 10;
 
 // Load papers on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,9 +36,9 @@ function setupEventListeners() {
     const sortBy = document.getElementById('sortBy');
     const exportAllBtn = document.getElementById('exportAllBtn');
 
-    searchInput.addEventListener('input', filterAndDisplay);
-    sourceFilter.addEventListener('change', filterAndDisplay);
-    sortBy.addEventListener('change', filterAndDisplay);
+    searchInput.addEventListener('input', () => { currentPage = 1; filterAndDisplay(); });
+    sourceFilter.addEventListener('change', () => { currentPage = 1; filterAndDisplay(); });
+    sortBy.addEventListener('change', () => { currentPage = 1; filterAndDisplay(); });
     exportAllBtn.addEventListener('click', exportAllPapers);
 }
 
@@ -129,9 +131,10 @@ function filterAndDisplay() {
     // Sort papers
     sortPapers(filteredPapers, sortBy);
 
-    // Display papers
+    // Display papers with pagination
     displayPapers(filteredPapers);
     updateStats(filteredPapers.length, allPapers.length);
+    updatePagination(filteredPapers.length);
 }
 
 // Sort papers
@@ -158,11 +161,15 @@ function displayPapers(papers) {
         return;
     }
 
-    papersList.innerHTML = papers.map((paper, index) => createPaperCard(paper, index)).join('<hr>');
+    const startIdx = (currentPage - 1) * papersPerPage;
+    const endIdx = startIdx + papersPerPage;
+    const pagePapers = papers.slice(startIdx, endIdx);
+
+    papersList.innerHTML = pagePapers.map((paper, index) => createPaperCard(paper, startIdx + index)).join('<hr>');
 
     // Add event listeners for BibTeX buttons
-    papers.forEach((paper, index) => {
-        const btn = document.getElementById(`bibtex-${index}`);
+    pagePapers.forEach((paper, index) => {
+        const btn = document.getElementById(`bibtex-${startIdx + index}`);
         if (btn) {
             btn.addEventListener('click', () => exportBibtex(paper));
         }
@@ -223,7 +230,66 @@ function createPaperCard(paper, index) {
 // Update statistics
 function updateStats(filtered, total) {
     const stats = document.getElementById('stats');
-    stats.textContent = `Showing ${filtered} of ${total} papers`;
+    const startIdx = (currentPage - 1) * papersPerPage + 1;
+    const endIdx = Math.min(currentPage * papersPerPage, filtered);
+    stats.textContent = filtered > 0
+        ? `Showing ${startIdx}-${endIdx} of ${filtered} papers (${total} total)`
+        : `Showing 0 of ${total} papers`;
+}
+
+// Update pagination controls
+function updatePagination(totalFiltered) {
+    const totalPages = Math.ceil(totalFiltered / papersPerPage);
+    const paginationDiv = document.getElementById('pagination');
+
+    if (totalPages <= 1) {
+        paginationDiv.innerHTML = '';
+        return;
+    }
+
+    let html = '<div class="pagination-controls">';
+
+    if (currentPage > 1) {
+        html += `<button onclick="changePage(${currentPage - 1})">Previous</button>`;
+    }
+
+    const maxButtons = 7;
+    let startPage = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+    let endPage = Math.min(totalPages, startPage + maxButtons - 1);
+
+    if (endPage - startPage < maxButtons - 1) {
+        startPage = Math.max(1, endPage - maxButtons + 1);
+    }
+
+    if (startPage > 1) {
+        html += `<button onclick="changePage(1)">1</button>`;
+        if (startPage > 2) html += '<span>...</span>';
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+        html += `<button class="${i === currentPage ? 'active' : ''}" onclick="changePage(${i})">${i}</button>`;
+    }
+
+    if (endPage < totalPages) {
+        if (endPage < totalPages - 1) html += '<span>...</span>';
+        html += `<button onclick="changePage(${totalPages})">${totalPages}</button>`;
+    }
+
+    if (currentPage < totalPages) {
+        html += `<button onclick="changePage(${currentPage + 1})">Next</button>`;
+    }
+
+    html += '</div>';
+    paginationDiv.innerHTML = html;
+}
+
+// Change page
+function changePage(page) {
+    currentPage = page;
+    displayPapers(filteredPapers);
+    updateStats(filteredPapers.length, allPapers.length);
+    updatePagination(filteredPapers.length);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // Escape HTML to prevent XSS

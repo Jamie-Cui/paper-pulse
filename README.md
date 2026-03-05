@@ -87,6 +87,7 @@ Keyword filtering can be independently toggled per source (`apply_to_arxiv` / `a
 | Setting | Where | Default |
 |---|---|---|
 | Paper retention | `general.days_back` | 30 days |
+| Papers per page | `frontend.papers_per_page` | 10 |
 | arXiv categories | `fetchers.arxiv.categories` | cs.CR, cs.AI, cs.LG, cs.CL |
 | AI model | `summarizer.model` | qwen-plus |
 | RSS items | `rss.max_items` | 50 |
@@ -107,6 +108,7 @@ paper-pulse/
 │   ├── filter.py             # Keyword filtering engine
 │   ├── summarizer.py         # Bilingual AI summarization
 │   ├── rss.py                # RSS feed generator
+│   ├── generate_config.py    # Frontend config generator
 │   └── main.py               # Pipeline orchestrator
 ├── data/
 │   ├── papers.json           # Paper database
@@ -114,6 +116,7 @@ paper-pulse/
 ├── config.toml               # All configuration
 ├── keywords.txt              # Keyword filter rules
 ├── index.html / app.js / styles.css  # Frontend
+├── config.js                 # Frontend config (auto-generated)
 └── feed.xml                  # RSS feed (auto-generated)
 ```
 

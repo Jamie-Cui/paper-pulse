@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Fri, 13 Mar 2026 02:06:46 -0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 01:57:32 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EmbTracker: Traceable Black-box Watermarking for Federated Language Models</title>
@@ -231,6 +231,59 @@
       <category>arXiv</category>
       <category>extraction</category>
       <category>model</category>
+    </item>
+    <item>
+      <title>Security Considerations for Artificial Intelligence Agents</title>
+      <link>https://arxiv.org/abs/2603.12230v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.12230v1</guid>
+      <description>This paper presents a security framework for frontier AI agents, grounded in Perplexity’s operational experience with production-scale agentic systems serving millions of users and enterprises. We identify how agent architectures fundamentally undermine classical security assumptions—eroding code-data separation, blurring authority boundaries, and degrading execution predictability—thereby introducing novel confidentiality, integrity, and availability failure modes. Key threats include *indirect prompt injection*, *confused-deputy behavior*, and *cascading failures* across long-running, multi-agent workflows. We map principal attack surfaces across tools, connectors, hosting boundaries, and inter-agent coordination, then propose a layered defense stack: input/model-level mitigations, sandboxed execution, and deterministic policy enforcement for high-consequence actions. Finally, we highlight critical gaps: adaptive security benchmarks, formalizable delegation and privilege models, and NIST-aligned design guidance for secure multi-agent systems.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>injection</category>
+      <category>prompt</category>
+      <category>agent</category>
+    </item>
+    <item>
+      <title>Understanding Disclosure Risk in Differential Privacy with Applications to Noise Calibration and Auditing (Extended Version)</title>
+      <link>https://arxiv.org/abs/2603.12142v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.12142v1</guid>
+      <description>Differential Privacy (DP) promises formal disclosure guarantees, yet a key systems challenge remains: *how does DP noise translate into actual protection against realistic inference attacks?* Existing approaches—either narrow (e.g., membership inference only) or flawed (e.g., Reconstruction Robustness/ReRo, which violates DP bounds under realistic assumptions)—hinder principled calibration and auditing. This paper introduces **Reconstruction Advantage (RA)**, a unified, attack-agnostic risk metric that rigorously captures threat across membership inference, attribute inference, and data reconstruction. We derive **tight analytical bounds** linking DP parameters (ε, δ, noise scale) to adversarial advantage for arbitrary mechanisms and attacker knowledge, and characterize optimal attack strategies. These results enable **risk-driven noise calibration** (selecting minimal noise to meet target risk) and establish the first foundation for **systematic, quantitative DP auditing**. Experiments confirm RA significantly improves audit accuracy and scope over ReRo, enabling more effective utility–privacy trade-offs in production data systems.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>differential</category>
+      <category>privacy</category>
+      <category>dp</category>
+      <category>inference</category>
+      <category>membership</category>
+    </item>
+    <item>
+      <title>Matching Features, Not Tokens: Energy-Based Fine-Tuning of Language Models</title>
+      <link>https://arxiv.org/abs/2603.12248v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.12248v1</guid>
+      <description>Cross-entropy fine-tuning optimizes token-level prediction under teacher forcing, failing to align with sequence-level behavior during autoregressive generation. We propose **Energy-Based Fine-Tuning (EBFT)**, a feature-matching paradigm that directly targets semantic statistics of the completion distribution—without task-specific verifiers or preference models. EBFT enables efficient optimization via strided block-parallel sampling for concurrent rollout generation, batched feature extraction over rollouts, and on-policy policy-gradient updates using learned embeddings. Theoretically, EBFT is shown to implement KL-regularized feature matching within an energy-based modeling framework. Empirically, across Q&amp;A coding, unstructured coding, and translation, EBFT matches RLVR’s downstream accuracy while outperforming SFT—and achieves *lower validation cross-entropy* than both, demonstrating superior language modeling fidelity and task alignment.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>CLASP: Defending Hybrid Large Language Models Against Hidden State Poisoning Attacks</title>
+      <link>https://arxiv.org/abs/2603.12206v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.12206v1</guid>
+      <description>State space models (SSMs) like Mamba offer efficient alternatives to Transformers but are vulnerable to Hidden State Poisoning Attacks (HiSPAs), which corrupt memory via adversarial strings. We propose **CLASP**, a lightweight, model-agnostic defense that frames HiSPA detection as a token-level binary classification task. CLASP leverages discriminative patterns in Mamba’s block output embeddings (BOEs) and employs an XGBoost classifier—introducing negligible overhead (&lt;4GB VRAM, 1,032 tokens/s). Evaluated on 2,483 real résumés (9.5M tokens) with controlled HiSPA injections, CLASP achieves **95.9% token-level F1** and **99.3% document-level F1**. Crucially, it generalizes robustly: **96.9% document-level F1** under leave-one-out CV and **91.6% average document-level F1** under clustered CV with structurally novel triggers. CLASP serves as a practical frontline defense for SSM-based and hybrid LLMs. Code and results: https://anonymous.4open.science/r/hispikes-91C0.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>poisoning</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Unclonable Encryption in the Haar Random Oracle Model</title>
+      <link>https://eprint.iacr.org/2026/506</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/506</guid>
+      <description>We construct the first unclonable encryption (UE) scheme in the Haar random oracle model, where all parties can query a Haar-random unitary $U$ and its adjoint $U^\dagger$, complex conjugate $U^*$, and transpose $U^T$. Our scheme achieves standard unclonable indistinguishability security, supports secret key reuse, and encrypts messages of arbitrary length—resolving a longstanding open question on the feasibility of *reusable* UE in “micocrypt”, a minimal cryptographic world where one-way functions may not exist. A central technical contribution is a novel **unitary reprogramming lemma**, built upon the path recording framework, enabling controlled rewinding of quantum queries while preserving the Haar measure—a tool of independent interest for quantum oracle separations. This work establishes UE as achievable under only quantum-accessible random structure, without relying on classical hardness assumptions.</description>
+      <pubDate>Thu, 12 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>Re-Evaluating EVMBench: Are AI Agents Ready for Smart Contract Security?</title>
@@ -476,56 +529,6 @@
       <category>arXiv</category>
       <category>federated</category>
       <category>learning</category>
-    </item>
-    <item>
-      <title>Federated Learning-driven Beam Management in LEO 6G Non-Terrestrial Networks</title>
-      <link>https://arxiv.org/abs/2603.10983v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.10983v1</guid>
-      <description>This paper proposes a **Federated Learning (FL)-driven beam management framework** for Low Earth Orbit (LEO) 6G Non-Terrestrial Networks (NTNs), addressing critical challenges of dynamic propagation, high mobility, and privacy-sensitive distributed training. Leveraging High-Altitude Platform Stations (HAPS) as lightweight coordinators, orbital planes act as decentralized learners—exchanging only model parameters, not raw channel data. We evaluate two on-device models: a Multi-Layer Perceptron (MLP) and a novel Graph Neural Network (GNN) that encodes satellite-user-beam topology and orbital kinematics as a dynamic heterogeneous graph. Under realistic 3GPP TR 38.811 channel conditions and Starlink-like LEO constellation configurations, the GNN achieves **92.4% average beam selection accuracy**, outperforming MLP by 12.7% overall and by 18.3% at low elevation angles (&lt;15°). It converges 35% faster, reduces parameter count by 41%, and improves cross-region generalization by 32%. This work establishes the first orbit-aware graph FL paradigm for NTNs—enabling efficient, privacy-preserving, and robust intelligent beam management in 6G integrated space-air-ground networks.</description>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>FRIEND: Federated Learning for Joint Optimization of multi-RIS Configuration and Eavesdropper Intelligent Detection in B5G Networks</title>
-      <link>https://arxiv.org/abs/2603.10977v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.10977v1</guid>
-      <description>This paper proposes **FRIEND**, a novel federated learning (FL)-based framework for *joint optimization* of multi-RIS configuration and physical-layer eavesdropper detection in cell-free mmWave B5G networks. Leveraging locally observed Channel State Information (CSI), edge devices collaboratively train a lightweight Deep Convolutional Neural Network (DCNN) with an early-exit mechanism—avoiding raw data sharing and enabling latency-aware inference. By integrating FL aggregation with RIS phase-shift coordination, FRIEND improves the average secrecy rate by **~30%** over non-RIS baselines while achieving **&gt;96.2% detection accuracy**, nearly matching centralized performance. The framework ensures strong privacy preservation, scalability, and robustness to Non-IID CSI, establishing a practical, distributed security paradigm for next-generation IIoT.</description>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>train</category>
-      <category>federated</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>Quantifying Membership Disclosure Risk for Tabular Synthetic Data Using Kernel Density Estimators</title>
-      <link>https://arxiv.org/abs/2603.10937v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.10937v1</guid>
-      <description>This paper introduces a practical, KDE-based method to quantify membership inference risk in tabular synthetic data. By modeling the distribution of nearest-neighbor distances between synthetic records and training data, our approach enables probabilistic membership inference and robust evaluation via ROC analysis—without requiring expensive shadow models or access to true membership labels. We propose two attack variants: an idealized “True Distribution Attack” (with full training data access) and a realistic, auxiliary-data-only “Realistic Attack” suitable for real-world deployment. Empirical evaluation across four real-world datasets and six synthetic generators shows our method consistently achieves higher F1 scores (+12.3% avg.) and sharper risk discrimination than prior baselines. It provides data custodians with an efficient, interpretable, post-generation privacy audit metric. Code and data are publicly available.</description>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>membership</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>Bridging Programmability, Efficiency, and Bounded Trust:  A Hybrid Privacy-Preserving Smart Contract Framework</title>
-      <link>https://eprint.iacr.org/2026/498</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/498</guid>
-      <description>Privacy-preserving smart contracts (PPSCs) enable mutually distrustful parties to jointly compute on private inputs, yet existing approaches face a tripartite trade-off among programmability, efficiency, and trust assumptions. Hardware-based solutions (e.g., SGX) offer generality and speed but require full hardware trust; cryptographic ones minimize trust but suffer from poor performance and limited expressiveness. This paper proposes a hybrid PPSC framework that synergistically combines TEE execution with lightweight on-chain cryptographic verification—specifically, the TEE runs arbitrary Solidity contracts and generates succinct proofs of encrypted results, while the blockchain verifies proofs and aggregates outputs using homomorphic encryption and authentication primitives. Crucially, the TEE is *not trusted* for correctness; its outputs are cryptographically attested. We formalize the model and prove security in the Universal Composability framework. Our SGX–Solidity implementation shows near-native performance: &lt;3.2% latency overhead and &gt;97% throughput retention versus non-private execution, with on-chain verification under 50 ms per transaction. The framework achieves Turing-complete programmability without expanding the trusted computing base beyond the TEE’s minimal attestation logic.</description>
-      <pubDate>Wed, 11 Mar 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Randomized Distributed Function Computation (RDFC): Ultra-Efficient Semantic Communication Applications to Privacy</title>
-      <link>https://arxiv.org/abs/2603.09577v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.09577v1</guid>
-      <description>We introduce **Randomized Distributed Function Computation (RDFC)**, a semantic communication framework where a sender transmits only the minimal information needed for a receiver to *generate a randomized function* of the input—formalizing privacy-aware distributed computation as generalized remote source coding. Leveraging strong coordination metrics, we establish provable **local differential privacy (LDP) for all input sequences**, even *without any common randomness* between transmitter and receiver. We derive tight lower bounds on Wyner’s Common Information (WCI)—the fundamental rate limit under no shared randomness—and propose numerical methods to evaluate the complementary corner point of the RDFC rate region for continuous alphabets with unlimited shared randomness. Experiments show that sufficient shared randomness reduces the semantic communication rate by up to **two orders of magnitude** versus WCI; even without shared randomness, RDFC vastly outperforms lossless transmission. Finite-blocklength analysis confirms the privacy parameter gap between asymptotic and non-asymptotic RDFC vanishes **exponentially fast** in input length—positioning RDFC as an energy-efficient, privacy-native semantic communication strategy for resource-constrained distributed systems.</description>
-      <pubDate>Tue, 10 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>differential</category>
-      <category>privacy</category>
     </item>
   </channel>
 </rss>

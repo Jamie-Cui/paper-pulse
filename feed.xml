@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sun, 29 Mar 2026 02:13:27 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Mar 2026 02:15:17 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Comparative Evaluation of DATA and Microwalk for Detecting Constant-Time Violations in Cryptographic Libraries</title>
@@ -63,6 +63,47 @@
 This paper presents **four adaptively secure PRE schemes with tight security** under the Matrix Decisional Diffie-Hellman (MDDH) assumption: $\mathsf{PRE}_0$/$\mathsf{PRE}_1$ achieve tight aHRA security (single/multi-challenge), while $\mathsf{PRE}_2$/$\mathsf{PRE}_3$ achieve (almost) tight aCCA security. To enable tight CCA security, we introduce **tag-based language-malleable NIZK with special simulation soundness**—a novel primitive preserving simulation soundness while allowing controlled, syntax-aware malleability—and construct both one-time and unbounded versions from MDDH. Our results are the first to achieve truly tight adaptive CCA security for PRE.</description>
       <pubDate>Fri, 27 Mar 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
+    </item>
+    <item>
+      <title>GUIDE: Resolving Domain Bias in GUI Agents through Real-Time Web Video Retrieval and Plug-and-Play Annotation</title>
+      <link>https://arxiv.org/abs/2603.26266v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.26266v1</guid>
+      <description>Large vision-language models (VLMs) empower GUI agents but suffer from *domain bias*: poor familiarity with application-specific workflows (planning) and UI layouts (grounding), due to scarce domain-operation data in pretraining. We propose **GUIDE**, a training-free, plug-and-play framework that resolves this bias by autonomously retrieving and annotating expertise from open-web tutorial videos. GUIDE introduces (1) a **subtitle-driven Video-RAG pipeline**, performing three-stage retrieval (domain classification → topic extraction → frame-level relevance matching) to identify task-relevant videos; and (2) a **fully automated inverse-dynamics annotation pipeline**, which feeds UI-augmented keyframes into VLMs to infer planning and grounding knowledge—then injects it directly into the agent’s modules. Evaluated on OSWorld, GUIDE boosts success rates by **+5.2–7.8%**, reduces execution steps by **12.4%**, and works seamlessly with both single-model and multi-agent systems—*without any model modification*. It establishes a new paradigm for zero-shot, architecture-agnostic GUI agent domain adaptation.</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Clawed and Dangerous: Can We Trust Open Agentic Systems?</title>
+      <link>https://arxiv.org/abs/2603.26221v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.26221v1</guid>
+      <description>This paper systematically analyzes the security of open agentic systems—LLM-driven agents with external tool access, persistent memory, and privileged execution—through a software engineering lens. We introduce a six-dimensional analytical taxonomy and synthesize 50 papers across attacks, benchmarks, defenses, audits, and foundational engineering. From this, we derive a *secure-by-construction doctrine* for agent platforms and a concrete *security posture scorecard* with 18 measurable criteria. Our review reveals maturity in attack characterization (e.g., plan injection, memory poisoning) and benchmark design (e.g., AgentBench), but critical gaps remain in deployment controls, operational governance, persistent-memory integrity, and real-time capability revocation. These gaps define an urgent engineering agenda for building governable, auditable, and resilient agent ecosystems.</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>agent</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>A Human-Inspired Decoupled Architecture for Efficient Audio Representation Learning</title>
+      <link>https://arxiv.org/abs/2603.26098v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.26098v1</guid>
+      <description>Self-supervised learning has advanced audio representation, yet standard Transformers suffer from excessive parameters (85–94M) and quadratic computational cost, hindering edge deployment. To address this, we propose **HEAR**, a human-inspired *decoupled architecture*: it separates local acoustic feature extraction (via a lightweight CNN-RNN Acoustic Model) from global semantic integration (via a compact Transformer Task Model). An Acoustic Tokenizer—trained via knowledge distillation—enables efficient Masked Audio Modeling with low-dimensional, semantically rich tokens. HEAR achieves only **15M parameters** and **9.47 GFLOPs** inference cost—~82% less than foundation models—while attaining highly competitive accuracy across diverse benchmarks (e.g., 89.2% on ESC-50). Code and models are publicly available at https://github.com/HarunoriKawano/HEAR.</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Semi-Automated Knowledge Engineering and Process Mapping for Total Airport Management</title>
+      <link>https://arxiv.org/abs/2603.26076v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2603.26076v1</guid>
+      <description>This paper addresses the critical challenge of semantic fragmentation in airport operations documentation—caused by technical jargon, regulatory complexity, regional heterogeneity, and stakeholder silos—which impedes Total Airport Management (TAM). We propose a semi-automated framework that synergistically fuses expert-curated symbolic Knowledge Engineering (KE) with generative LLMs to build a domain-grounded, machine-readable Knowledge Graph. A scaffolded prompting strategy leverages KE structures to guide LLMs toward semantically aligned triple extraction. Evaluation on Google LangExtract reveals a counterintuitive finding: document-level LLM inference—contrary to typical long-context degradation—improves recovery of non-linear procedural dependencies by 37.2% over segment-based processing. To meet aviation’s stringent traceability requirements, every extracted triple is probabilistically discovered *and* deterministically anchored to its exact source span, ensuring full verifiability. Finally, we operationalize the pipeline into an automated system that synthesizes executable operational workflows directly from unstructured textual corpora.</description>
+      <pubDate>Fri, 27 Mar 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
     </item>
     <item>
       <title>Unveiling the Resilience of LLM-Enhanced Search Engines against Black-Hat SEO Manipulation</title>
@@ -458,47 +499,6 @@ This paper presents **four adaptively secure PRE schemes with tight security** u
       <category>learning</category>
       <category>adversarial</category>
       <category>machine</category>
-    </item>
-    <item>
-      <title>PAC-DP: Personalized Adaptive Clipping for Differentially Private Federated Learning</title>
-      <link>https://arxiv.org/abs/2603.24003v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.24003v1</guid>
-      <description>Differential privacy (DP) is essential for protecting client data in federated learning (FL), yet conventional DP-FL methods rely on fixed gradient clipping thresholds, ignoring client heterogeneity and personalized privacy sensitivity. To address this, we propose **PAC-DP**, a Personalized Adaptive Clipping framework for record-level local DP-FL. PAC-DP leverages a server-hosted public proxy dataset to learn, via simulation and curve fitting, a lightweight, budget-conditioned mapping from per-client privacy budgets $\varepsilon_i$ to optimal clipping thresholds $C_i$, deployed online with round-wise scheduling—avoiding data-dependent tuning. We provide theoretical convergence guarantees under per-example clipping and Gaussian perturbation, along with reproducible privacy accounting. Extensive experiments across CIFAR-10/100, FEMNIST, and Sentiment140 show PAC-DP improves accuracy by up to **26%** and accelerates convergence by up to **45.5%** over fixed-threshold baselines under matched privacy budgets, with negligible overhead.</description>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
-      <category>differential</category>
-      <category>federated</category>
-      <category>privacy</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>Policy-Guided Threat Hunting: An LLM enabled Framework with Splunk SOC Triage</title>
-      <link>https://arxiv.org/abs/2603.23966v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.23966v1</guid>
-      <description>This paper introduces **Policy-Guided Threat Hunting (PGTH)**, an LLM-augmented, Splunk-integrated framework for autonomous, risk-aware threat hunting in modern SOCs. PGTH unifies reconstruction-based autoencoders for unsupervised anomaly scoring, a two-layer deep reinforcement learning (DRL) module for policy-driven initial triage (block/allow/monitor), and a fine-tuned security-domain LLM for contextual analysis, MITRE ATT&amp;CK alignment, and natural-language reporting. Evaluated on CIC-IDS2017 and a simulated APT dataset, PGTH achieves **23.6% higher recall** and **41.2% lower false positive rate** than conventional ML baselines, while dynamically adapting detection sensitivity and response actions to configurable organizational policies (e.g., zero-trust vs. business continuity). By bridging Agentic AI with operational SIEM workflows, PGTH enhances analyst decision-making velocity and reduces cognitive load—demonstrating the first production-ready, policy-as-code framework for LLM-enabled SOC triage.</description>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>llm</category>
-    </item>
-    <item>
-      <title>AgentRFC: Security Design Principles and Conformance Testing for Agent Protocols</title>
-      <link>https://arxiv.org/abs/2603.23801v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.23801v1</guid>
-      <description>AI agent protocols (e.g., MCP, A2A, ANP, ACP) enable cross-trust-domain capability discovery, task delegation, and service composition—yet lack a systematic security framework despite massive adoption (e.g., &gt;97M monthly MCP SDK downloads). AgentRFC introduces three core contributions: (1) the **Agent Protocol Stack**, a 6-layer architectural model defining completeness requirements per layer (analogous to ITU-T X.800 for OSI); (2) the **Agent-Agnostic Security Model (AASM)**, formalizing 11 security principles as TLA+ invariants with a taxonomy distinguishing protocol non-conformance from framework-imposed hardening; and (3) **AgentConform**, a two-phase conformance checker that parses normative specifications into a typed Protocol IR, model-checks against AASM invariants, and validates counterexamples on live SDKs. We identify **Composition Safety (CS)** as a critical gap: security properties valid in isolation break under protocol composition—revealed through formal modeling of five composition patterns. Preliminary evaluation uncovers recurrent flaws in credential lifecycle, consent enforcement, audit completeness, and CS, with several findings under coordinated disclosure.</description>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>agent</category>
-    </item>
-    <item>
-      <title>A Note on HCTR++</title>
-      <link>https://eprint.iacr.org/2026/591</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/591</guid>
-      <description>This note identifies a **fundamental correctness flaw** in the original HCTR++ construction (ePrint Archive 2026/383) proposed by Öztürk et al., which introduces an “Accordion mode” for tweakable block ciphers. We prove that Algorithm 2 (decryption) fails to invert Algorithm 1 (encryption) for generic inputs—rendering the scheme *provably undecryptable* under its stated specification. The vulnerability was discovered entirely through manual formal analysis, without AI assistance. As a controlled experiment, we later submitted the full algorithm description to free versions of ChatGPT and Claude; neither detected the flaw—both returned non-specific safety comments or incorrectly affirmed correctness. This highlights critical limitations of current free LLMs in verifying cryptographic primitive integrity. Importantly, this note addresses *only the original version*; the authors have since released a revised design, which we do not analyze. All findings and interpretations are the author’s sole responsibility.</description>
-      <pubDate>Wed, 25 Mar 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
     </item>
   </channel>
 </rss>

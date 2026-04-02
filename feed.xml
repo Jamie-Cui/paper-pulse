@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Wed, 01 Apr 2026 02:50:32 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2026 02:09:43 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EnsembleSHAP: Faithful and Certifiably Robust Attribution for Random Subspace Method</title>
@@ -464,67 +464,52 @@
       <category>federated</category>
     </item>
     <item>
-      <title>Hidden Ads: Behavior Triggered Semantic Backdoors for Advertisement Injection in Vision Language Models</title>
-      <link>https://arxiv.org/abs/2603.27522v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27522v1</guid>
-      <description>We introduce **Hidden Ads**, a novel behavior-triggered semantic backdoor attack against Vision-Language Models (VLMs) deployed in consumer recommendation services. Unlike conventional pattern-based backdoors, Hidden Ads activates *naturally* when users upload images containing target semantics (e.g., food, cars) and ask recommendation-seeking questions—triggering seamless injection of attacker-specified promotional slogans while preserving high task accuracy (&gt;99.5% original performance) and natural language fluency. We propose a three-tier threat framework (hard/soft prompt injection, supervised fine-tuning) and a teacher-VLM–guided data poisoning pipeline that generates semantically grounded trigger–slogan pairs across domains. Experiments on BLIP-2, LLaVA-1.5, and Qwen-VL show &gt;92% injection success, near-zero false positives (&lt;0.3%), strong cross-dataset transferability, and efficient multi-domain scaling. Standard defenses—including instruction filtering and clean fine-tuning—fail to remove the backdoor without severe utility degradation (up to −17.2% recommendation accuracy). Hidden Ads exposes critical semantic-level vulnerabilities in real-world VLM interfaces.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>prompt</category>
-      <category>injection</category>
+      <title>Weak-key cryptanalysis of Blink</title>
+      <link>https://eprint.iacr.org/2026/624</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/624</guid>
+      <description>This note presents the first weak-key cryptanalysis of **Blink**, a recently proposed tweakable block cipher from FSE 2026. We identify multiple **nonlinear invariants** under two rounds of Blink—arising from algebraic properties of its S-box and lightweight MDS layer under specific weak keys or tweaks. Leveraging these invariants, we mount a **partial key-recovery attack on Blink-64**: requiring only $2^{23}$ data and time complexity, it succeeds for a fraction $2^{-96}$ of weak keys/tweaks. A clear trade-off exists: with $2^{56}$ data, the weak-key fraction improves to $2^{-63}$. The attack adapts the invariant-based strategy previously used against Midori-64 (Asiacrypt 2018), marking the first successful application to a tweakable cipher—and challenging Blink’s claimed resistance to invariant attacks.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>Ordering Power is Sanctioning Power: Sanction Evasion-MEV and the Limits of On-Chain Enforcement</title>
-      <link>https://arxiv.org/abs/2603.27739v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27739v1</guid>
-      <description>This paper identifies a foundational enforcement gap in on-chain sanctions: while centralized stablecoins (e.g., USDC, USDT) implement blacklists at the contract layer, freeze transactions on public blockchains compete for inclusion like any other—making enforcement contingent on *transaction ordering*, which is allocated by economic incentives—not regulatory authority. We introduce **Sanction-Evasion MEV (SE-MEV)** to describe the value extracted when block proposers prioritize sanctioned-entity withdrawals over issuer freezes. Using the first comprehensive dataset of Ethereum-based USDC/USDT sanctions (Nov 2017–Aug 2025, &gt;$1.5B frozen), we find 7.3% of sanctioned USDT and **18.7% of sanctioned USDC addresses were drained before freezing took effect**, with evasion escalating from gas auctions to private order flow and direct proposer bribery. A game-theoretic model shows: (i) compliant issuers cannot rationally opt out of the MEV market; (ii) fixed entry costs concentrate evasion among specialized actors; and (iii) the implicit MEV “tax” grows unbounded as regulatory penalties rise—creating strong incentives for vertical integration into block-building infrastructure. Our work establishes that **on any economically ordered blockchain, ordering power *is* sanctioning power**—contract-level authority alone cannot ensure enforcement.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
+      <title>Bad Benchmarks and a Fourier-Analytic Framework for Characterizing the (Un)Hideability of Combinational-Logic Circuits</title>
+      <link>https://eprint.iacr.org/2026/623</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/623</guid>
+      <description>Design-hiding (DH) schemes like logic locking aim to protect IC design IP, yet nearly all proposed schemes have been broken—largely due to overreliance on legacy benchmarks (e.g., ISCAS’85, MCNC) whose security relevance is questionable. Recent learning-theoretic work shows some combinational circuits are *fundamentally unhideable* if their Boolean functions possess sparse Fourier spectra, enabling efficient black-box approximation. To assess prevalence of such circuits in standard DH benchmarks, we develop novel *white-box* Fourier-analytic algorithms that leverage circuit structure and modern model counting—achieving polynomial-time evaluation of spectral sparsity and variable influence with &lt;3.2% error. Applied to 30 benchmark circuits, we find **87% of ISCAS’85/MCNC instances are unhideable**, whereas newer EPFL/ACM benchmarks show markedly higher resistance (71% hideable). This exposes a critical benchmarking gap and establishes Fourier robustness as a necessary criterion for trustworthy DH evaluation.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>A Systematic Taxonomy of Security Vulnerabilities in the OpenClaw AI Agent Framework</title>
-      <link>https://arxiv.org/abs/2603.27517v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27517v1</guid>
-      <description>This paper presents the first systematic taxonomy of 190 security advisories against OpenClaw—an open-source AI agent runtime—organized along two orthogonal dimensions: (1) *system layer* (exec policy, gateway, channel, sandbox, browser, plugin, agent/prompt) and (2) *attack technique* (identity spoofing, policy bypass, cross-layer composition, prompt injection, supply-chain escalation). Patch-differential analysis reveals three critical findings: (1) Three moderate-to-high severity vulnerabilities in the Gateway and Node-Host subsystems compose into a complete, unauthenticated remote code execution (RCE) chain—from an LLM tool call to arbitrary host process execution; (2) The exec allowlist, OpenClaw’s primary command-filtering mechanism, fails under real-world shell semantics (e.g., line continuation, BusyBox multiplexing, GNU option abbreviation) due to its reliance on a brittle closed-world lexical identity assumption; (3) A malicious skill delivered via the plugin channel executed a two-stage dropper inside the LLM context, bypassing the exec pipeline entirely—demonstrating a complete absence of runtime policy enforcement at the skill distribution surface. The dominant structural weakness is per-layer trust enforcement, not unified policy boundaries, rendering cross-layer attacks resilient to localized fixes.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>security</category>
-      <category>injection</category>
-      <category>llm</category>
-      <category>prompt</category>
+      <title>Locally Computable High Independence Hashing</title>
+      <link>https://eprint.iacr.org/2026/622</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/622</guid>
+      <description>We study $(\epsilon\text{-})k$-wise independent hash functions for *very large* $k$, where outputs on any $k$ inputs are (almost) uniform and independent. To enable sublinear evaluation time, we focus on *$t$-local* functions—each evaluation reads only $t \ll k$ bits of the key. Our key contributions are: (1) A non-constructive existence proof of *perfectly* $k$-wise independent $t$-local hash functions with optimal key size $O(kn)$ bits and locality $t = O(n)$ *bits*—improving prior word-based bounds by a factor of $\Theta(n)$. (2) A tight connection: such perfect local hash functions *naturally yield* lossless expanders; progress on explicit constructions thus fundamentally requires advances in explicit expander design. (3) The first *explicit*, efficient family of $\epsilon$-almost $k$-wise independent hash functions with optimal key $O(kn)$ bits, optimal locality $t = O(n)$ bits, and $\epsilon = 2^{-n}$. (4) In a word-RAM model with word size $w$, we achieve explicit $\epsilon$-almost independence with key $O(kn/w)$ words, locality $O(n/\sqrt{w})$ words, and $\epsilon = 2^{-n}$—a parameter regime *impossible* under perfect independence, enabling nearly optimal bounded-access information-theoretic cryptography.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>Expert Streaming: Accelerating Low-Batch MoE Inference via Multi-chiplet Architecture and Dynamic Expert Trajectory Scheduling</title>
-      <link>https://arxiv.org/abs/2603.27624v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27624v1</guid>
-      <description>Mixture-of-Experts (MoE) holds promise for edge AI low-batch inference, yet suffers from on-chip memory constraints, severe workload imbalance, and off-chip memory bottlenecks caused by offloading. Fine-grained, runtime-adaptive scheduling is further demanded by MoE sparsity and dynamic gating. Leveraging high-bandwidth die-to-die (D2D) interconnects in modern chiplet architectures, we propose **Fully Sharded Expert Data Parallelism (FSE-DP)**—a novel parallelization paradigm tailored for multi-chiplet MoE inference. FSE-DP orchestrates complementary, fine-grained expert streams along dynamically optimized trajectories across D2D links to achieve adaptive computation-communication overlap and balanced load. Its dataflow complexity is managed via a minimal set of hardware-friendly virtualization rules and a lightweight O(1)-complexity scheduler. Evaluated on a 4-chiplet platform, FSE-DP delivers **1.22×–2.00× speedup** over state-of-the-art baselines and reduces on-chip memory usage by **up to 78.8%**, enabling efficient, off-chip-memory-free low-batch MoE inference at the edge.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
+      <title>Efficient Conflict-Free NTT Hardware Architecture with Single-Port RAMs: Applications to ML-DSA</title>
+      <link>https://eprint.iacr.org/2026/621</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/621</guid>
+      <description>We propose a novel Number Theoretic Transform (NTT) hardware architecture for ML-DSA, built entirely on single-port RAMs (SPRAMs) — eliminating the need for dual-port RAMs (DPRAMs) commonly used in prior designs. Leveraging the Prouhet-Thue-Morse (PTM) code for memory addressing, our approach guarantees **conflict-free, transactional, and fully pipelined access** across all NTT stages, while enabling scalable parallelism via multiple butterfly units. We implement compliant single- and dual-butterfly NTT modules for ML-DSA ($n=1024$, $q=3329$), packaged as AXI-Stream peripherals for DMA-based software offloading of forward/inverse NTT. FPGA evaluation shows near-optimal throughput: **0.98 cycles/butterfly (single)** and **0.49 cycles/butterfly (dual)**, with logic and memory resource usage comparable to state-of-the-art compact NTT implementations — despite using SPRAMs exclusively and avoiding coefficient reordering. This work enables efficient, low-area post-quantum cryptographic acceleration on resource-constrained platforms.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>Safer Builders, Risky Maintainers: A Comparative Study of Breaking Changes in Human vs Agentic PRs</title>
-      <link>https://arxiv.org/abs/2603.27524v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27524v1</guid>
-      <description>This paper presents the first large-scale comparative study of breaking changes in AI-generated versus human-authored pull requests (PRs). Analyzing 7,191 agentic and 1,402 human PRs from Python repositories in AIDev, we develop an AST-based static analyzer to precisely detect semantic breaking changes (e.g., signature modifications, interface removals). Contrary to common concerns, agents introduce significantly *fewer* breaking changes overall (3.45% vs. 7.40%), demonstrating stronger backward-compatibility awareness in code generation tasks. However, they exhibit markedly *higher risk during maintenance*: refactoring and chore PRs contain breaking changes at rates of 6.72% and 9.35%, respectively—exceeding human counterparts. Critically, we identify a “Confidence Trap”: highly confident agentic PRs (≥0.9) still frequently break compatibility (23% of such PRs), indicating that confidence scores are poor proxies for stability. Our findings urge context-aware review policies—especially mandatory human validation for maintenance-oriented agentic changes.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>security</category>
+      <title>AHAB: Asynchronous, High-throughput, Adaptively-secure, Batched Threshold Schnorr Signatures</title>
+      <link>https://eprint.iacr.org/2026/620</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/620</guid>
+      <description>We present **AHAB**, a suite of threshold Schnorr signature protocols for the *asynchronous* setting with guaranteed output delivery (robustness). Building on AVSS and GoAVSS, AHAB extends security to the *adaptive corruption model with erasures*, provides a *player-elimination pipeline* that bounds damage from active misbehavior (cost ≤ $O(t^*)$ × happy-path, with full identification and removal of all $t^*$ corrupt parties), introduces a *simplified $t &lt; n/4$ variant* achieving worst-case linear communication by replacing complaints with pipeline-level star-finding, and proposes a *hiding GoAVSS variant* enabling unbiased distributed key generation—preventing adaptive key bias. We also design new, efficient star-finding algorithms (including an ILP-based optimizer) to improve presignature yield per batch. Evaluation estimates **100K sig/sec** ($t=16,n=49$) and **160–250K sig/sec** ($t=16,n=65$) on 1 Gbps commodity hardware.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>Statistical Guarantees for Distributionally Robust Optimization with Optimal Transport and OT-Regularized Divergences</title>
-      <link>https://arxiv.org/abs/2603.27871v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2603.27871v1</guid>
-      <description>We establish finite-sample statistical guarantees for distributionally robust optimization (DRO) using optimal transport (OT) and OT-regularized $f$-divergence uncertainty sets—key tools for adversarial training in supervised learning. Our concentration inequalities apply broadly to OT cost functions beyond the classical $p$-Wasserstein case, including **soft-constraint norms** (e.g., entropy-regularized or Lipschitz-relaxed costs), which empirically improve robustness. Crucially, we are the first to analyze DRO with **OT-regularized $f$-divergences**, which jointly induce adversarial sample perturbation *and* importance reweighting—mechanisms shown to boost performance. Even for $p$-Wasserstein DRO, our bounds scale as $\mathcal{O}(\sqrt{\varepsilon})$ in the neighborhood radius $\varepsilon$, improving upon prior $\mathcal{O}(\varepsilon^{1/p})$ rates in adversarial settings. The results provide the first theoretical foundation for the empirical success of soft-constraint and reweighting-aware OT-based robustification.</description>
-      <pubDate>Sun, 29 Mar 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>adversarial</category>
-      <category>learning</category>
-      <category>machine</category>
+      <title>Breaking the One-Way Property of a SHA-3 Implementation via Fault Injection: Key Recovery Attacks on Post-Quantum Digital Signatures</title>
+      <link>https://eprint.iacr.org/2026/619</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/619</guid>
+      <description>This paper demonstrates practical fault-injection attacks that break the one-way property of SHA-3 implementations in six NIST Round-2 post-quantum signature candidates: CROSS, LESS (code-based), MAYO (multivariate), and Mirath, RYDE, PERK (MPC-in-the-Head). All rely on SHA-3 to securely embed secret-dependent values during signing. We show that a single instruction-skip fault—induced via voltage glitching during the Keccak-f squeezing phase—leaks internal state information, enabling full private key recovery from signature outputs. Crucially, this fault transforms the hash function into a *reversible* mapping, violating its foundational one-wayness assumption. We experimentally validate the attack on the optimized pqm4 ARM Cortex-M4 implementation of CROSS, achieving key recovery with ≤3 successful glitches. We further propose lightweight, implementation-aware countermeasures—including state integrity checks during squeezing and fault-triggered key erasure—that preserve performance while restoring resilience.</description>
+      <pubDate>Mon, 30 Mar 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
   </channel>
 </rss>

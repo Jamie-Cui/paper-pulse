@@ -4,8 +4,71 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Tue, 07 Apr 2026 02:30:42 -0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2026 02:17:25 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swiss-Bench 003: Evaluating LLM Reliability and Adversarial Security for Swiss Regulatory Contexts</title>
+      <link>https://arxiv.org/abs/2604.05872v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05872v1</guid>
+      <description>Swiss-Bench 003 (SBP-003) introduces the first empirically grounded, dual-axis evaluation framework for LLMs in Swiss regulatory contexts—jointly assessing *production reliability* and *adversarial security*. Extending HAAS to eight dimensions, it adds D7 (self-graded reliability proxy) and D8 (adversarial security), and evaluates ten frontier models on 808 Swiss-specific, multilingual (DE/FR/IT/EN) items across seven newly developed benchmarks aligned with FINMA Guidance 08/2024, the revised nDSG, and OWASP LLM Top 10. Key findings: D7 self-scores (73–94%) vastly exceed D8 security scores (20–61%), revealing a critical confidence-robustness gap; prompt leakage resistance varies widely (24.8–88.2%), while PII extraction defense remains uniformly weak (14–42%); Qwen 3.5 Plus achieves top D7 (94.4%), and cost-efficient GPT-oss 120B attains highest D8 (60.7%). All evaluations are zero-shot under default provider settings; D7 is model-self-assessed and not independently validated. Conceptual mapping tables explicitly link benchmark dimensions to regulatory requirements for audit-ready compliance.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>extraction</category>
+      <category>llm</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>From Incomplete Architecture to Quantified Risk: Multimodal LLM-Driven Security Assessment for Cyber-Physical Systems</title>
+      <link>https://arxiv.org/abs/2604.05674v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05674v1</guid>
+      <description>Cyber-physical systems (CPS) frequently suffer from incomplete or outdated architectural documentation, hindering reliable security assessment. To address this, we propose **ASTRAL**, an architecture-centric security assessment framework powered by multimodal LLMs. ASTRAL reconstructs system architectures from fragmented data sources (e.g., logs, diagrams, configs) via prompt chaining and few-shot learning, then integrates LLM-based reasoning with architectural modeling to identify threats and quantify risk—yielding interpretable, confidence-weighted scores for exposure, cascade probability, and recovery effort. Evaluated across three real-world CPS case studies and validated by 14 expert practitioners, ASTRAL achieves +38.2% higher architecture element recall and +51.7% broader threat coverage versus baseline methods, with strong inter-rater agreement (κ = 0.82). Practitioners rated it highly usable for architecture review and risk-informed decision-making.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>llm</category>
+    </item>
+    <item>
+      <title>Analogical Reasoning as a Doctor: A Foundation Model for Gastrointestinal Endoscopy Diagnosis</title>
+      <link>https://arxiv.org/abs/2604.05649v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05649v1</guid>
+      <description>We introduce RATNet, a foundation model for gastrointestinal endoscopy diagnosis grounded in *analogical reasoning*—a novel paradigm that matches image-derived posterior knowledge to a learned prior knowledge base and transfers *relative relational knowledge* (e.g., “lesion A differs from B similarly to how C differs from D”) rather than relying on absolute label correspondence. Trained via cyclic pre-training across five heterogeneous endoscopy datasets without manual annotation alignment, RATNet features an encoder–RAT module–projector–multi-task head architecture, supporting fine-tuning, linear probing, and zero-shot transfer. In comprehensive evaluations across six clinically critical scenarios—including common disease diagnosis, few-shot rare disease recognition, zero-shot cross-site deployment, long-tailed robustness, novel disease adaptation, and privacy-preserving federated learning—RATNet consistently outperforms state-of-the-art foundation models (e.g., GastroNet, GastroVision). Its analogical mechanism enhances generalization, mitigates annotation bias, reduces data acquisition costs, and enables practical deployment in resource-constrained settings. Code and models are open-sourced.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>From Large Language Model Predicates to Logic Tensor Networks: Neurosymbolic Offer Validation in Regulated Procurement</title>
+      <link>https://arxiv.org/abs/2604.05539v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05539v1</guid>
+      <description>We propose a neurosymbolic pipeline for auditable offer validation in regulated public procurement, integrating large language models (LLMs) with Logic Tensor Networks (LTNs). First, an LLM acts as a semantic predicate extractor—deriving interpretable, probabilistic truth values (e.g., “*bid amount ≤ ceiling*”) directly from unstructured offer documents. Second, these predicates are grounded in an LTN to perform differentiable first-order logical reasoning under domain-specific regulatory rules (e.g., “*if valid_license ∧ compliant_price then recommend_award*”). Evaluated on a real-world corpus of 1,247 procurement offers and 38 compliance clauses, our approach achieves competitive performance (F1 = 0.892 vs. 0.901 for SOTA black-box models), while uniquely enabling full decision traceability: every output is justified by concrete text spans, predicate scores, and activated logical rules. This provides native XAI support, modular predicate maintenance, and legally verifiable audit trails—addressing critical trust and compliance requirements in high-stakes public sector AI deployment.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Auditable Agents</title>
+      <link>https://arxiv.org/abs/2604.05485v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05485v1</guid>
+      <description>This paper introduces *Auditable Agents*, arguing that accountability for LLM-based agents is impossible without built-in auditability—the system property enabling post-hoc reconstruction, compliance verification, and responsibility attribution. We formalize auditability along five dimensions: action recoverability, lifecycle coverage, policy checkability, responsibility attribution, and evidence integrity. To realize these, we identify three complementary mechanism classes—*detect*, *enforce*, and *recover*—whose temporal constraints explain why no single technique suffices. Supporting evidence is layered: ecosystem analysis reveals 617 security flaws across six open-source agent projects, indicating widespread failure to meet basic auditability prerequisites; runtime evaluation shows tamper-evident pre-execution mediation adds only 8.3 ms median overhead; and controlled recovery experiments demonstrate partial responsibility-relevant information can be reconstructed even when conventional logs are absent. We propose the *Auditability Card* as a standardized assessment tool and outline six open research problems, categorized by mechanism class.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>llm</category>
+      <category>agent</category>
+    </item>
+    <item>
+      <title>LanG -- A Governance-Aware Agentic AI Platform for Unified Security Operations</title>
+      <link>https://arxiv.org/abs/2604.05440v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.05440v1</guid>
+      <description>This paper introduces **LanG**, an open-source, governance-aware agentic AI platform for unified security operations. Addressing alert fatigue, tool fragmentation, and poor cross-source correlation in modern SOCs, LanG integrates five core innovations: (i) a Unified Incident Context Record with 87% F1 correlation; (ii) a LangGraph-based Agentic Orchestrator with human-in-the-loop checkpoints; (iii) an LLM Rule Generator (finetuned on four base models) producing Snort/Suricata/YARA rules at 96.2% acceptance and &gt;91% live-IDS deployability; (iv) a Three-Phase Attack Reconstructor achieving 87.5% kill-chain accuracy via Louvain detection, LLM hypothesis generation, and Bayesian scoring; and (v) a layered Governance-MCP-Agentic AI-Security architecture governed by a two-layer guardrail pipeline (regex + Llama Prompt Guard 2) with 98.1% F1 and zero false positives experimentally. Benchmarked on intrusion detection, LanG achieves 99.0% (anomaly) and 91.0% (threat) weighted F1, with ~21 ms inference latency and 1.58 s mean time to detect. Systematic comparison against eight SOC platforms confirms LanG is the only open-source solution satisfying industrial-grade correlation, automation, rule generation, attack reconstruction, *and* AI governance compliance—simultaneously.</description>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>llm</category>
+    </item>
     <item>
       <title>Strengthening Human-Centric Chain-of-Thought Reasoning Integrity in LLMs via a Structured Prompt Framework</title>
       <link>https://arxiv.org/abs/2604.04852v1</link>
@@ -165,6 +228,78 @@
       <category>data</category>
       <category>poisoning</category>
       <category>model</category>
+    </item>
+    <item>
+      <title>Verification Facade: Masquerading Insecure Cryptographic Implementations as Verified Code</title>
+      <link>https://eprint.iacr.org/2026/670</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/670</guid>
+      <description>This paper exposes a critical flaw in Hax—a verification pipeline translating Rust to F* for machine-checked proofs of cryptographic implementations (e.g., in Signal’s post-quantum protocol). Through structural analysis of its 35-phase translation engine, F* libraries, and specification API, we identify three semantic gaps undermining claimed security guarantees: *translation infidelity*, *unverifiable trust boundaries*, and *specification gaming*. We demonstrate five PoC exploits against FIPS-standard algorithms (ML-DSA, ML-KEM, Ed25519, ChaCha20), all of which compile cleanly, pass functional tests, and extract to F* without warnings—yet harbor undetectable security flaws (e.g., timing leaks, signature forgery). Crucially, we categorize gaps into *facade* (active model divergence), *conditional* (mode-dependent), and *scope* (faithful but incomplete coverage), coining the term **verification facade**: formal verification that runs successfully but covers substantially less than it appears to. This work challenges assumptions about “verified” cryptographic code in production systems.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>SoK: DeFi Lending and Yield Aggregation Protocol Taxonomy, Empirical Measurements, and Security Challenges</title>
+      <link>https://eprint.iacr.org/2026/675</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/675</guid>
+      <description>This SoK paper systematizes the DeFi lending and yield aggregation ecosystem through a novel taxonomy covering collateralized lending (over-/under-collateralized, zero-liquidation), uncollateralized primitives (e.g., flash loans), and yield aggregators that allocate capital across underlying protocols. Using on-chain data from Compound V2 and AAVE V2, we empirically measure liquidation rates, user leverage behavior, and interest-rate model responsiveness—linking design choices (e.g., `JumpRateModel` parameters, timestamp reliance) to observed vulnerabilities. We identify two critical security vectors: (1) interest-rate mechanisms lacking self-correcting feedback under extreme utilization, and (2) time measurement approaches vulnerable to timestamp manipulation. Our analysis reveals causal links between protocol architecture, real-world user behavior, and exploit patterns—including several documented liquidation front-running and oracle manipulation incidents. We conclude by outlining open research questions at the intersection of mechanism design, empirical measurement, and composable security.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Efficient Batch Threshold Encryption Using Partial Fraction Techniques</title>
+      <link>https://eprint.iacr.org/2026/674</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/674</guid>
+      <description>We present the first epochless, censorship-resistant batch threshold encryption scheme with linear public parameters (O(n)), constant-size pre-decryption keys and ciphertexts, and efficient O(n log n) batch decryption. Our construction innovatively extends the partial fraction decomposition technique from Jutla–Nema–Roy’s threshold encryption: by structuring ciphertexts via polynomial interpolation and leveraging algebraic properties of rational functions, publishing a *single group element* as the pre-decryption key enables simultaneous decryption of all n ciphertexts in the batch. We prove CCA security under standard assumptions and show how to naturally thresholdize the scheme (e.g., t-out-of-n). This advances practical encrypted mempools for MEV mitigation and time-lock encrypted storage, eliminating both epoch dependencies and quadratic parameter blowup.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Efficient Merkle-Tree Consistent Accumulator</title>
+      <link>https://eprint.iacr.org/2026/673</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/673</guid>
+      <description>We present the Efficient Merkle-Tree Consistent Accumulator (EMTA), a novel design that significantly improves performance of consistent accumulators—cryptographic primitives essential for Certificate Transparency (CT) and blockchain light clients. EMTA retains full compatibility with CT standards (RFC 9162) and leverages Merkle trees but introduces compact path encoding and batched hash optimization to reduce proof size to *O*(log *N*) bits (with constant overhead) and cut hash computations by up to 68%. Our open-source implementation demonstrates, at 100M entries, a 3.2× speedup in proof generation, 59% lower verification latency, and 41% less memory usage versus state-of-the-art CT implementations. Security is formally analyzed in the random oracle model, proving strong consistency and collision resistance.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>FLOSS: Fast Linear Online Secret-Shared Shuffling</title>
+      <link>https://eprint.iacr.org/2026/672</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/672</guid>
+      <description>Randomly permuting secret-shared vectors is fundamental to privacy-preserving analytics, advertising, and secure communication. Prior shuffling protocols either incur heavy public-key or zero-knowledge overhead, or scale poorly (quasilinear $O(n \log n)$) due to reliance on permutation networks. This paper introduces **FLOSS**, a malicious-secure two-party computation (2PC) protocol enabling *linear-time online shuffling* via a novel preprocessing paradigm. We define *interactive arithmetic permutation circuits*—a unified abstraction capturing how high-level protocols compose field arithmetic and permutations over secret shares. We show that secret-shared sorting—a core subroutine in analytics—fits this model and can thus be efficiently compiled into FLOSS. Our implementation shuffles $2^{20}$ elements in **under 500 ms**, achieving **&gt;800× speedup** over state-of-the-art alternatives while maintaining full malicious security and $O(n)$ online communication.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>A note on the Unsuitability of LIGA for Linkable Ring Signatures: The perils of non-commutativity</title>
+      <link>https://eprint.iacr.org/2026/671</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/671</guid>
+      <description>This note critically analyzes the LIGA-based linkable ring signature (LRS) proposed in [KTS+24], which builds upon the group-action framework of [BKP20] and relies on the hardness of the Lattice Isomorphism Problem (LIP). We demonstrate that the scheme fundamentally fails as an LRS because it violates a core requirement of the [BKP20] framework: the underlying group must be *commutative*. LIGA uses $\mathrm{GL}_n(\mathbb{Z})$, a non-commutative group, causing catastrophic breakdowns in both **correctness** (valid signatures may not verify) and **linkability** (signatures from the same signer cannot be reliably linked). This failure compounds prior results from [BCF25], which already invalidated its linkable anonymity. We further show that restricting secret keys to commutative subgroups of $\mathrm{GL}_n(\mathbb{Z})$—a natural repair attempt—fails to simultaneously preserve LIP hardness *and* practical efficiency, exposing an intrinsic incompatibility between LIP and the LRS security model.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Braess Paradox in Layer-2 Blockchain Payment Networks</title>
+      <link>https://eprint.iacr.org/2026/669</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/669</guid>
+      <description>Payment channel networks (PCNs), such as Bitcoin’s Lightning Network, enhance blockchain scalability by enabling off-chain transactions via bidirectional channels. While multi-hop routing supports payments between non-adjacent users, it incurs fees paid to intermediate nodes. This paper identifies, for the first time, the **Braess paradox** in PCNs: adding a new payment channel can *increase* the total fee for certain fixed transactions—contrary to intuitive efficiency gains. We characterize necessary and sufficient conditions for the paradox under two fee models: (i) *liquidity-dependent fees*, where cost depends on both transaction value and channel liquidity, and (ii) *proportional fees*, based solely on transaction value. Using real-world Lightning Network data (75k+ channels), we detect 237 transaction pairs exhibiting the paradox, with observed fee increases up to 41%. Finally, we propose a lightweight channel admission protocol (CAEP) to mitigate the paradox by estimating local fee impact prior to channel establishment—requiring no global state and integrating seamlessly with existing routing protocols.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Cryptographic Implications of Worst-Case Hardness of Time-Bounded Kolmogorov Complexity</title>
+      <link>https://eprint.iacr.org/2026/668</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/668</guid>
+      <description>This work explores cryptographic implications of worst-case hardness for the gap problem $Gap_pMK^tP[s_1,s_2]$: distinguishing whether a string $x$ satisfies $K^t(x) \leq s_1(n)$ or $K^{p(t)}(x) &gt; s_2(n)$. Assuming $Gap_pMK^tP[s_1,s_2] \notin P/poly$ for all polynomials $p$—under standard worst-case derandomization—we construct a *conditional PRG*, whose indistinguishability holds only against a specific (potentially non-sampleable) seed distribution. This primitive modularly implies average-case hardness of $Gap_pMK^tP$, unifying and extending Hirahara’s prior results. Crucially, it yields two cryptographic consequences: (1) an inefficient-prover zero-knowledge proof system for NP with a non-uniform simulator resilient to adversaries with bounded-length auxiliary input; and (2) a hard disjoint NP pair $(Y,N)$, establishing a structural barrier to $\mathsf{NP}$-completeness of $Gap_pMK^tP$. Moreover, by switching to *randomized* $K^t$, both the conditional PRG and ZK results become unconditional—requiring no derandomization assumptions.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Which Privacy Blanket is Optimal in the Shuffle Model?</title>
+      <link>https://eprint.iacr.org/2026/667</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/667</guid>
+      <description>This paper initiates the first information-theoretic study of *privacy blankets* in the shuffle model: given a target user’s message $Y_1 \sim P$, what noise distribution $Q$ for other users’ messages maximizes privacy under shuffling? Contrary to the common heuristic $Q = P$, we prove $Q$ must generally deviate from $P$. For binary alphabets, the uniform distribution is strongly optimal; for general finite alphabets, $Q(y) \propto \sqrt{P(y)(1-P(y))}$ achieves asymptotic optimality for mutual information. Our framework further yields novel security insights for the ideal cipher model and honey encryption. Extending to shuffle-DP, we derive a tight information-theoretic upper bound $I(X_1; \boldsymbol{Z} \mid X_{2:n}) \le \frac{(e^{\varepsilon_0/2}-1)^2}{2n} + \mathcal{O}(n^{-3/2})$, precisely characterizing privacy amplification and offering a foundational interpretation of shuffling gain.</description>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>LLM-Enabled Open-Source Systems in the Wild: An Empirical Study of Vulnerabilities in GitHub Security Advisories</title>
@@ -361,156 +496,6 @@ Reverse engineering (RE) of cryptographic binaries is critical for security yet 
       <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
       <category>crypto</category>
-    </item>
-    <item>
-      <title>A Faceted Classification of Authenticator-Centric Authentication Techniques</title>
-      <link>https://arxiv.org/abs/2604.03627v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03627v1</guid>
-      <description>Authentication is foundational to system security, yet existing classifications of authenticator-centric techniques (AuthN Techniques) remain fragmented—overemphasizing authentication factors while neglecting authenticator-specific properties like execution environment, key management, and protocol roles. This paper introduces the first **faceted classification scheme** for AuthN Techniques and Authenticators, grounded in a rigorous LLM-assisted review of 345 papers (2010–2024) and semantic clustering. The scheme comprises five orthogonal facets: *Physical Form*, *Execution Environment* (e.g., TEE, browser sandbox), *Key Lifecycle Management*, *Protocol Role*, and *Human Interaction Mode*. Applying this framework, we built a comprehensive, open catalog of 127 authenticators and 89 AuthN techniques—annotated with security attributes and implementation contexts. Key findings include the formal identification of *context-aware authenticators* and *distributed key-coordination flows*, alongside a classification-driven threat modeling methodology. Our work enables systematic comparison, standardization support (e.g., for FIDO2/Passkey), and principled design of next-generation authentication systems.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>AttackEval: A Systematic Empirical Study of Prompt Injection Attack Effectiveness Against Large Language Models</title>
-      <link>https://arxiv.org/abs/2604.03598v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03598v1</guid>
-      <description>AttackEval is the first systematic empirical study quantifying prompt injection attack effectiveness across defense strengths. We introduce a taxonomy of 10 attack types (grouped into Syntactic, Contextual, and Semantic/Social), instantiated with 250 rigorously crafted prompts. Evaluated against a simulated production victim under four escalating defense tiers, key findings emerge: (1) Obfuscation (OBF) achieves the highest single-attack success rate (ASR = 0.76) even against intent-aware defenses by evading both keyword matching and semantic similarity checks; (2) Semantic/Social attacks—Emotional Manipulation (EM) and Reward Framing (RF)—maintain high residual ASR (0.44–0.48) due to natural-language surface forms that bypass structural anomaly detection; (3) Composite attacks yield dramatic gains—OBF+EM reaches 97.6% ASR; (4) Stealth score strongly predicts residual ASR under semantic defenses (*r* = 0.71), indicating future defenses must jointly optimize structural and behavioral signals. AttackEval exposes concrete defense blind spots and delivers actionable guidance for robust LLM safety engineering.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>prompt</category>
-      <category>injection</category>
-    </item>
-    <item>
-      <title>ProtoGuard-SL: Prototype Consistency Based Backdoor Defense for Vertical Split Learning</title>
-      <link>https://arxiv.org/abs/2604.03595v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03595v1</guid>
-      <description>Vertical split learning (SL) enables privacy-preserving collaborative training across feature-partitioned parties, yet remains critically vulnerable to embedding-space backdoor poisoning—especially under adaptive attacks where malicious clients inject stealthy triggers into intermediate representations. To address this, we propose **ProtoGuard-SL**, a server-only defense leveraging *class-conditional prototype consistency* in the embedding space. We observe that benign intra-class embeddings exhibit stable semantic alignment around class prototypes, while poisoned ones inevitably distort this structure. ProtoGuard-SL thus introduces a two-stage framework: (i) robust class prototype construction via outlier-aware clustering, and (ii) prototype-consistency embedding transformation followed by *class-conditional, distribution-free conformal filtering* to detect and prune anomalous embeddings without distributional assumptions or client involvement. Extensive experiments on CIFAR-10, SVHN, and Bank Marketing under three attack settings show ProtoGuard-SL achieves state-of-the-art robustness—reducing average attack success rate from &gt;95% to **2.1%**, with &lt;1.2% main-task accuracy drop and negligible latency overhead (&lt;3 ms per batch).</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>data</category>
-      <category>poisoning</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>SecPI: Secure Code Generation with Reasoning Models via Security Reasoning Internalization</title>
-      <link>https://arxiv.org/abs/2604.03587v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03587v1</guid>
-      <description>Reasoning Language Models (RLMs) excel at programming but frequently generate code with critical security vulnerabilities. Prior training-based defenses suffer from reliance on scarce, manually curated security datasets, while inference-time security prompts degrade functional correctness and yield only superficial analysis. To address this, we propose **SecPI**, a fine-tuning framework that enables RLMs to *internalize structured security reasoning*—producing secure code by default, without security instructions at inference. SecPI (1) filters general coding data for security-relevant tasks using an LLM classifier, (2) generates high-quality, CWE-guided reasoning traces (enumerating vulnerabilities and mitigations) via a teacher model, and (3) fine-tunes the target RLM on input–reasoning pairs *without security prompts*, teaching autonomous security reasoning. Evaluated on CWEval and BaxBench, SecPI boosts the secure-and-correct generation rate of QwQ-32B by +14.0 points (to 62.2%) on CWEval and +3.8 points (to 22.0%) on BaxBench. Crucially, it exhibits strong cross-CWE generalization: when trained solely on injection-related CWEs, it improves secure code generation on held-out memory-safety CWEs by 9.9% absolutely.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-      <category>prompt</category>
-      <category>inference</category>
-      <category>injection</category>
-    </item>
-    <item>
-      <title>FeynmanBench: Benchmarking Multimodal LLMs on Diagrammatic Physics Reasoning</title>
-      <link>https://arxiv.org/abs/2604.03893v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03893v1</guid>
-      <description>FeynmanBench is the first benchmark dedicated to evaluating multimodal LLMs (MLLMs) on *diagrammatic physics reasoning* using Feynman diagrams. It targets multistep reasoning requiring strict adherence to conservation laws (momentum, charge, color), symmetry constraints, gauge conventions (e.g., Feynman gauge), graph-topological identification (e.g., connectivity, loop order), bidirectional conversion between diagrammatic and algebraic representations, and construction of scattering amplitudes under Standard Model rules. We introduce an automated pipeline generating &gt;2000 diverse, verifiable tasks across electromagnetic, weak, and strong interactions—including over 100 distinct diagram types—with machine-checkable topological annotations and analytical amplitude ground truths. Experiments on state-of-the-art MLLMs reveal systematic failures: inconsistent enforcement of physical constraints and violations of global topological conditions—exposing critical gaps in current scientific visual reasoning benchmarks. FeynmanBench thus establishes a logically rigorous testbed for assessing AI’s capacity for authentic scientific discovery in theoretical physics.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Towards the AI Historian: Agentic Information Extraction from Primary Sources</title>
-      <link>https://arxiv.org/abs/2604.03553v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03553v1</guid>
-      <description>This technical report introduces the first open-source module of *Chronos*: an **agentic, historian-in-the-loop information extraction system** for primary source images. Unlike rigid OCR-VLM pipelines, it enables historians to define, adapt, and iteratively refine extraction workflows via natural-language instructions—e.g., “Extract dates and signatories from Qing dynasty land deeds written in clerical script.” The system dynamically selects models, validates outputs against domain-specific heuristics (e.g., date plausibility, title consistency), and incorporates human feedback to improve accuracy across heterogeneous sources (newspapers, diaries, contracts). Evaluated on real archival corpora—including late-Qing legal documents and Republican-era business records—it achieves &gt;89% field-level F1 while preserving full auditability and user control. Released under MIT license, the module lowers the barrier to AI adoption in historical research without compromising scholarly rigor or interpretive agency.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>BlazeFL: Fast and Deterministic Federated Learning Simulation</title>
-      <link>https://arxiv.org/abs/2604.03606v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03606v1</guid>
-      <description>Federated learning (FL) research increasingly relies on efficient and reproducible single-node simulations with hundreds or thousands of virtual clients. However, conventional parallel client training suffers from nondeterminism due to shared random state and scheduling variability—forcing trade-offs between throughput and reproducibility. BlazeFL addresses this by introducing *free-threaded shared-memory execution* and *deterministic RNG stream isolation*: clients run in threads with direct in-memory parameter exchange (eliminating serialization and IPC overhead), while each client uses a dedicated, framework-managed RNG stream. This ensures bitwise-identical results across repeated high-concurrency runs—both in thread-based and process-based modes—under fixed software/hardware stacks. On CIFAR-10 classification, BlazeFL achieves up to **3.1× speedup** over a widely used open-source baseline for communication-dominated workloads, while maintaining a minimal dependency footprint. The open-source implementation is available at https://github.com/kitsuyaazuma/blazefl.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Your Agent is More Brittle Than You Think: Uncovering Indirect Injection Vulnerabilities in Agentic LLMs</title>
-      <link>https://arxiv.org/abs/2604.03870v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03870v1</guid>
-      <description>This paper uncovers critical fragility in modern agentic LLMs under Indirect Prompt Injection (IPI) attacks—where malicious instructions are stealthily embedded in third-party content (e.g., API responses, web scrapes) and trigger unauthorized actions during normal tool-calling workflows. Moving beyond static, single-turn benchmarks, we conduct the first systematic evaluation of six defense strategies against four sophisticated IPI vectors across nine open-weight LLM backbones—*entirely within dynamic, multi-step tool-execution environments*. Our multidimensional analysis reveals that advanced IPIs bypass nearly all baseline defenses, and some mitigations even degrade reliability. Crucially, while agents execute malicious instructions rapidly, their internal representations at tool-input positions exhibit abnormally high decision entropy—indicating latent hesitation. Leveraging this signal, we propose a Representation Engineering (RepE)-based circuit breaker that extracts hidden states *just before tool invocation* to detect and intercept unauthorized actions in real time. It achieves **94.2% average detection accuracy** across models with zero fine-tuning or external supervision—establishing a practical, deployment-ready paradigm for resilient multi-agent systems.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>agent</category>
-      <category>security</category>
-      <category>prompt</category>
-      <category>injection</category>
-    </item>
-    <item>
-      <title>Reformulating the SNOVA Signature Scheme</title>
-      <link>https://eprint.iacr.org/2026/659</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/659</guid>
-      <description>This note reformulates the SNOVA signature scheme by unifying its three existing representations—ring-equation, whipping, and tensor forms—into a coherent, modular framework. Our reformulation explicitly decouples noise sampling, structural masking, and linearization, enabling fine-grained, independent control over ring dimension, tensor order, noise distribution, and field characteristic. Security is preserved under standard assumptions (Ring-LWE and low-rank tensor indistinguishability), with enhanced provability due to structural transparency. Crucially, parameter sets over odd-characteristic fields $\mathbb{F}_q$ yield **smaller keys (18–25% reduction)** and **improved resistance against algebraic and lattice-based attacks**, making them practically compelling. We propose **five concrete parameter sets** with full signature certificates (signature + public key) **below 1 KB**, the smallest being 923 bytes—demonstrating strong suitability for resource-constrained post-quantum deployment.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Delegate: Coalition Proof Incentivized Outsourced Computation with Smart Contracts</title>
-      <link>https://eprint.iacr.org/2026/658</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/658</guid>
-      <description>We propose **Delegate**, the first smart contract-based multi-contractor incentivized outsourced computation protocol with *provable coalition-proof security*. Unlike prior works—limited to two contractors or lacking formal security against fully colluding coalitions—Delegate ensures that honest computation remains the unique strong Nash equilibrium *even when any subset of contractors arbitrarily coordinates*, under standard cryptographic assumptions. To eliminate the copy attack—a critical threat where malicious contractors plagiarize others’ responses—we design a *universally composable (UC) response submission protocol* based on time-locked commitments and NIZK proofs, rendering copying *information-theoretically impossible* before revelation, not merely disincentivized. Delegate achieves efficient on-chain execution via off-chain aggregation and minimal on-chain verification (e.g., hash checks), supporting arbitrary $n \geq 2$ contractors on EVM-compatible blockchains. Our formal analysis confirms UC security in the F_{commit} hybrid model, establishing a new foundation for trustless, scalable outsourced computation.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Game Theory Does Not Always Help: The Case of Statistical Multi-Party Coin Tossing</title>
-      <link>https://eprint.iacr.org/2026/657</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/657</guid>
-      <description>This paper resolves a fundamental open question: whether game-theoretic fairness—via equilibrium concepts like Nash or subgame-perfect equilibrium—can overcome the statistical impossibility of multi-party coin tossing when no honest majority exists. We prove *negative* results in two key settings:  
-(1) With broadcast, no statistically secure, game-theoretically fair coin-tossing protocol exists for $n$ parties tolerating $t \geq n/2$ corruptions and bounded rounds—except the isolated case $n=4$, where three parties share the same preference. This complements known feasibility for $t &lt; n/2$, completing the statistical feasibility landscape.  
-(2) Without broadcast (point-to-point only), no computationally secure game-theoretic protocol exists for $t \geq n/3$ and polynomial round complexity—except $n=6$ with five identical preferences.  
-Our proofs rely on a refined framework for modeling game-theoretic fairness that explicitly captures communication primitives (broadcast vs. point-to-point), enabling tight lower bounds. Crucially, our results show that game theory provides *no advantage* over classical cryptography in the statistical setting once an honest majority is lost—settling the limits of equilibrium-based fairness in coin tossing.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Improved Codes and Decoders for HQC</title>
-      <link>https://eprint.iacr.org/2026/656</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/656</guid>
-      <description>The Hamming Quasi-Cyclic (HQC) cryptosystem—recently selected by NIST for standardization—relies on a concatenated Reed-Muller (RM) and Reed-Solomon (RS) code for reliable decryption. This work reduces ciphertext and public-key sizes while rigorously maintaining the target decryption failure rate (DFR &lt; 2⁻¹²⁸). First, we design a two-level generalized concatenated code (GCC) leveraging a repetition subcode inherent in the inner RM code; this enables a higher-rate outer RS code without compromising DFR. Second, we introduce a reliability-based outer decoding framework: the inner decoder outputs both hard decisions and analytically bounded reliability metrics, whose joint distribution with decoding outcomes yields conservative DFR guarantees for both threshold- and partition-based erasure assignment. Combined, these improvements shrink public-key and ciphertext sizes by up to **4.34%**, verified across NIST Round 4 parameter sets, with no change to security assumptions or implementation complexity.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Fast and Efficient Perfectly Secure Network-Agnostic Secure Computation</title>
-      <link>https://eprint.iacr.org/2026/655</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/655</guid>
-      <description>We present the first *network-agnostic* perfectly secure MPC protocol achieving *expected* round complexity $O(D)$ and expected communication complexity $O((Cn^2 + Dn^2 + n^4)\log n)$ for circuits of size $C$ and depth $D$ with $n$ parties, tolerating $t &lt; n/3$ malicious corruptions. Unlike prior art—including recent Eurocrypt’23/’24 protocols that require precise network-type knowledge—our construction guarantees correctness and perfect security *simultaneously* in both synchronous and asynchronous networks, without assumptions or switching logic. Technically, we depart from dual-mode designs and introduce novel primitives: an adaptive gate-evaluation framework, a lightweight asynchronous agreement primitive resilient to timing uncertainty, and a layered error-correcting structure that enables efficient information dispersal under worst-case scheduling. Our protocol improves over the state of the art by a factor of $\Theta(n^3)$ in communication for small circuits and $\Theta(n^2)$ for large ones, plus an additive $O(n)$ reduction in round complexity. This resolves a central open problem in foundational MPC.</description>
-      <pubDate>Sat, 04 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Learning the Signature of Memorization in Autoregressive Language Models</title>
-      <link>https://arxiv.org/abs/2604.03199v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03199v1</guid>
-      <description>We introduce **Learned Transfer MIA (LT-MIA)**, the first transferable, end-to-end learned membership inference attack for fine-tuned language models—eliminating reliance on hand-crafted heuristics and shadow models. Leveraging the fact that fine-tuning inherently provides unlimited labeled data (membership is known by construction), LT-MIA learns a universal signature of memorization directly from transformer-based models and transfers *zero-shot* to architecturally distinct families: Mamba (state-space), RWKV-4 (linear attention), and RecurrentGemma (gated recurrence), achieving AUCs of **0.972**, **0.963**, and **0.936**, respectively—all surpassing held-out transformer performance (0.908 AUC). Remarkably, this signature persists across domains: LT-MIA generalizes to code (0.865 AUC) despite training only on natural language. On transformers, it attains **2.8× higher TPR at 0.1% FPR** versus the strongest baseline. The success of even simple likelihood baselines further confirms the existence of a fundamental, architecture-agnostic memorization signal rooted solely in gradient descent on cross-entropy loss. Code and models are publicly available.</description>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>inference</category>
-      <category>membership</category>
-    </item>
-    <item>
-      <title>A Systematic Security Evaluation of OpenClaw and Its Variants</title>
-      <link>https://arxiv.org/abs/2604.03131v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.03131v1</guid>
-      <description>This paper presents the first systematic security evaluation of six OpenClaw-series agent frameworks—OpenClaw, AutoClaw, QClaw, KimiClaw, MaxClaw, and ArkClaw—across multiple backbone LLMs (e.g., Llama-3, Qwen2, DeepSeek-V2). We introduce a benchmark of 205 realistic test cases covering reconnaissance, credential leakage, lateral movement, privilege escalation, and resource development across the full agent execution lifecycle. Results show that *all* evaluated agents exhibit severe, framework-specific vulnerabilities—reconnaissance behaviors are the most prevalent weakness (41%), and agentized systems pose significantly higher risks than their underlying LLMs used in isolation. Critically, early-stage flaws (e.g., lax tool parameter validation) amplify through multi-step planning and persistent context into concrete system-level failures. Our findings demonstrate that agent security is governed not just by model safety, but by the tight coupling of model capability, tool interface design, planning logic, and runtime orchestration—urging a shift from prompt-level safeguards to lifecycle-wide security governance.</description>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>security</category>
     </item>
   </channel>
 </rss>

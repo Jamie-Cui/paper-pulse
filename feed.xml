@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Fri, 10 Apr 2026 02:50:41 -0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 02:07:40 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PIArena: A Platform for Prompt Injection Evaluation</title>
@@ -500,46 +500,36 @@ Large Language Models (LLMs) show promise for Static Application Security Testin
       <category>membership</category>
     </item>
     <item>
-      <title>Swiss-Bench 003: Evaluating LLM Reliability and Adversarial Security for Swiss Regulatory Contexts</title>
-      <link>https://arxiv.org/abs/2604.05872v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.05872v1</guid>
-      <description>Swiss-Bench 003 (SBP-003) introduces the first empirically grounded, dual-axis evaluation framework for LLMs in Swiss regulatory contexts—jointly assessing *production reliability* and *adversarial security*. Extending HAAS to eight dimensions, it adds D7 (self-graded reliability proxy) and D8 (adversarial security), and evaluates ten frontier models on 808 Swiss-specific, multilingual (DE/FR/IT/EN) items across seven newly developed benchmarks aligned with FINMA Guidance 08/2024, the revised nDSG, and OWASP LLM Top 10. Key findings: D7 self-scores (73–94%) vastly exceed D8 security scores (20–61%), revealing a critical confidence-robustness gap; prompt leakage resistance varies widely (24.8–88.2%), while PII extraction defense remains uniformly weak (14–42%); Qwen 3.5 Plus achieves top D7 (94.4%), and cost-efficient GPT-oss 120B attains highest D8 (60.7%). All evaluations are zero-shot under default provider settings; D7 is model-self-assessed and not independently validated. Conceptual mapping tables explicitly link benchmark dimensions to regulatory requirements for audit-ready compliance.</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>extraction</category>
-      <category>llm</category>
-      <category>model</category>
+      <title>Evaluating PQC KEMs, Combiners, and Cascade Encryption via Adaptive IND-CPA Testing Using Deep Learning</title>
+      <link>https://eprint.iacr.org/2026/689</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/689</guid>
+      <description>This paper introduces a deep learning–based adaptive framework for empirical IND-CPA testing, framing ciphertext indistinguishability as a binary classification task trained on labeled challenge ciphertexts using DNNs and binary cross-entropy loss. We apply it comprehensively to NIST PQC KEMs (ML-KEM, BIKE, HQC), novel hybrid KEM combiners (e.g., PQC + RSA-OAEP/unpadded RSA), and cascade symmetric encryption (AES-CTR/CBC/ECB, ChaCha20, DES-ECB). Using two-sided binomial tests (α = 0.01), no scheme or composition shows statistically significant distinguishability—fully consistent with theoretical composition guarantees requiring only one IND-CPA-secure component. The results demonstrate that DNN-based empirical testing is a practical, versatile, and data-driven complement to analytical security analysis in post-quantum and hybrid cryptographic settings.</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>From Incomplete Architecture to Quantified Risk: Multimodal LLM-Driven Security Assessment for Cyber-Physical Systems</title>
-      <link>https://arxiv.org/abs/2604.05674v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.05674v1</guid>
-      <description>Cyber-physical systems (CPS) frequently suffer from incomplete or outdated architectural documentation, hindering reliable security assessment. To address this, we propose **ASTRAL**, an architecture-centric security assessment framework powered by multimodal LLMs. ASTRAL reconstructs system architectures from fragmented data sources (e.g., logs, diagrams, configs) via prompt chaining and few-shot learning, then integrates LLM-based reasoning with architectural modeling to identify threats and quantify risk—yielding interpretable, confidence-weighted scores for exposure, cascade probability, and recovery effort. Evaluated across three real-world CPS case studies and validated by 14 expert practitioners, ASTRAL achieves +38.2% higher architecture element recall and +51.7% broader threat coverage versus baseline methods, with strong inter-rater agreement (κ = 0.82). Practitioners rated it highly usable for architecture review and risk-informed decision-making.</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>llm</category>
+      <title>Too Far Behind? Narrowing the Gap with a Dual-Enhanced Two-Stage Algebraic Framework for LWE</title>
+      <link>https://eprint.iacr.org/2026/688</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/688</guid>
+      <description>We propose a **Dual-Enhanced Two-Stage Algebraic Framework** for solving the Learning with Errors (LWE) problem. Stage 1 applies **dual lattice reduction** to compress sample dimensionality—reducing variables at the cost of controlled noise inflation. Stage 2 replaces the classical Arora-Ge system and Gröbner basis solving with a **novel error-distribution-aware polynomial construction**, solved efficiently via a **resultant-based method**. For CRYSTALS-KYBER with $m = n$ samples, our framework achieves **better asymptotic complexity than Steiner’s Gröbner-based approach (Eurocrypt 2024)**. As an independent result, applying the resultant method directly to the Arora-Ge system for *small-secret LWE* yields a **provable exponential speed-up** over Steiner’s proven bounds. We further demonstrate systematic integration of side information—including perfect, modular, and approximate hints—into the framework. This work bridges algebraic and dual attack paradigms, offering a sharper, more adaptable tool for LWE cryptanalysis.</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>Analogical Reasoning as a Doctor: A Foundation Model for Gastrointestinal Endoscopy Diagnosis</title>
-      <link>https://arxiv.org/abs/2604.05649v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.05649v1</guid>
-      <description>We introduce RATNet, a foundation model for gastrointestinal endoscopy diagnosis grounded in *analogical reasoning*—a novel paradigm that matches image-derived posterior knowledge to a learned prior knowledge base and transfers *relative relational knowledge* (e.g., “lesion A differs from B similarly to how C differs from D”) rather than relying on absolute label correspondence. Trained via cyclic pre-training across five heterogeneous endoscopy datasets without manual annotation alignment, RATNet features an encoder–RAT module–projector–multi-task head architecture, supporting fine-tuning, linear probing, and zero-shot transfer. In comprehensive evaluations across six clinically critical scenarios—including common disease diagnosis, few-shot rare disease recognition, zero-shot cross-site deployment, long-tailed robustness, novel disease adaptation, and privacy-preserving federated learning—RATNet consistently outperforms state-of-the-art foundation models (e.g., GastroNet, GastroVision). Its analogical mechanism enhances generalization, mitigates annotation bias, reduces data acquisition costs, and enables practical deployment in resource-constrained settings. Code and models are open-sourced.</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
+      <title>High-Throughput Side-Channel-Protected Stream Cipher Hardware for 6G Systems</title>
+      <link>https://eprint.iacr.org/2026/687</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/687</guid>
+      <description>This work presents the first side-channel-protected hardware implementation of the LOL2.0 stream cipher meeting 6G-class throughput requirements (&gt;100 Gbps). Leveraging Time Sharing Masking, we achieve formal first-order security under the glitch-extended probing model, with full-phase protection covering initialization, keystream generation, and tag computation. We propose two complementary architectures: a **Fast variant** delivering 142 Gbps (masked) and 183 Gbps (unmasked) peak throughput; and a **Compact variant** minimizing area to 141.98 kGE (masked) and 23.25 kGE (unmasked), while retaining competitive performance. Practical TVLA evaluations on FPGA—using up to 100 million power traces—confirm no statistically significant first-order leakage (p &gt; 0.001) in any masked configuration. This work bridges a critical gap between ultra-high-speed cryptography and physical-layer security for 6G systems.</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
-      <title>From Large Language Model Predicates to Logic Tensor Networks: Neurosymbolic Offer Validation in Regulated Procurement</title>
-      <link>https://arxiv.org/abs/2604.05539v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.05539v1</guid>
-      <description>We propose a neurosymbolic pipeline for auditable offer validation in regulated public procurement, integrating large language models (LLMs) with Logic Tensor Networks (LTNs). First, an LLM acts as a semantic predicate extractor—deriving interpretable, probabilistic truth values (e.g., “*bid amount ≤ ceiling*”) directly from unstructured offer documents. Second, these predicates are grounded in an LTN to perform differentiable first-order logical reasoning under domain-specific regulatory rules (e.g., “*if valid_license ∧ compliant_price then recommend_award*”). Evaluated on a real-world corpus of 1,247 procurement offers and 38 compliance clauses, our approach achieves competitive performance (F1 = 0.892 vs. 0.901 for SOTA black-box models), while uniquely enabling full decision traceability: every output is justified by concrete text spans, predicate scores, and activated logical rules. This provides native XAI support, modular predicate maintenance, and legally verifiable audit trails—addressing critical trust and compliance requirements in high-stakes public sector AI deployment.</description>
-      <pubDate>Tue, 07 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
+      <title>Secure MSM Outsourcing Computation for Zero-knowledge Proof Generation</title>
+      <link>https://eprint.iacr.org/2026/686</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/686</guid>
+      <description>Zero-knowledge proofs (ZKPs) enable privacy-preserving verification but suffer from prohibitive proof-generation costs—dominated by multi-scalar multiplication (MSM). This work proposes a secure, verifiable, and efficient outsourcing scheme for MSM tailored to ZKP generation. Our approach preserves scalar confidentiality via homomorphic masking and random projection, while enabling lightweight output verification with only $O(\log n)$ elliptic-curve operations. Evaluation shows the user’s computational burden drops by 92.4%, with minimal server overhead (&lt;5%) and verification latency under 3.2 ms. The scheme is hardware-agnostic, TEE-free, and compatible with Groth16, Plonk, and Marlin—bridging practicality and security for cloud-assisted ZKP deployment.</description>
+      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
   </channel>
 </rss>

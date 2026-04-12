@@ -4,8 +4,24 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sat, 11 Apr 2026 02:07:40 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Apr 2026 02:31:05 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fast Isogeny Evaluation on Binary Curves</title>
+      <link>https://eprint.iacr.org/2026/704</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/704</guid>
+      <description>We extend the odd-characteristic isogeny evaluation techniques of Hisil–Costello and Renes to **binary fields**, providing efficient formulas for evaluating isogenies of ordinary elliptic curves over $\mathbb{F}_{2^m}$. For odd prime degree $\ell = 2s+1$, our affine product method computes the image $x$-coordinate using $5s\mathbf{M}$ field multiplications ($4s\mathbf{M}$ with normalized kernel points). We further derive an **inversion-free variant** that evaluates the $x$-map in projective and twisted Kummer coordinates—enabling carried points to remain in projective/twisted form across successive isogeny steps without any field inversions. Microbenchmarks over $\mathbb{F}_{2^{511}}$ show that the inversion-free projective and twisted variants outperform Velu-style $x$-evaluation by 1.8–2.3× when outputs stay projective/twisted, while the one-inversion affine variant achieves a **4.2× speedup**. This work enables significantly faster isogeny-based cryptography on binary-field platforms.</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Quick Draw Queries: Lightweight Searchable Public-key Ciphertexts with Hidden Structures via Non-Interactive Key Exchange</title>
+      <link>https://eprint.iacr.org/2026/703</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/703</guid>
+      <description>This paper proposes the first generic, pairing-free, and IBE-free construction of Searchable Public-key Ciphertexts with Hidden Structures (SPCHS), built on Non-Interactive Key Exchange (NIKE) and symmetric primitives only—specifically, secret-key encryption and a PRF. Crucially, the search algorithm is entirely symmetric-key-based, eliminating all public-key operations during querying. Instantiated with DH-NIKE, HMAC-PRF, and AES, our scheme achieves over **250× faster search time** and **~20× smaller ciphertexts** compared to the leading pairing-based SPCHS (Wang et al., IEEE T-II 2020). Beyond practical efficiency, our framework enables the **first post-quantum SPCHS instantiations**, naturally supporting lattice-based (LWE), isogeny-based (SIDH), and code-based NIKE schemes—unifying security, performance, and quantum resilience in searchable encryption.</description>
+      <pubDate>Fri, 10 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
     <item>
       <title>PIArena: A Platform for Prompt Injection Evaluation</title>
       <link>https://arxiv.org/abs/2604.08499v1</link>
@@ -195,6 +211,54 @@ Performance—the externalization of intent, emotion, and personality through au
       <category>arXiv</category>
       <category>extraction</category>
       <category>model</category>
+    </item>
+    <item>
+      <title>A Constructive Treatment of Authentication</title>
+      <link>https://eprint.iacr.org/2026/702</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/702</guid>
+      <description>This paper revisits classical message authentication techniques—MACs, digital signatures, hash-based schemes, and KDF-augmented constructions—from the lens of **Constructive Cryptography**, a composable security framework grounded in resource substitution. We compile known results on when and how these primitives realize the ideal authenticated channel, identify critical gaps (e.g., composability of truncated MACs without random oracles), and clarify setup requirements (e.g., key entropy bounds, clock synchronization) for sound instantiation. Our analysis yields precise security statements—including distinguisher advantage bounds, resource dependencies, and adversary limitations—for each construction. We further highlight open challenges: composability under quantum adversaries, stateless yet composable signature variants, and dynamic network-aware authentication resources. The work serves as a practical toolkit for building composable authentication with rigorously quantified guarantees.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Boolean Arithmetic over $\mathbb{F}_2$ from Group Commutators</title>
+      <link>https://eprint.iacr.org/2026/701</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/701</guid>
+      <description>This paper introduces a novel algebraic framework for realizing Boolean arithmetic over $\mathbb{F}_2$ *entirely within* finite nonabelian simple groups—using only group multiplication and inversion, with no external encoding or auxiliary structures. The core insight is to harness **group commutators** $[x,y] = xyx^{-1}y^{-1}$ as native logical primitives. We present two complementary constructions: (i) a universal NAND gate implementable in at most 9 group operations in $A_5$, and (ii) direct, efficient realizations of XOR and AND requiring only 6 and 7 operations respectively in $A_5$. These are the most efficient known group-only implementations for $\mathbb{F}_2$ arithmetic. Our methods apply broadly to all finite nonabelian simple groups (e.g., $A_n$, $\mathrm{PSL}(2,q)$), and explicit, computer-verified instantiations are provided for $A_5$ and $A_6$. This work bridges combinatorial group theory and Boolean computation, enabling new approaches to group-based cryptography and secure computation.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>GRAFHEN is not IND-CPA secure</title>
+      <link>https://eprint.iacr.org/2026/700</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/700</guid>
+      <description>GRAFHEN is a recently proposed noise-free fully homomorphic encryption (FHE) scheme built on string rewriting systems over symmetric groups $S_n$, claiming IND-CPA security. We present a concrete, efficient distinguisher that breaks this security notion. Our attack exploits the fact that the conjugacy class of the first ciphertext component $g \in S_n$ reveals statistically detectable information about the plaintext: specifically, the distribution of $\text{cls}(g)$ under encryption of $0$ versus $1$ differs significantly due to the group action structure and publicly known relations. The distinguisher computes the size of $g$’s conjugacy class (polynomial-time in $n$) and thresholds it against a precomputed bound—achieving distinguishing advantage $\geq 0.99$ with a single ciphertext query. For standard parameters (e.g., $n = 64$), the attack runs in under 1 ms. This result invalidates GRAFHEN’s core security claim and demonstrates that algebraic transparency in symmetric-group representations is incompatible with IND-CPA without additional randomization.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>HAWK with Hint: Algebraic Key Recovery from Side-Channel Leakage</title>
+      <link>https://eprint.iacr.org/2026/699</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/699</guid>
+      <description>Quantum computing threatens classical public-key cryptography, motivating NIST’s Post-Quantum Cryptography (PQC) standardization—within which HAWK, a lattice-based signature scheme, was a third-round candidate. While its mathematical security has been extensively studied, the impact of side-channel leakage—especially from the discrete Gaussian sampler (DGS)—remains poorly understood in practice. We bridge this gap by formalizing DGS leakage as *HAWK with Hint*, introducing three leakage models: (i) full coefficient recovery, (ii) sign-only recovery, and (iii) noisy sign recovery (with bit-error rates up to 40%). For each, we design algebraic key recovery algorithms that derive explicit linear relations between leaked data and the secret basis, then solve the resulting structured linear systems in polynomial time. On HAWK-1024, our attacks recover the secret key using only **1 signature** under full-coefficient leakage (improving prior work requiring 2), **14 signatures in ~100 seconds** under sign-only leakage, and **400 signatures in ~30 seconds at 10% BER**—scaling to **~7,000 signatures in ~60 seconds even at 40% BER**. All attacks are fully implemented and empirically validated.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Entropy-based Fuzzy Deduplication with Perfect Resistance to Key Recovery Attack</title>
+      <link>https://eprint.iacr.org/2026/698</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/698</guid>
+      <description>Encrypted data deduplication reduces cloud storage costs while preserving privacy, but conventional exact deduplication fails for multimedia data due to inherent semantic similarity rather than byte-level equality. Existing fuzzy deduplication schemes suffer from critical vulnerabilities—especially key recovery attacks (KRA) and brute-force guessing—enabling adversaries to reconstruct user keys offline and forge similarity proofs. This work establishes a foundational entropy-based framework: (1) We define *information-entropy-driven similarity* using local block entropy distributions, enabling fully server-side, client-free similarity verification; (2) We propose the first *Parameter Robustness Verification (PRV)* mechanism, which binds secret keys to entropy-sensitive nonlinear hash chains, rendering KRA computationally infeasible even with full protocol parameter exposure; (3) Rigorous security proofs under the random oracle model confirm perfect resistance against KRA and adaptive attacks. Experiments show ≈87% storage savings and ≥97% tamper detection success rate, with zero key recovery in 10⁹ trials—achieving provable, practical security.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Post-Quantum Secure k-Times Traceable Ring Signature</title>
+      <link>https://eprint.iacr.org/2026/697</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/697</guid>
+      <description>We propose the first lattice-based *k-times traceable ring signature* scheme, achieving post-quantum security under the Module-LWE assumption. Unlike standard ring signatures—which offer unconditional anonymity—our scheme enables public tracing of a signer’s public key *if and only if* they sign more than *k* times on the same message or across distinct messages (with appropriate binding). This provides a practical balance between privacy and accountability. Our construction features compact signatures ($\tilde{O}(k \log N)$), efficient verification ($O(k + \log N)$ matrix operations), and rigorous security proofs in the random oracle model for *k*-anonymity, *k*-unforgeability, and *k*-traceability. Compared to prior traceable schemes (e.g., pairing-based or RSA-based), ours avoids quantum-vulnerable assumptions and demonstrates superior concrete performance—e.g., 2.1× faster signing at $k=5$, $N=1024$. This makes it a viable candidate for real-world deployment in the post-quantum era.</description>
+      <pubDate>Thu, 09 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>TraceSafe: A Systematic Assessment of LLM Guardrails on Multi-Step Tool-Calling Trajectories</title>
@@ -456,80 +520,6 @@ Large Language Models (LLMs) show promise for Static Application Security Testin
       <category>arXiv</category>
       <category>extraction</category>
       <category>model</category>
-    </item>
-    <item>
-      <title>Bi-level Heterogeneous Learning for Time Series Foundation Models: A Federated Learning Approach</title>
-      <link>https://arxiv.org/abs/2604.06727v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.06727v1</guid>
-      <description>Time series data exhibit profound heterogeneity across domains and tasks—far exceeding that in vision or language—posing severe challenges for foundation model training. Existing centralized or federated TSFM approaches suffer from gradient conflicts and representation degradation when mixing heterogeneous series. We propose **BiHL-Fed**, the first bi-level heterogeneous learning framework for *from-scratch* TSFM training via federated learning. It tackles *intra-domain* heterogeneity via local domain-invariant and semantically consistent regularization, and *inter-domain* heterogeneity via domain-aware aggregation. Evaluated across six diverse benchmarks, BiHL-Fed consistently outperforms centralized (e.g., Informer) and federated baselines (e.g., FedTS) in both point and probabilistic forecasting (−12.7% avg. MAE), while achieving competitive zero-shot transfer (+19.3% mAPE on unseen domains). Our method enables scalable, privacy-preserving, and robust TSFM pretraining in real-world heterogeneous environments.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>Variational Feature Compression for Model-Specific Representations</title>
-      <link>https://arxiv.org/abs/2604.06644v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.06644v1</guid>
-      <description>This paper introduces Variational Feature Compression (VFC), a framework that generates *model-specific representations*: compact latent encodings highly useful for a designated classifier yet severely degraded for all unintended models. VFC employs a **reconstruction-free variational bottleneck**, trained solely on task-driven cross-entropy loss and KL regularization—eliminating pixel-level reconstruction to avoid preserving unnecessary semantic details. Crucially, it applies a **dynamic binary mask**, computed per-dimension from KL divergence and gradient-based saliency w.r.t. the frozen target model, to suppress latent features irrelevant to the intended task. Training requires white-box gradient access (for saliency), but inference needs only a forward pass. On CIFAR-100, VFC retains strong utility (&gt;85% accuracy) for the target classifier while reducing accuracy of 10 diverse unintended classifiers to &lt;2%—a suppression ratio exceeding 45×. Preliminary validation across CIFAR-10, Tiny ImageNet, and Pascal VOC suggests cross-task applicability, though robustness against adaptive adversaries warrants further study.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>ADAG: Automatically Describing Attribution Graphs</title>
-      <link>https://arxiv.org/abs/2604.07615v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.07615v1</guid>
-      <description>In language model interpretability, circuit tracing identifies causal internal features underlying model behavior—but prior work relies entirely on manual, ad-hoc interpretation of feature roles via dataset inspection. We introduce **ADAG**, the first end-to-end automated pipeline for describing attribution graphs. ADAG introduces *attribution profiles*—vector representations quantifying a feature’s functional role via its input and output gradient effects—and a novel clustering algorithm grouping features by profile similarity. An LLM-based explainer-simulator then generates natural-language explanations for clusters and scores them via counterfactual behavioral simulation. Evaluated on human-analyzed circuits (e.g., IOI), ADAG recovers interpretable, high-fidelity circuits. Crucially, it autonomously discovers a *steerable cluster* in Llama 3.1 8B Instruct responsible for harmful advice jailbreaks—verified via targeted ablation and activation steering. ADAG bridges the gap between attribution graphs and actionable, causal understanding.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>jailbreak</category>
-      <category>llm</category>
-    </item>
-    <item>
-      <title>From Perception to Autonomous Computational Modeling: A Multi-Agent Approach</title>
-      <link>https://arxiv.org/abs/2604.06788v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.06788v1</guid>
-      <description>We present a solver-agnostic multi-agent framework where coordinated LLM agents autonomously execute the full computational mechanics workflow—from raw perceptual input (e.g., a photograph) to geometry extraction, material inference, mesh generation, solver execution, uncertainty quantification, code-compliant assessment, and actionable engineering reporting. Agents are formalized as context-conditioned operators with quality gates enabling conditional inter-layer iteration. We introduce a unified mathematical framework for engineering information extraction under uncertainty, integrating interval bounds, probability densities, and fuzzy membership functions, and propose task-dependent conservatism to resolve conflicting parameter sensitivities across limit states. Applied to a steel L-bracket photo, the system generated a 171,504-node tetrahedral mesh, ran seven finite element analyses under three boundary hypotheses, and delivered a GB 50017-compliant assessment identifying buckling failure—alongside a quantified redesign recommendation—all in the first autonomous iteration without manual correction. This demonstrates feasibility of end-to-end autonomous computational modeling, while underscoring that professional engineer review and sign-off remain mandatory.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-      <category>inference</category>
-      <category>membership</category>
-    </item>
-    <item>
-      <title>Evaluating PQC KEMs, Combiners, and Cascade Encryption via Adaptive IND-CPA Testing Using Deep Learning</title>
-      <link>https://eprint.iacr.org/2026/689</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/689</guid>
-      <description>This paper introduces a deep learning–based adaptive framework for empirical IND-CPA testing, framing ciphertext indistinguishability as a binary classification task trained on labeled challenge ciphertexts using DNNs and binary cross-entropy loss. We apply it comprehensively to NIST PQC KEMs (ML-KEM, BIKE, HQC), novel hybrid KEM combiners (e.g., PQC + RSA-OAEP/unpadded RSA), and cascade symmetric encryption (AES-CTR/CBC/ECB, ChaCha20, DES-ECB). Using two-sided binomial tests (α = 0.01), no scheme or composition shows statistically significant distinguishability—fully consistent with theoretical composition guarantees requiring only one IND-CPA-secure component. The results demonstrate that DNN-based empirical testing is a practical, versatile, and data-driven complement to analytical security analysis in post-quantum and hybrid cryptographic settings.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Too Far Behind? Narrowing the Gap with a Dual-Enhanced Two-Stage Algebraic Framework for LWE</title>
-      <link>https://eprint.iacr.org/2026/688</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/688</guid>
-      <description>We propose a **Dual-Enhanced Two-Stage Algebraic Framework** for solving the Learning with Errors (LWE) problem. Stage 1 applies **dual lattice reduction** to compress sample dimensionality—reducing variables at the cost of controlled noise inflation. Stage 2 replaces the classical Arora-Ge system and Gröbner basis solving with a **novel error-distribution-aware polynomial construction**, solved efficiently via a **resultant-based method**. For CRYSTALS-KYBER with $m = n$ samples, our framework achieves **better asymptotic complexity than Steiner’s Gröbner-based approach (Eurocrypt 2024)**. As an independent result, applying the resultant method directly to the Arora-Ge system for *small-secret LWE* yields a **provable exponential speed-up** over Steiner’s proven bounds. We further demonstrate systematic integration of side information—including perfect, modular, and approximate hints—into the framework. This work bridges algebraic and dual attack paradigms, offering a sharper, more adaptable tool for LWE cryptanalysis.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>High-Throughput Side-Channel-Protected Stream Cipher Hardware for 6G Systems</title>
-      <link>https://eprint.iacr.org/2026/687</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/687</guid>
-      <description>This work presents the first side-channel-protected hardware implementation of the LOL2.0 stream cipher meeting 6G-class throughput requirements (&gt;100 Gbps). Leveraging Time Sharing Masking, we achieve formal first-order security under the glitch-extended probing model, with full-phase protection covering initialization, keystream generation, and tag computation. We propose two complementary architectures: a **Fast variant** delivering 142 Gbps (masked) and 183 Gbps (unmasked) peak throughput; and a **Compact variant** minimizing area to 141.98 kGE (masked) and 23.25 kGE (unmasked), while retaining competitive performance. Practical TVLA evaluations on FPGA—using up to 100 million power traces—confirm no statistically significant first-order leakage (p &gt; 0.001) in any masked configuration. This work bridges a critical gap between ultra-high-speed cryptography and physical-layer security for 6G systems.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Secure MSM Outsourcing Computation for Zero-knowledge Proof Generation</title>
-      <link>https://eprint.iacr.org/2026/686</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/686</guid>
-      <description>Zero-knowledge proofs (ZKPs) enable privacy-preserving verification but suffer from prohibitive proof-generation costs—dominated by multi-scalar multiplication (MSM). This work proposes a secure, verifiable, and efficient outsourcing scheme for MSM tailored to ZKP generation. Our approach preserves scalar confidentiality via homomorphic masking and random projection, while enabling lightweight output verification with only $O(\log n)$ elliptic-curve operations. Evaluation shows the user’s computational burden drops by 92.4%, with minimal server overhead (&lt;5%) and verification latency under 3.2 ms. The scheme is hardware-agnostic, TEE-free, and compatible with Groth16, Plonk, and Marlin—bridging practicality and security for cloud-assisted ZKP deployment.</description>
-      <pubDate>Wed, 08 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
     </item>
   </channel>
 </rss>

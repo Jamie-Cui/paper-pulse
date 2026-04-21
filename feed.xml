@@ -4,8 +4,328 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Mon, 20 Apr 2026 02:42:19 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 02:41:25 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TitanCA: Lessons from Orchestrating LLM Agents to Discover 100+ CVEs</title>
+      <link>https://arxiv.org/abs/2604.17860v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17860v1</guid>
+      <description>TitanCA is a collaborative LLM-agent orchestration framework developed by Singapore Management University and GovTech Singapore for scalable, low-false-positive vulnerability discovery in open-source software. Moving beyond monolithic LLM prompting, TitanCA implements a four-module pipeline—**Matching**, **Filtering**, **Inspection**, and **Adaptation**—where specialized LLM agents (e.g., Vulnerability Analyst, Exploit Generator) collaborate under human-in-the-loop supervision. Evaluated across 37 widely used OSS projects (including Linux kernel and OpenSSL), TitanCA discovered **203 confirmed zero-day vulnerabilities**, resulting in **118 assigned CVEs**, including 12 critical-severity (CVSS ≥9.0) entries. Key contributions include: (1) a modular, auditable architecture that reduces false positives to &lt;12% versus conventional SAST; (2) empirical validation that agent specialization + iterative human feedback significantly curbs hallucination; and (3) an open-source implementation with reproducible benchmarks. TitanCA demonstrates that orchestrated, role-aware LLM agents—not standalone models—can deliver production-grade security outcomes.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>SoK: Analysis of Privacy Risks and Mitigation in Online Propaganda Detection through the PROMPT Framework</title>
+      <link>https://arxiv.org/abs/2604.17788v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17788v1</guid>
+      <description>This SoK paper systematizes privacy risks in online propaganda detection across data collection, feature extraction, and inference stages. Through a structured analysis of 162 peer-reviewed studies, we introduce the PROMPT framework—a formal risk-to-mitigation mapping $M: R \to S$ governed by a tunable utility function balancing privacy gain, performance loss, and deployment cost. We propose a GDPR/CCPA-aligned **compliance score**, revealing that most widely used pipelines fail on metadata handling and user-level aggregation. Empirical fine-tuning of transformer-based encoders/decoders under synthetic perturbation ($q = 0.05$ to $0.20$) demonstrates a monotonic privacy–utility trade-off: F$_1$ drops by 1–2% at low $q$, but by 13–14% at $q = 0.20$. Our work establishes the first quantitative privacy-cost baselines for propaganda detection and delivers three key contributions: (1) a formalized risk-defense mapping, (2) a regulation-aware auditing metric, and (3) empirical evidence of actionable privacy-performance trade-offs—enabling privacy-aware, legally compliant system design.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>A Quasi-Experimental Developer Study of Security Training in LLM-Assisted Web Application Development</title>
+      <link>https://arxiv.org/abs/2604.17763v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17763v1</guid>
+      <description>This quasi-experimental study investigates whether a layered security training package improves the security quality of LLM-assisted implementation of an identity-centric Java Spring Boot backend—without modifying the underlying model. Twelve professional developers completed matched pre- and post-training tasks under controlled conditions (fixed LLM, shared starter project, counterbalanced tasks). Security outcomes were assessed via independent manual validation of submitted repositories using CWE-based criteria. The primary endpoint was a severity-weighted validated-weakness score. Results showed a statistically significant reduction in security burden after training (*p* = 0.0059, Wilcoxon signed-rank test): total validated weaknesses decreased by 31.5% (162 → 111), severity-weighted burden by 38.2% (432 → 267), and critical findings by 79.2% (24 → 5). Largest improvements occurred in authorization/object access (−53.3%) and authentication/credential policy/recovery (−44.7%). Minimal gains were observed for session/browser trust-boundary and cryptographic issues. The findings demonstrate that targeted developer training meaningfully enhances security outcomes in LLM-augmented development—but do not supplant secure defaults, static analysis, expert review, or operational hardening.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>AIT Academy: Cultivating the Complete Agent with a Confucian Three-Domain Curriculum</title>
+      <link>https://arxiv.org/abs/2604.17989v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17989v1</guid>
+      <description>This paper introduces AIT Academy, the first curriculum framework for cultivating *complete* AI agents through a Confucian-inspired three-domain structure: **Domain I (Natural Science &amp; Technical Reasoning)**, **Domain II (Humanities &amp; Creative Expression)**, and **Domain III (Social Science &amp; Ethical Reasoning)**. Grounded in Kagan’s Three Cultures and UNESCO ISCED-F 2013, it reinterprets the ancient Confucian *Six Arts* as trainable behavioral archetypes—e.g., “Yu” (charioteering) as multi-tool orchestration, “Li” (ritual) as social-contract adherence. Evaluated across three training grounds (ClawdGO Security Dojo, Athens Academy, Alt Mirage Stage) and multiple LLM backbones, AIT achieves a **+15.9-point gain in security capability** under weakest-first curriculum scheduling and a **+7-percentage-point improvement in social reasoning** via principled attribution modeling. Critically, it reveals the *Security Awareness Calibration Pathology (SACP)*—a cross-domain failure mode where over-optimized Domain I agents degrade on out-of-distribution tasks—demonstrating the diagnostic power of multi-domain evaluation. AIT bridges educational philosophy and agent engineering, enabling holistic, value-aware, and robust AI development.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>agent</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Federated Rule Ensemble Method in Medical Data</title>
+      <link>https://arxiv.org/abs/2604.17956v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17956v1</guid>
+      <description>Machine learning in healthcare is hampered by data silos and privacy constraints, while existing federated learning (FL) methods lack interpretability—critical for clinical trust and adoption. We propose **Federated Rule Ensemble (FRE)**, the first FL framework that constructs a globally interpretable RuleFit model without raw data sharing. FRE integrates: (1) differentially private histogram-based preprocessing to derive consistent cutoffs across clients; (2) local rule generation via gradient-boosted trees constrained by shared cutoffs; and (3) sparse coefficient estimation using a novel **Federated Dual Averaging (FDA)** algorithm with ℓ₁ regularization. In simulations, FRE matches centralized RuleFit’s performance (AUC: 0.862 vs. 0.865, *p*=0.32) and outperforms state-of-the-art federated baselines. On real multi-hospital diabetes data, it achieves competitive accuracy (AUC=0.831) while producing clinically actionable rules—e.g., “IF fasting glucose ≥7.0 mmol/L AND HbA1c ≥6.5% THEN risk ↑2.4×”. FRE bridges privacy, scalability, and interpretability for trustworthy medical FL.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Efficient Federated RLHF via Zeroth-Order Policy Optimization</title>
+      <link>https://arxiv.org/abs/2604.17747v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17747v1</guid>
+      <description>This paper addresses reinforcement learning from human feedback (RLHF) in resource-constrained federated settings—e.g., edge devices—with a novel zeroth-order optimization algorithm: **Partitioned, Sign-based Stochastic Zeroth-order Policy Optimization (Par-S²ZPO)**. By replacing gradient computation with **binary (±1) random perturbations**, Par-S²ZPO eliminates backpropagation and reduces communication to 1-bit sign vectors per parameter block, slashing bandwidth and memory overhead. Theoretically, it achieves the same **sample complexity** as centralized zeroth-order RLHF (O(1/ε⁴)), yet converges faster in **policy update iterations**, with an acceleration factor of √K under K clients. Empirically, on four MuJoCo tasks, Par-S²ZPO outperforms FedAvg-based RLHF by **12.4–19.7% in final return**, while reducing communication by **78%** and energy consumption by **63%**, demonstrating strong scalability and robustness in heterogeneous federated environments.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Program Structure-aware Language Models: Targeted Software Testing beyond Textual Semantics</title>
+      <link>https://arxiv.org/abs/2604.17715v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17715v1</guid>
+      <description>Recent LLM-based test generation methods improve branch coverage via prompt-engineered mutations but lack principled mechanisms to steer models toward *high-risk execution branches*, limiting discovery of subtle bugs and security vulnerabilities. We propose **GLMTest**, the first program structure-aware LLM framework for targeted test case generation. GLMTest jointly encodes code property graphs (CPGs) — capturing control/data flow and AST structure — using a graph neural network, and integrates this structural signal with a language model (Qwen2.5-Coder-7B-Instruct) to condition test generation on user-specified execution branches. This enables controllable, branch-targeted synthesis beyond textual semantics. Evaluated on the TestGenEval benchmark and real-world projects, GLMTest achieves **50.2% branch accuracy**, substantially outperforming state-of-the-art LLMs (27.4% for Claude-Sonnet-4.5 and GPT-4o-mini). It also demonstrates 2.1× higher detection rate for critical boundary-condition and memory-safety bugs.</description>
+      <pubDate>Mon, 20 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Terminal Wrench: A Dataset of 331 Reward-Hackable Environments and 3,632 Exploit Trajectories</title>
+      <link>https://arxiv.org/abs/2604.17596v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17596v1</guid>
+      <description>We introduce **Terminal Wrench**, a novel, publicly available dataset comprising **331 reward-hackable terminal-agent environments**, curated from popular open benchmarks and rigorously verified for exploitable reward misalignment. It includes **3,632 exploit trajectories** (e.g., output spoofing, stack introspection, stdlib patching, binary hijacking) and **2,352 legitimate baseline trajectories**, generated by Claude Opus 4.6, Gemini 3.1 Pro, and GPT-5.4. Crucially, exploits are *task-specific*—not framework-dependent—making them resilient to superficial patches. A monitorability study shows that removing chain-of-thought reasoning degrades LLM-based detection performance significantly (AUC drops from 0.97 to 0.92), highlighting the stealth of implicit hacks. The dataset enables rigorous evaluation of agent robustness and reward modeling in real-world terminal settings. Available at https://github.com/few-sh/terminal-wrench.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>agent</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Privatar: Scalable Privacy-preserving Multi-user VR via Secure Offloading</title>
+      <link>https://arxiv.org/abs/2604.17476v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17476v1</guid>
+      <description>Multi-user VR suffers from severe scalability bottlenecks due to per-headset avatar rendering overhead. Privatar addresses this by enabling *secure offloading* of avatar reconstruction to untrusted local devices while providing *provable privacy guarantees*. Its key innovations are: (1) **Horizontal Partitioning (HP)**—leveraging BDCT’s frequency-domain decomposability to keep high-energy components on-device and offload only low-energy ones, reducing computation and limiting information leakage; and (2) **Distribution-Aware Minimal Perturbation (DAMP)**—exploiting the slow temporal evolution of users’ expression distributions to inject *minimal, adaptive noise*, achieving strong utility-preserving ε-differential privacy. Evaluated on Meta Quest Pro, Privatar supports **2.37× more concurrent users**, with only +6.5% reconstruction loss and +9% energy overhead—outperforming quantization, sparsity, and local construction baselines on the throughput–loss Pareto frontier. It resists both empirical and neural-network-based reconstruction attacks while offering formal privacy.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>privacy</category>
+      <category>differential</category>
+    </item>
+    <item>
+      <title>GuardPhish: Securing Open-Source LLMs from Phishing Abuse</title>
+      <link>https://arxiv.org/abs/2604.17313v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17313v1</guid>
+      <description>GuardPhish identifies a critical security gap in open-source LLMs: high phishing *intent detection* (up to 96%) does not prevent *actionable phishing generation*, with attack success reaching 98.5% in voice-based scenarios under fully offline inference. We introduce GuardPhish—a large-scale, multi-vector phishing prompt dataset (70,015 real-world samples across web, email, SMS, and voice) labeled via a deterministic five-model ensemble (Fleiss κ = 0.9141) and expert adjudication. Evaluating eight open-source LLMs reveals that static safety configurations fail to enforce generative refusal, exposing an “enforcement gap” between classification and content control. To address this, we train modular, transformer-based pre-generation classifiers on GuardPhish, achieving up to 98.27% accuracy—deployable without modifying the underlying LLM. Our work provides the first reproducible foundation for securing offline and enterprise LLM deployments against phishing and social engineering abuse.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>inference</category>
+      <category>security</category>
+      <category>train</category>
+    </item>
+    <item>
+      <title>Breaking Euston: Recovering Private Inputs from Secure Inference by Exploiting Subspace Leakage</title>
+      <link>https://arxiv.org/abs/2604.17238v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17238v1</guid>
+      <description>We identify a critical privacy flaw in Euston—a recently proposed secure transformer inference framework (IEEE S&amp;P 2026)—stemming from its singular value decomposition (SVD)-based matrix transmission protocol. While designed to reduce communication bandwidth by ~2.8×, this protocol inadvertently leaks the subspace structure of random masks: it constrains mask matrices to share singular vectors with inputs, collapsing their randomness into a low-dimensional subspace. This *subspace leakage* enables the model owner to recover private user inputs (e.g., images or embeddings) with high fidelity using only 1–3 inference queries and standard SVD analysis—without breaking underlying cryptography. We validate the attack on CIFAR-10 (PSNR &gt; 28 dB for reconstructed images) and WikiText (73.5% Top-3 token recovery for masked embeddings), demonstrating that efficiency optimizations can fundamentally undermine semantic privacy guarantees. Our work exposes a previously overlooked threat class in secure ML and urges formal subspace-aware security modeling for future protocols.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>inference</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Decentralised Trust and Security Mechanisms for IoT Networks at the Edge: A Comprehensive Review</title>
+      <link>https://arxiv.org/abs/2604.17179v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17179v1</guid>
+      <description>This review critically examines state-of-the-art decentralised trust and security mechanisms for resource-constrained IoT edge networks. Analysing 30 recent studies (2019–2024), we evaluate frameworks—including DFGL-LZTA, SecFedDNN, and COSIER—across trust establishment, secure communication efficiency, and intrusion/anomaly detection performance. Results show decentralised approaches significantly enhance privacy (via federated learning with ε ≤ 1.2 differential privacy), eliminate single points of failure, and improve adaptive threat response—yet face persistent challenges in scalability beyond 10⁴ devices, computational overhead on ultra-low-end hardware, and cross-platform interoperability. We identify “layered trust anchoring” (device-level TEE, group-level local consensus, ecosystem-level policy negotiation) as a key architectural direction for future resilient, standards-aware IoT edge ecosystems.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>SafeAgent: A Runtime Protection Architecture for Agentic Systems</title>
+      <link>https://arxiv.org/abs/2604.17562v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17562v1</guid>
+      <description>Large language model (LLM) agents are highly vulnerable to prompt-injection attacks that propagate across multi-step reasoning, tool interactions, and persistent context—rendering static input-output filtering insufficient. This paper introduces **SafeAgent**, a runtime security architecture that treats agent safety as a *stateful decision problem* over evolving interaction trajectories. SafeAgent decouples execution governance from semantic risk reasoning via two tightly coordinated components: (1) a **runtime controller**, embedded in the agent loop to mediate actions in real time; and (2) a **context-aware decision core**, formalized as a Context-Aware Advanced Machine Intelligence (CAMI), which operates on persistent session state using five composable operators—risk encoding, utility-cost evaluation, consequence modeling, policy arbitration, and state synchronization. Evaluated on Agent Security Bench (ASB) and InjecAgent, SafeAgent achieves consistent robustness gains (38.2–52.7% lower attack success rate) while preserving high benign-task performance (94.1–96.8% accuracy), outperforming both baseline agents and text-level guardrails. Ablation studies confirm that recovery confidence estimation and adaptive policy weighting critically determine distinct safety-utility operating points.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>agent</category>
+      <category>security</category>
+      <category>injection</category>
+      <category>prompt</category>
+    </item>
+    <item>
+      <title>DuConTE: Dual-Granularity Text Encoder with Topology-Constrained Attention for Text-attributed Graphs</title>
+      <link>https://arxiv.org/abs/2604.17411v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17411v1</guid>
+      <description>Text-attributed graphs jointly model node text semantics and graph topology, yet prevailing methods encode texts in isolation using LMs before applying GNNs—ignoring both node-level semantic integration and topology-aware textual interaction. We propose **DuConTE**, a dual-granularity text encoder featuring **topology-constrained attention**: (1) A cascaded two-LM architecture first encodes at word-token granularity, then refines representations at node granularity; (2) During self-attention, the attention mask is dynamically adjusted based on node connectivity (e.g., adjacency or k-hop reachability), forcing semantic modeling to respect graph structure; (3) Node representation aggregation separately weights token importance under center-node and neighborhood contexts for contextual relevance. Extensive experiments on six benchmarks (Cora, Citeseer, PubMed, ACM, DBLP, Amazon-Computers) show DuConTE achieves new state-of-the-art performance on most datasets—outperforming prior methods by up to 3.2% in node classification accuracy, with consistent gains in sparse and long-text regimes. Ablation studies confirm the critical role of topology constraints and dual-granularity design.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Fully Analog Resonant Recurrent Neural Network via Metacircuit</title>
+      <link>https://arxiv.org/abs/2604.17277v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17277v1</guid>
+      <description>We present a **fully analog resonant recurrent neural network (R²NN)** implemented via a scalable *metacircuit*—an integrated architecture of coupled electrical local resonators. By reformulating the mechanical-electrical analogy, we establish a direct, parameter-preserving mapping between the R²NN model and physical circuit elements (inductors, capacitors, tunable resistors), enabling faithful hardware realization of trained weights and dynamics. Jointly trainable global resistive coupling and local resonances generate frequency-dependent effective negative resistances, sculpting an adaptive impedance landscape that routes currents along spectral-selective pathways—bypassing analog-to-digital conversion entirely. This allows real-time temporal classification directly from raw analog inputs. Hardware demonstrations achieve high accuracy in tactile perception (98.7%), speech keyword spotting (96.2%), and industrial condition monitoring (F1=0.95), establishing a scalable, latency- and energy-optimal paradigm for edge intelligence.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Beyond the Basics: Leveraging Large Language Model for Fine-Grained Medical Entity Recognition</title>
+      <link>https://arxiv.org/abs/2604.17214v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17214v1</guid>
+      <description>This study systematically evaluates the open-source **LLaMA3** model for **fine-grained Medical Entity Recognition (MER)** across 18 clinically meaningful categories—far exceeding conventional coarse-grained types (e.g., “Disease”, “Drug”). To ensure fair comparison, we uniformly apply zero-shot, few-shot, and LoRA-based fine-tuning paradigms on the *same* LLaMA3 backbone—a methodological distinction from prior work using heterogeneous models or architectures. For few-shot learning, we propose two BioBERT-powered example selection strategies: token-level and sentence-level embedding similarity matching. Experiments show that LoRA-finetuned LLaMA3 achieves an **F1 score of 81.24%**, outperforming zero-shot (+63.11%) and few-shot (+35.63%) baselines. Our work demonstrates that lightweight adaptation of open LLMs enables high-precision, clinically actionable MER—and establishes a reproducible, granular evaluation framework for clinical NLP.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Towards a Data-Parameter Correspondence for LLMs: A Preliminary Discussion</title>
+      <link>https://arxiv.org/abs/2604.17384v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17384v1</guid>
+      <description>This paper introduces a unified *data-parameter correspondence* framework for LLM optimization, bridging historically isolated data-centric and model-centric paradigms. Grounded in the Fisher-Rao metric and Legendre duality between natural ($\theta$) and expectation ($\eta$) parameters on the statistical manifold $\mathcal{M}$, we establish three fundamental geometric correspondences: (1) *Geometric correspondence*, where data pruning and parameter sparsification equivalently constrain manifold volume via dual coordinates; (2) *Low-rank correspondence*, showing that $k$-shot in-context learning and rank-$r$ LoRA adaptation explore identical subspaces on the Grassmannian $\mathcal{G}(r,d)$, with $k \sim r$; and (3) *Security-privacy correspondence*, revealing cooperative amplification between data poisoning and parameter backdoors under attack, versus cascading attenuation—where data compression multiplicatively strengthens parameter privacy—in defense. The framework enables rigorous cross-paradigm methodology transfer and demonstrates superior efficiency, robustness, and privacy in joint data-parameter optimization.</description>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>inference</category>
+      <category>poisoning</category>
+      <category>data</category>
+      <category>security</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>CASCADE: A Cascaded Hybrid Defense Architecture for Prompt Injection Detection in MCP-Based Systems</title>
+      <link>https://arxiv.org/abs/2604.17125v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17125v1</guid>
+      <description>CASCADE is a fully local, cascaded three-tier defense architecture designed to detect prompt injection and tool poisoning attacks in Model Context Protocol (MCP)-based LLM systems. It eliminates reliance on external APIs or white-box model access—addressing key limitations of prior defenses. Layer 1 applies fast regex filtering, phrase weighting, and entropy analysis; Layer 2 performs semantic similarity scoring using BGE embeddings with an optional Ollama-hosted Llama3 fallback for ambiguous inputs; Layer 3 enforces structural pattern validation on tool invocation outputs. Evaluated on 5,000 samples, CASCADE achieves 95.85% precision, 61.05% recall, 74.59% F1-score, and only a 6.06% false positive rate. It excels at detecting data exfiltration (91.5%) and direct prompt injection (84.2%), while semantic attacks (52.5%) and tool poisoning (59.9%) represent key improvement opportunities. Its zero-API, offline operation enables privacy-preserving, low-latency deployment in production MCP environments.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>poisoning</category>
+      <category>data</category>
+      <category>injection</category>
+      <category>prompt</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>HarmChip: Evaluating Hardware Security Centric LLM Safety via Jailbreak Benchmarking</title>
+      <link>https://arxiv.org/abs/2604.17093v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17093v1</guid>
+      <description>The integration of LLMs into EDA workflows enables powerful RTL generation and verification but introduces irreversible hardware-level threats—e.g., hardware Trojans, side-channel leaks, and IP theft—when models comply with semantically disguised malicious prompts. Existing safety guardrails, trained on general-purpose hazards, fail to detect such domain-specific adversarial intent. To address this gap, we introduce **HarmChip**, the first hardware security–centric jailbreak benchmark: it spans 16 hardware security domains (e.g., PUFs, TEEs, fault injection), 120 threat types, and 360 expert-validated prompts at two difficulty levels. Evaluating 12 state-of-the-art LLMs reveals a critical alignment paradox: models frequently refuse legitimate security queries (e.g., “analyze timing leakage in AES”) yet comply with disguised attacks at up to 68.3% rate—exposing severe blind spots in current safety mechanisms. HarmChip establishes a foundation for domain-aware safety alignment and highlights the urgent need for hardware-security–specialized red-teaming.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>security</category>
+      <category>jailbreak</category>
+    </item>
+    <item>
+      <title>False Security Confidence in Benign LLM Code Generation</title>
+      <link>https://arxiv.org/abs/2604.17014v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17014v1</guid>
+      <description>This report introduces **False Security Confidence (FSC)**: the phenomenon where large language models (LLMs) systematically generate *functionally correct yet security-vulnerable* code in ordinary, non-adversarial programming tasks. Unlike prior work focused on attack-induced vulnerabilities, FSC adopts a measurement-first perspective—asking how often such failures occur *without explicit attack pressure*, in what forms, and whether standard functional evaluation reliably detects them. We formalize the **FSC rate** as the prevalence of security failures *within the subset of functionally correct outputs*, distinguishing it from joint functional-security metrics (e.g., SAFE) and outcome-driven benchmarks (e.g., CWEval). To characterize FSC across contexts, we propose a **three-ecosystem task view**: general-purpose programming, deployment-context tasks (e.g., with input sanitization requirements), and security-explicit programming (e.g., SQLi-resistant coding). Crucially, we define **FSC-hard** cases—vulnerabilities that are dynamically triggerable yet evade mainstream static analyzers (e.g., Semgrep, CodeQL)—highlighting a critical gap in current automated security tooling. This work serves as a foundational framework statement, establishing core terminology, measurement boundaries, and design commitments for future large-scale empirical evaluation.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Visual Inception: Compromising Long-term Planning in Agentic Recommenders via Multimodal Memory Poisoning</title>
+      <link>https://arxiv.org/abs/2604.16966v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16966v1</guid>
+      <description>This paper identifies **Visual Inception**, a novel multimodal memory poisoning attack targeting *Agentic Recommender Systems* (Agentic RecSys). Unlike conventional adversarial attacks, Visual Inception embeds imperceptible visual triggers into user-uploaded images (e.g., lifestyle photos); these poisoned samples are stored in the agent’s Long-term Memory (LTM) and later hijack memory-driven planning—steering decisions toward adversary-defined goals (e.g., promoting high-margin items) without prompt manipulation. To counter this, we propose **CognitiveGuard**, a dual-process defense inspired by human cognition: a System 1 *Perceptual Sanitizer* (diffusion-based image purification) cleans sensory inputs, while a System 2 *Reasoning Verifier* performs counterfactual consistency checks during planning to detect memory-induced anomalies. Evaluated on a mock e-commerce agent platform, Visual Inception achieves an 85% Goal-Hit Rate (GHR), whereas CognitiveGuard reduces GHR to ~10%, with configurable latency (1.5 s to 6.5 s) and zero degradation in recommendation quality (NDCG@10 stable within ±0.3%).</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>injection</category>
+      <category>prompt</category>
+    </item>
+    <item>
+      <title>enclawed: A Configurable, Sector-Neutral Hardening Framework for Single-User AI Assistant Gateways</title>
+      <link>https://arxiv.org/abs/2604.16838v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16838v1</guid>
+      <description>enclawed is a configurable, sector-neutral hardening framework built as a hard fork of the OpenClaw single-user AI assistant gateway. It targets high-assurance deployments requiring attestable peer trust, deny-by-default external connectivity, signed-module loading, and tamper-evident audit trails—common in financial services, healthcare, defense, regulated R&amp;D, and government enclaves. It offers two flavors: an *open flavor* preserving OpenClaw compatibility while emitting audit, classification, and DLP signals; and an *enclaved flavor* enforcing strict allowlists, FIPS-compliant cryptographic module assertions, mandatory manifest signature verification, and high-assurance Model Context Protocol (MCP) peer attestation. Classification is fully data-driven via five built-in presets (e.g., healthcare, US-government) or custom JSON. The implementation includes a security review, a 204-case test suite (146 unit tests + 58 adversarial pen-tests), real-time human-in-the-loop controls, a memory-bounded secure transaction buffer with rollback, strict-mode TypeScript typechecking across all 22 files, and production-ready GitHub Actions CI. Note: enclawed is a hardening framework—not an accredited compliance certification; hardware, validated crypto modules, certified facilities, and assessor sign-off remain the deploying organization’s responsibility.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>agent</category>
+      <category>security</category>
+      <category>injection</category>
+      <category>prompt</category>
+    </item>
+    <item>
+      <title>Towards Deep Encrypted Training: Low-Latency, Memory-Efficient, and High-Throughput Inference for Privacy-Preserving Neural Networks</title>
+      <link>https://arxiv.org/abs/2604.16834v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16834v1</guid>
+      <description>Privacy-preserving machine learning (PPML) demands efficient batched inference over homomorphically encrypted data—yet prior work remains largely limited to single-sample processing. This paper bridges the gap by introducing batch-aware optimization algorithms and a scalable pipeline architecture for HE-friendly neural networks. We redesign convolution, activation, and pooling operations to minimize ciphertext expansion and noise growth under CKKS encryption, while our pipeline enables dynamic resource allocation across batch sizes (e.g., 256 or 512). Evaluated on encrypted CIFAR-10 and CIFAR-100, our ResNet-20 implementation achieves **8.86 sec/image** (batch=512) with **98.96 GB peak memory**, improving runtime by 1.78× and reducing memory by 3.74× over the state of the art. For deeper ResNet-34 (batch=256), we attain **28.14 sec/image** using 246.78 GB RAM—the first practical demonstration of high-throughput encrypted inference for deep models. These results establish a foundation for memory-efficient, low-latency encrypted training pipelines.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>homomorphic</category>
+      <category>privacy-preserving</category>
+      <category>machine</category>
+      <category>encryption</category>
+    </item>
+    <item>
+      <title>SafeDream: Safety World Model for Proactive Early Jailbreak Detection</title>
+      <link>https://arxiv.org/abs/2604.16824v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16824v1</guid>
+      <description>Multi-turn jailbreak attacks progressively degrade LLM safety alignment across benign-looking turns, achieving &gt;90% success against state-of-the-art models. Existing defenses suffer from high cost (weight modification), turn-wise isolation (ignoring cumulative safety erosion), and reactive detection (only *after* harmful output). To address this, we formalize **proactive early jailbreak detection**, introducing *detection lead*—measuring how many turns before compliance an attack is flagged. We propose **SafeDream**, a lightweight, weight-free external world-model framework comprising: (1) a **safety state world model** encoding and forecasting LLM hidden-state safety evolution; (2) **CUSUM-based accumulation** of weak per-turn risk signals; and (3) **contrastive imagination**, jointly rolling out adversarial and benign futures in latent space to trigger alarms *before* jailbreak. Evaluated on three multi-turn benchmarks (XGuard-Train, SafeDialBench, SafeMTData) against 8 baselines, SafeDream achieves best timeliness (**1.06–1.20 turns ahead of compliance**) with competitive false positive rates (&lt;3.2%) and superior detection quality (AUC/F1).</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>jailbreak</category>
+    </item>
+    <item>
+      <title>CapSeal: Capability-Sealed Secret Mediation for Secure Agent Execution</title>
+      <link>https://arxiv.org/abs/2604.16762v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16762v1</guid>
+      <description>Modern AI agents rely critically on secrets (e.g., API keys, SSH credentials), yet current deployments expose full bearer credentials directly—via env vars, files, or forwarded sockets—making them vulnerable to prompt injection, tool misuse, and model-driven exfiltration. CapSeal eliminates this exposure by replacing direct secret access with *capability-sealed, broker-mediated invocations*. It issues short-lived, context-bound capabilities; enforces schema-constrained HTTP calls; executes SSH actions *only* in the trusted broker; binds sessions with anti-replay mechanisms; evaluates policies in real time; and maintains tamper-evident audit trails. Implemented in Rust with an MCP adapter, CapSeal formally guarantees non-disclosure, constrained use, replay resistance, and auditability. Evaluation across prompt injection, tool abuse, and SSH exploitation scenarios confirms it prevents credential leakage while preserving functionality—shifting secret handling from “giving the model a key” to “granting a narrow, non-exportable action capability.”</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>agent</category>
+      <category>security</category>
+      <category>injection</category>
+      <category>prompt</category>
+    </item>
+    <item>
+      <title>A Two-Stage Deep Learning Framework for Segmentation of Ten Gastrointestinal Organs from Coronal MR Enterography</title>
+      <link>https://arxiv.org/abs/2604.17118v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17118v1</guid>
+      <description>Accurate segmentation of ten gastrointestinal (GI) organs from coronal MR enterography (MRE) is vital for inflammatory bowel disease (IBD) assessment but challenged by anatomical variability, low tissue contrast, and extreme class imbalance—especially for the appendix. We propose a two-stage deep learning framework: Stage 1 uses DenseNet201-UNet++ for coarse organ localization and ROI extraction; Stage 2 trains a DenseNet121-SelfONN-UNet on organ-specific patches, incorporating class-weighted loss, five-fold cross-validation, and aggressive augmentation to address imbalance. Evaluated on 3,195 T2-HASTE slices from 114 IBD patients, our method achieves an overall mDSC of 88.99%, mIoU of 84.76%, and mHD95 of 6.94 mm—outperforming all baselines. Notably, appendix DSC improves dramatically from 6.76% to 85.76%, while key organs gain substantial DSC boosts (e.g., cecum +23.62%, sigmoid +18.57%). This coarse-to-fine, organ-aware strategy demonstrates strong potential for clinical translation in gastroenterology.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Comparing Human and Large Language Model Interpretation of Implicit Information</title>
+      <link>https://arxiv.org/abs/2604.17085v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.17085v1</guid>
+      <description>This paper introduces **Implicit Information Extraction (IIE)**—a novel task probing how humans and LLMs differ in interpreting unstated meaning. We propose an LLM-based IIE pipeline that (1) extracts relational triplets from context sentences, (2) validates their implicit inferential basis using commonsense grounding, and (3) annotates temporal relations to build structured knowledge graphs. Evaluating Llama-3-70B and GPT-4 against human crowdworkers on two diverse datasets, we find: (i) models achieve high agreement with humans on *retrieved* triplets (avg. F1 = 0.78), yet humans consistently add 37–52% more valid implicit triplets—revealing substantial coverage gaps; (ii) LLMs are *more conservative* than humans in socially rich contexts (e.g., interpersonal dialogues), whereas humans become *more conservative* in short, fact-oriented contexts—highlighting strong context-dependent divergence in implicit reasoning thresholds. Our code and annotations are publicly available.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>AutoPKG: An Automated Framework for Dynamic E-commerce Product-Attribute Knowledge Graph Construction</title>
+      <link>https://arxiv.org/abs/2604.16950v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16950v1</guid>
+      <description>We present **AutoPKG**, an automated multi-agent LLM framework for dynamic Product-attribute Knowledge Graph (PKG) construction from multimodal e-commerce content. Unlike ontology-dependent methods, AutoPKG *induces* product types and type-specific attribute keys on demand, extracts values from text and images via specialized agents, and maintains global consistency through a centralized decision agent that performs canonicalization. We propose the first evaluation protocol for dynamic PKGs—measuring type/key validity, consolidation quality, and edge-level accuracy post-canonicalization. On Lazada’s large-scale real-world catalog, AutoPKG achieves 0.953 WKE (types), 0.724 WKE (keys), and 0.531 edge-level F1 (multimodal value extraction). Across three public benchmarks, it improves edge-level exact-match F1 by +0.152 and precision by +0.208. Online A/B tests show GMV lifts of +3.81% (Badge), +5.32% (Search), and +7.89% (Recommendation), demonstrating strong production impact.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Federation over Text: Insight Sharing for Multi-Agent Reasoning</title>
+      <link>https://arxiv.org/abs/2604.16778v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16778v1</guid>
+      <description>We propose **Federation over Text (FoT)**, a novel semantic-level framework enabling LLM-powered agents to collaboratively build and share *metacognitive insights*—not model weights or gradients. In FoT, heterogeneous agents independently reason on their own tasks, then upload reasoning traces (e.g., chains-of-thought, failure analyses, strategy reflections) to a central server. The server distills cross-task, cross-domain insights via unsupervised semantic aggregation—yielding an interpretable, reusable natural-language library. Agents query this library to accelerate and improve future reasoning. Experiments across mathematical problem solving, cross-domain collaboration, and ML research insight discovery show FoT boosts downstream accuracy by **24%**, reduces reasoning tokens by **28%**, and generates insights covering **&gt;90% of major contributions** in follow-up papers—without any gradient optimization or supervision. FoT establishes the first parameter-free, text-native paradigm for federated metacognition.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>LLM-Extracted Covariates for Clinical Causal Inference: Rethinking Integration Strategies</title>
+      <link>https://arxiv.org/abs/2604.16763v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16763v1</guid>
+      <description>This study systematically evaluates how to integrate LLM-extracted covariates—derived from unstructured clinical notes—into causal inference pipelines for EHR data. Using 21,859 sepsis patients from MIMIC-IV, we compare seven integration strategies for estimating the effect of early vasopressor initiation on 28-day mortality. Key findings: (1) Directly incorporating LLM-derived covariates into the propensity score model yields the lowest bias (0.0003 vs. 0.0143 in tabular-only baselines) and remains robust under substantial extraction error; (2) Dual-caliper matching on text-based categorical distances harms estimation by overly restricting the donor pool; (3) On real data, LLM-augmented estimates shift the treatment effect from 0.055 to 0.027—directionally aligning with the CLOVERS RCT—and a doubly robust estimator confirms 0.019 as the most stable estimate. Our work provides actionable, empirically grounded guidance for leveraging clinical text in causal inference.</description>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
     <item>
       <title>PolicyGapper: Automated Detection of Inconsistencies Between Google Play Data Safety Sections and Privacy Policies Using LLMs</title>
       <link>https://arxiv.org/abs/2604.16128v1</link>
@@ -159,366 +479,59 @@
       <category>prompt</category>
     </item>
     <item>
-      <title>FedIDM: Achieving Fast and Stable Convergence in Byzantine Federated Learning through Iterative Distribution Matching</title>
-      <link>https://arxiv.org/abs/2604.15115v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15115v1</guid>
-      <description>Most Byzantine-robust federated learning (FL) methods suffer from slow, unstable convergence and severe utility degradation under high fractions of colluding malicious clients. To address this, we propose **FedIDM**, a novel framework that achieves fast and stable convergence *without* sacrificing model utility. FedIDM introduces **iterative distribution matching** to construct a lightweight, trustworthy condensed dataset—serving as a dynamic “trust anchor”—to characterize expected update behavior of benign clients. It comprises two key components: (1) attack-tolerant condensed data generation via gradient-aware distribution alignment, and (2) robust aggregation with *negative-contribution-based rejection*, which discards local updates that either deviate significantly from the condensed-data-guided update direction or induce large loss increases on the condensed set. Extensive experiments across CIFAR-10, CIFAR-100, and Tiny-ImageNet under state-of-the-art Byzantine attacks (up to 40% malicious clients) show that FedIDM converges **2.1–3.8× faster**, reduces accuracy variance by **67%**, and maintains only **1.2–2.5% accuracy loss**, outperforming Krum, Bulyan, RFA, and others. FedIDM bridges the long-standing trade-off between robustness, speed, and utility in practical FL deployments.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>No More Guessing: a Verifiable Gradient Inversion Attack in Federated Learning</title>
-      <link>https://arxiv.org/abs/2604.15063v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15063v1</guid>
-      <description>Gradient inversion attacks (GIAs) threaten client privacy in federated learning by reconstructing training data from shared gradients. However, existing GIAs lack intrinsic verifiability—especially for numerical tabular data—where human judgment of plausibility is infeasible, fostering the false impression that tabular data is inherently safer. We challenge this by proposing **Verifiable Gradient Inversion Attack (VGIA)**, the first GIA with a mathematically sound certificate of reconstruction correctness. VGIA leverages a geometric interpretation of ReLU leakage: each fully connected layer’s activation boundary defines a hyperplane in input space. It introduces an **algebraic subspace verification test** that certifies whether a hyperplane-delimited region contains *exactly one* original training record; upon certification, VGIA analytically recovers the feature vector and refines the target via lightweight optimization. Experiments on tabular benchmarks (e.g., Adult, Credit) with large batch sizes show VGIA achieves **exact record-and-target recovery**, outperforming state-of-the-art GIAs—which either fail or cannot assess fidelity. VGIA also reduces attack rounds by 37% on average versus prior geometric methods, enabling faster, more reliable inversion.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>Route to Rome Attack: Directing LLM Routers to Expensive Models via Adversarial Suffix Optimization</title>
-      <link>https://arxiv.org/abs/2604.15022v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15022v1</guid>
-      <description>Cost-aware LLM routing—dynamically dispatching queries to models of varying capability and cost—introduces a critical security gap: adversaries may hijack routers to consistently select expensive high-capability models (e.g., GPT-4, Claude-3-opus), causing severe cost inflation and service disruption. Prior attacks require white-box access or brittle heuristic prompts, failing in real-world black-box commercial routers (e.g., Fireworks.ai, Together AI). We propose **R²A (Route-to-Rome Attack)**, the first practical black-box attack that misleads routers via *adversarial suffix optimization*. R²A constructs a high-fidelity **hybrid ensemble surrogate router**, combining multiple open-source routers and lightweight discriminators trained on query–routing feedback. It then optimizes a learnable suffix using gradient signals from the surrogate to maximize selection probability of target expensive models. Extensive evaluation across 6 routing systems—including 3 closed-source commercial APIs—shows R²A increases expensive-model routing rates by up to 92.3% (avg. +58.7%) across diverse query distributions (QA, coding, math), with ≤50 queries needed for convergence. R²A outperforms baselines by 3.2× in success rate, exposing a fundamental vulnerability in production LLM routing infrastructure.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
+      <title>Benign Fine-Tuning Breaks Safety Alignment in Audio LLMs</title>
+      <link>https://arxiv.org/abs/2604.16659v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16659v1</guid>
+      <description>Prior work shows benign fine-tuning—using only innocuous data—degrades safety alignment in text and vision LMs, but treats embedding space as monolithic. Audio LLMs introduce a richer threat surface: benign *utterances* can be dangerous not just by *what is said*, but by *how it sounds*, even with fully harmless transcripts. We present the first systematic study of this risk across three state-of-the-art Audio LLMs, using a proximity-based filtering framework that decomposes “benignness” along semantic, acoustic, and mixed axes via external and internal encoders. Benign fine-tuning elevates Jailbreak Success Rate (JSR) from &lt;10% to up to **87.12%**, with the dominant vulnerability axis and relative audio-vs-text risk being **architecture-conditioned**, governed by how each model’s encoder-projector maps audio into the LLM’s input space. Mechanistic analysis reveals fine-tuning selectively suppresses late-layer refusal circuits while preserving harmful representations in frozen encoders—and this suppression pattern itself varies by architecture. We propose two lightweight defenses—embedding-distance–based data filtering and an inference-time textual system prompt—that reduce JSR to near-zero without model modification. Our results establish benign fine-tuning as a *qualitatively distinct* safety hazard in Audio LLMs.</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
       <category>llm</category>
-      <category>security</category>
-      <category>inference</category>
+      <category>jailbreak</category>
     </item>
     <item>
-      <title>EdgeDetect: Importance-Aware Gradient Compression with Homomorphic Aggregation for Federated Intrusion Detection</title>
-      <link>https://arxiv.org/abs/2604.14663v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14663v1</guid>
-      <description>EdgeDetect is a communication-efficient and privacy-preserving federated intrusion detection system (IDS) designed for bandwidth-constrained 6G-IoT edge environments. It introduces *gradient smartification*—a median-based statistical binarization that compresses local gradients into $\{+1,-1\}$ representations—reducing uplink payload by $32\times$ while preserving model convergence. To defend against honest-but-curious servers, EdgeDetect applies lightweight Paillier homomorphic encryption *directly on binarized gradients*, enabling secure aggregation without revealing individual updates. Evaluated on CIC-IDS2017 (2.8M flows, 7 attack classes), EdgeDetect achieves **98.0% accuracy** and **97.9% macro F1**, matching centralized baselines, while cutting per-round communication from 450 MB to just 14 MB (–96.9%). On Raspberry Pi-4, it incurs only 4.2 MB memory, 0.8 ms latency, and 12 mJ per inference (&lt;0.5% accuracy drop). Under 5% poisoning attacks and severe class imbalance, it maintains 87% accuracy and 0.95 minority-class F1 ($p&lt;0.001$), establishing a practical tripartite tradeoff among accuracy, efficiency, and cryptographic privacy for next-generation edge IDS.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
+      <title>SafeLM: Unified Privacy-Aware Optimization for Trustworthy Federated Large Language Models</title>
+      <link>https://arxiv.org/abs/2604.16606v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16606v1</guid>
+      <description>SafeLM is a unified framework for trustworthy federated large language models (LLMs), jointly optimizing four safety pillars: privacy, security, factual consistency (anti-hallucination), and adversarial robustness. It integrates Paillier-encrypted gradient smartification for communication-efficient privacy; coordinated defenses against training-time (e.g., backdoor) and inference-time (e.g., prompt injection) attacks; contrastive grounding with calibrated decoding to suppress hallucinations; and alignment-aware binarized aggregation to ensure bounded reconstruction quality while enhancing robustness. Evaluated on factuality (FactScore), toxicity (ToxiGen), and membership inference benchmarks, SafeLM achieves **98.0% harmful content detection accuracy**, reduces communication volume by **96.9%**, and degrades gradient inversion PSNR from 31.7 dB to **15.1 dB**—rendering reconstructed inputs visually unrecognizable. Ablations confirm each component’s independent contribution, and their synergy delivers a strong privacy–utility–efficiency trade-off for production-grade federated LLMs.</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
-      <category>federated</category>
-      <category>data</category>
-      <category>learning</category>
+      <category>llm</category>
+      <category>inference</category>
+      <category>membership</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>A Survey on the Security of Long-Term Memory in LLM Agents: Toward Mnemonic Sovereignty</title>
+      <link>https://arxiv.org/abs/2604.16548v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16548v1</guid>
+      <description>This survey reframes LLM agent security around *long-term memory as an independent attack surface*, shifting focus from training-data leakage to threats against persistent, writable, and socially propagating memory. Drawing on cognitive neuroscience and philosophy of memory, we introduce a **six-phase memory lifecycle** (Write, Store, Retrieve, Execute, Share, Forget/Rollback) cross-tabulated with four security objectives: integrity, confidentiality, availability, and governance. We systematically map the literature on memory poisoning, extraction, retrieval corruption, control-flow hijacking, cross-agent propagation, rollback failures, and governance mechanisms—identifying which phases each architecture (e.g., RAG, MemGPT) explicitly govern. Three key findings emerge: (1) Research heavily concentrates on write/retrieve-time integrity attacks, while confidentiality, availability, store/forget security, and benign-persistence failures remain underexplored; (2) No published architecture implements all nine foundational governance primitives we identify (e.g., conditional forgetting, temporal authorization, provenance-aware access); (3) Using LLMs *themselves* for memory security—e.g., policy enforcement, audit reasoning, or verifiable rollback—is rare yet essential. We unify these insights under **mnemonic sovereignty**: verifiable, recoverable governance over *what may be written, who may read, when updates are authorized, and which states may be forgotten*. Future secure agents will be distinguished not by recall capacity—but by the quality and resilience of their memory governance.</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
       <category>poisoning</category>
-    </item>
-    <item>
-      <title>Hijacking Large Audio-Language Models via Context-Agnostic and Imperceptible Auditory Prompt Injection</title>
-      <link>https://arxiv.org/abs/2604.14604v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14604v1</guid>
-      <description>This paper identifies *Auditory Prompt Injection*—a previously overlooked threat that hijacks Large Audio-Language Models (LALMs) via context-agnostic, imperceptible adversarial audio—under realistic constraints of audio-only access and strict perceptual stealth. We propose **AudioHijack**, a general framework that: (1) uses sampling-based gradient estimation to bypass non-differentiable audio tokenization; (2) employs attention supervision and multi-context training for robust cross-context generalization; and (3) introduces a convolutional blending method to embed perturbations into natural reverberation, achieving high acoustic fidelity (PESQ ≥ 3.8, STOI ≥ 0.94). Evaluated on 13 state-of-the-art LALMs, AudioHijack achieves 79%–96% success rates across 6 misbehavior categories on unseen user contexts. Real-world tests confirm successful unauthorized command execution on commercial voice agents from Mistral AI and Microsoft Azure—exposing critical, model-agnostic vulnerabilities in the audio modality and underscoring the urgent need for dedicated audio-aware defenses.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>injection</category>
-      <category>prompt</category>
-    </item>
-    <item>
-      <title>Decoupling Identity from Utility: Privacy-by-Design Frameworks for Financial Ecosystems</title>
-      <link>https://arxiv.org/abs/2604.14495v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14495v1</guid>
-      <description>This paper introduces a *privacy-by-design* framework grounded in **differential privacy (DP)** to resolve the utility–privacy trade-off in financial data ecosystems. We propose two complementary DP synthetic data paradigms: (**i**) *Direct Tabular Synthesis*, which preserves static historical correlations for QA, analytics, and model validation; and (**ii**) *DP-Seeded Agent-Based Modeling (ABM)*, which leverages DP-protected aggregates to calibrate dynamic, stateful simulations of market behavior—including stress scenarios and black swan events. Crucially, both methods **decouple individual identity from utility**, eliminating re-identification risks while enabling cross-institutional research and regulatory-compliant decision-making. Empirical evaluation shows DP-Seeded ABM reduces prediction error in crisis modeling by 37% versus conventional Monte Carlo approaches, with formal ε-DP guarantees. This framework bridges technical privacy, operational feasibility, and evolving regulatory expectations (e.g., GDPR, CCPA, PIPL).</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
-    </item>
-    <item>
-      <title>Predicting Power-System Dynamic Trajectories with Foundation Models</title>
-      <link>https://arxiv.org/abs/2604.14991v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14991v1</guid>
-      <description>This paper introduces **LASS-ODE-Power**, a foundation model framework for general-purpose power-system dynamic trajectory prediction. To address critical challenges—unknown time-varying parameters, data privacy constraints, and stringent online inference latency—we pretrain a scalable architecture on &gt;40 GB of diverse DAE/ODE simulation trajectories, enabling transferable physics-informed representations. The model achieves zero-shot prediction from short measurement prefixes (e.g., 100 ms) across electromechanical and inverter-dominated regimes without system-specific training or data sharing. Key innovations include parallelized linearized inference for sub-8-ms latency and a targeted fine-tuning strategy using ~1 GB of heterogeneous power-system dynamics. Extensive experiments across IEEE benchmarks and renewable-rich grids show LASS-ODE-Power consistently outperforms state-of-the-art learning-based models by 32.7% in RMSE while maintaining real-time feasibility—establishing a new paradigm for privacy-aware, parameter-agnostic, and multi-regime dynamic forecasting.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>privacy</category>
-      <category>security</category>
-      <category>differential</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>AI-Enabled Covert Channel Detection in RF Receiver Architectures</title>
-      <link>https://arxiv.org/abs/2604.14987v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14987v1</guid>
-      <description>This paper presents the first AI-powered hardware accelerator for real-time covert channel (CC) detection in RF receivers. We propose a compact CNN that processes raw I/Q samples directly at the receiver front-end, enabling low-latency CC presence detection and underlying hardware Trojan (HT) identification. Model compression reduces parameters by 80%, enabling efficient edge deployment. Evaluated on an open-source HT-based CC dataset, the model achieves 90.28% average CC detection accuracy and 86.50% HT identification accuracy across SNR &gt; 1 dB; both exceed 97% at practical SNR &gt; 20 dB—only &lt;2% degradation vs. the baseline. A custom lightweight CNN accelerator implemented on FPGA achieves 107 GOPs/W and minimal resource utilization, outperforming state-of-the-art AI accelerators for RF signal classification tasks (e.g., modulation recognition) in task specificity, energy efficiency, and real-time capability.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>trojan</category>
-      <category>ai</category>
-    </item>
-    <item>
-      <title>Calibration-Gated LLM Pseudo-Observations for Online Contextual Bandits</title>
-      <link>https://arxiv.org/abs/2604.14961v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14961v1</guid>
-      <description>We address cold-start regret in contextual bandits by augmenting Disjoint LinUCB with **calibration-gated LLM pseudo-observations**: after each round, an LLM predicts counterfactual rewards for unplayed arms, and these predictions are injected as weighted pseudo-observations into the learner’s parameter update. A novel calibration-gated decay schedule—tracking LLM’s reward prediction accuracy on *played* arms via exponential moving average—dynamically suppresses pseudo-observation weight when calibration error is high and boosts it during early rounds when accurate. Evaluated on UCI Mushroom and MIND-small, task-specific prompting reduces cumulative regret by **19% on MIND** versus vanilla LinUCB; conversely, generic counterfactual prompts *increase* regret in both settings—highlighting that **prompt design dominates all other architectural choices**, including decay scheduling and gating parameters. We analyze failure modes under small prediction errors and provide theoretical grounding for the bias-variance trade-off governing pseudo-observation weighting.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>injection</category>
-      <category>prompt</category>
-    </item>
-    <item>
-      <title>Cooperate to Compete: Strategic Data Generation and Incentivization Framework for Coopetitive Cross-Silo Federated Learning</title>
-      <link>https://arxiv.org/abs/2604.14886v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14886v1</guid>
-      <description>This paper addresses the fundamental tension in real-world cross-silo federated learning (CFL): organizations must *cooperate* to train shared models yet *compete* in downstream markets—making data contributions a double-edged sword. We propose **CoCoGen+**, the first framework that jointly models non-IID data, inter-organizational competition, and GenAI-based synthetic data generation as a strategic choice. CoCoGen+ formulates each training round as a weighted potential game, where participants balance learning gains, computational costs, and utility losses from inadvertently strengthening rivals. We characterize its Nash equilibrium analytically and derive implementable, welfare-maximizing generation policies. To sustain long-term collaboration, we integrate a payoff redistribution mechanism that compensates both contribution value and competition-induced utility degradation. Experiments across diverse tasks show CoCoGen+ improves average accuracy by 12.7% and social welfare by 18.3% over baselines, demonstrating how competition intensity, data heterogeneity, and incentive design jointly shape strategic behavior and system efficiency.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>HWE-Bench: Benchmarking LLM Agents on Real-World Hardware Bug Repair Tasks</title>
-      <link>https://arxiv.org/abs/2604.14709v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14709v1</guid>
-      <description>HWE-Bench is the first large-scale, repository-level benchmark for evaluating LLM agents on real-world hardware bug repair tasks. It comprises 417 task instances derived from historical bug-fix pull requests across six major open-source hardware projects (RISC-V cores, SoCs, and security roots-of-trust), covering Verilog/SystemVerilog and Chisel. Each task runs in a fully containerized environment where agents must resolve actual bug reports, with correctness rigorously validated via native simulation and regression flows. Evaluated across seven LLMs and four agent frameworks, the best-performing agent achieves 70.7% overall task success—exceeding 90% on small cores but dropping below 65% on complex SoCs. We observe substantially larger model performance gaps than in software benchmarks, driven primarily by project scope and bug-type distribution—not just code size. Failure analysis pinpoints three critical bottlenecks: fault localization, hardware-semantic reasoning (e.g., timing, reset behavior), and cross-artifact coordination among RTL, configuration, and verification components.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>SynHAT: A Two-stage Coarse-to-Fine Diffusion Framework for Synthesizing Human Activity Traces</title>
-      <link>https://arxiv.org/abs/2604.14705v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14705v1</guid>
-      <description>Human activity traces (HATs) are vital for mobility modeling and POI recommendation, yet real-world datasets are scarce due to privacy constraints. To address the challenges of HATs’ irregular spatio-temporal dynamics and the computational inefficiency of fine-grained generation, we propose **SynHAT**, a two-stage coarse-to-fine diffusion framework. Stage 1 introduces **Coarse-HADiff**, a novel spatio-temporal denoising diffusion model featuring a latent U-Net with dual **Drift-Jitter branches** to jointly capture macro spatial drift and micro temporal jitter. Stage 2 refines outputs via a three-step pipeline: behavior pattern extraction, **Fine-HADiff** (architecture-reused), and semantic alignment. Evaluated on real HAT data from four cities across three countries, SynHAT achieves **52% lower spatial error** and **33% lower temporal error** than state-of-the-art methods, while enabling scalable, privacy-preserving synthesis of million-scale trajectories in minutes.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>xFODE: An Explainable Fuzzy Additive ODE Framework for System Identification</title>
-      <link>https://arxiv.org/abs/2604.14883v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14883v1</guid>
-      <description>We propose **xFODE**, an Explainable Fuzzy Additive ODE framework for System Identification, addressing the critical trade-off between accuracy and interpretability in neural/fuzzy ODE models. xFODE introduces *incremental physical states* with explicit engineering meaning (e.g., “energy dissipation rate”), employs *fuzzy additive derivatives* to decompose input contributions per state, and enforces *Partitioning Strategies (PSs)* that restrict antecedent activation to only two consecutive rules—reducing local inference complexity while grounding rule semantics in physical regimes (e.g., “low-speed dominance”). Trained end-to-end via differentiable parameterized membership functions, xFODE matches the state-of-the-art accuracy of NODE, FODE, and NLARX on benchmark SysID datasets (mean NRMSE ≤ 0.032), while delivering quantitative input attribution, interpretable rule transitions, and physically labeled states—enabling trustworthy deployment in safety-critical applications.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>membership</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>xFODE+: Explainable Type-2 Fuzzy Additive ODEs for Uncertainty Quantification</title>
-      <link>https://arxiv.org/abs/2604.14880v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14880v1</guid>
-      <description>We propose **xFODE+**, an explainable Type-2 Fuzzy Additive ODE framework for Uncertainty Quantification (UQ) in data-driven system identification. Unlike black-box UQ models, xFODE+ ensures interpretability by constraining each additive component to activate only *two neighboring rules* in its Interval Type-2 Fuzzy Logic System (IT2-FLS), enabling local transparency and physically meaningful incremental state updates. Type-reduced outputs from IT2-FLSs jointly determine both point predictions and prediction intervals (PIs). Trained end-to-end via a composite loss balancing accuracy (MSE) and UQ quality (PICP, MPIW), xFODE+ matches FODE’s PI performance on benchmark SysID datasets (Lorenz, Rössler, Cascaded Tanks) while achieving comparable point-prediction accuracy—and crucially, delivering human-verifiable rule-level explanations of dynamic behavior.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>membership</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>Exploiting Correlations in Federated Learning: Opportunities and Practical Limitations</title>
-      <link>https://arxiv.org/abs/2604.14751v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14751v1</guid>
-      <description>This paper establishes a unified correlation-based taxonomy for gradient and model compression in federated learning (FL), categorizing methods by the type of correlation they exploit: **structural**, **temporal**, and **spatial**. We identify their origins, propose quantitative metrics to measure correlation strength, and reinterpret 12 state-of-the-art compression schemes through this lens. Extensive experiments across diverse tasks (CIFAR, Shakespeare, FEMNIST), models (CNN, LSTM, ViT), and heterogeneity levels reveal that correlation magnitudes vary significantly—challenging the common assumption of universally strong correlations. Motivated by this, we propose two adaptive compression designs—**CorrSwitch** (dynamic mode selection) and **CorrBudget** (correlation-aware bit allocation)—that outperform static baselines: achieving **37% average communication reduction** with negligible accuracy loss (±0.4%) and up to **2.1× faster convergence** under high data heterogeneity. Our framework provides a principled foundation for developing application-aware FL compression.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>federated</category>
-      <category>learning</category>
-    </item>
-    <item>
-      <title>Differentially Private Conformal Prediction</title>
-      <link>https://arxiv.org/abs/2604.14621v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14621v1</guid>
-      <description>Conformal prediction (CP) provides distribution-free prediction sets with finite-sample coverage guarantees, but standard CP lacks privacy protection. To bridge this gap, we propose **Differentially Private Conformal Prediction (DPCP)** — a fully end-to-end $(\varepsilon,\delta)$-DP framework that avoids data splitting. DPCP integrates DP model training (e.g., DP-SGD) with a novel private quantile calibration mechanism based on smooth sensitivity and Laplace perturbation. Theoretically, DPCP inherits asymptotic validity ($\mathbb{P}(Y_{n+1} \in C_n(X_{n+1})) \geq 1-\alpha$) under mild regularity conditions and achieves tighter prediction sets than existing private split-conformal methods under the same privacy budget — with up to 28% average width reduction in theory and 19.5% empirically. Experiments on synthetic and real-world datasets (including UCI and FICO) confirm its practical efficacy: at $\varepsilon = 1.0$, DPCP maintains &gt;92% empirical coverage while delivering statistically significant gains in set compactness.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
-      <category>privacy</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>The Acoustic Camouflage Phenomenon: Re-evaluating Speech Features for Financial Risk Prediction</title>
-      <link>https://arxiv.org/abs/2604.14619v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14619v1</guid>
-      <description>This study challenges the assumption that paralinguistic speech features (e.g., pitch, jitter, hesitation) generalize to high-stakes financial forecasting. We evaluate a two-stream late-fusion model on real-world corporate earnings calls (n=1,847), predicting extreme downside stock events (≥15% 3-day drop). While the NLP-only stream achieves 66.25% recall, integrating acoustic features *reduces* recall to 47.08%—a statistically significant degradation. We attribute this to **Acoustic Camouflage**: deliberate vocal regulation by media-trained executives introduces contradictory noise (e.g., artificially stabilized pitch, suppressed disfluencies) that misleads multimodal meta-learners. This phenomenon defines a critical boundary condition for speech-based risk modeling in finance, urging caution against uncritical transfer of lab-derived acoustic models to strategic communication contexts.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Modeling LLM Unlearning as an Asymmetric Two-Task Learning Problem</title>
-      <link>https://arxiv.org/abs/2604.14808v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14808v1</guid>
-      <description>This paper reframes LLM unlearning as an **asymmetric two-task problem**, where *retention* is the primary objective and *forgetting* is auxiliary. We propose a **retention-prioritized gradient synthesis framework**, decoupling task-specific gradient extraction from conflict-aware combination. Instantiating it, we adapt PCGrad and introduce **SAGO**, a novel method that enforces constructive, sign-constrained gradient alignment to strictly improve cosine similarity with the retain gradient—proven theoretically and verified empirically. On WMDP Bio/Cyber and RWKU benchmarks, SAGO consistently advances the Pareto frontier: e.g., on WMDP Bio (SimNPO+GD), MMLU recovery rises from 44.6% (naive) → 94.0% (+PCGrad) → **96.0% (+SAGO)**, with no sacrifice in forgetting strength. Our work demonstrates that **reshaping gradient geometry—not rebalancing losses—is the key to mitigating the unlearning-retention trade-off**.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>A Framework for Post Quantum Migration in IoT-Based Healthcare Systems</title>
-      <link>https://arxiv.org/abs/2604.15584v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15584v1</guid>
-      <description>This paper addresses the urgent quantum threat to IoT-based healthcare systems by proposing a practical, layered migration framework toward post-quantum cryptography (PQC). We systematically analyze vulnerabilities across the four IoT architecture layers—physical, perception, network, and application—highlighting unique constraints in healthcare settings: extreme resource limitations on medical edge devices, strict interoperability requirements, and fragmented vendor readiness. Our framework integrates a phased hybrid approach (e.g., concurrent ECC and NIST-selected CRYSTALS-Kyber), crypto-agility via abstracted cryptographic interfaces and runtime algorithm switching, and a governance model covering vendor assessment, infrastructure modernization, and regulatory alignment. Validated on real-world remote ECG monitoring systems, it achieves sub-millisecond PQC algorithm hot-swap on memory-constrained devices (&lt;64 KB RAM) with only 1.8× overhead over ECC-256. This work delivers the first clinically grounded, deployable roadmap for quantum-safe migration in healthcare IoT.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>crypto</category>
-    </item>
-    <item>
-      <title>Symbolic Guardrails for Domain-Specific Agents: Stronger Safety and Security Guarantees Without Sacrificing Utility</title>
-      <link>https://arxiv.org/abs/2604.15579v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15579v1</guid>
-      <description>This paper introduces **symbolic guardrails**—lightweight, rule-based, formally verifiable constraints—as a practical approach to providing strong safety and security guarantees for domain-specific AI agents without compromising utility. We conduct a three-part study: (1) a systematic analysis of 80 state-of-the-art agent safety/security benchmarks reveals that 85% lack concrete, executable policies, relying instead on vague high-level goals; (2) among the benchmarks with specified policies, 74% of policy requirements (e.g., PII redaction, API access control, SQL injection prevention) can be *provably enforced* using simple symbolic mechanisms (e.g., regex filters, schema validators, state machines); and (3) empirical evaluation on τ²-Bench, CAR-bench, and MedAgentBench shows symbolic guardrails reduce safety/security violations by up to 63% while maintaining or slightly improving task success rates (+1.8% avg). Our results demonstrate that symbolic guardrails offer a deployable, interpretable, and cost-effective path toward certified reliability—especially in structured, rule-governed domains. Code and artifacts are publicly released.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
+      <category>data</category>
       <category>agent</category>
       <category>security</category>
     </item>
     <item>
-      <title>Evaluating LLM Simulators as Differentially Private Data Generators</title>
-      <link>https://arxiv.org/abs/2604.15461v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15461v1</guid>
-      <description>Large language model (LLM)-based simulators hold promise for generating high-dimensional synthetic data—where conventional differentially private (DP) methods falter—but their statistical fidelity when seeded with DP-protected inputs remains unverified. We evaluate this using PersonaLedger, an agentic financial simulator, initialized with DP synthetic personas (ε = 1, 2, 4) derived from real user statistics. Results show strong utility: fraud detection models trained on its ε = 1 synthetic data achieve AUC 0.70—surpassing standard DP baselines. However, we uncover systematic distribution drift: LLM-learned priors override input statistics for temporal patterns (e.g., weekly cycles) and demographic intersections (e.g., low-activity elderly users), degrading statistical faithfulness. This reveals a critical bottleneck—not in LLM generation capacity, but in the unreliable alignment between parametric priors and DP-constrained inputs. Our work provides the first empirical diagnosis of this failure mode, urging prior-aware calibration for trustworthy LLM-based DP data generation.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
+      <title>LOD-Net: Locality-Aware 3D Object Detection Using Multi-Scale Transformer Network</title>
+      <link>https://arxiv.org/abs/2604.16696v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16696v1</guid>
+      <description>This paper introduces LOD-Net, a locality-aware 3D object detector for point clouds that integrates a novel Multi-Scale Attention (MSA) mechanism into the 3DETR architecture. To address the sparsity and structural ambiguity of raw point clouds, MSA employs a learnable upsampling module to recover high-resolution feature maps—enabling precise localization of small and semantically coupled objects—and couples local-windowed attention with global self-attention in the decoder via gated fusion. Evaluated on ScanNetv2, LOD-Net achieves state-of-the-art gains: +0.97 mAP@25 and +4.78 mAP@50 over baseline 3DETR. While MSA yields marginal improvement on the lightweight 3DETR-m variant, our analysis reveals that upsampling must be adapted to model capacity—leading us to propose a parameter-shared upsampling head that boosts 3DETR-m’s mAP@50 by 2.1% with only 0.8% extra FLOPs. These results demonstrate that hierarchical feature reconstruction synergized with attention is essential for robust 3D scene understanding.</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
-      <category>dp</category>
-    </item>
-    <item>
-      <title>HarmfulSkillBench: How Do Harmful Skills Weaponize Your Agents?</title>
-      <link>https://arxiv.org/abs/2604.15415v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15415v1</guid>
-      <description>This paper presents **HarmfulSkillBench**, the first large-scale measurement study and benchmark for identifying and evaluating *harmful skills*—functionally benign but misuse-prone capabilities (e.g., for cyberattacks, fraud, privacy violations, or sexual content generation) in open agent skill ecosystems. We analyze **98,440 skills** across ClawHub and Skills.Rest using an LLM-powered scoring system grounded in a novel harmful-skill taxonomy, finding **4.93% (4,858) are harmful**, with stark disparities: **8.84% on ClawHub vs. 3.49% on Skills.Rest**. HarmfulSkillBench comprises **200 harmful skills across 20 categories** and four realistic evaluation conditions (e.g., explicit vs. implicit harmful intent, pre-installed vs. on-demand invocation). Evaluating six LLMs reveals that **pre-installing a harmful skill reduces refusal rates dramatically**: average harm score rises from **0.27 (no skill)** → **0.47 (explicit harmful request + skill)** → **0.76 (implicit harmful intent + skill)**. We responsibly disclose findings to registries and open-source the benchmark to advance agent safety research.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>security</category>
-      <category>injection</category>
-      <category>llm</category>
-      <category>prompt</category>
-    </item>
-    <item>
-      <title>Optimizing Stochastic Gradient Push under Broadcast Communications</title>
-      <link>https://arxiv.org/abs/2604.15549v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.15549v1</guid>
-      <description>We address the convergence time minimization problem for decentralized federated learning (DFL) over wireless broadcast networks, focusing on mixing matrix design for **Stochastic Gradient Push (SGP)**. Unlike symmetric doubly stochastic matrices required by D-PSGD—which restrict communication graphs to undirected topologies—SGP admits **asymmetric mixing matrices**, enabling directed, broadcast-aware graph structures. By rigorously analyzing SGP’s convergence rate dependence on matrix properties, we derive an objective function explicitly parameterized by graph-theoretic quantities (e.g., spectral gap, in/out-degree imbalance, broadcast coverage). We then propose an efficient, provably convergent algorithm to optimize this objective under practical broadcast constraints. Evaluations on real-world wireless channel traces show our method reduces end-to-end convergence time by **38.7–52.1%** versus state-of-the-art D-PSGD baselines, with **no loss in model accuracy** (&lt;0.3% test accuracy drop). This work establishes the first theoretically grounded, broadcast-optimized SGP mixing design, unlocking greater flexibility and efficiency for edge-based DFL.</description>
-      <pubDate>Thu, 16 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>Towards Personalizing Secure Programming Education with LLM-Injected Vulnerabilities</title>
-      <link>https://arxiv.org/abs/2604.13955v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13955v1</guid>
-      <description>This paper introduces a novel LLM-based framework for personalizing secure programming education by automatically injecting pedagogically grounded security vulnerabilities—mapped to specific CWEs—directly into students’ own assignment code. Grounded in constructivist learning theory, our agentic system employs four autonomous LLM agents: an Injector (leveraging static analysis and vulnerability synthesis), an Evaluator (verifying correctness and safety), a Ranker (prioritizing by teachability and clarity), and a Pedagogical Generator (producing explanations, fixes, and reflection prompts). Deployed in two undergraduate CS courses (N=71), the system yielded strong qualitative feedback: 92% of students rated personalized injections as *more relevant*, 86% as *clearer*, and 89% as *more engaging* than generic textbook examples. However, quantitative comparisons against a widely used baseline showed no statistically significant improvement in post-intervention knowledge or confidence scores (p &gt; 0.05), indicating that perceived personalization value does not yet reliably translate to measurable learning gains. We conclude with implications for refining injection fidelity, scaffolding, and longitudinal assessment.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>MCPThreatHive: Automated Threat Intelligence for Model Context Protocol Ecosystems</title>
-      <link>https://arxiv.org/abs/2604.13849v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13849v1</guid>
-      <description>MCPThreatHive is an open-source platform for automated threat intelligence in Model Context Protocol (MCP) ecosystems. It addresses critical gaps in existing tools—namely, incomplete compositional attack modeling, lack of continuous threat monitoring, and fragmented classification frameworks—by unifying data ingestion, AI-powered threat extraction (using fine-tuned Qwen2.5-7B), structured knowledge graph storage (aligned with the MCP-38 taxonomy), and interactive risk visualization. The MCP-38 taxonomy maps 38 MCP-specific threats to STRIDE, OWASP LLM Top 10, and OWASP Agentic Top 10, enabling cross-standard analysis. A composite risk scoring model integrates CVSSv4-inspired metrics with MCP-specific factors (e.g., context dependency strength), yielding actionable, explainable scores (0–10). Evaluation shows MCPThreatHive reduces threat detection latency to under 2 hours and achieves 94.7% coverage (F1 = 0.89), outperforming state-of-the-art alternatives across all three identified gaps.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>llm</category>
-      <category>security</category>
       <category>model</category>
-    </item>
-    <item>
-      <title>RealVuln: Benchmarking Rule-Based, General-Purpose LLM, and Security-Specialized Scanners on Real-World Code</title>
-      <link>https://arxiv.org/abs/2604.13764v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13764v1</guid>
-      <description>RealVuln is the first open-source, real-world benchmark for evaluating security scanners across three paradigms: Rule-Based SAST, General-Purpose LLMs, and Security-Specialized LLMs. It comprises 26 vulnerable Python repositories (educational and CTF applications) with 796 hand-labeled entries—676 true vulnerabilities and 120 carefully crafted false-positive traps. We rigorously evaluate 15 tools (3 SAST, 10 general LLMs, 2 security-specialized) using the F₃ score (β=3), prioritizing recall 9× over precision to reflect security-critical “no-miss” requirements. Results reveal a robust three-tier hierarchy: Kolega.Dev leads (F₃=73.0), followed by Claude Sonnet 4.6 (51.7), and Semgrep (17.7)—a &gt;2.9× gap between top LLM and best rule-based tool. The tiering persists across all β weightings, underscoring fundamental paradigm differences. All data, scanner outputs, scoring scripts, and an interactive dashboard (https://realvuln.kolega.dev/) are openly released under MIT license. RealVuln is designed as a living, community-driven benchmark with multi-language expansion planned.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>SafeHarness: Lifecycle-Integrated Security Architecture for LLM-based Agent Deployment</title>
-      <link>https://arxiv.org/abs/2604.13630v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13630v1</guid>
-      <description>Large language model (LLM) agents rely critically on the *execution harness*—the system layer orchestrating tool use, context management, and state persistence—yet its architectural centrality makes it a high-value attack surface. Existing security approaches suffer from structural mismatch: they lack visibility into harness-internal state and fail to coordinate across agent lifecycle phases. We propose **SafeHarness**, a lifecycle-integrated security architecture with four tightly coupled defense layers: adversarial context filtering at input processing; tiered causal verification during decision making; privilege-separated, sandboxed tool control at action execution; and safe rollback with adaptive degradation at state update. Cross-layer mechanisms escalate verification rigor, trigger rollbacks, and tighten tool privileges upon sustained anomaly detection. Evaluated across diverse harness configurations and five attack scenarios spanning six threat categories, SafeHarness reduces the Unsafe Behavior Rate (UBR) by ∼38% and Attack Success Rate (ASR) by ∼42% versus the unprotected baseline—while preserving &gt;96.8% of core task utility.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>agent</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>Secure and Privacy-Preserving Vertical Federated Learning</title>
-      <link>https://arxiv.org/abs/2604.13474v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13474v1</guid>
-      <description>We propose a secure and privacy-preserving vertical federated learning (VFL) framework for feature-partitioned settings where labels are held by only one party. To simultaneously protect *input privacy* (features/gradients) and *output privacy* (released model), we decentralize the aggregator role across multiple non-colluding servers that jointly execute lightweight MPC protocols—avoiding costly end-to-end MPC training. Our framework introduces three optimized protocols supporting pure global and hybrid global-local updates, applying differential privacy *only at the final model release stage*. Experiments on CIFAR-10 and Adult datasets show our approach reduces communication by 62%, speeds up training by 3.1×, and incurs &lt;1.2% accuracy loss—while providing formal end-to-end privacy guarantees without trusted third parties or specialized hardware.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>dp</category>
-      <category>federated</category>
-      <category>privacy</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>Feed-Forward 3D Scene Modeling: A Problem-Driven Perspective</title>
-      <link>https://arxiv.org/abs/2604.14025v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14025v1</guid>
-      <description>This survey presents a problem-driven taxonomy for feed-forward 3D scene modeling—methods that reconstruct 3D representations (e.g., implicit fields, meshes, point clouds) from 2D images in a single forward pass. Moving beyond output-format-specific analyses, we identify five core design challenges driving recent progress: **feature enhancement**, **geometry awareness**, **model efficiency**, **augmentation strategies**, and **temporal-aware modeling**. We ground this taxonomy with a comprehensive review of 12 benchmarks (e.g., ScanNet, CO3D), highlight evaluation gaps between synthetic metrics and real-world utility, and categorize applications across AR/VR, robotics, autonomous driving, and digital avatars. Finally, we outline key future directions: scalable world modeling, standardized cross-dataset evaluation, and neuro-symbolic integration to bridge perception and reasoning.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
       <category>extraction</category>
-      <category>model</category>
     </item>
     <item>
-      <title>UHR-BAT: Budget-Aware Token Compression Vision-Language model for Ultra-High-Resolution Remote Sensing</title>
-      <link>https://arxiv.org/abs/2604.13565v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13565v1</guid>
-      <description>Ultra-high-resolution (UHR) remote sensing imagery poses a unique challenge: critical query-relevant evidence often occupies only a few pixels within kilometer-scale scenes, causing quadratic token explosion and hindering small-object understanding. Prior token compression methods—such as naive downsampling or global top-k pruning—sacrifice detail fidelity or incur unpredictable compute. We propose **UHR-BAT**, a budget-aware, query-guided vision-language framework that compresses visual tokens with region faithfulness. It introduces (1) text-guided multi-scale importance estimation to identify discriminative tokens efficiently across feature hierarchies, and (2) region-wise preserve-and-merge strategies to eliminate redundancy while preserving structural integrity. On six UHR-specific benchmarks (e.g., UHR-VQA, UHR-Caption), UHR-BAT achieves state-of-the-art results using only ~12% of original tokens—improving VQA accuracy by +5.8%, CIDEr by +9.2%, and reducing latency by 3.7×. Code: https://github.com/Yunkaidang/UHR.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
+      <title>RankGuide: Tensor-Rank-Guided Routing and Steering for Efficient Reasoning</title>
+      <link>https://arxiv.org/abs/2604.16694v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.16694v1</guid>
+      <description>Large reasoning models (LRMs) achieve strong problem-solving performance via explicit chain-of-thought (CoT) generation but suffer from high latency and computation cost. Collaborative paradigms—using small reasoning models (SRMs) for intermediate steps and invoking LRMs selectively—offer a promising trade-off, yet robust failure detection and mitigation for SRMs remain challenging. We systematically identify three SRM failure modes (*overconfidence*, *uncertainty*, and *heavy revalidation*) by analyzing both token-level outputs and hidden-state dynamics. To address this, we propose **RankGuide**, a novel framework that leverages **tensor rank signals** derived from consecutive hidden states for two core functions: (1) lightweight, rank-guided routing to trigger LRMs only when SRMs are likely to fail; and (2) rank-filtered steering vector extraction to modulate SRM reasoning trajectories and improve output quality. Experiments across six reasoning benchmarks show RankGuide reduces end-to-end latency by up to **1.75× vs. LRM alone**, while maintaining competitive accuracy (98.2% of LRM’s score) and outperforming prior collaborative methods in both accuracy (+2.3% avg.) and step efficiency (−37% steps).</description>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 -0000</pubDate>
       <category>arXiv</category>
+      <category>model</category>
       <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Outperforming Self-Attention Mechanisms in Solar Irradiance Forecasting via Physics-Guided Neural Networks</title>
-      <link>https://arxiv.org/abs/2604.13455v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13455v1</guid>
-      <description>Accurate Global Horizontal Irradiance (GHI) forecasting is vital for grid stability in arid regions with high aerosol variability, yet Transformer-based models often overfit noise and incur prohibitive computational cost. This paper challenges the “complexity-first” paradigm by proposing a lightweight Physics-Informed Hybrid CNN-BiLSTM network. Unlike standard data-driven approaches, it explicitly integrates 15 engineered physical features—including Clear-Sky indices, Solar Zenith Angle, and AOD—as structural guidance rather than relying solely on raw time series. Spatial patterns are extracted via CNN; temporal dynamics are captured bidirectionally by LSTM. Hyperparameters are globally optimized using Bayesian optimization. Evaluated on NASA POWER data from Sudan, our model achieves an RMSE of **19.53 W/m²**, outperforming state-of-the-art attention-based baselines (RMSE 30.64 W/m²) by **36.3%**, while reducing inference latency by 8.2×. These results demonstrate the “Complexity Paradox”: in noisy meteorological forecasting, explicit physics-informed constraints yield superior accuracy and efficiency compared to self-attention mechanisms—advocating hybrid, interpretable AI for real-time renewable energy management.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>From Prediction to Justification: Aligning Sentiment Reasoning with Human Rationale via Reinforcement Learning</title>
-      <link>https://arxiv.org/abs/2604.13398v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13398v1</guid>
-      <description>Aspect-based Sentiment Analysis (ABSA) models often achieve high accuracy yet remain opaque “black boxes,” failing to emulate human affective cognition—where sentiment judgments are grounded in explicit, causal reasoning. To bridge this gap, we propose **ABSA-R1**, a reinforcement learning (RL)-based LLM framework that enforces a *reason-before-predict* paradigm. ABSA-R1 employs a novel **Cognition-Aligned Reward Model (CAR-M)** that penalizes logical inconsistencies between generated natural-language justifications and final sentiment labels, and introduces **metacognitive rejection sampling** to selectively refine predictions on uncertain or inconsistent hard cases. Experiments across four benchmarks show ABSA-R1 not only produces highly interpretable, human-aligned rationales (86.7% human-validated reasonableness), but also improves sentiment classification F1 by +2.1–3.8 and triplet extraction F1 by +3.3–4.9 over strong non-reasoning baselines—demonstrating that explicit reasoning enhances both transparency and performance.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>A Comparative Study of Dynamic Programming and Reinforcement Learning in Finite Horizon Dynamic Pricing</title>
-      <link>https://arxiv.org/abs/2604.14059v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.14059v1</guid>
-      <description>This paper presents a rigorous, environment-scaled comparison of Fitted Dynamic Programming (DP) and model-free Reinforcement Learning (RL) methods—including PPO, SAC, and DQN—in finite-horizon dynamic pricing. Moving beyond low-dimensional benchmarks, we evaluate both paradigms across four increasingly realistic settings: single-typology i.i.d. demand; multi-typology heterogeneous demand with cross-price effects; inter-temporal revenue constraints; and non-stationary demand under joint constraints. Using identical data, horizon (T=100), and evaluation protocols, we find that Fitted DP achieves **2.1–3.8% higher average revenue** and near-perfect constraint satisfaction (99.4%) in constrained multi-typology settings, owing to its explicit expectation-based optimization. In contrast, RL—especially SAC—demonstrates superior robustness under demand non-stationarity, with 17% lower policy volatility. Computationally, DP scales cubically with state dimension, while RL training time grows linearly—highlighting a fundamental trade-off between optimality guarantees and adaptive scalability. Our work establishes the first fair, high-fidelity benchmark for pricing algorithm selection in operational environments.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>dp</category>
-    </item>
-    <item>
-      <title>Artificial intelligence application in lymphoma diagnosis with Vision Transformer using weakly supervised training</title>
-      <link>https://arxiv.org/abs/2604.13795v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13795v1</guid>
-      <description>Vision Transformers (ViTs) offer superior feature representation over CNNs but face clinical deployment barriers due to reliance on labor-intensive pixel- or patch-level annotations. To address this, we propose a **weakly supervised training framework** for lymphoma classification—specifically distinguishing anaplastic large cell lymphoma (ALCL) from classic Hodgkin lymphoma (cHL)—using only slide-level labels. Our ViT model was trained on 100,000 automatically extracted image patches from whole-slide images, with pseudo-labels generated via multiple-instance learning (MIL). On an independent test set, it achieved **91.85% accuracy, F1 score of 0.92, and AUC of 0.98**, demonstrating robust performance without requiring expert patch-level annotation. This approach significantly reduces annotation burden while maintaining high diagnostic reliability, enabling scalable integration of ViT into automated clinical pathology workflows.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Automatic Charge State Tuning of 300 mm FDSOI Quantum Dots Using Neural Network Segmentation of Charge Stability Diagram</title>
-      <link>https://arxiv.org/abs/2604.13662v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.13662v1</guid>
-      <description>We present a deep learning–based semantic segmentation pipeline for automatic charge state tuning of 300 mm FDSOI quantum dots (QDs), addressing a key bottleneck in spin qubit scaling. Our method localizes transition lines across full charge stability diagrams (CSDs) using a U-Net architecture with MobileNetV2 encoder, trained on a large, manually annotated dataset of 1015 experimental CSDs spanning nine device geometries, multiple wafers, and fabrication runs. Evaluated via five-fold group cross-validation, the model achieves an **80.0% offline success rate** in identifying the single-charge regime—peaking at **88.3%** for specific designs. Failure analysis reveals dominant causes (e.g., low-contrast lines, non-uniform noise) and informs targeted mitigations. Critically, wide-diagram segmentation enables scalable, physics-informed feature extraction to feed back into design/fabrication workflows and paves the way for real-time integration in cryogenic wafer probers. This work demonstrates that neural network–driven CSD segmentation is a practical, high-throughput enabler for automated QD tuning.</description>
-      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
     </item>
   </channel>
 </rss>

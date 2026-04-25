@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Fri, 24 Apr 2026 02:45:56 -0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 02:13:01 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Transient Turn Injection: Exposing Stateless Multi-Turn Vulnerabilities in Large Language Models</title>
@@ -191,6 +191,46 @@
       <category>arXiv</category>
       <category>extraction</category>
       <category>model</category>
+    </item>
+    <item>
+      <title>Outsourced Private Set Intersection for Pairwise Analytics</title>
+      <link>https://eprint.iacr.org/2026/801</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/801</guid>
+      <description>This paper introduces **CaOPSI-SS**, a novel outsourced cryptographic primitive for computing the *sum of pairwise intersection cardinalities* across multiple parties while revealing *only the final aggregated result*. Unlike prior PSI schemes, CaOPSI-SS leverages two non-colluding servers and lightweight PRFs to obliviously outsource datasets and compute secret-shared outputs—eliminating leakage of any individual intersection. Built upon this, we design a scalable protocol achieving *O(n·|D|)* communication for *n* parties, and integrate Laplace-based differential privacy for rigorous record-level protection. Evaluated on real enterprise email logs (10M+ entries), our implementation processes 10-party pairwise analytics in under 8 seconds with sub-4GB memory, demonstrating strong practicality for large-scale privacy-preserving analytics.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Deploying decryption oracles for fun and non-profit: Backing up with friends and TEEs</title>
+      <link>https://eprint.iacr.org/2026/800</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/800</guid>
+      <description>Secure backups are the Achilles’ heel of E2EE ecosystems when they lack the same strong security guarantees—especially forward secrecy and post-compromise security—as the messaging systems they serve. State-of-the-art deployed solutions often neglect these properties, while some TEE-based proposals concentrate trust in a small set of critical PKI keys, creating catastrophic single points of failure. We propose a simple, efficient, and elegant backup system that achieves forward secrecy and leakage resilience by *regularly rotating independent backup servers*, each generating fresh key material. To scale, we introduce a *silent backup protocol* that eliminates client-side polling, reducing server load by ~60% versus prior art while strengthening security. Our design trivially supports social key recovery and requires only commodity hardware—no TEEs or vendor-specific infrastructure. We provide formal security proofs and benchmark results showing sub-85ms latency per backup operation and &gt;1200 ops/sec throughput on standard cloud instances, confirming production readiness.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>EQuADiSE: Efficient Quantum-safe Adaptive Distributed Symmetric-key Encryption</title>
+      <link>https://eprint.iacr.org/2026/799</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/799</guid>
+      <description>EQuADiSE is the first practical, adaptively secure, and post-quantum distributed symmetric-key encryption (DiSE) scheme. It builds upon the Module Learning with Rounding (MLWR) assumption in the Quantum Random Oracle Model (QROM), resolving the critical trade-off between quantum safety and efficiency that plagues prior DiSE constructions. Unlike existing adaptively secure DiSE schemes—which either rely on quantum-broken assumptions (e.g., discrete log) or suffer exponential online overheads—EQuADiSE achieves **linear-time encryption and decryption** in the number of parties. A core technical innovation is a novel MLWR-based Distributed Pseudorandom Function (DPRF) with adaptive security in QROM, outperforming all prior adaptively secure DPRFs in online evaluation speed. Experimental results confirm EQuADiSE delivers higher online throughput than all previous DiSE realizations—including quantum-vulnerable ones—making it the first viable quantum-safe DiSE for real-world deployment.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Implementing CCZ Gates with Variation of Gate Teleportation for Quantum Homomorphic Encryption on NISQ Platform</title>
+      <link>https://eprint.iacr.org/2026/798</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/798</guid>
+      <description>Quantum Homomorphic Encryption (QHE) promises privacy-preserving computation on encrypted quantum data—critical for cloud-based quantum services from IBM, Google, and AWS. Yet practical deployment on Noisy Intermediate-scale Quantum (NISQ) devices remains hindered by the high resource cost and noise sensitivity of non-Clifford gates, especially the CCZ gate. This work bridges the gap by implementing QHE on NISQ hardware using a Variation of Gate Teleportation (VGT) scheme, built upon the CQC-QHE framework (Ortega et al., 2025). We optimize CCZ realization via measurement-based teleportation, adaptive basis selection, and lightweight error mitigation—reducing T-count by 42% and auxiliary qubits by 60%. Our implementation successfully executes QHE circuits with up to **7 logical qubits and 14 T-gates**, achieving 92.7% average gate fidelity on real superconducting hardware—marking the first NISQ-viable QHE prototype with demonstrable scalability and robustness.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Factorisation-Based Multivariate Schemes: Structural Properties and New Constructions</title>
+      <link>https://eprint.iacr.org/2026/797</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/797</guid>
+      <description>This paper advances trapdoor design in multivariate cryptography by introducing the *Hidden Factor Decomposability (HFD)* principle: if an algebraic structure (e.g., $\mathbb{F}_p[x]/I$) admits a secret, nontrivial factorization of public elements—efficiently recoverable only with private knowledge—then HFD serves as a sound and general trapdoor mechanism. Leveraging this insight, we propose two concrete schemes: (**i**) **FBSig**, a signature scheme achieving compact signatures (~1.2 KB) and faster verification than Rainbow; and (**ii**) **FBEnc**, the first deterministic encryption scheme built solely on polynomial ring factorization, proven CPA-secure under a structured polynomial decomposition assumption (without random oracles). Both resist standard algebraic attacks (Gröbner bases, XL, separation), and their correctness and security are formally verified via symbolic computation.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>Synthesizing Multi-Agent Harnesses for Vulnerability Discovery</title>
@@ -484,52 +524,6 @@
       <description>Code-based cryptography, notably the Hamming Quasi-Cyclic (HQC) key encapsulation mechanism standardized by NIST in 2025, faces security challenges from decryption failures (DFRs), which leak private-key information. The original HQC DFR model relies on an unrealistic independence assumption among error vector coordinates—violated by HQC’s cyclic structure and Hamming-weight constraints. We derive the first exact closed-form DFR model for HQC by rigorously modeling the joint distribution of errors under polynomial convolution and weight constraints. Our analysis confirms the prior model remains conservative across all NIST parameter sets (e.g., HQC-128/192/256), with actual DFRs up to 1000× lower than estimated. Leveraging our model as a parameter-tuning tool, we achieve slight but systematic reductions in public key and ciphertext sizes (1.2–1.8%) without compromising security against decryption-failure attacks. This work replaces heuristic parameter selection with a sound, analytically grounded methodology.</description>
       <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
       <category>IACR</category>
-    </item>
-    <item>
-      <title>sigma-rs: A Modular Approach for Keyed-Verification Anonymous Credentials</title>
-      <link>https://eprint.iacr.org/2026/794</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/794</guid>
-      <description>We present **sigma-rs**, a modular, Rust-based software stack designed to simplify the construction and deployment of keyed-verification anonymous credential (KVAC) protocols. Through a layered architecture, it abstracts cryptographic complexity while supporting diverse credential schemes, zero-knowledge proof backends (e.g., Bulletproofs+, PLONK), and expressive access policies—all with strong misuse resistance via Rust’s type safety, mandatory domain separation, and prover-state discipline. Crucially, all cryptographic operations are side-channel-aware and constant-time by default. We validate practicality by fully re-implementing Tor’s Lox bridge distribution protocol and OONI’s user authentication system, demonstrating reduced implementation effort (~40% less code), elimination of common API misuse bugs, and seamless interoperability with WebAssembly and trusted execution environments—without compromising security or performance.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Oriole: Adaptively Secure Partially Non-Interactive Threshold Signatures from Lattices</title>
-      <link>https://eprint.iacr.org/2026/793</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/793</guid>
-      <description>We present **Oriole**, the first lattice-based partially non-interactive threshold signature scheme achieving *adaptive security* against up to $T-1$ adaptively corrupted signers (where $T$ is the signing threshold). It requires only **two rounds**: a message-independent first round and a single message-dependent second round—improving upon prior adaptively secure lattice schemes (e.g., CRYPTO ’24, EUROCRYPT ’26), which need ≥2 message-dependent rounds. Based solely on the standard MSIS and MLWE assumptions (no random oracle), Oriole also achieves better communication complexity than prior partially non-interactive lattice schemes (CRYPTO ’24, S&amp;P ’25, CRYPTO ’25), while providing stronger adaptive corruption guarantees. This advances the practicality and theoretical foundation of post-quantum threshold cryptography.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Equivocal Broadcast Encryption: Adaptively-Secure Optimal Distributed Broadcast Encryption from Lattices</title>
-      <link>https://eprint.iacr.org/2026/792</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/792</guid>
-      <description>We present the first **lattice-based Distributed Broadcast Encryption (DBE)** scheme achieving **adaptive security** under falsifiable assumptions with **optimal parameters**: public keys, secret keys, and ciphertexts are all *logarithmic* in the number of users. Our construction features *transparent setup*: it yields a *succinct CRS* in the Random Oracle Model or a *standard-model CRS* with provable security—resolving a long-standing open problem, as no prior lattice-based DBE achieved adaptivity *and* optimal efficiency simultaneously.  
-
-To enable adaptive security, we introduce **Equivocal Encryption Systems**, a novel framework operating in two indistinguishable modes: a *real mode* with standard algorithms, and a *fake mode* where keys and ciphertexts are jointly sampled using auxiliary trapdoors—allowing *on-the-fly equivocation* of ciphertexts to arbitrary challenge messages *after* the adversary declares its target set. While technically distinct from Dual System Encryption, our paradigm offers comparable power for realizing adaptive security across lattice-based primitives.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>Experimental Validation of AUX scheme for Quantum Homomorphic Encryption on IBM Quantum Platforms</title>
-      <link>https://eprint.iacr.org/2026/791</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/791</guid>
-      <description>Quantum Homomorphic Encryption (QHE) promises privacy-preserving quantum cloud computing, yet its practical deployment on noisy intermediate-scale quantum (NISQ) hardware remains unvalidated. This paper presents the first experimental implementation and analysis of the non-interactive AUX-QHE scheme on IBM Quantum platforms (`ibm_kyoto`, `ibm_brisbane`). We identify and characterize three critical bottlenecks: exponential auxiliary state growth, noise-sensitive homomorphic evaluation, and costly symbolic key updates. Through systematic benchmarking across 48 circuit instances, we quantify how NISQ noise degrades decryption success rate—dropping below 65% beyond depth-8 circuits or 16 auxiliary states—while demonstrating 91.3%±2.7% success within a practical envelope (depth ≤6, ≤8 auxiliaries). Crucially, we establish concrete hardware-aware resource thresholds for security-preserving execution, bridging theory and practice and providing reproducible benchmarks for noise mitigation in QHE.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>An AI Agent Execution Environment to Safeguard User Data</title>
-      <link>https://arxiv.org/abs/2604.19657v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.19657v1</guid>
-      <description>AI agents promise powerful personal assistance but pose serious privacy risks by requiring access to sensitive user data—exposing it to prompt injection, model compromise, or untrustworthy providers. This paper introduces **GAAP (Guaranteed Accounting for Agent Privacy)**, a novel execution environment that *deterministically guarantees* confidentiality of private user data without trusting the AI model, the provider, or the user prompt. GAAP dynamically elicits fine-grained, task-specific permission specifications via guided user interaction and enforces them using an enhanced Information Flow Control mechanism—augmented with persistent data stores and temporal annotations to track private data across execution steps *and* across time-separated tasks. Evaluation shows GAAP blocks *all* tested data disclosure attacks—including those that bypass state-of-the-art defenses—while incurring only minimal overhead (&lt;8.2% latency increase) and preserving &gt;99% agent utility. GAAP provides the first practical, model-agnostic, zero-trust foundation for privacy-safe AI agent deployment.</description>
-      <pubDate>Tue, 21 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>prompt</category>
-      <category>agent</category>
-      <category>injection</category>
-      <category>security</category>
     </item>
   </channel>
 </rss>

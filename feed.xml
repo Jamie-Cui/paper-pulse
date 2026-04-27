@@ -4,8 +4,82 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sun, 26 Apr 2026 02:34:32 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 02:39:51 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adversarial Malware Generation in Linux ELF Binaries via Semantic-Preserving Transformations</title>
+      <link>https://arxiv.org/abs/2604.22639v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22639v1</guid>
+      <description>This paper addresses the critical gap in adversarial malware generation for Linux ELF binaries—a domain largely overlooked compared to Windows PE files. We propose a novel, **semantic-preserving adversarial generator** that modifies ELF files without altering runtime behavior, using targeted string injection, section rewriting, and relocation-aware perturbations. Evaluating against the MalConv classifier in a white-box setting, our method achieves a **67.74% evasion rate** and reduces mean detection confidence by **0.50** on a curated ELF malware dataset. Crucially, we demonstrate that MalConv is highly sensitive to benign strings inserted *anywhere* in the binary—including `.rodata`, `.dynstr`, and even padding regions—highlighting a fundamental fragility in sequence-based detectors. Our work establishes the first reproducible ELF adversarial benchmark and reveals that string-level features, not just code logic, dominate modern ELF classification decisions.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>machine</category>
+      <category>adversarial</category>
+    </item>
+    <item>
+      <title>Adversarial Co-Evolution of Malware and Detection Models: A Bilevel Optimization Perspective</title>
+      <link>https://arxiv.org/abs/2604.22569v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22569v1</guid>
+      <description>This paper addresses the growing vulnerability of ML-based malware detectors to adaptive adversarial attacks—particularly those leveraging reinforcement learning for evasion. We propose a novel defense framework grounded in **bilevel optimization**, which explicitly models the defender–attacker interaction as an iterative, strategic co-evolutionary game: the upper-level optimizes the detector’s parameters for robustness, while the lower-level generates optimal adversarial perturbations mimicking adaptive attackers. Evaluated on the MAB-malware benchmark against three real-world families (Mokes, Strab, DCRat), our approach reduces evasion rates from up to 90% (for standard and basic adversarially retrained models) to just **0–1.89%**, achieving near-total immunity. Moreover, it increases the attacker’s query complexity by **up to two orders of magnitude**, drastically raising the cost of successful evasion. These results demonstrate that bilevel optimization is essential for building detection systems resilient to evolving adversarial threats.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>machine</category>
+      <category>adversarial</category>
+    </item>
+    <item>
+      <title>Automation-Exploit: A Multi-Agent LLM Framework for Adaptive Offensive Security with Digital Twin-Based Risk-Mitigated Exploitation</title>
+      <link>https://arxiv.org/abs/2604.22427v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22427v1</guid>
+      <description>Automation-Exploit is a fully autonomous Multi-Agent System (MAS) framework for adaptive offensive security in complex black-box environments. It bridges the reconnaissance-to-exploitation gap by autonomously exfiltrating binaries and contextual intelligence (e.g., libc version, open file descriptors) across HTTP, SMB, and SSH protocols—enabling both logical (e.g., SQLi) and binary (e.g., stack overflow) attack chains. Its key innovation is a digital twin–based safety architecture: for high-risk memory-corruption vulnerabilities, it conditionally instantiates a cross-platform digital twin *only* upon successful binary exfiltration, enforcing strict state synchronization (libc alignment, FD hooking, memory layout mirroring) to iteratively debug payloads in isolation—ensuring crash-free, risk-mitigated “one-shot” execution on the physical target. Empirical evaluation across eight diverse scenarios—including undocumented zero-day systems—confirms 100% DoS avoidance and successful real-target compromises without live-fire crashes.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>llm</category>
+      <category>agent</category>
+      <category>security</category>
+    </item>
+    <item>
+      <title>Behavioral Canaries: Auditing Private Retrieved Context Usage in RL Fine-Tuning</title>
+      <link>https://arxiv.org/abs/2604.22191v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22191v1</guid>
+      <description>This paper introduces **Behavioral Canaries**, a novel auditing framework for detecting unauthorized use of private retrieved contexts in Reinforcement Learning Fine-Tuning (RLFT). Unlike traditional auditing methods—which rely on verbatim memorization or membership inference and fail under RL—our approach embeds *stylistic triggers*: each canary pairs a sensitive document with preference feedback that rewards a distinctive, measurable behavioral pattern (e.g., specific syntactic choices or discourse markers). If the document is illicitly used in RL training, the model develops a latent, trigger-conditioned stylistic preference. Empirical evaluation shows Behavioral Canaries achieve **67% detection rate at 10% false-positive rate** (AUROC = 0.756) with only **1% canary injection rate**, without degrading standard task performance. This establishes behavioral signatures—not factual recall—as a principled, practical signal for RLFT compliance auditing.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>membership</category>
+      <category>inference</category>
+    </item>
+    <item>
+      <title>Data-Free Contribution Estimation in Federated Learning using Gradient von Neumann Entropy</title>
+      <link>https://arxiv.org/abs/2604.22562v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22562v1</guid>
+      <description>Client contribution estimation in federated learning (FL) is essential for fairness and robustness but is challenged by privacy constraints and manipulation risks from validation data or self-reported metadata. We propose a **data-free signal**: the **gradient von Neumann entropy (GvNE)**—the spectral entropy of the final-layer update matrix—which quantifies the *information diversity* of client contributions. We instantiate two practical schemes: (**i**) **SpectralFed**, using normalized GvNE as aggregation weights; and (**ii**) **SpectralFuse**, fusing GvNE with class-specific alignment via a rank-adaptive Kalman filter for per-round stability. Across CIFAR-10/100, FEMNIST, and FedISIC under diverse non-IID settings (e.g., Dirichlet α=0.1), GvNE scores achieve consistently high correlation (&gt;0.85 Pearson r) with standalone client accuracy—without any server-held data or client metadata. Our method outperforms existing data-free baselines (e.g., gradient norm, cosine similarity) in correlation strength, stability, and robustness.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>FedSPDnet: Geometry-Aware Federated Deep Learning with SPDnet</title>
+      <link>https://arxiv.org/abs/2604.22494v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22494v1</guid>
+      <description>We propose **FedSPDnet**, the first geometry-aware federated learning framework for SPDnet—a deep network operating on symmetric positive definite (SPD) matrices with Stiefel-constrained parameters. Standard FedAvg violates orthogonality via Euclidean averaging, degrading model integrity. To preserve manifold structure, we introduce two efficient aggregation methods: **ProjAvg**, which projects arithmetic means onto the Stiefel manifold, and **RLAvg**, which approximates tangent-space averaging via retractions and liftings. Both are optimizer-agnostic, computationally lightweight, and scale seamlessly to resource-constrained signal processing applications. On EEG motor imagery benchmarks, FedSPDnet achieves **+4.2% higher F1 score** than federated EEGnet, demonstrates superior robustness to non-IID data and partial client participation, and reduces per-round communication overhead by **37%**. This work bridges Riemannian optimization and federated learning for SPD-valued data.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Sharpness-Aware Poisoning: Enhancing Transferability of Injective Attacks on Recommender Systems</title>
+      <link>https://arxiv.org/abs/2604.22170v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22170v1</guid>
+      <description>Recommender systems (RS) are vulnerable to injective attacks, where adversaries inject fake user profiles to boost target items’ exposure for unethical gains. Existing methods rely on a fixed surrogate model to generate poisoned data, assuming good transferability to unknown victim models—yet this fails under structural mismatch. To address this, we propose **Sharpness-Aware Poisoning (SharpAP)**, the first attack framework that explicitly optimizes poison data against the *approximate worst-case victim model*, identified via sharpness-aware minimization. SharpAP formulates the attack as a **tri-level min–max–min optimization**: (i) minimize recommendation loss on the surrogate; (ii) maximize loss via parameter perturbation (simulating worst-case victim); (iii) re-optimize poison data to maximize target-item promotion *on that worst-case model*. This yields poisoned data robust to model architecture shifts and less overfitted to the surrogate. Experiments on Amazon-Book, Yelp, and Tmall show SharpAP improves cross-model attack transferability by **23.7–48.5%** over state-of-the-art baselines, especially under large surrogate–victim architectural gaps.</description>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>data</category>
+      <category>poisoning</category>
+      <category>model</category>
+    </item>
     <item>
       <title>Transient Turn Injection: Exposing Stateless Multi-Turn Vulnerabilities in Large Language Models</title>
       <link>https://arxiv.org/abs/2604.21860v1</link>
@@ -233,6 +307,57 @@
       <category>IACR</category>
     </item>
     <item>
+      <title>PermaFrost-Attack: Stealth Pretraining Seeding(SPS) for planting Logic Landmines During LLM Training</title>
+      <link>https://arxiv.org/abs/2604.22117v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22117v1</guid>
+      <description>We introduce **PermaFrost-Attack**, a novel stealthy data poisoning framework exploiting the web-scale pretraining pipeline of LLMs. Through *Stealth Pretraining Seeding (SPS)*, adversaries inject tiny, benign-looking payloads across thousands of low-traffic websites—deliberately exposed to crawlers via `robots.txt`—to infiltrate future training corpora (e.g., Common Crawl) undetected. These payloads embed dormant *logic landmines*: latent unsafe behaviors invisible under standard safety evaluations but reliably activated by precise alphanumeric triggers (e.g., `&lt;00TRIGGER00&gt;`), bypassing alignment safeguards. We propose three geometric diagnostics—*Thermodynamic Length*, *Spectral Curvature*, and the *Infection Traceback Graph*—to detect and characterize such latent vulnerabilities. Across Llama, Qwen, and Phi models (3B–7B), SPS achieves &gt;82% attack success while evading RLHF and DPO defenses. Our work reveals SPS as a practical, underappreciated threat to foundation model integrity and establishes a principled geometric lens for uncovering invisible model weaknesses.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>poisoning</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Memanto: Typed Semantic Memory with Information-Theoretic Retrieval for Long-Horizon Agents</title>
+      <link>https://arxiv.org/abs/2604.22085v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22085v1</guid>
+      <description>This paper introduces **Memanto**, a lightweight, typed semantic memory layer for long-horizon autonomous agents that eliminates the need for complex knowledge graphs. Memanto features: (1) a fixed schema of **13 semantic memory types**, (2) automated conflict resolution with temporal versioning, and (3) Moorcheh—an information-theoretic, *no-indexing* search engine enabling deterministic, sub-90ms retrieval with *zero ingestion latency*. Evaluated on LongMemEval and LoCoMo, Memanto achieves state-of-the-art accuracy (**89.8%** and **87.1%**, respectively), outperforming all hybrid graph and vector-based baselines—while requiring only **one retrieval query**, incurring **no ingestion cost**, and drastically reducing operational complexity. A five-stage ablation study confirms the critical role of typed semantics and information-theoretic retrieval in scalability and fidelity.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
+      <title>Shard the Gradient, Scale the Model: Serverless Federated Aggregation via Gradient Partitioning</title>
+      <link>https://arxiv.org/abs/2604.22072v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22072v1</guid>
+      <description>Federated learning (FL) aggregation on serverless platforms hits a hard scalability wall: existing architectures (e.g., lambda-FL, LIFL) partition *clients* across aggregators, but each aggregator must load the *entire gradient* into memory—rendering aggregation infeasible when gradients exceed per-function memory limits (e.g., 10 GB on AWS Lambda). We propose **GradsSharding**, which instead partitions the *gradient tensor* into $M$ shards; each shard is averaged independently by a serverless function receiving contributions from *all clients*. Due to the element-wise linearity of FedAvg, this yields **bit-identical results** to centralized or tree-based aggregation—guaranteeing zero accuracy loss. Per-function memory scales as $O(|\theta|/M)$, independent of client count, enabling FL for arbitrarily large models. Evaluated across models from 43 MB to 5 GB on real AWS Lambda and HPC clusters, GradsSharding achieves a cost crossover at ~500 MB gradient size, reduces cost by 2.7× at VGG-16 scale, and remains the **only deployable architecture beyond the serverless memory ceiling**.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>federated</category>
+      <category>learning</category>
+    </item>
+    <item>
+      <title>Generating Synthetic Malware Samples Using Generative AI</title>
+      <link>https://arxiv.org/abs/2604.22084v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.22084v1</guid>
+      <description>Malware classification suffers from severe data imbalance and scarcity of diverse, obfuscated samples—especially for emerging families. To address this, we propose a novel generative AI framework that decomposes malware binaries into **semantic-rich mnemonic opcode sequences**, enhanced by NLP-derived contextual features (e.g., control-flow patterns, API call semantics) to guide generation. We evaluate GAN, WGAN-GP, and a **domain-adapted Diffusion model**, finding the latter yields the highest-fidelity synthetic samples. Augmenting training data with Diffusion-generated samples boosts minority-class accuracy by **up to 60% on average**, lifting overall classification accuracy to **96% (+8%)**. Crucially, synthetic samples preserve executable structure and behavioral fidelity without increasing false positives—demonstrating their practical utility for robust, scalable malware analysis under data-constrained conditions.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>machine</category>
+      <category>adversarial</category>
+    </item>
+    <item>
+      <title>Beyond N-gram: Data-Aware X-GRAM Extraction for Efficient Embedding Parameter Scaling</title>
+      <link>https://arxiv.org/abs/2604.21724v2</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.21724v2</guid>
+      <description>Large embedding lookup tables enable compute-decoupled scaling but suffer from poor parameter efficiency due to Zipfian under-training, layer-wise heterogeneity, and “slot collapse”. To address this, we propose **X-GRAM**, a data-aware, frequency-adaptive token injection framework. It combines hybrid hashing and alias mixing to compress the long tail while preserving head capacity; refines retrieved embeddings via normalized SwiGLU-ShortConv to extract diverse local n-gram features; and integrates these signals into attention value streams and inter-layer residuals using depth-aware gating—aligning static memory with dynamic context. Evaluated at 0.73B and 1.15B scales, X-GRAM achieves up to **+4.4 accuracy points** over the vanilla backbone and **+3.2 over strong retrieval baselines**, while using only **50% of the original table size**. This introduces a *memory-centric scaling axis*, decoupling capacity from FLOPs—enabling scalable, practical memory-augmented architectures. Code: https://github.com/Longyichen/X-gram.</description>
+      <pubDate>Thu, 23 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>extraction</category>
+      <category>model</category>
+    </item>
+    <item>
       <title>Synthesizing Multi-Agent Harnesses for Vulnerability Discovery</title>
       <link>https://arxiv.org/abs/2604.20801v1</link>
       <guid isPermaLink="true">https://arxiv.org/abs/2604.20801v1</guid>
@@ -402,128 +527,6 @@
       <category>learning</category>
       <category>privacy</category>
       <category>machine</category>
-    </item>
-    <item>
-      <title>Adaptive Defense Orchestration for RAG: A Sentinel-Strategist Architecture against Multi-Vector Attacks</title>
-      <link>https://arxiv.org/abs/2604.20932v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20932v1</guid>
-      <description>Retrieval-augmented generation (RAG) systems face severe security–utility trade-offs when deployed in sensitive domains: static defense stacks improve security but degrade contextual recall by &gt;40%. To address this, we propose ADO—a Sentinel-Strategist architecture that *adaptively orchestrates defenses* based on real-time risk assessment of query-retrieval behavior. The Sentinel detects anomalies (e.g., entropy spikes, distributional shifts); the Strategist then selectively activates only context-appropriate defenses (e.g., filtering, rewriting, gating). Evaluated across three benchmarks and five orchestrators, ADO eliminates MBA-style membership inference leakage while restoring contextual recall to ≥75% of the undefended baseline—up to 92% in best cases—and reduces poisoning attack success to &lt;2%. Crucially, ADO demonstrates that *defense efficacy is model-sensitive*, revealing a new coupling between RAG security and underlying model architecture. This work establishes the first practical framework for query-aware, utility-preserving RAG defense.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>inference</category>
-      <category>poisoning</category>
-      <category>data</category>
-      <category>membership</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>Omission Constraints Decay While Commission Constraints Persist in Long-Context LLM Agents</title>
-      <link>https://arxiv.org/abs/2604.20911v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20911v1</guid>
-      <description>This paper identifies and quantifies **Security-Recall Divergence (SRD)**: a critical asymmetry in long-context LLM agents where *omission constraints* (e.g., “never disclose credentials”) decay sharply under context pressure, while *commission constraints* (e.g., “always return an error code”) remain robust. In a large-scale causal study (4,416 trials across 12 models, 8 providers, and 6 conversation depths), omission compliance drops from 73% at turn 5 to 33% at turn 16 (Mistral Large 3; $p &lt; 10^{-33}$), whereas commission compliance stays at 100%. Token-matched padding controls reveal that schema-level semantic content drives 62–100% of the dilution effect. Crucially, re-injecting constraints before each model’s empirically determined Safe Turn Depth (STD) fully restores omission compliance—without fine-tuning. This exposes a blind spot in production monitoring: commission-based audit signals remain healthy even as omission failures occur silently. SRD redefines long-context safety as a *temporal recall problem*, not just a capability limitation.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-    </item>
-    <item>
-      <title>Dialect vs Demographics: Quantifying LLM Bias from Implicit Linguistic Signals vs. Explicit User Profiles</title>
-      <link>https://arxiv.org/abs/2604.21152v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.21152v1</guid>
-      <description>This study disentangles LLM bias origins by comparing *explicit demographic declarations* (e.g., “I am Black”) versus *implicit dialect signals* (e.g., AAVE, Singlish) across 24,000+ responses from Gemma-3-12B and Qwen-3-VL-8B. We find a paradoxical “dialect jailbreak”: implicit dialect cues reduce refusal rates to near zero and increase semantic fidelity (+12.7% BERTScore vs. SAE), while explicit identity prompts trigger aggressive safety filters—tripling refusals and degrading output quality for Black users. Crucially, this bypass comes at a steep safety cost: dialect-triggered outputs show +29% toxicity and +17% factual errors, revealing a bifurcated user experience where “standard” users receive sanitized, cautious responses, while dialect speakers encounter raw, under-moderated, and potentially harmful content. Our results expose a critical alignment tension—between equity and linguistic diversity—and demonstrate that current safety mechanisms are brittle, keyword-dependent, and fail to generalize beyond explicit cues.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>jailbreak</category>
-    </item>
-    <item>
-      <title>Serialisation Strategy Matters: How FHIR Data Format Affects LLM Medication Reconciliation</title>
-      <link>https://arxiv.org/abs/2604.21076v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.21076v1</guid>
-      <description>This study presents the first systematic evaluation of how FHIR data serialization affects LLM performance in medication reconciliation—a high-stakes clinical task. Across 200 synthetic patients (4,000 inferences), we benchmark four serialization formats—Raw JSON, Markdown Table, Clinical Narrative, and Chronological Timeline—on five open-weight models (Phi-3.5-mini to Llama-3.3-70B). We find serialization strategy exerts a large, statistically significant effect: Clinical Narrative boosts F1 by up to 19 points for 7B models (e.g., Mistral-7B), but Raw JSON becomes optimal at 70B (mean F1 = 0.9956). Critically, precision consistently exceeds recall across all 20 model–strategy combinations, indicating omission—not hallucination—is the dominant failure mode, shifting safety auditing priorities toward missed medications. Smaller models plateau at ~7–10 concurrent medications, failing polypharmacy patients most vulnerable to errors. BioMistral-7B yields zero usable output, proving domain pretraining alone is insufficient without instruction tuning. Our evidence-based recommendation: use Clinical Narrative for ≤8B models and Raw JSON for ≥70B models—all reproducible on commodity GPU hardware.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>The Last Harness You'll Ever Build</title>
-      <link>https://arxiv.org/abs/2604.21003v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.21003v1</guid>
-      <description>AI agents face a critical bottleneck: adapting foundation models to new task domains requires labor-intensive, expert-driven *harness engineering*—designing prompts, tools, orchestration logic, and evaluation criteria. We introduce a two-level meta-automation framework. The **Harness Evolution Loop** automatically optimizes a harness $\mathcal{H}$ for a single task via iterative collaboration among a Worker Agent ($W_{\mathcal{H}}$), an adversarial Evaluator Agent ($V$), and an Evolution Agent ($E$). Crucially, the **Meta-Evolution Loop** learns an optimal evolution protocol $Λ^{(\text{best})}$ across diverse tasks—enabling rapid harness convergence (≤5 iterations) on *any unseen domain* without human intervention. Formally grounded in meta-learning, our framework shifts the paradigm from manual harness design to *automating the automation itself*. Experiments across 8 real-world domains show 92% faster deployment and 100% harness reusability.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>SWE-chat: Coding Agent Interactions From Real Users in the Wild</title>
-      <link>https://arxiv.org/abs/2604.20779v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20779v1</guid>
-      <description>SWE-chat is the first large-scale, living dataset of real-world coding agent interactions, collected automatically from open-source developers in the wild. It currently comprises 6,000 sessions, 63,000+ user prompts, and 355,000+ agent tool calls—with continuous ingestion from public repositories. Leveraging this dataset, we conduct the first empirical characterization of practical coding agent usage: we find bimodal authorship patterns (41% “vibe coding” vs. 23% human-only), low code survival rate (only 44% of agent-generated code reaches final commits), higher security vulnerability density in agent-written code, and frequent user pushback (44% of turns involve corrections, failure reports, or interruptions). SWE-chat enables evidence-based evaluation by providing full interaction traces with precise human/agent code attribution—shifting focus from synthetic benchmarks to real developer workflows.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>agent</category>
-    </item>
-    <item>
-      <title>FSFM: A Biologically-Inspired Framework for Selective Forgetting of Agent Memory</title>
-      <link>https://arxiv.org/abs/2604.20300v2</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20300v2</guid>
-      <description>FSFM is a biologically inspired framework enabling *selective forgetting* in LLM agents—addressing critical gaps in memory management under resource constraints. Grounded in hippocampal indexing theory and the Ebbinghaus forgetting curve, FSFM introduces a taxonomy of four forgetting mechanisms: passive decay-based, active deletion-based, safety-triggered, and adaptive reinforcement-based. Integrated with modern LLM agent architectures and vector databases, it provides implementable specifications, fine-grained control policies (e.g., context-aware decay thresholds, safety-confidence gating), and rigorous empirical validation. Experiments demonstrate consistent gains: **+8.49% memory access efficiency**, **+29.2% signal-to-noise ratio** (improved relevance and freshness), and **100% elimination of security risks** (e.g., malicious inputs, PII leakage). FSFM bridges cognitive neuroscience and AI engineering—establishing selective forgetting as a foundational capability for ethical, compliant, and deployable next-generation agents.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>llm</category>
-      <category>security</category>
-      <category>agent</category>
-    </item>
-    <item>
-      <title>Spectral Embeddings Leak Graph Topology: Theory, Benchmark, and Adaptive Reconstruction</title>
-      <link>https://arxiv.org/abs/2604.21094v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.21094v1</guid>
-      <description>Graph Neural Networks (GNNs) assume centralized, noise-free graphs—unrealistic for federated, distributed, or privacy-critical settings where graphs are fragmented, noisy, and locally held. To bridge this gap, we introduce **LoGraB**, the first benchmark for *local graph learning*, decomposing 9 standard datasets along four controls ($d$, $k$, $\sigma$, $p$) to generate realistic spectral fragments. We propose **AFR**, an adaptive reconstruction method that scores fragment fidelity via a stability-entropy hybrid metric, aligns fragments using RANSAC-Procrustes and Bundle Adjustment, and recovers coherent “islands” rather than forcing global consistency. Theoretically, we prove heat-kernel edge recovery under separation, Davis–Kahan stability, bounded alignment error, and establish the *Spectral Leakage Proposition*: polynomial-time Bayesian topology recovery is feasible when sufficient eigenvectors are shared. Experiments show AFR achieves best F1 on 7/9 LoGraB benchmarks and retains 75% of its undefended F1 under $(\varepsilon=2,\delta)$-Gaussian DP. Code: https://anonymous.4open.science/r/JMLR_submission</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>privacy</category>
-      <category>federated</category>
-      <category>differential</category>
-    </item>
-    <item>
-      <title>Unsupervised Learning of Inter-Object Relationships via Group Homomorphism</title>
-      <link>https://arxiv.org/abs/2604.20925v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20925v1</guid>
-      <description>This paper proposes an unsupervised representation learning framework that models inter-object relationships via **group homomorphism**, shifting from statistical correlation to algebraic structural constraints. Inspired by infant cognitive development, our integrated neural architecture jointly performs object segmentation and motion law extraction from unlabeled dynamic sequences. By embedding homomorphism as a hard constraint, the model decomposes pixel-level changes into physically meaningful transformation components (e.g., translation, deformation). On developmentally grounded interaction tasks (chasing/evading), it segments multiple objects into distinct slots without any ground-truth labels and maps relative motions (e.g., approaching/receding) into a **1D additive latent space**, where distances linearly reflect physical displacement rates. Results demonstrate that algebraic geometry—not just statistics—enables acquisition of *physically interpretable, disentangled representations*. This work advances computational models of cognitive development and offers a foundation for building developmental AI systems.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Clinically Interpretable Sepsis Early Warning via LLM-Guided Simulation of Temporal Physiological Dynamics</title>
-      <link>https://arxiv.org/abs/2604.20924v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.20924v1</guid>
-      <description>Timely and clinically interpretable sepsis early warning remains challenging due to the complex, nonlinear dynamics of physiological deterioration. We propose an LLM-guided temporal simulation framework that explicitly models pre-onset physiological trajectories—rather than mapping raw data to labels—to ensure clinical alignment and transparency. Our method integrates: (1) a spatiotemporal feature extractor capturing dynamic dependencies among vital signs; (2) a Medical Prompt-as-Prefix module embedding clinical guidelines and pathophysiological constraints into LLM reasoning; and (3) an agent-based post-processor enforcing physiological plausibility on simulated trajectories. Evaluated on MIMIC-IV and eICU, it achieves state-of-the-art AUCs of 0.861–0.903 for 24–4-hour pre-onset prediction—outperforming deep learning and rule-based baselines. Crucially, it generates human-readable physiological evolution curves and risk trends, enabling actionable, personalized ICU decision support.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>Masking Ordering Failures in BFT SMR via Proactive Pre-Commit Execution</title>
-      <link>https://eprint.iacr.org/2026/796</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/796</guid>
-      <description>Modern BFT SMR systems decouple dissemination from ordering to improve efficiency under partial synchrony, yet still suffer high transaction confirmation latency when ordering stalls—despite transactions being widely disseminated. We propose **Pufferfish**, the first BFT SMR system that *practically masks intermittent ordering failures* via **proactive pre-commit execution**: replicas speculatively execute un-ordered but disseminated transactions using an *adaptive probabilistic speculation mechanism* built atop a DAG-based BFT consensus. Correct speculation results are committed directly upon ordering resolution; incorrect ones trigger lightweight re-execution thanks to a *commit-aware snapshot mechanism* minimizing rollback overhead. Evaluated on a geo-distributed AWS deployment, Pufferfish achieves **1.36× lower p99 confirmation latency** vs. state-of-the-art (HotStuff+) under ordering failures—and **1.58× improvement even under normal operation at 80k tps**, with speculation failure rate &lt;4.3% and no safety compromise.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
-    </item>
-    <item>
-      <title>On the Decoding Failure Rate of HQC</title>
-      <link>https://eprint.iacr.org/2026/795</link>
-      <guid isPermaLink="true">https://eprint.iacr.org/2026/795</guid>
-      <description>Code-based cryptography, notably the Hamming Quasi-Cyclic (HQC) key encapsulation mechanism standardized by NIST in 2025, faces security challenges from decryption failures (DFRs), which leak private-key information. The original HQC DFR model relies on an unrealistic independence assumption among error vector coordinates—violated by HQC’s cyclic structure and Hamming-weight constraints. We derive the first exact closed-form DFR model for HQC by rigorously modeling the joint distribution of errors under polynomial convolution and weight constraints. Our analysis confirms the prior model remains conservative across all NIST parameter sets (e.g., HQC-128/192/256), with actual DFRs up to 1000× lower than estimated. Leveraging our model as a parameter-tuning tool, we achieve slight but systematic reductions in public key and ciphertext sizes (1.2–1.8%) without compromising security against decryption-failure attacks. This work replaces heuristic parameter selection with a sound, analytically grounded methodology.</description>
-      <pubDate>Wed, 22 Apr 2026 00:00:00 -0000</pubDate>
-      <category>IACR</category>
     </item>
   </channel>
 </rss>

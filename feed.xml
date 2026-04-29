@@ -4,8 +4,41 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Tue, 28 Apr 2026 03:02:20 -0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 02:45:17 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Subspace Optimization for Efficient Federated Learning under Heterogeneous Data</title>
+      <link>https://arxiv.org/abs/2604.25467v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.25467v1</guid>
+      <description>Federated learning (FL) faces dual bottlenecks in the large-model era: severe resource constraints (communication, memory, computation) and performance degradation from non-IID data-induced client drift. While methods like SCAFFOLD correct heterogeneity, they impose prohibitive overhead via auxiliary control variables. This paper proposes **Subspace Optimization for Federated Learning (SSF)**, which performs heterogeneity-aware optimization *only* in a low-dimensional active subspace using projected gradients and model updates—eliminating explicit control variable storage. Crucially, SSF introduces a **backfill-style residual update**: whenever the subspace changes, orthogonal residual components are retained and injected, preserving full-dimensional control information without extra communication. Under standard smoothness and bounded-variance assumptions, SSF achieves a non-asymptotic convergence rate of $\widetilde{\mathcal{O}}(1/T + 1/\sqrt{NKT})$. Experiments on CIFAR-10/100 and Tiny-ImageNet show SSF reduces communication by 38–52% and memory by 41–63% versus SCAFFOLD and FedProx, with &lt;0.9% accuracy drop—delivering superior accuracy-efficiency trade-offs under data heterogeneity.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>federated</category>
+    </item>
+    <item>
+      <title>RCProb: Probabilistic Rule Extraction for Efficient Simplification of Tree Ensembles</title>
+      <link>https://arxiv.org/abs/2604.25304v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.25304v1</guid>
+      <description>Tree ensembles achieve strong predictive performance but suffer from poor interpretability as ensemble size grows. While RuleCOSI+ extracts compact, accurate rule sets from such models, its reliance on repeated empirical frequency counting over training data incurs prohibitive computational cost for large-scale datasets. To address this, we propose **RCProb**, a probabilistic reformulation of RuleCOSI+ that replaces frequency-based confidence estimation with a **Bayesian framework**: it employs **Dirichlet-smoothed class priors** and **Beta-smoothed conditional likelihoods**, combined via a **Naive Bayes formulation**, enabling closed-form posterior probability computation without scanning the dataset. Evaluated on 33 benchmark datasets, RCProb achieves **comparable predictive accuracy** to RuleCOSI+ (mean difference &lt;0.5%), reduces runtime by **≈22×**, and yields **more compact rule sets** (18.3% fewer rules on average). This work bridges probabilistic reasoning and rule extraction, enabling efficient, scalable, and faithful model explanation.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>Making AI-Assisted Grant Evaluation Auditable without Exposing the Model</title>
+      <link>https://arxiv.org/abs/2604.25200v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.25200v1</guid>
+      <description>Public agencies are adopting LLMs for grant evaluation, yet face a tension between *confidentiality* (preventing applicants from gaming the system) and *auditability* (ensuring accountability and contestability). We propose a TEE-based architecture that enables **remote attestation of evaluation provenance** without exposing model weights, proprietary rubrics, or intermediate reasoning. The core artifact is an **attested evaluation bundle**: a cryptographically signed, timestamped record linking the submission hash, canonicalized input hash, model-and-rubric identifier, and final score. To mitigate applicant-driven prompt injection via documents (e.g., hidden formatting instructions), we introduce a **canonicalization and sanitization layer** that normalizes inputs and logs suspicious transformations pre-inference. Crucially, our approach does *not* certify fairness or correctness—but it *does* make the execution of predefined rules externally verifiable. This advances accountable AI by grounding auditability in hardware-enforced integrity, distinct from zero-knowledge ML or fully open auditing.</description>
+      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>learning</category>
+      <category>machine</category>
+      <category>prompt</category>
+      <category>injection</category>
+      <category>zero-knowledge</category>
+    </item>
     <item>
       <title>Layerwise Convergence Fingerprints for Runtime Misbehavior Detection in Large Language Models</title>
       <link>https://arxiv.org/abs/2604.24542v1</link>
@@ -141,6 +174,26 @@
       <category>arXiv</category>
       <category>federated</category>
       <category>learning</category>
+    </item>
+    <item>
+      <title>A Unifying Framework for Unsupervised Concept Extraction</title>
+      <link>https://arxiv.org/abs/2604.24936v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.24936v1</guid>
+      <description>We present a unifying theoretical framework for unsupervised concept extraction—framing it as generative model identification from latent representations. Our core contribution is a general **meta-theorem for identifiability**, which reduces proving concept uniqueness to characterizing the intersection of two symmetry groups: the concept space’s invariance group and the observation distribution’s automorphism group. This theorem dramatically simplifies identifiability analysis across diverse methods—including sparse autoencoders, transcoders, and dictionary learning—turning intricate proofs into concise set-intersection arguments. We show that sparsity, nonlinearity, and sufficient observational diversity jointly guarantee identifiability, and we derive explicit conditions under which concepts are uniquely recoverable up to trivial equivalences. The framework provides the first principled foundation for designing provably faithful concept extractors, enabling reliable downstream applications like model steering and unlearning.</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>model</category>
+      <category>extraction</category>
+    </item>
+    <item>
+      <title>CAN-QA: A Question-Answering Benchmark for Reasoning over In-Vehicle CAN Traffic</title>
+      <link>https://arxiv.org/abs/2604.24935v1</link>
+      <guid isPermaLink="true">https://arxiv.org/abs/2604.24935v1</guid>
+      <description>The Controller Area Network (CAN) is a safety-critical in-vehicle protocol lacking built-in security, necessitating robust intrusion detection. Yet existing approaches treat CAN analysis as a static classification task—ignoring its rich temporal dynamics and misaligning with forensic reasoning needs. To bridge this gap, we introduce **CAN-QA**, the first question-answering benchmark for CAN traffic analysis. It converts raw CAN logs into time-aligned windows and applies deterministic, semantics-aware templates to generate 33,128 natural-language QA pairs across 10 categories—each targeting distinct temporal, statistical, or behavioral properties (e.g., periodicity violation, inter-frame delay anomalies, state-transition consistency). We evaluate large language models (LLMs) on both True/False and multiple-choice formats. Results show LLMs succeed on surface-level patterns (e.g., ID frequency matching) but consistently fail at **temporal reasoning** (e.g., trend inference over windows), **multi-condition logical composition**, and **high-level behavioral interpretation** (e.g., linking timing anomalies to attack semantics). CAN-QA establishes a new paradigm for explainable, interactive, and forensically grounded automotive security evaluation. Code: https://github.com/Kriiiiss/CAN-QA.</description>
+      <pubDate>Mon, 27 Apr 2026 00:00:00 -0000</pubDate>
+      <category>arXiv</category>
+      <category>security</category>
+      <category>inference</category>
     </item>
     <item>
       <title>SMSI: System Model Security Inference: Automated Threat Modeling for Cyber-Physical Systems</title>
@@ -489,60 +542,6 @@
       <category>arXiv</category>
       <category>federated</category>
       <category>learning</category>
-    </item>
-    <item>
-      <title>Sharpness-Aware Poisoning: Enhancing Transferability of Injective Attacks on Recommender Systems</title>
-      <link>https://arxiv.org/abs/2604.22170v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.22170v1</guid>
-      <description>Recommender systems (RS) are vulnerable to injective attacks, where adversaries inject fake user profiles to boost target items’ exposure for unethical gains. Existing methods rely on a fixed surrogate model to generate poisoned data, assuming good transferability to unknown victim models—yet this fails under structural mismatch. To address this, we propose **Sharpness-Aware Poisoning (SharpAP)**, the first attack framework that explicitly optimizes poison data against the *approximate worst-case victim model*, identified via sharpness-aware minimization. SharpAP formulates the attack as a **tri-level min–max–min optimization**: (i) minimize recommendation loss on the surrogate; (ii) maximize loss via parameter perturbation (simulating worst-case victim); (iii) re-optimize poison data to maximize target-item promotion *on that worst-case model*. This yields poisoned data robust to model architecture shifts and less overfitted to the surrogate. Experiments on Amazon-Book, Yelp, and Tmall show SharpAP improves cross-model attack transferability by **23.7–48.5%** over state-of-the-art baselines, especially under large surrogate–victim architectural gaps.</description>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>data</category>
-      <category>poisoning</category>
-      <category>model</category>
-    </item>
-    <item>
-      <title>DeepSignature: Digitally Signed, Content-Encoding Watermarks for Robust and Transparent Image Authentication</title>
-      <link>https://arxiv.org/abs/2604.23016v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.23016v1</guid>
-      <description>DeepSignature is a novel image authentication framework that unifies cryptographic digital signatures with deep neural networks to enable robust, transparent, and client-side verifiable image integrity checking. It generates content-encoding watermarks via a dedicated neural network and embeds them imperceptibly into standard-format images (e.g., JPEG, PNG) using a differentiable embedding module—requiring no format modification or special handling. The watermarks are cryptographically signed (e.g., ECDSA), allowing lightweight client-side verification using only the signer’s public key. We further introduce a latent-space verification mechanism that detects and localizes tampering by measuring consistency between reconstructed and decoded watermark features. Evaluated across imperceptibility (SSIM &gt; 0.992), robustness to benign distortions (e.g., JPEG QF=50, 20% cropping), forgery detection (99.7% AUC against splicing, inpainting, GAN-based edits), and resilience to adversarial attacks, DeepSignature achieves near-perfect identification of meaningful forgeries (&gt;99.8% TPR at 1% FPR) while maintaining full compatibility and modularity.</description>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>extraction</category>
-    </item>
-    <item>
-      <title>Secure eFPGA-Enabled Edge LLM Inference: Architectural and Hardware Countermeasures</title>
-      <link>https://arxiv.org/abs/2604.22935v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.22935v1</guid>
-      <description>Edge deployment of transformer-based LLMs increasingly relies on ASIC accelerators for high performance and energy efficiency. However, their fixed hardware exposes critical vulnerabilities: side-channel attacks (power, EM, timing), fault injection (voltage/clock glitches), and supply-chain threats (hardware Trojans, untrusted IPs). To address this, we propose a hybrid **ASIC+eFPGA architecture**, where the integrated eFPGA serves as a reconfigurable security enabler—supporting adaptive runtime monitoring, dynamic side-channel mitigation (e.g., masking, path randomization), and post-deployment patching of vulnerable IP blocks. Evaluated on real edge-LLM workloads, our design incurs only **&lt;3.2% throughput overhead** and preserves **&gt;92% of baseline energy efficiency**, while providing robust protection against both runtime and supply-chain attacks. This work bridges the gap between ASIC efficiency and hardware-rooted security agility for trustworthy edge AI.</description>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>extraction</category>
-      <category>security</category>
-      <category>model</category>
-      <category>llm</category>
-      <category>inference</category>
-    </item>
-    <item>
-      <title>RouteGuard: Internal-Signal Detection of Skill Poisoning in LLM Agents</title>
-      <link>https://arxiv.org/abs/2604.22888v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.22888v1</guid>
-      <description>Large language model (LLM) agents increasingly rely on modular “skills” — reusable, action-oriented functions — which introduce a novel and more severe form of indirect injection: *skill poisoning*. Unlike conventional prompt injection, attackers embed malicious instructions inside otherwise legitimate, functional skills, evading lexical filters. We discover that successful skill poisoning induces a structured internal effect — *attention hijacking* — where response-time attention shifts from trusted context to malicious skill spans, driving harmful behavior. Motivated by this, we propose **RouteGuard**, a frozen-backbone detector that fuses *response-conditioned attention patterns* and *hidden-state alignment* via reliability-gated late fusion. Evaluated on both real-world (e.g., LangChain Hub) and synthetic open-source skill benchmarks, RouteGuard achieves state-of-the-art robustness: **F1 = 0.8834** on the critical Skill-Inject channel slice and recovers **90.51%** of description-based attacks missed by lexical screening. Our work establishes that effective defense against skill poisoning requires *internal-signal detection*, not text-only filtering.</description>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>prompt</category>
-      <category>injection</category>
-    </item>
-    <item>
-      <title>Beyond Single-Agent Alignment: Preventing Context-Fragmented Violations in Multi-Agent Systems</title>
-      <link>https://arxiv.org/abs/2604.22879v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.22879v1</guid>
-      <description>We identify **Context-Fragmented Violations (CFVs)**—a novel class of policy breaches in multi-agent systems where individually benign actions collectively violate organizational policies due to critical facts being siloed across private agent contexts. Existing alignment methods (e.g., prompt engineering, monolithic DLP) fail because they lack cross-context semantic awareness. To address this, we propose **Distributed Sentinel**, a zero-trust enforcement architecture built on the **Semantic Taint Token (STT) Protocol**, which propagates policy-relevant security state via lightweight sidecars without exposing raw cross-domain data, enabling **Counterfactual Graph Simulation** for inter-agent policy verification. Evaluated on the **PhantomEcosystem** benchmark (9 realistic CFV categories), Distributed Sentinel achieves **F1 = 0.95** (106ms latency), outperforming prompt-based filtering (0.85) and rule-based DLP (0.65). Crucially, experiments with 8 frontier LLMs show high violation rates (14–98%), with cross-domain flows consistently riskier than intra-domain ones—demonstrating that self-avoidance is unreliable and justifying an external, centralized enforcement layer above individual agents.</description>
-      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>security</category>
-      <category>agent</category>
     </item>
   </channel>
 </rss>

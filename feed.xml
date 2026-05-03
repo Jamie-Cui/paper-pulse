@@ -4,7 +4,7 @@
     <title>Paper Pulse</title>
     <link>https://jamie-cui.github.io/paper-pulse</link>
     <description>Keyword-based research paper aggregation from arXiv and IACR</description>
-    <lastBuildDate>Sat, 02 May 2026 02:36:27 -0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 02:46:28 -0000</lastBuildDate>
     <atom:link href="https://jamie-cui.github.io/paper-pulse/feed.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>FlashRT: Towards Computationally and Memory Efficient Red-Teaming for Prompt Injection and Knowledge Corruption</title>
@@ -220,6 +220,22 @@ Machine learning models, including variational quantum classifiers (VQCs), are v
       <category>arXiv</category>
       <category>injection</category>
       <category>prompt</category>
+    </item>
+    <item>
+      <title>Toward Practical Fair Data Exchange: Eliminating In-Circuit Public-Key Operations</title>
+      <link>https://eprint.iacr.org/2026/843</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/843</guid>
+      <description>We propose the first code-based fair data exchange (FDE) protocol that eliminates all in-circuit public-key operations—specifically, the costly sampled ElGamal consistency checks required by prior practical schemes like VECK$^{\star}_{\mathrm{EL}}$. Our construction replaces ElGamal with hash-based masking for ciphertext generation, certifies sampled consistency via efficient KZG commitments, and employs a lightweight commit-and-prove SNARK to verify masking, Reed–Solomon interpolation, and the key relation $vk = h^{sk}$. CP-linking binds hidden opening values to their group representations. This reduces SNARK constraint count by ~20×, enables direct use of BLS12-381 (no curve cycle), and achieves prover times of **3.07 s** (512 samples) and **3.8 s** (1024 samples) for $2^{20}$ field elements—vs. **21.7 s** and **41 s** for VECK$^{\star}_{\mathrm{EL}}$. Verification takes only **10–21 ms**, is sample-size dependent but file-size independent after transcript commitment.</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
+    </item>
+    <item>
+      <title>Secure Integrated Sensing and Communication: Information Theory Offers Insights</title>
+      <link>https://eprint.iacr.org/2026/842</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/842</guid>
+      <description>This paper surveys information-theoretic foundations for secure Integrated Sensing and Communication (ISAC), where a shared waveform serves dual purposes—transmitting data and probing the environment—yet creates cross-function security risks. We systematize secure ISAC models by protected functionality (communication secrecy, sensing privacy, robustness against jamming/deception) and adversary capability (passive eavesdroppers, active attackers). Key contributions include: (1) unifying ISAC security metrics—e.g., secrecy rate, estimation error bound under secrecy constraints, and Fisher information leakage; (2) identifying fundamental tradeoffs among communication rate, sensing accuracy (e.g., Cramér–Rao bound), and security level, governed by waveforms, channel state knowledge, and adversarial assumptions; and (3) revealing tight connections to covert communication and differential privacy when sensing outputs must hide user activity or target identity. Our analysis underscores that security in ISAC is not merely an add-on but an intrinsic design dimension shaped by information-theoretic limits.</description>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
     <item>
       <title>Tatemae: Detecting Alignment Faking via Tool Selection in LLMs</title>
@@ -495,37 +511,12 @@ Machine learning models, including variational quantum classifiers (VQCs), are v
       <category>extraction</category>
     </item>
     <item>
-      <title>Subspace Optimization for Efficient Federated Learning under Heterogeneous Data</title>
-      <link>https://arxiv.org/abs/2604.25467v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.25467v1</guid>
-      <description>Federated learning (FL) faces dual bottlenecks in the large-model era: severe resource constraints (communication, memory, computation) and performance degradation from non-IID data-induced client drift. While methods like SCAFFOLD correct heterogeneity, they impose prohibitive overhead via auxiliary control variables. This paper proposes **Subspace Optimization for Federated Learning (SSF)**, which performs heterogeneity-aware optimization *only* in a low-dimensional active subspace using projected gradients and model updates—eliminating explicit control variable storage. Crucially, SSF introduces a **backfill-style residual update**: whenever the subspace changes, orthogonal residual components are retained and injected, preserving full-dimensional control information without extra communication. Under standard smoothness and bounded-variance assumptions, SSF achieves a non-asymptotic convergence rate of $\widetilde{\mathcal{O}}(1/T + 1/\sqrt{NKT})$. Experiments on CIFAR-10/100 and Tiny-ImageNet show SSF reduces communication by 38–52% and memory by 41–63% versus SCAFFOLD and FedProx, with &lt;0.9% accuracy drop—delivering superior accuracy-efficiency trade-offs under data heterogeneity.</description>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>federated</category>
-    </item>
-    <item>
-      <title>RCProb: Probabilistic Rule Extraction for Efficient Simplification of Tree Ensembles</title>
-      <link>https://arxiv.org/abs/2604.25304v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.25304v1</guid>
-      <description>Tree ensembles achieve strong predictive performance but suffer from poor interpretability as ensemble size grows. While RuleCOSI+ extracts compact, accurate rule sets from such models, its reliance on repeated empirical frequency counting over training data incurs prohibitive computational cost for large-scale datasets. To address this, we propose **RCProb**, a probabilistic reformulation of RuleCOSI+ that replaces frequency-based confidence estimation with a **Bayesian framework**: it employs **Dirichlet-smoothed class priors** and **Beta-smoothed conditional likelihoods**, combined via a **Naive Bayes formulation**, enabling closed-form posterior probability computation without scanning the dataset. Evaluated on 33 benchmark datasets, RCProb achieves **comparable predictive accuracy** to RuleCOSI+ (mean difference &lt;0.5%), reduces runtime by **≈22×**, and yields **more compact rule sets** (18.3% fewer rules on average). This work bridges probabilistic reasoning and rule extraction, enabling efficient, scalable, and faithful model explanation.</description>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>model</category>
-      <category>extraction</category>
-    </item>
-    <item>
-      <title>Making AI-Assisted Grant Evaluation Auditable without Exposing the Model</title>
-      <link>https://arxiv.org/abs/2604.25200v1</link>
-      <guid isPermaLink="true">https://arxiv.org/abs/2604.25200v1</guid>
-      <description>Public agencies are adopting LLMs for grant evaluation, yet face a tension between *confidentiality* (preventing applicants from gaming the system) and *auditability* (ensuring accountability and contestability). We propose a TEE-based architecture that enables **remote attestation of evaluation provenance** without exposing model weights, proprietary rubrics, or intermediate reasoning. The core artifact is an **attested evaluation bundle**: a cryptographically signed, timestamped record linking the submission hash, canonicalized input hash, model-and-rubric identifier, and final score. To mitigate applicant-driven prompt injection via documents (e.g., hidden formatting instructions), we introduce a **canonicalization and sanitization layer** that normalizes inputs and logs suspicious transformations pre-inference. Crucially, our approach does *not* certify fairness or correctness—but it *does* make the execution of predefined rules externally verifiable. This advances accountable AI by grounding auditability in hardware-enforced integrity, distinct from zero-knowledge ML or fully open auditing.</description>
-      <pubDate>Tue, 28 Apr 2026 00:00:00 -0000</pubDate>
-      <category>arXiv</category>
-      <category>learning</category>
-      <category>machine</category>
-      <category>prompt</category>
-      <category>injection</category>
-      <category>zero-knowledge</category>
+      <title>HAKE: Efficient Hardware Accelerator for Key Generation of Post-Quantum Signature Scheme PERK</title>
+      <link>https://eprint.iacr.org/2026/841</link>
+      <guid isPermaLink="true">https://eprint.iacr.org/2026/841</guid>
+      <description>This paper presents **HAKE**, the first hardware accelerator for key generation of **PERK**, a promising NIST PQC standardization candidate for digital signatures. To address PERK’s recent specification update, we design two accelerator versions—supporting both legacy and new specifications—through three key contributions: (i) algorithmic decomposition of key generation into PRG, lattice sampling, and polynomial encoding modules, with novel low-complexity optimizations (e.g., hierarchical rejection sampling and parallel coefficient mapping); (ii) custom microarchitectures enabling pipelining, resource reuse, and configuration flexibility; and (iii) FPGA implementation (Xilinx Artix-7) and rigorous evaluation. Results show HAKE (legacy version) completes key generation in **0.82 ms**, achieving **14.3× speedup** over software and **37% lower area-time complexity** than state-of-the-art SPHINCS⁺ accelerators. HAKE is highly efficient, configurable, and directly applicable to post-quantum secure hardware deployment.</description>
+      <pubDate>Wed, 29 Apr 2026 00:00:00 -0000</pubDate>
+      <category>IACR</category>
     </item>
   </channel>
 </rss>
